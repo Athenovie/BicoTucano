@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Renato\\Desktop\\BicosTucano\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{67F7FD20-DA15-4FDC-9599-197153435E9C}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicostucano\\bicotucano\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67F7FD20-DA15-4FDC-9599-197153435E9C}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{67F7FD20-DA15-4FDC-9599-197153435E9C}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicostucano\\bicotucano\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{67F7FD20-DA15-4FDC-9599-197153435E9C}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "BicoTucano\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "BicoTucano\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T23:34:45.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "BicoTucano\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "BicoTucano\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-06T23:34:42.378Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
