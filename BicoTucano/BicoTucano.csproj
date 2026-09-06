@@ -6,4 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="26.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Libraries\Login\" />
+    <Folder Include="Libraries\Sessao\" />
+  </ItemGroup>
+
 </Project>
