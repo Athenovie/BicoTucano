@@ -4,9 +4,9 @@ namespace BicoTucano.Models
 {
     public class Funcionario : Usuario
     {
-        [Display(Name = "Tipo")]
-        [Required(ErrorMessage = "O Tipo é obrigatório")]
-        public string Tipo { get; set; }
+        [Display(Name = "Nível de acesso")]
+        [Required(ErrorMessage = "O Nível de acesso  é obrigatório")]
+        public string NivelAcesso { get; set; }
 
         [Display(Name = "Cargo")]
         [Required(ErrorMessage = "O cargo é obrigatório")]
