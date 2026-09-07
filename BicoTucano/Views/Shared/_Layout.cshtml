@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BicoTucano.styles.css" asp-append-version="true" />
     @inject BicoTucano.Libraries.Login.LoginCliente _LoginCliente
+    @inject BicoTucano.Libraries.Login.LoginFuncionario _LoginFuncionario
 </head>
 <body>
     <header>
@@ -42,6 +43,13 @@
                                     <li><a class="dropdown-item" href="#">Minhas Compras</a></li>
                                     <li><a class="dropdown-item" href="#">Meus Perfil</a></li>
                                     <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/Home/LogoutCliente">Sair</a></li>
+                                </ul>
+                            }
+                            else if (_LoginFuncionario.GetFuncionario() != null)
+                            {
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">@_LoginFuncionario.GetFuncionario().Nome</a>
+                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/Home/LogoutCliente">Sair</a></li>
                                 </ul>
                             }

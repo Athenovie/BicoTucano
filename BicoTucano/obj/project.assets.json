@@ -590,23 +590,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Renato\\.nuget\\packages\\": {},
+    "C:\\Users\\ifrat\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\BicoTucano.csproj",
+      "projectUniqueName": "C:\\Users\\ifrat\\OneDrive\\Área de Trabalho\\BicoTucano\\BicoTucano\\BicoTucano.csproj",
       "projectName": "BicoTucano",
-      "projectPath": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\BicoTucano.csproj",
-      "packagesPath": "C:\\Users\\Renato\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Renato\\Desktop\\BicosTucano\\BicoTucano\\obj\\",
+      "projectPath": "C:\\Users\\ifrat\\OneDrive\\Área de Trabalho\\BicoTucano\\BicoTucano\\BicoTucano.csproj",
+      "packagesPath": "C:\\Users\\ifrat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ifrat\\OneDrive\\Área de Trabalho\\BicoTucano\\BicoTucano\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Renato\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ifrat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
