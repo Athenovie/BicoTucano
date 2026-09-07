@@ -23,7 +23,6 @@ C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\scopedcss\bundl
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\scopedcss\projectbundle\BicoTucano.bundle.scp.css
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\rjjql98h94-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\boqoolz8er-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\3hukmjtd2n-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\48iey7qolb-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\tsnc09dlf6-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\cznj839lr1-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -120,3 +119,4 @@ C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.cspr
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.sourcelink.json
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.csproj.Up2Date
+C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\3hukmjtd2n-{0}-s5dlx7ztc3-s5dlx7ztc3.gz

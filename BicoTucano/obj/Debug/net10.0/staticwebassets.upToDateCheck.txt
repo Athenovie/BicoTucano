@@ -63,7 +63,6 @@ wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\css\site.css
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\favicon.ico
-C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\js\site.js
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -123,3 +122,4 @@ C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\jquery\dist\jquery.sl
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\jquery\dist\jquery.slim.min.map
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\Renato\Desktop\BicosTucano\BicoTucano\wwwroot\js\site.js

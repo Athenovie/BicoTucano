@@ -12,9 +12,4 @@
     <PackageReference Include="X.PagedList.Mvc.Core" Version="10.6.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Libraries\Login\" />
-    <Folder Include="Libraries\Sessao\" />
-  </ItemGroup>
-
 </Project>
