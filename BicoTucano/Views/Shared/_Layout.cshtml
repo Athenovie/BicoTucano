@@ -28,6 +28,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Funcionario" asp-controller="Home" asp-action="Login">
+                                <i class="fas fa-user-alt"></i> Login Funcionario
+                            </a>
+                        </li>
+
                         <li class="nav-item dropdown" style="list-style:none">
                             @if (_LoginCliente.GetCliente() != null)
                             {
