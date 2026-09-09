@@ -1,0 +1,56 @@
+﻿.hero {
+    background-color: #1b3019;
+    padding: 50px 30px;
+    border-radius: 20px;
+}
+
+    .hero h1 {
+        color: white;
+        font-weight: bold;
+    }
+
+    .hero p {
+        color: #cccccc;
+    }
+
+.verde {
+    color: #90c290;
+}
+
+.laranja {
+    color: #df7e5b;
+}
+
+.hero-mini-card {
+    background-color: #294a26;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+    .hero-mini-card p {
+        color: white;
+        margin-bottom: 0;
+    }
+
+    .hero-mini-card small {
+        color: #cccccc;
+    }
+
+.btn-mais {
+    background-color: #df7e5b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.card-prato-img {
+    height: 150px;
+    background-color: #eae0d4;
+}
