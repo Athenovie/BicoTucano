@@ -54,7 +54,7 @@ FOREIGN KEY(NF) REFERENCES tbPedido (NF)
 );
 
 CREATE TABLE tbUsuario (
-ID_Usuario INT PRIMARY KEY,
+ID_Usuario INT PRIMARY KEY auto_increment,
 CepUsuario VARCHAR(9)  null,
 Nome VARCHAR(100),
 Email VARCHAR(100),

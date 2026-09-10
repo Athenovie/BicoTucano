@@ -74,7 +74,7 @@ namespace BicoTucano.Repository
                     "insert into tbUsuario(Nome, DataNasc, Sexo, CPF, Telefone, Email, Senha) " +
                     "values (@Nome, @DataNasc, @Sexo, @CPF, @Telefone, @Email, @Senha)",
                     conexao
-                ); // @: PARAMETRO
+                ); 
 
                 cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
                 cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.ToString("yyyy/MM/dd");
@@ -92,7 +92,7 @@ namespace BicoTucano.Repository
                     "insert into tbCliente(ID_Cliente, DataCadastro, Situacao) " +
                     "values (@ID_Cliente, @DataCadastro, @Situacao)",
                     conexao
-                ); // @: PARAMETRO
+                ); 
 
                 cmdCliente.Parameters.Add("@ID_Cliente", MySqlDbType.Int32).Value = idUsuario;
                 cmdCliente.Parameters.Add("@DataCadastro", MySqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy/MM/dd");

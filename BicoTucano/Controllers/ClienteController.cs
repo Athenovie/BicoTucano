@@ -48,23 +48,18 @@ namespace BicoTucano.Controllers
             }
         }
 
+        [HttpGet]
         public IActionResult Cadastrar()
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Cadastrar(Cliente cliente)
+        public IActionResult Cadastrar([FromForm] Cliente cliente)
         {
-            if (ModelState.IsValid)
-            {
-                _clienteRepository.Cadastrar(cliente);
 
-                ViewData["MSG_S"] = "Cadastro realizado com sucesso! Faça login para continuar.";
-                return RedirectToAction(nameof(Login));
-            }
+            _clienteRepository.Cadastrar(cliente);
 
-            return View(cliente);
+            return RedirectToAction(nameof(Login));
         }
 
 

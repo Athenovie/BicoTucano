@@ -39,8 +39,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxQYWluZWxDb211bS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Renato/Desktop/BicosTucano/BicoTucano/Views/Cliente/CadastrarCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3RyYXJDbGllbnRlLmNzaHRtbA==
+[C:/Users/Renato/Desktop/BicosTucano/BicoTucano/Views/Cliente/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Renato/Desktop/BicosTucano/BicoTucano/Views/Cliente/Login.cshtml]
