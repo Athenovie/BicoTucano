@@ -2,11 +2,19 @@
 
 namespace BicoTucano.Models
 {
+
+
+    public enum NivelAcesso
+    {
+        Comum,
+        Administrador
+    }
+
     public class Funcionario : Usuario
     {
         [Display(Name = "Nível de acesso")]
         [Required(ErrorMessage = "O Nível de acesso  é obrigatório")]
-        public string NivelAcesso { get; set; }
+        public NivelAcesso NivelAcesso { get; set; }
 
         [Display(Name = "Cargo")]
         [Required(ErrorMessage = "O cargo é obrigatório")]
