@@ -1,4 +1,6 @@
 ﻿using BicoTucano.Libraries.Login;
+using BicoTucano.Models;
+using BicoTucano.Repository;
 using BicoTucano.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,7 +31,7 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             {
                 _loginFuncionario.Login(funcionarioDB);
 
-                if (funcionarioDB.NivelAcesso == "Administrador")
+                if (funcionarioDB.NivelAcesso == Models.NivelAcesso.Administrador)
                 {
                     return new RedirectResult(Url.Action(nameof(PainelAdministrador)));
                 }
@@ -43,6 +45,20 @@ namespace BicoTucano.Areas.Funcionario.Controllers
                 ViewData["MSG_E"] = "Usuário não encontrado, verifique o e-mail e senha digitado!";
                 return View();
             }
+        }
+
+        [HttpGet]
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Cadastrar([FromForm] Models.Funcionario funcionario)
+        {
+
+            _repositoryFuncionario.Cadastrar(funcionario);
+
+            return RedirectToAction(nameof(Login));
         }
 
         public IActionResult PainelAdministrador()

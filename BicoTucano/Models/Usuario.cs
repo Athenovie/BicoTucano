@@ -29,12 +29,6 @@ namespace BicoTucano.Models
         public DateTime DataNasc { get; set; }
 
 
-        [Display(Name = "Número")]
-        public string Numero { get; set; }
-
-
-        [Display(Name = "Complemento")]
-        public string Complemento { get; set; }
 
         [Display(Name = "Sexo")]
         [Required(ErrorMessage = "O Sexo é obrigatorio")]

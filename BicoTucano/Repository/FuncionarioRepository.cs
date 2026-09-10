@@ -44,7 +44,7 @@ namespace BicoTucano.Repository
                 {
                     funcionario.ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]);
                     funcionario.Nome = (string)(dr["Nome"]);
-                    funcionario.NivelAcesso = (string)(dr["NivelAcesso"]);
+                    funcionario.NivelAcesso = (NivelAcesso)(dr["NivelAcesso"]);
                     funcionario.Email = (string)(dr["Email"]);
                     funcionario.Senha = (string)(dr["Senha"]);
                 }
@@ -66,7 +66,42 @@ namespace BicoTucano.Repository
 
         public void Cadastrar(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmdUsuario = new MySqlCommand(
+                    "insert into tbUsuario(Nome, DataNasc, Sexo, CPF, Telefone, Email, Senha) " +
+                    "values (@Nome, @DataNasc, @Sexo, @CPF, @Telefone, @Email, @Senha)",
+                    conexao
+                );
+
+                cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = funcionario.Nome;
+                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = funcionario.DataNasc.ToString("yyyy/MM/dd");
+                cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = funcionario.Sexo;
+                cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = funcionario.CPF;
+                cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = funcionario.Telefone;
+                cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = funcionario.Email;
+                cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = funcionario.Senha;
+
+                cmdUsuario.ExecuteNonQuery();
+
+                long idUsuario = cmdUsuario.LastInsertedId;
+
+                MySqlCommand cmdFuncionario = new MySqlCommand(
+                    "insert into tbFuncionario(ID_Funcionario, DataAdmissao, NivelAcesso, Cargo) " +
+                    "values (@ID_Funcionario, @DataAdmissao, @NivelAcesso, @Cargo)",
+                    conexao
+                );
+
+                cmdFuncionario.Parameters.Add("@ID_Funcionario", MySqlDbType.Int32).Value = idUsuario;
+                cmdFuncionario.Parameters.Add("@DataAdmissao", MySqlDbType.DateTime).Value = funcionario.DataAdmissao.ToString("yyyy/MM/dd");
+                cmdFuncionario.Parameters.Add("@NivelAcesso", MySqlDbType.VarChar).Value = funcionario.NivelAcesso;
+                cmdFuncionario.Parameters.Add("@Cargo", MySqlDbType.VarChar).Value = funcionario.Cargo;
+
+                cmdFuncionario.ExecuteNonQuery();
+                conexao.Close();
+            }
         }
 
         public void Excluir(int Id)

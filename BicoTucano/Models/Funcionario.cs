@@ -6,8 +6,8 @@ namespace BicoTucano.Models
 
     public enum NivelAcesso
     {
-        Comum,
-        Administrador
+        Comum = 2,
+        Administrador = 1
     }
 
     public class Funcionario : Usuario
