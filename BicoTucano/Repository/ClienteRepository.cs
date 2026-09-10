@@ -1,4 +1,5 @@
 ﻿using BicoTucano.Models;
+using BicoTucano.Models.Constants;
 using BicoTucano.Repository.Contract;
 using MySql.Data.MySqlClient;
 using System.Data;
@@ -63,7 +64,43 @@ namespace BicoTucano.Repository
 
         public void Cadastrar(Cliente cliente)
         {
-            throw new NotImplementedException();
+            string Situacao = SituacaoConstant.Ativo;
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmdUsuario = new MySqlCommand(
+                    "insert into tbUsuario(Nome, DataNasc, Sexo, CPF, Telefone, Email, Senha) " +
+                    "values (@Nome, @DataNasc, @Sexo, @CPF, @Telefone, @Email, @Senha)",
+                    conexao
+                ); // @: PARAMETRO
+
+                cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
+                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.ToString("yyyy/MM/dd");
+                cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
+                cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
+                cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
+                cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
+                cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = cliente.Senha;
+
+                cmdUsuario.ExecuteNonQuery();
+
+                long idUsuario = cmdUsuario.LastInsertedId;
+
+                MySqlCommand cmdCliente = new MySqlCommand(
+                    "insert into tbCliente(ID_Cliente, DataCadastro, Situacao) " +
+                    "values (@ID_Cliente, @DataCadastro, @Situacao)",
+                    conexao
+                ); // @: PARAMETRO
+
+                cmdCliente.Parameters.Add("@ID_Cliente", MySqlDbType.Int32).Value = idUsuario;
+                cmdCliente.Parameters.Add("@DataCadastro", MySqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy/MM/dd");
+                cmdCliente.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
+
+                cmdCliente.ExecuteNonQuery();
+                conexao.Close();
+            }
         }
 
         public void Atualizar(Cliente cliente)

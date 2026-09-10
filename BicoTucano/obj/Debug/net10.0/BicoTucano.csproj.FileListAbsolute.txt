@@ -833,3 +833,4 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\BicoTucano.pdb
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
+C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-rnuqk8heyg-rnuqk8heyg.gz

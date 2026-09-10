@@ -1,0 +1,73 @@
+﻿@model BicoTucano.Models.Cliente
+
+@{
+    ViewData["Title"] = "Cadastro de Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main role="main">
+    <section class="container">
+        <h3>Cadastro de Cliente</h3>
+
+        <form asp-action="CadastrarCliente" method="post" onsubmit="return validarSenhas()">
+            <div class="form-group">
+                <label asp-for="Nome"></label>
+                <input asp-for="Nome" id="nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" id="email" type="email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Senha"></label>
+                <input asp-for="Senha" id="senha" type="password" class="form-control" />
+                <span asp-validation-for="Senha" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmarSenha">Confirmar Senha</label>
+                <input type="password" id="confirmarSenha" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CPF"></label>
+                <input asp-for="CPF" class="form-control" />
+                <span asp-validation-for="CPF" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Telefone"></label>
+                <input asp-for="Telefone" class="form-control" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="DataNasc"></label>
+                <input asp-for="DataNasc" type="date" class="form-control" />
+                <span asp-validation-for="DataNasc" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Sexo"></label>
+                <select asp-for="Sexo" class="form-control">
+                    <option value="">Selecione</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select>
+                <span asp-validation-for="Sexo" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </section>
+</main>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
