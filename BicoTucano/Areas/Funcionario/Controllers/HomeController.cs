@@ -31,7 +31,7 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             {
                 _loginFuncionario.Login(funcionarioDB);
 
-                if (funcionarioDB.NivelAcesso == Models.NivelAcesso.Administrador)
+                if (funcionarioDB.NivelAcesso == NivelAcesso.Administrador)
                 {
                     return new RedirectResult(Url.Action(nameof(PainelAdministrador)));
                 }

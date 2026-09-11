@@ -44,7 +44,7 @@ namespace BicoTucano.Repository
                 {
                     funcionario.ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]);
                     funcionario.Nome = (string)(dr["Nome"]);
-                    funcionario.NivelAcesso = (NivelAcesso)(dr["NivelAcesso"]);
+                    funcionario.NivelAcesso = (NivelAcesso)Enum.Parse(typeof(NivelAcesso), dr["NivelAcesso"].ToString());
                     funcionario.Email = (string)(dr["Email"]);
                     funcionario.Senha = (string)(dr["Senha"]);
                 }

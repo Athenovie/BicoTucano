@@ -3,17 +3,14 @@
     Layout = null;
 }
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro de Funcionário | BicoTucano</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/base.css" />
-    <link rel="stylesheet" href="~/css/login.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>Cadastro | BicoTucano</title>
+   
     <script src="~/js/site.js" defer></script>
 </head>
 <body class="auth-body">
@@ -21,9 +18,9 @@
     <div class="auth-wrapper">
         <div class="auth-panel">
             <div class="auth-panel-inner">
-                <h1>Cadastre Funcionário</h1>
+                <h1>Cadastre-se</h1>
                 <p>
-                    Adicione um novo colaborador ao time do BicoTucano
+                    Crie sua conta e aproveite os melhores produtos do Bico Tucano
                 </p>
             </div>
         </div>
@@ -33,36 +30,36 @@
             <form class="auth-form" asp-action="Cadastrar" method="post" onsubmit="return validarSenhas()">
                 <div class="form-field">
                     <label asp-for="Nome">Nome completo</label>
-                    <input asp-for="Nome" type="text" id="nome" placeholder="Digite aqui o nome completo" />
+                    <input asp-for="Nome" type="text" id="nome" placeholder="Digite aqui seu nome completo" />
                     <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Email">Email</label>
-                    <input asp-for="Email" type="email" id="email" placeholder="Digite aqui o email" />
+                    <input asp-for="Email" type="email" id="email" placeholder="Digite aqui seu email" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Senha">Senha</label>
-                    <input asp-for="Senha" type="password" id="senha" placeholder="Digite aqui a senha" />
+                    <input asp-for="Senha" type="password" id="senha" placeholder="Digite aqui sua senha" />
                     <span asp-validation-for="Senha" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
-                    <label for="confirmarSenha">Confirme a senha</label>
-                    <input type="password" id="confirmarSenha" placeholder="Confirme a senha" />
+                    <label for="confirmarSenha">Confirme sua senha</label>
+                    <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" />
                 </div>
 
                 <div class="form-field">
                     <label asp-for="CPF">CPF</label>
-                    <input asp-for="CPF" type="text" placeholder="Digite aqui o CPF" />
+                    <input asp-for="CPF" type="text" placeholder="Digite aqui seu CPF" />
                     <span asp-validation-for="CPF" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Telefone">Telefone</label>
-                    <input asp-for="Telefone" type="text" placeholder="Digite aqui o telefone" />
+                    <input asp-for="Telefone" type="text" placeholder="Digite aqui seu telefone" />
                     <span asp-validation-for="Telefone" class="text-danger"></span>
                 </div>
 
@@ -100,8 +97,11 @@
 
                 <div class="auth-form-footer">
                     <span class="auth-switch">Já possui uma conta? <a asp-action="Login">Faça login</a></span>
-                    <button type="submit" class="auth-submit">Cadastrar</button>
+                    <button type="submit" class="auth-submit">Cadastre-se</button>
                 </div>
+
+                
+               
 
                 @if (ViewData["MSG_E"] != null)
                 {
