@@ -1,40 +1,89 @@
-﻿.hero {
+﻿.banner {
     background-color: #1b3019;
-    padding: 50px 30px;
-    border-radius: 20px;
+    padding: 50px 0;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
-    .hero h1 {
+.banner-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.banner-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+
+.banner-texto {
+    flex: 1 1 500px;
+}
+
+    .banner-texto h1 {
         color: white;
         font-weight: bold;
     }
 
-    .hero p {
+    .banner-texto p {
         color: #cccccc;
     }
+
+.selo {
+    display: inline-block;
+    background-color: rgba(223, 126, 91, 0.15);
+    color: #df7e5b;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
 
 .verde {
     color: #90c290;
 }
 
-.laranja {
-    color: #df7e5b;
+.estatisticas {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
 }
 
-.hero-mini-card {
+    .estatisticas h4 {
+        color: white;
+        margin-bottom: 0;
+    }
+
+    .estatisticas small {
+        color: #cccccc;
+    }
+
+.lista-pratos {
+    flex: 1 1 300px;
+}
+
+.cartao-prato {
     background-color: #294a26;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 15px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-    .hero-mini-card p {
+    .cartao-prato p {
         color: white;
         margin-bottom: 0;
     }
 
-    .hero-mini-card small {
+    .cartao-prato small {
         color: #cccccc;
     }
 
@@ -48,9 +97,4 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 1;
-}
-
-.card-prato-img {
-    height: 150px;
-    background-color: #eae0d4;
 }

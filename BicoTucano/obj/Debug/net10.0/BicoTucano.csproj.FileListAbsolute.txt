@@ -818,7 +818,6 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\compressed\25v34owgd0-{0}-mhnp850jia-mhnp850jia.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\compressed\kgqtk88d4c-{0}-ohm8j8ycw3-ohm8j8ycw3.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\compressed\t5zwvoryic-{0}-eoyjiwm4fm-eoyjiwm4fm.gz
-C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-zlthj53yeg-zlthj53yeg.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\compressed\1uz72kv2ng-{0}-r6volj72ey-r6volj72ey.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\compressed\ccr4b4vu3k-{0}-r6volj72ey-r6volj72ey.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BICOTUCANO\BicoTucano\obj\Debug\net10.0\staticwebassets.build.json
@@ -1392,3 +1391,4 @@ C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\refint\BicoTucano
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.pdb
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-0a7qzrov58-0a7qzrov58.gz
