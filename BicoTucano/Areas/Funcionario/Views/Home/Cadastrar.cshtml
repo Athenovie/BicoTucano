@@ -30,48 +30,48 @@
             <form class="auth-form" asp-action="Cadastrar" method="post" onsubmit="return validarSenhas()">
                 <div class="form-field">
                     <label asp-for="Nome">Nome completo</label>
-                    <input asp-for="Nome" type="text" id="nome" placeholder="Digite aqui seu nome completo" />
+                    <input asp-for="Nome" type="text" name="Nome" id="nome" placeholder="Digite aqui seu nome completo" />
                     <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Email">Email</label>
-                    <input asp-for="Email" type="email" id="email" placeholder="Digite aqui seu email" />
+                    <input asp-for="Email" type="email" name="Email" id="email" placeholder="Digite aqui seu email" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Senha">Senha</label>
-                    <input asp-for="Senha" type="password" id="senha" placeholder="Digite aqui sua senha" />
+                    <input asp-for="Senha" type="password" name="Senha" id="senha" placeholder="Digite aqui sua senha" />
                     <span asp-validation-for="Senha" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label for="confirmarSenha">Confirme sua senha</label>
-                    <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" />
+                    <input type="password" name="ConfirmarSenha" id="confirmarSenha" placeholder="Confirme sua senha" />
                 </div>
 
                 <div class="form-field">
                     <label asp-for="CPF">CPF</label>
-                    <input asp-for="CPF" type="text" placeholder="Digite aqui seu CPF" />
+                    <input asp-for="CPF" type="text" name="CPF" id="CPF" placeholder="Digite aqui seu CPF" />
                     <span asp-validation-for="CPF" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Telefone">Telefone</label>
-                    <input asp-for="Telefone" type="text" placeholder="Digite aqui seu telefone" />
+                    <input asp-for="Telefone" type="text" name="Telefone"  id="telefone" placeholder="Digite aqui seu telefone" />
                     <span asp-validation-for="Telefone" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="DataNasc">Data de Nascimento</label>
-                    <input asp-for="DataNasc" type="date" />
+                    <input asp-for="DataNasc" type="date" name="DataNasc"/>
                     <span asp-validation-for="DataNasc" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="Sexo">Sexo</label>
-                    <select asp-for="Sexo">
+                    <select asp-for="Sexo" name="Sexo">
                         <option value="">Selecione</option>
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
@@ -81,13 +81,13 @@
 
                 <div class="form-field">
                     <label asp-for="Cargo">Cargo</label>
-                    <input asp-for="Cargo" type="text" placeholder="Digite aqui o cargo" />
+                    <input asp-for="Cargo" type="text" name="Cargo" placeholder="Digite aqui o cargo" />
                     <span asp-validation-for="Cargo" class="text-danger"></span>
                 </div>
 
                 <div class="form-field">
                     <label asp-for="NivelAcesso">Nível de Acesso</label>
-                    <select asp-for="NivelAcesso">
+                    <select asp-for="NivelAcesso"name="NivelAcesso" >
                         <option value="">Selecione</option>
                         <option value="Comum">Comum</option>
                         <option value="Administrador">Administrador</option>
