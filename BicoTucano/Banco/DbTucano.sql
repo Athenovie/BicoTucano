@@ -1,4 +1,4 @@
- -- Drop database DbTucano
+  -- Drop database DbTucano
 
 Create database DbTucano;
 use DbTucano;
@@ -76,7 +76,7 @@ CREATE TABLE tbUsuarioEndereco (
     ID_UsuarioEndereco INT PRIMARY KEY AUTO_INCREMENT,
     ID_Usuario INT,
     CEP VARCHAR(9),
-    TipoEndereco VARCHAR(150),
+    NomeEndereco VARCHAR(150),
     Numero VARCHAR(10),
     Complemento VARCHAR(200),
     FOREIGN KEY (ID_Usuario) REFERENCES tbUsuario(ID_Usuario),
@@ -146,3 +146,4 @@ ALTER TABLE tbEndereco ADD FOREIGN KEY(Estado) REFERENCES tbEstado (ID_Uf);
 
 
 
+select * from tbUsuario
