@@ -1392,3 +1392,4 @@ C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genrun
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-0a7qzrov58-0a7qzrov58.gz
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-0a7qzrov58-0a7qzrov58.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2cvlpt1vop-{0}-6b6q39r946-6b6q39r946.gz

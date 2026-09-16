@@ -1,0 +1,23 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body.corpo-cadastro {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2b2b;
+}
+
+.container-cadastro {
+    display: flex;
+    min-height: 100vh;
+}
+
+/*painel verde*/
+.painel-verde {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background: linear-gradient(150deg, #3a5f34 0%, #1b3019 55%, #0f1e0c 100%);
+}
