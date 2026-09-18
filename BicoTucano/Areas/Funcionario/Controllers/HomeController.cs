@@ -1,5 +1,6 @@
 ﻿using BicoTucano.Libraries.Login;
 using BicoTucano.Models;
+using BicoTucano.Models.Constants;
 using BicoTucano.Repository;
 using BicoTucano.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,6 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             _repositoryFuncionario = repositoryFuncionario;
             _loginFuncionario = loginFuncionario;
         }
-
         public IActionResult Login()
         {
             return View();
@@ -31,14 +31,7 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             {
                 _loginFuncionario.Login(funcionarioDB);
 
-                if (funcionarioDB.NivelAcesso == NivelAcesso.Administrador)
-                {
-                    return new RedirectResult(Url.Action(nameof(PainelAdministrador)));
-                }
-                else
-                {
-                    return new RedirectResult(Url.Action(nameof(PainelComum)));
-                }
+                return new RedirectResult(Url.Action(nameof(Painel)));
             }
             else
             {
@@ -47,43 +40,32 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             }
         }
 
-        [HttpGet]
+
         public IActionResult Cadastrar()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Models.Funcionario funcionario)
         {
-
+           
             _repositoryFuncionario.Cadastrar(funcionario);
+            return RedirectToAction(nameof(Cadastrar));
 
-            return RedirectToAction(nameof(Login));
+
         }
-
-        public IActionResult PainelAdministrador()
-        {
-            var funcionario = _loginFuncionario.GetFuncionario();
-            ViewBag.Nome = funcionario.Nome;
-            ViewBag.NivelAcesso = funcionario.NivelAcesso;
-            ViewBag.Email = funcionario.Email;
-            return View();
-        }
-
-        public IActionResult PainelComum()
-        {
-            var funcionario = _loginFuncionario.GetFuncionario();
-            ViewBag.Nome = funcionario.Nome;
-            ViewBag.NivelAcesso = funcionario.NivelAcesso;
-            ViewBag.Email = funcionario.Email;
-            return View();
-        }
-
         public IActionResult Index()
         {
             return View();
         }
 
+
+        public IActionResult Painel()
+        {
+            return View();
+        }
+      
         public IActionResult Logout()
         {
             _loginFuncionario.logout();

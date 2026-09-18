@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BicoTucano.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <h1>Index</h1>
+            <p class="btn btn-outline-primary" role="button">
+                <a asp-action="Cadastrar">
+                    <span class="fas fa-user-plus" title="Cadastro" aria-hidden="true"></span>
+                    <span>Cadastrar</span>
+                </a>
+            </p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().ID_Usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Nome)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().CPF)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Telefone)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Email)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Senha)</th>
+
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Cliente cliente in Model)
+                {
+                    <tr>
+                        <th scope="row">@cliente.ID_Usuario</th>
+                        <td>@cliente.Nome</td>
+                        <td>@cliente.CPF</td>
+                        <td>@cliente.Telefone</td>
+                        <td>@cliente.Email</td>
+                        <td>@cliente.Senha</td>
+
+                        <td>
+                            @if (cliente.Situacao == "A")
+                            {
+                                <button type="button" class="btn btn-danger">
+                                    @Html.ActionLink("Desativar", "Desativar", new { id = cliente.ID_Usuario },
+                                        new { onclick = "return confirm('Deseja realmente desativar?');" })
+                                </button>
+                            }
+                            else if (cliente.Situacao == "D")
+                            {
+                                <button type="button" class="btn btn-secondar">
+                                    @Html.ActionLink("Ativar", "Ativar", new { id = cliente.ID_Usuario },
+                                        new { onclick = "return confirm('Deseja realmente ativar?');" })
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</table>

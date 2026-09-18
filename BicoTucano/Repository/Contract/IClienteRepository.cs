@@ -9,6 +9,9 @@ namespace BicoTucano.Repository.Contract
         Cliente Login(string Email, string Senha);
 
         //CRUD
+
+        void Ativar(int id);
+        void Desativar(int id);
         void Cadastrar(Cliente cliente);
         void Atualizar(Cliente cliente);
         void Excluir(int Id);

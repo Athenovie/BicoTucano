@@ -86,9 +86,16 @@
 
                 <button type="submit" class="botao-enviar">Criar conta</button>
 
-                <span class="texto-login">
-                    Já tem uma conta? <a asp-action="Login">Fazer login</a>
-                </span>
+                <div class="auth-form-footer">
+                    <span class="auth-switch">Já possui uma conta? <a asp-area=""
+                           asp-controller="Home"
+                           asp-action="Login"
+                           class="float-right btn btn-outline-primary">
+                            Login
+                        </a>
+                        </span>
+                    
+                </div>
 
                 @if (ViewData["MSG_E"] != null)
                 {
