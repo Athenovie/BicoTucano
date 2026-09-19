@@ -1392,7 +1392,6 @@ C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genrun
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-0a7qzrov58-0a7qzrov58.gz
 C:\Users\Renato\Desktop\BicosTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-0a7qzrov58-0a7qzrov58.gz
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2cvlpt1vop-{0}-6b6q39r946-6b6q39r946.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.csproj.AssemblyReference.cache
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\rpswa.dswa.cache.json
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.GeneratedMSBuildEditorConfig.editorconfig
@@ -1673,3 +1672,4 @@ C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\staticwebassets.
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.csproj.Up2Date
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-cqam1n3yvu-cqam1n3yvu.gz

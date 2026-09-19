@@ -1,0 +1,122 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body.corpo-cadastro {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #2b2b2b;
+}
+
+.container-cadastro {
+    display: flex;
+    min-height: 100vh;
+}
+
+/*Painel Verde*/
+.painel-verde {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background: linear-gradient(150deg, #3a5f34 0%, #1b3019 55%, #0f1e0c 100%);
+}
+
+.painel-verde-conteudo h1 {
+    font-family: Georgia, serif;
+    color: #ffffff;
+    font-size: 2.4rem;
+    line-height: 34px;
+    margin: 0 0 14px 0;
+}
+
+ .painel-verde-conteudo h1 span {
+     color: #9fc79a;
+}
+
+.painel-verde-conteudo p {
+    color: #d8d8d8;
+    font-size: 1rem;
+    margin: 0;
+}
+
+
+/*Formulário*/
+.area-formulario {
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4efe7;
+    padding: 60px 40px;
+}
+
+.formulario-cadastro {
+    width: 100%;
+    max-width: 420px;
+}
+
+ .formulario-cadastro h2 {
+    font-family: Georgia, serif;
+    font-size: 1.9rem;
+    margin: 0 0 6px 0;
+
+}
+
+ .formulario-cadastro > p.subtitulo {
+    color: #767676;
+    margin: 0 0 26px 0;
+    font-size: 0.95rem;
+}
+
+
+ /*Inputs e Labels*/
+.campo-formulario {
+    margin-bottom: 18px;
+}
+
+.campo-formulario label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+    .campo-formulario input,
+    .campo-formulario select {
+        width: 100%;
+        padding: 11px 14px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        font-size: 0.95rem;
+        font-family: inherit;
+
+  }
+ /*Botão*/
+ .botao-enviar {
+     width: 100%;
+     padding: 13px;
+     border: none;
+     border-radius: 8px;
+     background-color: #4b7a45;
+     color: #ffffff;
+     font-size: 1rem;
+     cursor: pointer;
+     margin-top: 6px;
+
+}
+
+/*Texto-Login*/
+.texto-login {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #4b7a45;
+    font-size: 0.9rem;
+}
+
+    .texto-login a {
+        color: #4b7a45;
+        text-decoration: none;
+    }
+
+

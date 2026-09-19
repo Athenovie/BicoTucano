@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro | Bico Tucano</title>
 
-    <link rel="stylesheet" href="~/css/Cadastro.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/CadastroCliente.css" asp-append-version="true" />
     <script src="~/js/site.js" defer></script>
 </head>
 <body class="corpo-cadastro">
@@ -26,7 +26,7 @@
         </div>
 
         <!--formulario-->
-        <div class="lado-formulario">
+        <div class="area-formulario">
             <form class="formulario-cadastro" asp-action="Cadastrar" method="post" onsubmit="return validarSenhas()">
 
                 <h2>Criar conta</h2>
@@ -77,7 +77,7 @@
                 <div class="campo-formulario">
                     <label asp-for="Senha">Senha</label>
                     <input asp-for="Senha" type="password" id="senha" placeholder="Digite aqui sua senha" />
-                    <span asp-validation-for="Senha" class="text-danger"></span>
+                    <span asp-validation-for="Senha" class="texto-erro"></span>
                 </div>
                 <div class="campo-formulario">
                     <label for="confirmarSenha">Confirme sua senha</label>
@@ -87,7 +87,7 @@
                 <button type="submit" class="botao-enviar">Criar conta</button>
 
                 <div class="auth-form-footer">
-                    <span class="auth-switch">Já possui uma conta? <a asp-area=""
+                    <span class="texto-login">Já possui uma conta? <a asp-area=""
                            asp-controller="Home"
                            asp-action="Login"
                            class="float-right btn btn-outline-primary">
