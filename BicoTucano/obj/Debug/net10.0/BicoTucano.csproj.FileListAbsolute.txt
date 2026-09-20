@@ -1672,4 +1672,5 @@ C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\staticwebassets.
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.csproj.Up2Date
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-cqam1n3yvu-cqam1n3yvu.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-he5xvw3cer-he5xvw3cer.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-bxxdbg9z3r-bxxdbg9z3r.gz

@@ -1,94 +1,65 @@
 ﻿@model BicoTucano.Models.Funcionario
-
-
-
 @{
-    ViewData["Title"] = "Login de Funcionário";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<main role="main">
-    <br />
-    <br />
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login do Funcionário | Bico Tucano</title>
 
-    <section class="container">
-        <aside class="col-sm-4">
+    <link rel="stylesheet" href="~/css/LoginFuncionario.css" asp-append-version="true" />
+</head>
+<body class="corpo-login">
 
-            <h3 class="subtitle-doc">
-                Login de Funcionario
-            </h3>
+    <div class="container-login">
 
-            <div id="code_login_1">
+<!--painel verde-->
+    <div class="painel-verde">
+         <div class="painel-verde-conteudo">
+                <h1>Bem-vindo(a) <br><span>de volta!</span></h1>
+              <p>Entre na sua conta.</p>
+         </div>
+    </div>
 
-                <div class="card">
+  <!--formulario-->
+    <div class="area-formulario">
+         <form class="formulario-login" asp-action="Login" method="post">
 
-                    <article class="card-body">
+         <h2>Entrar</h2>
+         <p class="subtitulo">Acesse sua conta para continuar</p>
 
-                        @if (ViewData["MSG_E"] != null)
-                        {
-                            <p class="alert alert-danger">
-                                @Html.Raw(ViewData["MSG_E"])
-                            </p>
-                        }
+     @if (ViewData["MSG_E"] != null)
+         {
+            <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
+         }
+    <!--Campos da Área Formulário-->
+     <div class="campo-formulario">
+         <label asp-for="Email">Email</label>
+         <input asp-for="Email" type="email" id="email" placeholder="Digite aqui seu email" />
+         <span asp-validation-for="Email" class="texto-erro"></span>
+     </div>
 
-                        <a asp-area="Funcionario"
-                           asp-controller="Home"
-                           asp-action="Cadastrar"
-                           class="float-right btn btn-outline-primary">
-                            Cadastre-se
-                        </a>
+     <div class="campo-formulario">
+         <label asp-for="Senha">Senha</label>
+         <input asp-for="Senha" type="password" id="senha" placeholder="Digite aqui sua senha" />
+         <span asp-validation-for="Senha" class="texto-erro"></span>
+         <a class="link-esquecisenha" href="#">Esqueci a senha</a>
+     </div>
+<!--Botão-->
+     <button type="submit" class="botao-entrar">Entrar</button>
+         </form>
+     </div>
+  </div>
+
+ </body>
+</html>
 
 
-                        <h4 class="card-title mb-4 mt-1">
-                            Entrar
-                        </h4>
 
-                        <form method="post">
 
-                            <div class="form-group">
 
-                                <label>E-mail</label>
 
-                                <input type="email"
-                                       name="Email"
-                                       class="form-control"
-                                       placeholder="Email">
 
-                            </div>
-
-                            <div class="form-group">
-
-                                <a class="float-right" href="#">
-                                    Esqueceu a senha?
-                                </a>
-
-                                <label>Senha</label>
-
-                                <input type="password"
-                                       name="Senha"
-                                       class="form-control"
-                                       placeholder="*******">
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <button type="submit"
-                                        class="btn btn-primary btn-block">
-                                    Acessar
-                                </button>
-
-                            </div>
-
-                        </form>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </aside>
-    </section>
-
-</main>

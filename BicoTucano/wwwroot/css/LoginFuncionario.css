@@ -2,13 +2,13 @@
     box-sizing: border-box;
 }
 
-body.corpo-cadastro {
+body.corpo-login {
     margin: 0;
     font-family: Arial, sans-serif;
     color: #2b2b2b;
 }
 
-.container-cadastro {
+.container-login {
     display: flex;
     min-height: 100vh;
 }
@@ -26,12 +26,13 @@ body.corpo-cadastro {
     font-family: Georgia, serif;
     color: #ffffff;
     font-size: 2.4rem;
-    line-height: 34px;
+    line-height: 1.15;
     margin: 0 0 14px 0;
 }
 
- .painel-verde-conteudo h1 span {
-     color: #9fc79a;
+.painel-verde-conteudo h1 span {
+        color: #9fc79a;
+        font-style: italic;
 }
 
 .painel-verde-conteudo p {
@@ -39,7 +40,6 @@ body.corpo-cadastro {
     font-size: 1rem;
     margin: 0;
 }
-
 
 /*Formulário*/
 .area-formulario {
@@ -51,72 +51,66 @@ body.corpo-cadastro {
     padding: 60px 40px;
 }
 
-.formulario-cadastro {
+.formulario-login {
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
 }
 
- .formulario-cadastro h2 {
+.formulario-login h2 {
     font-family: Georgia, serif;
     font-size: 1.9rem;
     margin: 0 0 6px 0;
-
 }
 
- .formulario-cadastro > p.subtitulo {
-    color: #767676;
-    margin: 0 0 26px 0;
-    font-size: 0.95rem;
+.formulario-login > p.subtitulo {
+        color: #767676;
+        margin: 0 0 26px 0;
+        font-size: 0.95rem;
 }
 
-
- /*Labels e Caixas de Texto*/
+/*Labels e Caixas de Texto*/
 .campo-formulario {
     margin-bottom: 18px;
 }
 
-.campo-formulario label {
-    display: block;
-    font-size: 0.85rem;
-    margin-bottom: 4px;
-}
+    .campo-formulario label {
+        display: block;
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+    }
 
-    .campo-formulario input,
-    .campo-formulario select {
+    .campo-formulario input {
         width: 100%;
         padding: 11px 14px;
         border-radius: 8px;
         background-color: #ffffff;
         font-size: 0.95rem;
         font-family: inherit;
-
-  }
- /*Botão*/
- .botao-enviar {
-     width: 100%;
-     padding: 13px;
-     border: none;
-     border-radius: 8px;
-     background-color: #4b7a45;
-     color: #ffffff;
-     font-size: 1rem;
-     cursor: pointer;
-     margin-top: 6px;
-
-}
-
-/*Texto-Login*/
-.texto-login {
-    display: block;
-    text-align: center;
-    margin-top: 16px;
-    color: #4b7a45;
-    font-size: 0.9rem;
-}
-
-    .texto-login a {
-        color: #4b7a45;
-        text-decoration: none;
     }
+
+.link-esquecisenha {
+    display: block;
+    text-align: right;
+    margin-top: 6px;
+    font-size: 0.8rem;
+    color: #767676;
+    text-decoration: none;
+}
+
+/*Botão*/
+.botao-entrar {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4b7a45;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 6px;
+}
+ 
+
+ 
 
 
