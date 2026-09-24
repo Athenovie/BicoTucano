@@ -1157,7 +1157,6 @@ C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\rjsmcshtml.dswa.c
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\bundle\BicoTucano.styles.css
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\projectbundle\BicoTucano.bundle.scp.css
-C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-rnuqk8heyg-rnuqk8heyg.gz
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\rjjql98h94-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\boqoolz8er-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\3MTEC\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\3hukmjtd2n-{0}-s5dlx7ztc3-s5dlx7ztc3.gz
@@ -1674,3 +1673,6 @@ C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genru
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-he5xvw3cer-he5xvw3cer.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-bxxdbg9z3r-bxxdbg9z3r.gz
+C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-he5xvw3cer-he5xvw3cer.gz
+C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-0a7qzrov58-0a7qzrov58.gz
+C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-bxxdbg9z3r-bxxdbg9z3r.gz

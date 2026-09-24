@@ -115,16 +115,85 @@ namespace BicoTucano.Repository
             throw new NotImplementedException();
         }
 
-       
+
 
         public Cliente ObterCliente(int Id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email, u.Senha, c.Situacao " +
+                    "from tbUsuario u inner join tbCliente c on c.ID_Cliente = u.ID_Usuario " +
+                    "WHERE u.ID_Usuario=@Id",
+                    conexao
+                );
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dr.Read())
+                {
+                    cliente.ID_Usuario = (Int32)(dr["ID_Usuario"]);
+                    cliente.Nome = (string)(dr["Nome"]);
+                    cliente.DataNasc = (DateTime)(dr["DataNasc"]);
+                    cliente.Sexo = (string)(dr["Sexo"]);
+                    cliente.CPF = (string)(dr["CPF"]);
+                    cliente.Telefone = (Decimal)(dr["Telefone"]);
+                    cliente.Email = (string)(dr["Email"]);
+                    cliente.Senha = (string)(dr["Senha"]);
+                    cliente.Situacao = (string)(dr["Situacao"]);
+                }
+
+                return cliente;
+            }
         }
 
         public IEnumerable<Cliente> ObterTodosClientes()
         {
-            throw new NotImplementedException();
+            List<Cliente> cliList = new List<Cliente>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email, u.Senha, c.Situacao " +
+                    "from tbUsuario u inner join tbCliente c on c.ID_Cliente = u.ID_Usuario", conexao);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                conexao.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    cliList.Add(
+                        new Cliente
+                        {
+                            ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]),
+                            Nome = (string)(dr["Nome"]),
+                            DataNasc = Convert.ToDateTime(dr["DataNasc"]),
+                            Sexo = Convert.ToString(dr["Sexo"]),
+                            CPF = Convert.ToString(dr["CPF"]),
+                            Telefone = Convert.ToDecimal(dr["Telefone"]),
+                            Email = Convert.ToString(dr["Email"]),
+                            Senha = Convert.ToString(dr["Senha"]),
+                            Situacao = Convert.ToString(dr["Situacao"])
+                        });
+                }
+            }
+            return cliList;
         }
 
         public IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa)
@@ -140,14 +209,13 @@ namespace BicoTucano.Repository
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
-                MySqlCommand cmd = new MySqlCommand("update Cliente set Situacao=@Situacao WHERE Id=@Id ", conexao);
+                MySqlCommand cmd = new MySqlCommand("update tbCliente set Situacao=@Situacao WHERE ID_Cliente=@Id", conexao);
 
-                cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = Id;
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = Id;
                 cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
                 cmd.ExecuteNonQuery();
                 conexao.Close();
             }
-
         }
         public void Desativar(int id)
         {
@@ -155,9 +223,9 @@ namespace BicoTucano.Repository
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
-                MySqlCommand cmd = new MySqlCommand("update Cliente set Situacao=@Situacao WHERE Id=@Id ", conexao);
+                MySqlCommand cmd = new MySqlCommand("update tbCliente set Situacao=@Situacao WHERE ID_Cliente=@Id", conexao);
 
-                cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = id;
                 cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
                 cmd.ExecuteNonQuery();
                 conexao.Close();
