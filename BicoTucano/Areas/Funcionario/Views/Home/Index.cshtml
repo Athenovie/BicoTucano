@@ -1,8 +1,69 @@
-﻿@{
+﻿@model IEnumerable<BicoTucano.Models.Funcionario>
+
+@{
     ViewData["Title"] = "Index";
 }
 
+<table class="table">
+    <thead>
+        <tr>
+            <h1>Index</h1>
+            <p class="btn btn-outline-primary" role="button">
+                <a asp-action="Cadastrar">
+                    <span class="fas fa-user-plus" title="Cadastro" aria-hidden="true"></span>
+                    <span>Cadastrar</span>
+                </a>
+            </p>
 
-<h1>Olá Colaborador</h1>
-<h1>Index</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().ID_Usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Nome)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().CPF)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Telefone)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Email)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().Cargo)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.First().NivelAcesso)</th>
 
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Funcionario funcionario in Model)
+                {
+                    <tr>
+                        <th scope="row">@funcionario.ID_Usuario</th>
+                        <td>@funcionario.Nome</td>
+                        <td>@funcionario.CPF</td>
+                        <td>@funcionario.Telefone</td>
+                        <td>@funcionario.Email</td>
+                        <td>@funcionario.Cargo</td>
+                        <td>@funcionario.NivelAcesso</td>
+
+                        <td>
+                            @if (funcionario.DataDemissao == default(DateTime))
+                            {
+                                <button type="button" class="btn btn-danger">
+                                    @Html.ActionLink("Desligar", "Desligar", new { id = funcionario.ID_Usuario },
+                                        new { onclick = "return confirm('Deseja realmente desligar?');" })
+                                </button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-secondar">
+                                    @Html.ActionLink("Reativar", "Reativar", new { id = funcionario.ID_Usuario },
+                                        new { onclick = "return confirm('Deseja realmente reativar?');" })
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</table>

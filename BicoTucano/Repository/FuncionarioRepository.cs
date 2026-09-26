@@ -109,11 +109,52 @@ namespace BicoTucano.Repository
             throw new NotImplementedException();
         }
 
-        
+
 
         public Funcionario ObterFuncionario(int Id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email," +
+                    "f.NivelAcesso, f.Cargo, f.DataAdmissao, f.DataDemissao " +
+                    "from tbUsuario u inner join tbFuncionario f on f.ID_Funcionario = u.ID_Usuario " +
+                    "WHERE u.ID_Usuario=@Id",
+                    conexao
+                );
+
+                cmd.Parameters.AddWithValue("@Id", Id);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Funcionario funcionario = new Funcionario();
+
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+
+                while (dr.Read())
+                {
+                    funcionario.ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]);
+                    funcionario.Nome = (string)(dr["Nome"]);
+                    funcionario.DataNasc = (DateTime)(dr["DataNasc"]);
+                    funcionario.Sexo = (string)(dr["Sexo"]);
+                    funcionario.CPF = (string)(dr["CPF"]);
+                    funcionario.Telefone = (Decimal)(dr["Telefone"]);
+                    funcionario.Email = (string)(dr["Email"]);
+                    funcionario.NivelAcesso = (NivelAcesso)Enum.Parse(typeof(NivelAcesso), dr["NivelAcesso"].ToString());
+                    funcionario.Cargo = (string)(dr["Cargo"]);
+                    funcionario.DataAdmissao = (DateTime)(dr["DataAdmissao"]);
+
+                    if (dr["DataDemissao"] != DBNull.Value)
+                    {
+                        funcionario.DataDemissao = (DateTime)(dr["DataDemissao"]);
+                    }
+                }
+
+                return funcionario;
+            }
         }
 
         public IEnumerable<Funcionario> ObterFuncionarioPorEmail()
@@ -123,10 +164,66 @@ namespace BicoTucano.Repository
 
         public IEnumerable<Funcionario> ObterTodosFuncionarios()
         {
-            throw new NotImplementedException();
+            List<Funcionario> funcList = new List<Funcionario>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email,  " +
+                    "f.NivelAcesso, f.Cargo, f.DataAdmissao, f.DataDemissao " +
+                    "from tbUsuario u inner join tbFuncionario f on f.ID_Funcionario = u.ID_Usuario",
+                    conexao
+                );
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                conexao.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    Funcionario funcionario = new Funcionario
+                    {
+                        ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]),
+                        Nome = (string)(dr["Nome"]),
+                        DataNasc = Convert.ToDateTime(dr["DataNasc"]),
+                        Sexo = Convert.ToString(dr["Sexo"]),
+                        CPF = Convert.ToString(dr["CPF"]),
+                        Telefone = Convert.ToDecimal(dr["Telefone"]),
+                        Email = Convert.ToString(dr["Email"]),
+                        
+                        NivelAcesso = (NivelAcesso)Enum.Parse(typeof(NivelAcesso), dr["NivelAcesso"].ToString()),
+                        Cargo = Convert.ToString(dr["Cargo"]),
+                        DataAdmissao = Convert.ToDateTime(dr["DataAdmissao"])
+                    };
+
+                    if (dr["DataDemissao"] != DBNull.Value)
+                    {
+                        funcionario.DataDemissao = Convert.ToDateTime(dr["DataDemissao"]);
+                    }
+
+                    funcList.Add(funcionario);
+                }
+            }
+            return funcList;
         }
 
         public IPagedList<Funcionario> ObterTodosFuncionarios(int? pagina, string pesquisa)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Desativar(Funcionario funcionario)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Ativar(Funcionario funcionario)
         {
             throw new NotImplementedException();
         }

@@ -55,10 +55,13 @@ namespace BicoTucano.Areas.Funcionario.Controllers
 
 
         }
+
         public IActionResult Index()
         {
-            return View();
+            return View(_repositoryFuncionario.ObterTodosFuncionarios());
         }
+       
+     
 
 
         public IActionResult Painel()

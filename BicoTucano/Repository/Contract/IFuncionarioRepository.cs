@@ -12,6 +12,9 @@ namespace BicoTucano.Repository.Contract
         void Atualizar(Funcionario funcionario);
         void AtualizarSenha(Funcionario funcionario);
         void Excluir(int Id);
+
+        void Desativar(Funcionario funcionario);
+        void Ativar(Funcionario funcionario);
         Funcionario ObterFuncionario(int Id);
 
 

@@ -124,7 +124,7 @@ namespace BicoTucano.Repository
                 conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand(
-                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email, u.Senha, c.Situacao " +
+                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email, c.Situacao " +
                     "from tbUsuario u inner join tbCliente c on c.ID_Cliente = u.ID_Usuario " +
                     "WHERE u.ID_Usuario=@Id",
                     conexao
@@ -148,7 +148,6 @@ namespace BicoTucano.Repository
                     cliente.CPF = (string)(dr["CPF"]);
                     cliente.Telefone = (Decimal)(dr["Telefone"]);
                     cliente.Email = (string)(dr["Email"]);
-                    cliente.Senha = (string)(dr["Senha"]);
                     cliente.Situacao = (string)(dr["Situacao"]);
                 }
 
@@ -165,7 +164,7 @@ namespace BicoTucano.Repository
                 conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand(
-                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email, u.Senha, c.Situacao " +
+                    "select u.ID_Usuario, u.Nome, u.DataNasc, u.Sexo, u.CPF, u.Telefone, u.Email,  c.Situacao " +
                     "from tbUsuario u inner join tbCliente c on c.ID_Cliente = u.ID_Usuario", conexao);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -188,7 +187,6 @@ namespace BicoTucano.Repository
                             CPF = Convert.ToString(dr["CPF"]),
                             Telefone = Convert.ToDecimal(dr["Telefone"]),
                             Email = Convert.ToString(dr["Email"]),
-                            Senha = Convert.ToString(dr["Senha"]),
                             Situacao = Convert.ToString(dr["Situacao"])
                         });
                 }
