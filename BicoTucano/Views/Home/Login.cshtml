@@ -2,54 +2,70 @@
 
 @{
     ViewData["Title"] = "Login";
+    Layout = null;
 }
-<main role="main">
-    <br />
-    <br />
-    <section class="container">
-        <aside class="col-sm-4">
 
-            <h3 class="subtitle-doc">
-                Login
-            </h3>
-            <div id="code_login_1">
-                <div class="card">
-                    <article class="card-body">
-                        @if (ViewData["MSG_E"] != null)
-                        {
-                            <p class="alert alert-danger">
-                                @Html.Raw(ViewData["MSG_E"])
-                            </p>
-                        }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Bico Tucano</title>
+    <!-- fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/LoginCliente.css" asp-append-version="true" />
+    <script src="~/js/site.js" defer></script>
+</head>
+<body class="corpo-login">
+    <div class="container-login">
+        <!-- painel verde -->
+        <div class="painel-verde">
+            <div class="painel-verde-conteudo">
+                <h1>Bem-vindo(a) de <span>volta!</span></h1>
+                <p>Entre na sua conta e continue curtindo os melhores sabores veganos.</p>
+            </div>
+        </div>
+        <!-- formulário -->
+        <div class="area-formulario">
+            <form class="formulario-login" asp-action="Cadastrar" method="post">
+
+                <h2>Entrar</h2>
+                <p class="subtitulo">Acesse sua conta para continuar</p>
+
+                @if (ViewData["MSG_E"] != null)
+                {
+                    <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
+                }
+
+                <div class="campo-formulario">
+                    <label asp-for="Email">E-mail</label>
+                    <input asp-for="Email" type="email" placeholder="seu@email.com" />
+                    <span asp-validation-for="Email" class="texto-erro"></span>
+                </div>
+
+                <div class="campo-formulario">
+                    <label asp-for="Senha">Senha</label>
+                    <input asp-for="Senha" type="password" placeholder="•••••••" />
+                    <a class="link-esqueci" href="#">Esqueci a senha</a>
+                    <span asp-validation-for="Senha" class="texto-erro"></span>
+                </div>
+
+                <button type="submit" class="botao-enviar">Entrar</button>
+
+                <div class="auth-form-footer">
+                    <span class="texto-cadastro">
+                        Não tem uma conta?
                         <a asp-area="Funcionario"
                            asp-controller="Cliente"
-                           asp-action="Cadastrar"
-                           class="float-right btn btn-outline-primary">
-                            Cadastre-se
-                        </a>
-                        <h4 class="card-title mb-4 mt-1">
-                            Entrar
-                        </h4>
-                        <form method="post">
-                            <div class="form-group">
-                                <label>E-mail</label>
-                                <input asp-for="Email"
-                                       class="form-control"
-                                       placeholder="Email"
-                                       type="email">
-                            </div>
-                            <div class="form-group">
-                                <a class="float-right" href="#">  Esqueceu a senha?   </a>
-                                <label>Senha</label>
-                                <input asp-for="Senha" class="form-control" placeholder="*******" type="password">
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block"> Acessar</button>
-                            </div>
-                        </form>
-                    </article>
+                           asp-action="Cadastrar">Criar conta grátis</a>
+                    </span>
                 </div>
-            </div>
-        </aside>
-    </section>
-</main>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

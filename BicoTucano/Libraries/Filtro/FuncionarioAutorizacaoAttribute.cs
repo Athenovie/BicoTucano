@@ -2,8 +2,6 @@
 
 namespace BicoTucano.Libraries.Filtro
 {
-    using AppLogin.Libraries.Login;
-    using AppLogin.Models.Constant;
     using BicoTucano.Libraries.Login;
     using BicoTucano.Models.Constants;
     using Microsoft.AspNetCore.Mvc;
@@ -31,7 +29,7 @@ namespace BicoTucano.Libraries.Filtro
                 }
                 else
                 {
-                    if (funcionario.Tipo == FuncionarioTipoConstant.Comum && _tipoFuncionarioAutorizado == FuncionarioTipoConstant.Administrador)
+                    if (funcionario.Cargo == FuncionarioTipoConstant.Comum && _tipoFuncionarioAutorizado == FuncionarioTipoConstant.Gerente)
                     {
                         context.Result = new ForbidResult();
                     }
