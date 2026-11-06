@@ -1,0 +1,114 @@
+﻿@model BicoTucano.Models.Cliente
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro | Bico Tucano</title>
+    <!-- fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/CadastroCliente.css" asp-append-version="true" />
+    <script src="~/js/site.js" defer></script>
+</head>
+<body class="corpo-cadastro">
+
+    <div class="container-cadastro">
+
+        <!--painel verde-->
+        <div class="painel-verde">
+            <div class="painel-verde-conteudo">
+                <h1>Comece sua jornada <span>vegana</span></h1>
+                <p>Comer bem é um ato de memória.</p>
+            </div>
+        </div>
+
+        <!--formulario-->
+        <div class="area-formulario">
+            <form class="formulario-cadastro" asp-area="" asp-controller="Home" asp-action="Cadastrar" method="post" onsubmit="return validarSenhas()">
+
+                <h2>Criar conta</h2>
+                <p class="subtitulo">Preencha seus dados antes de começar</p>
+
+                <div class="campo-formulario">
+                    <label asp-for="Nome">Nome</label>
+                    <input asp-for="Nome" type="text" id="nome" placeholder="Seu nome completo" />
+                    <span asp-validation-for="Nome" class="texto-erro"></span>
+                </div>
+
+                <div class="campo-formulario">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" type="email" id="email" placeholder="seu@email.com" />
+                    <span asp-validation-for="Email" class="texto-erro"></span>
+                </div>
+
+                <div class="linha-formulario">
+                    <div class="campo-formulario">
+                        <label asp-for="Telefone">Telefone</label>
+                        <input asp-for="Telefone" type="text" placeholder="(00) 00000-0000" />
+                        <span asp-validation-for="Telefone" class="texto-erro"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <label asp-for="CPF">CPF</label>
+                        <input asp-for="CPF" type="text" placeholder="000.000.000-00" />
+                        <span asp-validation-for="CPF" class="texto-erro"></span>
+                    </div>
+                </div>
+
+                <div class="linha-formulario">
+                    <div class="campo-formulario">
+                        <label asp-for="DataNasc">Data de Nascimento</label>
+                        <input asp-for="DataNasc" type="date" />
+                        <span asp-validation-for="DataNasc" class="texto-erro"></span>
+                    </div>
+                    <div class="campo-formulario">
+                        <label asp-for="Sexo">Sexo</label>
+                        <select asp-for="Sexo">
+                            <option value="">Selecione</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                        <span asp-validation-for="Sexo" class="texto-erro"></span>
+                    </div>
+                </div>
+
+                <div class="campo-formulario">
+                    <label asp-for="Senha">Senha</label>
+                    <input asp-for="Senha" type="password" id="senha" placeholder="8 caracteres" />
+                    <span asp-validation-for="Senha" class="texto-erro"></span>
+                </div>
+                <div class="campo-formulario">
+                    <label for="confirmarSenha">Confirme sua senha</label>
+                    <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" />
+                </div>
+
+                <button type="submit" class="botao-enviar">Criar conta</button>
+
+                <div class="auth-form-footer">
+                    <span class="texto-login">
+                        Já possui uma conta?
+                        <a asp-area="" asp-controller="Home" asp-action="Login">Fazer login</a>
+                    </span>
+
+                </div>
+
+                @if (ViewData["MSG_E"] != null)
+                {
+                    <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
+                }
+                @if (ViewData["MSG_S"] != null)
+                {
+                    <p class="aviso aviso-sucesso">@Html.Raw(ViewData["MSG_S"])</p>
+                }
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

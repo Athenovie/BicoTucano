@@ -32,7 +32,7 @@ namespace BicoTucano.Controllers
         {
             cliente.Situacao = SituacaoConstant.Ativo;
             _clienteRepository.Cadastrar(cliente);
-            return RedirectToAction(nameof(Cadastrar));
+            return RedirectToAction("Login");
 
 
         }
