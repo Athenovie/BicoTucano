@@ -30,10 +30,29 @@ namespace BicoTucano.Controllers
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Cliente cliente)
         {
-            cliente.Situacao = SituacaoConstant.Ativo;
-            _clienteRepository.Cadastrar(cliente);
-            return RedirectToAction("Login");
+            var CPFExist = _clienteRepository.BuscaCpfCliente(cliente.CPF).CPF;
+            var EmailExist = _clienteRepository.BuscaEmailCliente(cliente.Email).Email;
 
+            
+            if (!string.IsNullOrWhiteSpace(CPFExist))
+            {
+                //CPF cadastrado
+                ViewData["MSG_CPF"] = "CPF já cadastrado, por favor verifique os dados digitados";
+                return View();
+            }
+            else if (!string.IsNullOrWhiteSpace(EmailExist))
+            {
+                //Email cadastrado
+                ViewData["MSG_Email"] = "E-mail já cadastrado, por favor verifique os dados digitados";
+                return View();
+            }
+            else if (ModelState.IsValid)
+            {
+                cliente.Situacao = SituacaoConstant.Ativo;
+                _clienteRepository.Cadastrar(cliente);
+                return RedirectToAction("Login");
+            }
+            return View();
 
         }
         public IActionResult Login()

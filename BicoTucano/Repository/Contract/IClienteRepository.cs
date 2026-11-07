@@ -15,6 +15,8 @@ namespace BicoTucano.Repository.Contract
         void Cadastrar(Cliente cliente);
         void Atualizar(Cliente cliente);
         void Excluir(int Id);
+        Cliente BuscaCpfCliente(string CPF);
+        Cliente BuscaEmailCliente(string email);
         Cliente ObterCliente(int Id);
         IEnumerable<Cliente> ObterTodosClientes();
         IPagedList<Cliente> ObterTodosClientes(int? pagina, string pesquisa);

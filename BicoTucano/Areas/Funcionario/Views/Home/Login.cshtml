@@ -8,53 +8,57 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login do Funcionário | Bico Tucano</title>
+    <title>Login | Bico Tucano</title>
+    <!-- fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="~/css/LoginFuncionario.css" asp-append-version="true" />
+    <script src="~/js/site.js" defer></script>
 </head>
 <body class="corpo-login">
-
     <div class="container-login">
+        <!-- painel verde -->
+        <div class="painel-verde">
+            <div class="painel-verde-conteudo">
+                <h1>Bem-vindo(a) de <span>volta!</span></h1>
+                <p>Entre na sua conta.</p>
+            </div>
+        </div>
+        <!-- formulário -->
+        <div class="area-formulario">
+            <form class="formulario-login" asp-action="Login" method="post">
 
-<!--painel verde-->
-    <div class="painel-verde">
-         <div class="painel-verde-conteudo">
-                <h1>Bem-vindo(a) <br><span>de volta!</span></h1>
-              <p>Entre na sua conta.</p>
-         </div>
+                <h2>Entrar</h2>
+                <p class="subtitulo">Acesse sua conta para continuar</p>
+
+                @if (ViewData["MSG_E"] != null)
+                {
+                    <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
+                }
+
+                <div class="campo-formulario">
+                    <label asp-for="Email">E-mail</label>
+                    <input asp-for="Email" type="email" placeholder="seu@email.com" />
+                    <span asp-validation-for="Email" class="texto-erro"></span>
+                </div>
+
+                <div class="campo-formulario">
+                    <label asp-for="Senha">Senha</label>
+                    <input asp-for="Senha" type="password" placeholder="•••••••" />
+                    <a class="link-esqueci" href="#">Esqueci a senha</a>
+                    <span asp-validation-for="Senha" class="texto-erro"></span>
+                </div>
+
+                <button type="submit" class="botao-enviar">Entrar</button>
+
+                
+            </form>
+        </div>
     </div>
 
-  <!--formulario-->
-    <div class="area-formulario">
-         <form class="formulario-login" asp-action="Login" method="post">
-
-         <h2>Entrar</h2>
-         <p class="subtitulo">Acesse sua conta para continuar</p>
-
-     @if (ViewData["MSG_E"] != null)
-         {
-            <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
-         }
-    <!--Campos da Área Formulário-->
-     <div class="campo-formulario">
-         <label asp-for="Email">Email</label>
-         <input asp-for="Email" type="email" id="email" placeholder="Digite aqui seu email" />
-         <span asp-validation-for="Email" class="texto-erro"></span>
-     </div>
-
-     <div class="campo-formulario">
-         <label asp-for="Senha">Senha</label>
-         <input asp-for="Senha" type="password" id="senha" placeholder="Digite aqui sua senha" />
-         <span asp-validation-for="Senha" class="texto-erro"></span>
-         <a class="link-esquecisenha" href="#">Esqueci a senha</a>
-     </div>
-<!--Botão-->
-     <button type="submit" class="botao-entrar">Entrar</button>
-         </form>
-     </div>
-  </div>
-
- </body>
+</body>
 </html>
 
 

@@ -1,6 +1,5 @@
 wwwroot\css\CadastroCliente.css
 wwwroot\css\Home.css
-wwwroot\css\LoginCliente.css
 wwwroot\css\LoginFuncionario.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
@@ -560,6 +559,7 @@ wwwroot\resources\lib\jquery3.3.1\jquery-3.3.1.min.js
 wwwroot\resources\lib\mask\jquery.mask.min.js
 wwwroot\resources\lib\pagedlist\PagedList.css
 wwwroot\resources\lib\popper1.14.6\popper.min.js
+wwwroot\css\LoginCliente.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Home.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\LoginFuncionario.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\favicon.ico

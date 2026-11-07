@@ -77,7 +77,10 @@ namespace BicoTucano.Repository
                 ); 
 
                 cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
-                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.ToString("yyyy/MM/dd");
+                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.HasValue ? cliente.DataNasc.Value : DBNull.Value;
+                // HasValue verifica se a data foi preenchida
+                // se sim, envia a data; caso contrário, envia NULL ao banco
+                // foi necessário porque DataNasc é do tipo DateTime? (nullable) (alterei pra DateTime? por conta da msg de erro)
                 cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
                 cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
                 cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
@@ -227,6 +230,48 @@ namespace BicoTucano.Repository
                 cmd.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
                 cmd.ExecuteNonQuery();
                 conexao.Close();
+            }
+        }
+
+        public Cliente BuscaCpfCliente(string CPF)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select CPF from tbUsuario WHERE CPF=@CPF", conexao);
+                cmd.Parameters.AddWithValue("@CPF", CPF);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
+                {
+                    cliente.CPF = (string)(dr["CPF"]);
+                }
+                return cliente;
+            }
+        }
+
+        public Cliente BuscaEmailCliente(string email)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand("select Email from tbUsuario WHERE Email=@Email", conexao);
+                cmd.Parameters.AddWithValue("@Email", email);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                MySqlDataReader dr;
+
+                Cliente cliente = new Cliente();
+                dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (dr.Read())
+                {
+                    cliente.Email = (string)(dr["Email"]);
+                }
+                return cliente;
             }
         }
     }

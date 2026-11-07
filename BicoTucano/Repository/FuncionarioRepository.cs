@@ -77,7 +77,7 @@ namespace BicoTucano.Repository
                 );
 
                 cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = funcionario.Nome;
-                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = funcionario.DataNasc.ToString("yyyy/MM/dd");
+                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = funcionario.DataNasc.HasValue ? funcionario.DataNasc.Value : DBNull.Value;
                 cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = funcionario.Sexo;
                 cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = funcionario.CPF;
                 cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = funcionario.Telefone;

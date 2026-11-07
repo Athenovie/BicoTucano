@@ -44,6 +44,10 @@
 
                 <div class="campo-formulario">
                     <label asp-for="Email">Email</label>
+                    @if (ViewData["MSG_Email"] != null)
+                    {
+                        <p class="alert alert-danger texto-erro">@Html.Raw(ViewData["MSG_Email"])</p>
+                    }
                     <input asp-for="Email" type="email" id="email" placeholder="seu@email.com" />
                     <span asp-validation-for="Email" class="texto-erro"></span>
                 </div>
@@ -56,6 +60,10 @@
                     </div>
                     <div class="campo-formulario">
                         <label asp-for="CPF">CPF</label>
+                        @if (ViewData["MSG_CPF"] != null)
+                        {
+                            <p class="alert alert-danger texto-erro">@Html.Raw(ViewData["MSG_CPF"])</p>
+                        }
                         <input asp-for="CPF" type="text" placeholder="000.000.000-00" />
                         <span asp-validation-for="CPF" class="texto-erro"></span>
                     </div>
@@ -88,6 +96,8 @@
                     <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" />
                 </div>
 
+                
+
                 <button type="submit" class="botao-enviar">Criar conta</button>
 
                 <div class="auth-form-footer">
@@ -98,14 +108,7 @@
 
                 </div>
 
-                @if (ViewData["MSG_E"] != null)
-                {
-                    <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
-                }
-                @if (ViewData["MSG_S"] != null)
-                {
-                    <p class="aviso aviso-sucesso">@Html.Raw(ViewData["MSG_S"])</p>
-                }
+                
             </form>
         </div>
     </div>
