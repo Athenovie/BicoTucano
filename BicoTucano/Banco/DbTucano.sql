@@ -1,53 +1,51 @@
-  -- Drop database DbTucano
-
-Create database DbTucano;
+CREATE DATABASE IF NOT EXISTS DbTucano
 use DbTucano;
 
 CREATE TABLE tbProduto (
-ID_Produto INT PRIMARY KEY,
+ID_Produto INT PRIMARY KEY AUTO_INCREMENT,
 Nome VARCHAR(150) not null,
-Preco DECIMAL(6,2) not null,
+Preco DECIMAL(8,2) not null,
 Descricao VARCHAR(200) not null,
 Disponibilidade BOOLEAN not null,
 ID_Categoria INT not null
 );
 
 CREATE TABLE tbCategoria (
-ID_Categoria INT PRIMARY KEY,
+ID_Categoria INT PRIMARY KEY AUTO_INCREMENT,
 Categoria VARCHAR(50),
 Descricao VARCHAR(100)
 );
 
 CREATE TABLE tbItem_Pedido (
-ID_Item INT PRIMARY KEY,
+ID_Item INT PRIMARY KEY AUTO_INCREMENT,
 NF INT,
 ID_Produto INT,
 Quantidade SMALLINT,
-Preco DECIMAL(6,2),
+Preco DECIMAL(8,2),
 FOREIGN KEY(ID_Produto) REFERENCES tbProduto (ID_Produto)
 );
 
 CREATE TABLE tbPedido (
-NF INT PRIMARY KEY,
+NF INT PRIMARY KEY AUTO_INCREMENT,
 DataPedido DATETIME,
 ID_Usuario INT,
-TipoPedido Enum("Entrega", "Retirada"),
-StatusPedido Enum('Concluido','Em preparo', 'Em Entrega', 'Finalizado'),
-Subtotal DECIMAL(6,2),
-TaxaEntrega DECIMAL(6,2),
-ValorTotal DECIMAL(6,2),
+TipoPedido Enum('Entrega', 'Retirada'),
+StatusPedido Enum(,'Em preparo', 'Em Entrega', 'Concluido'),
+Subtotal DECIMAL(8,2),
+TaxaEntrega DECIMAL(8,2),
+ValorTotal DECIMAL(8,2),
 CEP VARCHAR(9),
 DetalhesPedido VARCHAR(150),
 ID_Funcionario INT
 );
 
 CREATE TABLE tbPagamento (
-ID_Pagamento INT PRIMARY KEY,
+ID_Pagamento INT PRIMARY KEY AUTO_INCREMENT,
 NF INT,
 FormaPagamento Enum('Pix', 'Cartão Débito', 'Cartão Crédito'),
 ChavePix VARCHAR(150),
 ID_Cartao INT,
-ValorPago DECIMAL(6,2),
+ValorPago DECIMAL(8,2),
 DataPagamento DATETIME,
 StatusPagamento Enum('Pago','Não Pago'),
 FOREIGN KEY(NF) REFERENCES tbPedido (NF)
@@ -59,7 +57,7 @@ Nome VARCHAR(100) not null,
 Email VARCHAR(100) unique not null,
 Senha VARCHAR(150)not null,
 CPF VARCHAR(11) unique not null,
-Telefone DECIMAL(11) not null,
+Telefone VARCHAR(11) not null,
 DataNasc DATE not null,
 Sexo CHAR(1) not null
 );
@@ -86,22 +84,22 @@ CREATE TABLE tbUsuarioEndereco (
 
 
 CREATE TABLE tbBairro (
-ID_Bairro INT PRIMARY KEY,
+ID_Bairro INT PRIMARY KEY AUTO_INCREMENT,
 Bairro VARCHAR(75)
 );
 
 CREATE TABLE tbCidade (
-ID_Cidade INT PRIMARY KEY,
+ID_Cidade INT PRIMARY KEY AUTO_INCREMEN,
 Cidade VARCHAR(75)
 );
 
 CREATE TABLE tbEstado (
-ID_Uf INT PRIMARY KEY,
+ID_Uf INT PRIMARY KEY AUTO_INCREMENT,
 UF CHAR(2)
 );
 
 CREATE TABLE tbCartao (
-ID_Cartao INT PRIMARY KEY,
+ID_Cartao INT PRIMARY KEY AUTO_INCREMENT,
 ID_Usuario INT,
 NumeroCartao VARCHAR(100),
 NomeTitular VARCHAR(75),
@@ -112,7 +110,7 @@ FOREIGN KEY(ID_Usuario) REFERENCES tbUsuario (ID_Usuario)
 );
 
 CREATE TABLE tbImagem (
-ID_Imagem INT PRIMARY KEY,
+ID_Imagem INT PRIMARY KEY AUTO_INCREMENT,
 ID_Produto INT,
 NomeImagem VARCHAR(100),
 FOREIGN KEY(ID_Produto) REFERENCES tbProduto (ID_Produto)
@@ -146,4 +144,8 @@ ALTER TABLE tbEndereco ADD FOREIGN KEY(Estado) REFERENCES tbEstado (ID_Uf);
 
 
 
-select * from tbUsuario
+INSERT INTO tbUsuario (Nome, Email, Senha, CPF, Telefone, DataNasc, Sexo)
+VALUES ('Administrador', 'admin@bicotucano.com', '123456', '00000000000', 11999999999, '2000-01-01', 'M');
+
+INSERT INTO tbFuncionario (ID_Funcionario, DataAdmissao, NivelAcesso, Cargo)
+VALUES (LAST_INSERT_ID(), CURDATE(), 'Administrador', 'Gerente');

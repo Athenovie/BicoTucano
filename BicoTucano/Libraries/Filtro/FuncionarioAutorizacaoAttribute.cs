@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BicoTucano.Libraries.Login;
+using BicoTucano.Models.Constants;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace BicoTucano.Libraries.Filtro
 {
-    using BicoTucano.Libraries.Login;
-    using BicoTucano.Models.Constants;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Filters;
+    
 
-    namespace AppLogin.Libraries.Filtro
-    {
+   
         public class FuncionarioAutorizacaoAttribute : Attribute, IAuthorizationFilter
         {
 
@@ -25,17 +24,16 @@ namespace BicoTucano.Libraries.Filtro
                 Models.Funcionario funcionario = _loginFuncionario.GetFuncionario();
                 if (funcionario == null)
                 {
-                    context.Result = new RedirectToActionResult("Login", "Home", null);
+                    context.Result = new RedirectToActionResult("Login", "Home", new { area = "Funcionario" });
                 }
                 else
                 {
-                    if (funcionario.Cargo == FuncionarioTipoConstant.Comum && _tipoFuncionarioAutorizado == FuncionarioTipoConstant.Gerente)
+                    if (funcionario.NivelAcesso == Models.NivelAcesso.Comum && _tipoFuncionarioAutorizado == FuncionarioTipoConstant.Gerente)
                     {
-                        context.Result = new ForbidResult();
+                        context.Result = new ContentResult() { Content = "Acesso Negado", StatusCode = 403 };
                     }
                 }
             }
         }
     }
 
-}

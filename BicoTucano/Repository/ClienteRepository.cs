@@ -69,40 +69,48 @@ namespace BicoTucano.Repository
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
+                using (var transacao = conexao.BeginTransaction())
+                {
 
-                MySqlCommand cmdUsuario = new MySqlCommand(
+                    MySqlCommand cmdUsuario = new MySqlCommand(
                     "insert into tbUsuario(Nome, DataNasc, Sexo, CPF, Telefone, Email, Senha) " +
                     "values (@Nome, @DataNasc, @Sexo, @CPF, @Telefone, @Email, @Senha)",
-                    conexao
-                ); 
+                    conexao,
+                    transacao
+                );
 
-                cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
-                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.HasValue ? cliente.DataNasc.Value : DBNull.Value;
-                // HasValue verifica se a data foi preenchida
-                // se sim, envia a data; caso contrário, envia NULL ao banco
-                // foi necessário porque DataNasc é do tipo DateTime? (nullable) (alterei pra DateTime? por conta da msg de erro)
-                cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
-                cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
-                cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = cliente.Telefone;
-                cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
-                cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = cliente.Senha;
+                    cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
+                    cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.HasValue ? cliente.DataNasc.Value : DBNull.Value;
+                    // HasValue verifica se a data foi preenchida
+                    // se sim, envia a data; caso contrário, envia NULL ao banco
+                    // foi necessário porque DataNasc é do tipo DateTime? (nullable) (alterei pra DateTime? por conta da msg de erro)
+                    cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
+                    cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
+                    cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.Decimal).Value = cliente.Telefone;
+                    cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
+                    cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = cliente.Senha;
 
-                cmdUsuario.ExecuteNonQuery();
+                    cmdUsuario.ExecuteNonQuery();
 
-                long idUsuario = cmdUsuario.LastInsertedId;
+                    long idUsuario = cmdUsuario.LastInsertedId;
 
-                MySqlCommand cmdCliente = new MySqlCommand(
-                    "insert into tbCliente(ID_Cliente, DataCadastro, Situacao) " +
-                    "values (@ID_Cliente, @DataCadastro, @Situacao)",
-                    conexao
-                ); 
+                    MySqlCommand cmdCliente = new MySqlCommand(
+                        "insert into tbCliente(ID_Cliente, DataCadastro, Situacao) " +
+                        "values (@ID_Cliente, @DataCadastro, @Situacao)",
+                        conexao,
+                        transacao
+                    );
 
-                cmdCliente.Parameters.Add("@ID_Cliente", MySqlDbType.Int32).Value = idUsuario;
-                cmdCliente.Parameters.Add("@DataCadastro", MySqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy/MM/dd");
-                cmdCliente.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
+                    cmdCliente.Parameters.Add("@ID_Cliente", MySqlDbType.Int32).Value = idUsuario;
+                    cmdCliente.Parameters.Add("@DataCadastro", MySqlDbType.DateTime).Value = DateTime.Now;
+                    cmdCliente.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
 
-                cmdCliente.ExecuteNonQuery();
+                    cmdCliente.ExecuteNonQuery();
+
+                    transacao.Commit();
+                }
                 conexao.Close();
+                
             }
         }
 

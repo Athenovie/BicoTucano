@@ -1,5 +1,4 @@
-﻿# Layout
-
+﻿
 @using BicoTucano.Models.Constants
 @inject BicoTucano.Libraries.Login.LoginFuncionario _funcionario
 
@@ -14,7 +13,7 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>@ViewBag.Title</title>
 
-    <link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css" />
+  
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="~/resources/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css" />
@@ -50,7 +49,7 @@
 
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" asp-area="Funcionario" asp-action="Logout" asp-controller="Home"><span>@_funcionario.GetFuncionario().Nome </span> Sair</a>
+                <a class="nav-link" asp-area="Funcionario" asp-action="Logout" asp-controller="Home"><span>@_funcionario.GetFuncionario()?.Nome </span> Sair</a>
             </li>
 
         </ul>
@@ -133,7 +132,7 @@
     <script src="~/resources/lib/feather/feather.js"></script>
     <script src="~/resources/lib/charts/charts.js"></script>
     <script src="~/resources/lib/dashboard/dashboard.js"></script>
-    <script src="~/resources/js/Actions.js"></script>
+    
 
     @RenderSection("Scripts", required: false)
 </body>

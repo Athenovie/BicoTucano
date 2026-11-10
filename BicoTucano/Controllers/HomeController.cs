@@ -1,4 +1,5 @@
-﻿using BicoTucano.Libraries.Login;
+﻿using BicoTucano.Libraries.Filtro;
+using BicoTucano.Libraries.Login;
 using BicoTucano.Models;
 using BicoTucano.Models.Constants;
 using BicoTucano.Repository.Contract;
@@ -30,30 +31,33 @@ namespace BicoTucano.Controllers
         [HttpPost]
         public IActionResult Cadastrar([FromForm] Cliente cliente)
         {
-            var CPFExist = _clienteRepository.BuscaCpfCliente(cliente.CPF).CPF;
-            var EmailExist = _clienteRepository.BuscaEmailCliente(cliente.Email).Email;
+            // Estes campos não vêm do formulário
+            ModelState.Remove(nameof(Cliente.Situacao));
+            ModelState.Remove(nameof(Cliente.DataCadastro));
 
-            
-            if (!string.IsNullOrWhiteSpace(CPFExist))
+            if (cliente.CPF != null)
+                cliente.CPF = new string(cliente.CPF.Where(char.IsDigit).ToArray());
+
+            if (cliente.CPF != null && cliente.CPF.Length != 11)
+                ModelState.AddModelError(nameof(Cliente.CPF), "Informe um CPF com 11 números");
+
+            if (!ModelState.IsValid)
+                return View(cliente);          // devolve o model para não apagar o que foi digitado
+
+            if (!string.IsNullOrWhiteSpace(_clienteRepository.BuscaCpfCliente(cliente.CPF).CPF))
             {
-                //CPF cadastrado
                 ViewData["MSG_CPF"] = "CPF já cadastrado, por favor verifique os dados digitados";
-                return View();
+                return View(cliente);
             }
-            else if (!string.IsNullOrWhiteSpace(EmailExist))
+            if (!string.IsNullOrWhiteSpace(_clienteRepository.BuscaEmailCliente(cliente.Email).Email))
             {
-                //Email cadastrado
                 ViewData["MSG_Email"] = "E-mail já cadastrado, por favor verifique os dados digitados";
-                return View();
+                return View(cliente);
             }
-            else if (ModelState.IsValid)
-            {
-                cliente.Situacao = SituacaoConstant.Ativo;
-                _clienteRepository.Cadastrar(cliente);
-                return RedirectToAction("Login");
-            }
-            return View();
 
+            cliente.Situacao = SituacaoConstant.Ativo;
+            _clienteRepository.Cadastrar(cliente);
+            return RedirectToAction("Login");
         }
         public IActionResult Login()
         {
@@ -69,9 +73,8 @@ namespace BicoTucano.Controllers
             {
                 _loginCliente.Login(clienteDB);
 
-                return new RedirectResult(
-                    Url.Action(nameof(PainelCliente))
-                );
+                return RedirectToAction(nameof(PainelCliente));
+               
             }
             else
             {
@@ -83,7 +86,7 @@ namespace BicoTucano.Controllers
             }
         }
 
-      
+        [ClienteAutorizacao]
         public IActionResult PainelCliente()
         {
             ViewBag.Nome = _loginCliente.GetCliente().Nome;

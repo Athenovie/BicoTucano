@@ -4,9 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-<table class="table">
-    <thead>
-        <tr>
             <h1>Index</h1>
             <p class="btn btn-outline-primary" role="button">
                 <a asp-action="Cadastrar">
@@ -30,9 +27,6 @@
                             <th scope="col">Ações</th>
                         </tr>
                     </thead>
-
-                </tr>
-            </thead>
             <tbody>
                 @foreach (Funcionario funcionario in Model)
                 {
@@ -55,7 +49,7 @@
                             }
                             else
                             {
-                                <button type="button" class="btn btn-secondar">
+                                <button type="button" class="btn btn-secondary">
                                     @Html.ActionLink("Reativar", "Reativar", new { id = funcionario.ID_Usuario },
                                         new { onclick = "return confirm('Deseja realmente reativar?');" })
                                 </button>
@@ -66,4 +60,3 @@
             </tbody>
         </table>
     </div>
-</table>

@@ -69,18 +69,21 @@ namespace BicoTucano.Repository
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
+                using (var transacao = conexao.BeginTransaction())
+                {
 
-                MySqlCommand cmdUsuario = new MySqlCommand(
+                    MySqlCommand cmdUsuario = new MySqlCommand(
                     "insert into tbUsuario(Nome, DataNasc, Sexo, CPF, Telefone, Email, Senha) " +
                     "values (@Nome, @DataNasc, @Sexo, @CPF, @Telefone, @Email, @Senha)",
-                    conexao
+                    conexao,
+                    transacao
                 );
 
                 cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = funcionario.Nome;
                 cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = funcionario.DataNasc.HasValue ? funcionario.DataNasc.Value : DBNull.Value;
                 cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = funcionario.Sexo;
                 cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = funcionario.CPF;
-                cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.VarChar).Value = funcionario.Telefone;
+                cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.Decimal).Value = funcionario.Telefone;
                 cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = funcionario.Email;
                 cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = funcionario.Senha;
 
@@ -91,15 +94,18 @@ namespace BicoTucano.Repository
                 MySqlCommand cmdFuncionario = new MySqlCommand(
                     "insert into tbFuncionario(ID_Funcionario, DataAdmissao, NivelAcesso, Cargo) " +
                     "values (@ID_Funcionario, @DataAdmissao, @NivelAcesso, @Cargo)",
-                    conexao
+                    conexao, 
+                    transacao
                 );
 
                 cmdFuncionario.Parameters.Add("@ID_Funcionario", MySqlDbType.Int32).Value = idUsuario;
-                cmdFuncionario.Parameters.Add("@DataAdmissao", MySqlDbType.DateTime).Value = funcionario.DataAdmissao.ToString("yyyy/MM/dd");
-                cmdFuncionario.Parameters.Add("@NivelAcesso", MySqlDbType.VarChar).Value = funcionario.NivelAcesso;
+                cmdFuncionario.Parameters.Add("@DataAdmissao", MySqlDbType.DateTime).Value = funcionario.DataAdmissao;
+                cmdFuncionario.Parameters.Add("@NivelAcesso", MySqlDbType.VarChar).Value = funcionario.NivelAcesso.ToString();
                 cmdFuncionario.Parameters.Add("@Cargo", MySqlDbType.VarChar).Value = funcionario.Cargo;
 
                 cmdFuncionario.ExecuteNonQuery();
+                transacao.Commit();
+                }
                 conexao.Close();
             }
         }
@@ -141,7 +147,7 @@ namespace BicoTucano.Repository
                     funcionario.DataNasc = (DateTime)(dr["DataNasc"]);
                     funcionario.Sexo = (string)(dr["Sexo"]);
                     funcionario.CPF = (string)(dr["CPF"]);
-                    funcionario.Telefone = (Decimal)(dr["Telefone"]);
+                    funcionario.Telefone = (decimal)(dr["Telefone"]);
                     funcionario.Email = (string)(dr["Email"]);
                     funcionario.NivelAcesso = (NivelAcesso)Enum.Parse(typeof(NivelAcesso), dr["NivelAcesso"].ToString());
                     funcionario.Cargo = (string)(dr["Cargo"]);

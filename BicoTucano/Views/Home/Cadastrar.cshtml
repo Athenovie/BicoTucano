@@ -55,7 +55,7 @@
                 <div class="linha-formulario">
                     <div class="campo-formulario">
                         <label asp-for="Telefone">Telefone</label>
-                        <input asp-for="Telefone" type="text" placeholder="(00) 00000-0000" />
+                        <input asp-for="Telefone" type="text" placeholder="Somente números" maxlength="11" />
                         <span asp-validation-for="Telefone" class="texto-erro"></span>
                     </div>
                     <div class="campo-formulario">
@@ -64,7 +64,7 @@
                         {
                             <p class="alert alert-danger texto-erro">@Html.Raw(ViewData["MSG_CPF"])</p>
                         }
-                        <input asp-for="CPF" type="text" placeholder="000.000.000-00" />
+                        <input asp-for="CPF" type="text" placeholder="Somente números" maxlength="11" />
                         <span asp-validation-for="CPF" class="texto-erro"></span>
                     </div>
                 </div>
@@ -88,7 +88,7 @@
 
                 <div class="campo-formulario">
                     <label asp-for="Senha">Senha</label>
-                    <input asp-for="Senha" type="password" id="senha" placeholder="8 caracteres" />
+                    <input asp-for="Senha" type="password" id="senha" placeholder="6 a 10 caracteres" />
                     <span asp-validation-for="Senha" class="texto-erro"></span>
                 </div>
                 <div class="campo-formulario">

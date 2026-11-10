@@ -15,7 +15,7 @@ namespace BicoTucano.Libraries.Filtro
             Cliente cliente = _loginCliente.GetCliente();
             if (cliente == null)
             {
-                context.Result = new ContentResult() { Content = "Acesso Negado" };
+                context.Result = new RedirectToActionResult("Login", "Home", new { area = "" });
             }
         }
     }

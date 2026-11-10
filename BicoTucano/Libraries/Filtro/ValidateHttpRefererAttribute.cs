@@ -7,6 +7,11 @@ namespace BicoTucano.Libraries.Filtro
     {
         public void OnActionExecuted(ActionExecutedContext context)
         {
+            
+        }
+
+        public void OnActionExecuting(ActionExecutingContext context)
+        {
             string referer = context.HttpContext.Request.Headers["Referer"].ToString();
             if (string.IsNullOrEmpty(referer))
             {
@@ -24,11 +29,6 @@ namespace BicoTucano.Libraries.Filtro
                     context.Result = new ContentResult() { Content = "Acesso negado! " };
                 }
             }
-        }
-
-        public void OnActionExecuting(ActionExecutingContext context)
-        {
-            throw new NotImplementedException();
         }
     }
 }
