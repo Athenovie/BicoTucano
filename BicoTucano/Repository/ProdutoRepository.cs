@@ -7,6 +7,34 @@ namespace BicoTucano.Repository
 {
     public class ProdutoRepository : IProdutoRepository
     {
+
+        public void Cadastrar(Produto produto)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "INSERT INTO tbProduto (Nome, Preco, Descricao, Disponibilidade, ID_Categoria, NomeImagem)" +
+                    " VALUES (@Nome, @Preco, @Descricao, @Disponibilidade, @ID_Categoria, @NomeImagem)",
+                    conexao);
+
+                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = produto.Nome;
+                cmd.Parameters.Add("@Preco", MySqlDbType.Decimal).Value = produto.Preco;
+                cmd.Parameters.Add("@Descricao", MySqlDbType.VarChar).Value = produto.Descricao;
+                cmd.Parameters.Add("@Disponibilidade", MySqlDbType.Bit).Value = produto.Disponibilidade;
+                cmd.Parameters.Add("@ID_Categoria", MySqlDbType.Int32).Value = produto.ID_Categoria;
+                cmd.Parameters.Add("@NomeImagem", MySqlDbType.VarChar).Value = produto.NomeImagem;
+
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
+        }
+
+        public void Atualizar(Produto produto)
+        {
+            throw new NotImplementedException();
+        }
         private readonly string _conexaoMySQL;
 
         public ProdutoRepository(IConfiguration conf)
