@@ -1,4 +1,5 @@
-﻿using BicoTucano.Models;
+﻿using BicoTucano.GerenciaArquivo;
+using BicoTucano.Models;
 using BicoTucano.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,47 @@ namespace BicoTucano.Controllers
             _produtoRepository = produtoRepository;
         }
 
+       
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(Produto produto, IFormFile file)
+        {
+            var Caminho = GerenciadorArquivo.CadastrarImagemProduto(file);
+
+            produto.NomeImagem = Caminho;
+
+            _produtoRepository.Cadastrar(produto);
+
+            ViewBag.msg = "Cadastro realizado";
+            return RedirectToAction("Home", "Index");
+
+
+        }
+
+        public IActionResult Cadastrar()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Cadastrar(Produto produto, IFormFile file)
+        {
+            var Caminho = GerenciadorArquivo.CadastrarImagemProduto(file);
+
+            produto.NomeImagem = Caminho;
+
+            _produtoRepository.Cadastrar(produto);
+
+            ViewBag.msg = "Cadastro realizado";
+            return RedirectToAction("Index", "Home");
+
+
+
+        }
+
         public IActionResult Detalhes(int id)
         {
             Produto? produto = _produtoRepository.ObterProduto(id);
@@ -25,9 +67,6 @@ namespace BicoTucano.Controllers
             return View(produto);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+      
     }
 }
