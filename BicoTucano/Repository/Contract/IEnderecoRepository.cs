@@ -2,7 +2,7 @@
 
 namespace BicoTucano.Repository.Contract
 {
-    public interface IEndereco
+    public interface IEnderecoRepository
     {
         void Cadastrar(Endereco endereco);
         void Atualizar(Endereco endereco);
@@ -12,5 +12,7 @@ namespace BicoTucano.Repository.Contract
         Endereco ObterEndereco(int Id);
 
         IEnumerable<Endereco> ObterTodosEnderecos();
+        IEnumerable<Endereco> ObterEnderecoDoUsuario(int idUsuario);
+        
     }
 }

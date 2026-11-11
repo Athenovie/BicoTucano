@@ -1,4 +1,5 @@
 using BicoTucano.Libraries.Login;
+using BicoTucano.Models;
 using BicoTucano.Repository;
 using BicoTucano.Repository.Contract;
 
@@ -11,6 +12,7 @@ builder.Services.AddControllersWithViews();
 //Adicionar a Interface como um serviço 
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 
 
 // Corrigir problema com TEMPDATA

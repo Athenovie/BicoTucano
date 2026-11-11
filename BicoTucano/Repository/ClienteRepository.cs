@@ -116,14 +116,54 @@ namespace BicoTucano.Repository
 
         public void Atualizar(Cliente cliente)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmdUsuario = new MySqlCommand(
+                    "update tbUsuario set Nome=@Nome, DataNasc=@DataNasc, Sexo=@Sexo, CPF=@CPF," +
+                    "Telefone=@Telefone, Email=@Email where ID_Usuario=@Id", conexao);
+
+                cmdUsuario.Parameters.Add("@Id", MySqlDbType.Int32).Value = cliente.ID_Usuario;
+                cmdUsuario.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = cliente.Nome;
+                cmdUsuario.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = cliente.DataNasc.HasValue ? cliente.DataNasc.Value : DBNull.Value;
+                cmdUsuario.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = cliente.Sexo;
+                cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
+                cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.Decimal).Value = cliente.Telefone;
+                cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
+
+                cmdUsuario.ExecuteNonQuery();
+                
+            }
         }
 
         
 
         public void Excluir(int Id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                using (var transacao = conexao.BeginTransaction())
+                {
+                    string[] comandos =
+                    {
+                "delete from tbUsuarioEndereco where ID_Usuario=@Id",
+                "delete from tbCartao where ID_Usuario=@Id",
+                "delete from tbCliente where ID_Cliente=@Id",
+                "delete from tbUsuario where ID_Usuario=@Id"
+            };
+
+                    foreach (string sql in comandos)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(sql, conexao, transacao);
+                        cmd.Parameters.AddWithValue("@Id", Id);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    transacao.Commit();
+                }
+            }
         }
 
 
@@ -157,7 +197,7 @@ namespace BicoTucano.Repository
                     cliente.DataNasc = (DateTime)(dr["DataNasc"]);
                     cliente.Sexo = (string)(dr["Sexo"]);
                     cliente.CPF = (string)(dr["CPF"]);
-                    cliente.Telefone = (Decimal)(dr["Telefone"]);
+                    cliente.Telefone = Convert.ToDecimal(dr["Telefone"]);
                     cliente.Email = (string)(dr["Email"]);
                     cliente.Situacao = (string)(dr["Situacao"]);
                 }

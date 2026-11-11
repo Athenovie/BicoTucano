@@ -280,3 +280,4 @@ C:\Users\Sammuel\Desktop\Nova pasta (8)\BicoTucano\obj\Debug\net10.0\refint\Bico
 C:\Users\Sammuel\Desktop\Nova pasta (8)\BicoTucano\obj\Debug\net10.0\BicoTucano.pdb
 C:\Users\Sammuel\Desktop\Nova pasta (8)\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\Sammuel\Desktop\Nova pasta (8)\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
+C:\Users\Sammuel\Desktop\Nova pasta (8)\BicoTucano\obj\Debug\net10.0\compressed\bbps1bcw8m-{0}-z1qr6nv96c-z1qr6nv96c.gz

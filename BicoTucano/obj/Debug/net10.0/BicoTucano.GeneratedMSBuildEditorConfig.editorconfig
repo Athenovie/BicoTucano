@@ -23,8 +23,16 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Areas/Funcionario/Views/Cliente/Atualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxBdHVhbGl6YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Areas/Funcionario/Views/Cliente/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxDYWRhc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Areas/Funcionario/Views/Cliente/Endereco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxFbmRlcmVjby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Areas/Funcionario/Views/Cliente/Index.cshtml]
@@ -65,6 +73,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Areas/Funcionario/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Views/Endereco/Atualizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cQXR1YWxpemFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Views/Endereco/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cQ2FkYXN0cmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Views/Endereco/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Views/Endereco/_Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cX0Zvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sammuel/Desktop/Nova pasta (8)/BicoTucano/Views/Home/Cadastrar.cshtml]

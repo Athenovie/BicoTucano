@@ -17,15 +17,16 @@ namespace BicoTucano.Models
 
         [Display(Name = "Estado", Description = "Estado.")]
         [Required(ErrorMessage = "O Estado é obrigatório.")]
-        public int Estado { get; set; }
+        [RegularExpression("^[A-Za-z]{2}$", ErrorMessage = "Informe a sigla do Estado com 2 letras.")]
+        public string Estado { get; set; }
 
         [Display(Name = "Cidade", Description = "Cidade.")]
         [Required(ErrorMessage = "A Cidade é obrigatória.")]
-        public int Cidade { get; set; }
+        public string Cidade { get; set; }
 
         [Display(Name = "Bairro", Description = "Bairro.")]
         [Required(ErrorMessage = "O Bairro é obrigatório.")]
-        public int Bairro { get; set; }
+        public string Bairro { get; set; }
 
         [Display(Name = "Logradouro", Description = "Logradouro.")]
         [Required(ErrorMessage = "O Logradouro é obrigatório.")]

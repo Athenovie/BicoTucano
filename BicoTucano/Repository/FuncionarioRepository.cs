@@ -208,7 +208,7 @@ namespace BicoTucano.Repository
                         DataAdmissao = Convert.ToDateTime(dr["DataAdmissao"])
                     };
 
-                    if (dr["DataDemissao"] != DBNull.Value)
+                    if (!dr.IsNull("DataDemissao"))
                     {
                         funcionario.DataDemissao = Convert.ToDateTime(dr["DataDemissao"]);
                     }

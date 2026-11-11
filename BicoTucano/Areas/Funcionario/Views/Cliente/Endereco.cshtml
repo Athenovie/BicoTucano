@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BicoTucano.Models.Endereco>
+@{
+    ViewData["Title"] = "Endereços do cliente";
+}
+
+<h1>Endereços de @ViewBag.NomeCliente</h1>
+
+<p><a class="btn btn-secondary btn-sm" asp-action="Index">Voltar</a></p>
+
+@if (!Model.Any())
+{
+    <p>Este cliente não tem endereços cadastrados.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Endereço</th>
+                    <th>Bairro</th>
+                    <th>Cidade/UF</th>
+                    <th>CEP</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Endereco e in Model)
+                {
+                    <tr>
+                        <td>@e.NomeEndereco</td>
+                        <td>@e.Logradouro, @e.Numero @e.Complemento</td>
+                        <td>@e.Bairro</td>
+                        <td>@e.Cidade/@e.Estado</td>
+                        <td>@e.CEP</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

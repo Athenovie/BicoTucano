@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS DbTucano
+CREATE DATABASE IF NOT EXISTS DbTucano;
 use DbTucano;
 
 CREATE TABLE tbProduto (
@@ -30,7 +30,7 @@ NF INT PRIMARY KEY AUTO_INCREMENT,
 DataPedido DATETIME,
 ID_Usuario INT,
 TipoPedido Enum('Entrega', 'Retirada'),
-StatusPedido Enum(,'Em preparo', 'Em Entrega', 'Concluido'),
+StatusPedido Enum('Em preparo', 'Em Entrega', 'Concluido'),
 Subtotal DECIMAL(8,2),
 TaxaEntrega DECIMAL(8,2),
 ValorTotal DECIMAL(8,2),
@@ -89,7 +89,7 @@ Bairro VARCHAR(75)
 );
 
 CREATE TABLE tbCidade (
-ID_Cidade INT PRIMARY KEY AUTO_INCREMEN,
+ID_Cidade INT PRIMARY KEY AUTO_INCREMENT,
 Cidade VARCHAR(75)
 );
 

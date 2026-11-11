@@ -63,16 +63,17 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             try
             {
                 _repositoryFuncionario.Cadastrar(funcionario);
-                ViewData["MSG_S"] = "Cadastro realizado com sucesso!";
-                return View();
+
+                TempData["MSG_S"] = "Cadastro realizado com sucesso!";
+                return RedirectToAction(nameof(Index));
+
             }
             catch (MySqlException ex) when (ex.Number == 1062)
             {
                 ViewData["MSG_E"] = "E=mail ou CPF já cadastrado";
+
                 return View(funcionario);
             }
-            
-            return RedirectToAction(nameof(Cadastrar));
 
 
         }

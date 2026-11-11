@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BicoTucano.Models.Endereco>
+@{
+    ViewData["Title"] = "Meus endereços";
+}
+
+<h1>Meus endereços</h1>
+
+@if (TempData["MSG_S"] != null)
+{
+    <div class="alert alert-success">@TempData["MSG_S"]</div>
+}
+
+<p><a class="btn btn-outline-primary" asp-action="Cadastrar">Novo endereço</a></p>
+
+@if (!Model.Any())
+{
+    <p>Você ainda não cadastrou nenhum endereço.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Endereço</th>
+                    <th>Bairro</th>
+                    <th>Cidade/UF</th>
+                    <th>CEP</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Endereco e in Model)
+                {
+                    <tr>
+                        <td>@e.NomeEndereco</td>
+                        <td>@e.Logradouro, @e.Numero @e.Complemento</td>
+                        <td>@e.Bairro</td>
+                        <td>@e.Cidade/@e.Estado</td>
+                        <td>@e.CEP</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-action="Atualizar" asp-route-id="@e.ID_UsuarioEndereco">Editar</a>
+                            <form asp-action="Excluir" asp-route-id="@e.ID_UsuarioEndereco" method="post" class="d-inline"
+                                  onsubmit="return confirm('Excluir este endereço?');">
+                                <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
