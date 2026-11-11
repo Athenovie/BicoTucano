@@ -1,4 +1,13 @@
-﻿.banner {
+﻿:root {
+    --fundo: #f7f4ee;
+    --texto: #2b2b2b;
+    --laranja: #e8875a;
+    --laranja-hover: #d9753f;
+    --verde: #4a7c59;
+    --verde-hover: #3d6a4a;
+}
+
+.banner {
     background-color: #1b3019;
     padding: 50px 0;
     width: 100vw;
@@ -97,4 +106,127 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 1;
+}
+
+
+.secao-produtos {
+    background: var(--fundo);
+    width: 100%;
+    padding: 32px max(24px, calc((100% - 1100px) / 2));
+    font-family: 'Playfair Display', serif;
+    color: var(--texto);
+}
+
+.secao-produtos > h3 {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--laranja);
+}
+
+.secao-produtos > h2 {
+    margin: 4px 0 20px;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.lista-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card-produto {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card-produto:hover {
+    transform: translateY(-3px);
+}
+
+.card-produto img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.card-produto h3 {
+    margin: 14px 14px 8px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.descricao-produto {
+    margin: 0 14px 14px;
+    font-size: 13.5px;
+    line-height: 1.45;
+}
+
+.rodape-produto {
+    margin-top: auto;
+    padding: 0 14px 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.preco-produto small {
+    display: block;
+    font-size: 12px;
+    opacity: .75;
+}
+
+.preco-produto strong {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.botao-ver-mais,
+.botao-ver-cardapio {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.botao-ver-mais {
+    background: var(--laranja);
+    font-size: 13px;
+    padding: 9px 22px;
+}
+
+.card-produto:hover .botao-ver-mais {
+    background: var(--laranja-hover);
+}
+
+.acoes-produtos {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.botao-ver-cardapio {
+    background: var(--verde);
+    font-size: 14px;
+    padding: 10px 28px;
+}
+
+.botao-ver-cardapio:hover {
+    background: var(--verde-hover);
+    color: #fff;
 }

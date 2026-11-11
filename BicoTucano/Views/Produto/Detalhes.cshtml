@@ -1,0 +1,60 @@
+﻿@model BicoTucano.Models.Produto
+
+@{
+    ViewData["Title"] = Model.Nome;
+    var disponivel = Model.Disponibilidade;
+}
+
+<link rel="stylesheet" href="~/css/Detalhes.css" asp-append-version="true" />
+
+<section class="detalhe-produto">
+
+    <img src="~/img/@Model.NomeImagem"
+         alt="@Model.Nome"
+         class="detalhe-imagem" />
+
+    <div class="detalhe-info">
+
+        <span class="detalhe-categoria">@Model.Categoria</span>
+
+        <h1 class="detalhe-nome">@Model.Nome</h1>
+
+        <span class="detalhe-disponibilidade @(disponivel ? "disponivel" : "indisponivel")">
+            @(disponivel ? "Disponível" : "Indisponível")
+        </span>
+
+        <p class="detalhe-preco">R$ @Model.Preco.ToString("F2")</p>
+
+        <p class="detalhe-descricao">@Model.Descricao</p>
+
+        <div class="detalhe-compra">
+
+            <div class="detalhe-quantidade">
+                <button type="button" id="botao-menos" class="botao-quantidade" aria-label="Diminuir quantidade">−</button>
+                <input type="number" id="campo-quantidade" value="1" min="1" max="99" aria-label="Quantidade" />
+                <button type="button" id="botao-mais" class="botao-quantidade" aria-label="Aumentar quantidade">+</button>
+            </div>
+
+            <button type="button" class="botao-carrinho" disabled="@(!disponivel)">
+                Adicionar ao carrinho
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+@section Scripts {
+    <script>
+        const campo = document.getElementById('campo-quantidade');
+
+        document.getElementById('botao-menos').addEventListener('click', () => {
+            campo.value = Math.max(1, (parseInt(campo.value) || 1) - 1);
+        });
+
+        document.getElementById('botao-mais').addEventListener('click', () => {
+            campo.value = Math.min(99, (parseInt(campo.value) || 1) + 1);
+        });
+    </script>
+}

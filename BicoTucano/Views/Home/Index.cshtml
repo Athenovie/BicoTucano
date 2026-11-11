@@ -1,5 +1,7 @@
-﻿@{
+﻿@model List<BicoTucano.Models.Produto>
+@{
     ViewData["Title"] = "Home";
+    ViewData["LarguraTotal"] = true;
 }
 <div class="banner">
     <div class="banner-container">
@@ -51,3 +53,93 @@
         </div>
     </div>
 </div>
+
+
+<section class="secao-produtos">
+
+    <h3>Nosso cardápio</h3>
+    <h2>Escolha o seu favorito</h2>
+
+    <div class="lista-produtos">
+
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@Model[0].ID_Produto" class="card-produto">
+            <img src="~/img/@Model[0].NomeImagem" />
+            <h3>@Model[0].Nome</h3>
+            <p class="descricao-produto">@Model[0].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @Model[0].Preco.ToString("F2")</strong>
+                </div>
+                <span class="botao-ver-mais">Ver mais</span>
+            </div>
+        </a>
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@Model[1].ID_Produto" class="card-produto">
+            <img src="~/img/@Model[1].NomeImagem" />
+            <h3>@Model[1].Nome</h3>
+            <p class="descricao-produto">@Model[1].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @Model[1].Preco.ToString("F2")</strong>
+                </div>
+                <span class="botao-ver-mais">Ver mais</span>
+            </div>
+        </a>
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@Model[2].ID_Produto" class="card-produto">
+            <img src="~/img/@Model[2].NomeImagem" />
+            <h3>@Model[2].Nome</h3>
+            <p class="descricao-produto">@Model[2].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @Model[2].Preco.ToString("F2")</strong>
+                </div>
+                <span class="botao-ver-mais">Ver mais</span>
+            </div>
+        </a>
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@Model[3].ID_Produto" class="card-produto">
+            <img src="~/img/@Model[3].NomeImagem" />
+            <h3>@Model[3].Nome</h3>
+            <p class="descricao-produto">@Model[3].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @Model[3].Preco.ToString("F2")</strong>
+                </div>
+                <span class="botao-ver-mais">Ver mais</span>
+            </div>
+        </a>
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@Model[4].ID_Produto" class="card-produto">
+            <img src="~/img/@Model[4].NomeImagem" />
+            <h3>@Model[4].Nome</h3>
+            <p class="descricao-produto">@Model[4].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @Model[4].Preco.ToString("F2")</strong>
+                </div>
+                <span class="botao-ver-mais">Ver mais</span>
+            </div>
+        </a>
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@Model[5].ID_Produto" class="card-produto">
+            <img src="~/img/@Model[5].NomeImagem" />
+            <h3>@Model[5].Nome</h3>
+            <p class="descricao-produto">@Model[5].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @Model[5].Preco.ToString("F2")</strong>
+                </div>
+                <span class="botao-ver-mais">Ver mais</span>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="acoes-produtos">
+        <a asp-controller="" asp-action="" class="botao-ver-cardapio">Ver cardápio</a>
+    </div>
+
+</section>
+

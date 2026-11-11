@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var larguraTotal = ViewData["LarguraTotal"] as bool? ?? false;
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -51,8 +54,8 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="@(larguraTotal ? "" : "container")">
+        <main role="main" class="@(larguraTotal ? "" : "pb-3")">
             @RenderBody()
         </main>
     </div>

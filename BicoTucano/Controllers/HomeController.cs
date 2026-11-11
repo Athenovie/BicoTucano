@@ -14,13 +14,16 @@ namespace BicoTucano.Controllers
         // Injeção de dependência
         private IClienteRepository _clienteRepository;
         private LoginCliente _loginCliente;
+        private IProdutoRepository _produtoRepository;
 
         public HomeController(
             IClienteRepository clienteRepository,
-            LoginCliente loginCliente)
+            LoginCliente loginCliente,
+            IProdutoRepository produtoRepository)
         {
             _clienteRepository = clienteRepository;
             _loginCliente = loginCliente;
+            _produtoRepository = produtoRepository;
         }
 
         public IActionResult Cadastrar()
@@ -104,7 +107,9 @@ namespace BicoTucano.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Produto> produtos = _produtoRepository.ObterTodosProdutos().ToList();
+
+            return View(produtos);
         }
 
         public IActionResult Privacy()
