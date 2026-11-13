@@ -1,14 +1,23 @@
 ﻿@model List<BicoTucano.Models.Item_Pedido>
+@using BicoTucano.Models
 @using System.Globalization
+
 @{
     ViewData["Title"] = "Carrinho";
     var br = new CultureInfo("pt-BR");
-    var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
-    decimal total = Model.Sum(i => i.Preco * i.Quantidade);
+    var produtos = ViewBag.Produtos as Dictionary<int, Produto> ?? new Dictionary<int, Produto>();
+
+    decimal subTotal = Model?.Sum(i => i.Preco * i.Quantidade) ?? 0;
+    decimal taxaEntrega = 6.00m;
+    int totalItens = Model?.Sum(i => i.Quantidade) ?? 0;
 }
 
-<div class="container my-4">
-    <h1 class="mb-3">Meu carrinho</h1>
+@* Linha para conectar HTML com CSS *@
+<link rel="stylesheet" href="~/css/Carrinho.css" asp-append-version="true" />
+
+<div class="carrinho">
+    <p class="caminho"><a asp-controller="Home" asp-action="Index">Início</a> &gt; Meu carrinho</p>
+    <h1 class="titulo">Meu carrinho <small>(@totalItens itens)</small></h1>
 
     @if (TempData["MSG_S"] != null)
     {
@@ -19,79 +28,104 @@
         <div class="alert alert-warning">@TempData["MSG_E"]</div>
     }
 
-    @if (!Model.Any())
+    @if (Model == null || !Model.Any())
     {
-        <p>Seu carrinho está vazio.</p>
-        <a class="btn btn-success" asp-controller="Home" asp-action="Index">Ver cardápio</a>
+        <div class="vazio">
+            <p>Seu carrinho está vazio.</p>
+            <a class="botao-laranja" asp-controller="Home" asp-action="Index">Ver cardápio</a>
+        </div>
     }
     else
     {
-        <div class="table-responsive">
-            <table class="table align-middle">
-                <thead>
-                    <tr>
-                        <th>Prato</th>
-                        <th>Preço</th>
-                        <th style="width:170px">Quantidade</th>
-                        <th>Subtotal</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (Item_Pedido item in Model)
+        <div class="produtos-carrinho">
+            <div class="lista-produtos">
+                @* O foreach vai percorrer todos os produtos da model *@
+                @foreach (Item_Pedido item in Model)
+                {
+                    @* Busca o produto pelo ID *@
+                    if (produtos.TryGetValue(item.ID_Produto, out Produto produto))
                     {
-                        Produto produto = produtos[item.ID_Produto];
-                        <tr>
-                            <td>
-                                @if (!string.IsNullOrEmpty(produto.NomeImagem))
-                                {
-                                    <img src="~/img/@produto.NomeImagem" alt="@produto.Nome"
-                                         style="width:50px;height:50px;object-fit:cover" class="me-2 rounded" />
-                                }
-                                @produto.Nome
-                            </td>
-                            <td>@item.Preco.ToString("C", br)</td>
-                            <td>
-                                <div class="d-flex align-items-center gap-2">
-                                    <form asp-action="AlterarQuantidade" asp-route-id="@item.ID_Produto" method="post">
-                                        <input type="hidden" name="quantidade" value="@(item.Quantidade - 1)" />
-                                        <button type="submit" class="btn btn-outline-secondary btn-sm">-</button>
-                                    </form>
-                                    <span>@item.Quantidade</span>
-                                    <form asp-action="AlterarQuantidade" asp-route-id="@item.ID_Produto" method="post">
-                                        <input type="hidden" name="quantidade" value="@(item.Quantidade + 1)" />
-                                        <button type="submit" class="btn btn-outline-secondary btn-sm"
-                                                disabled="@(item.Quantidade >= 99)">
-                                            +
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td>@((item.Preco * item.Quantidade).ToString("C", br))</td>
-                            <td>
+                        <div class="item">
+                            @* Mostra a imagem do produto *@
+                            <img src="~/img/@produto.NomeImagem" alt="@produto.Nome" />
+
+                            @* Mostra o Nome e Categoria *@
+                            <div class="item-meio">
+                                <h2>@produto.Nome</h2>
+                                <small>@produto.Categoria</small>
+                            </div>
+
+                            <div class="item-direita">
+                                @* Multiplica o preço pela quantidade e transforma em real *@
+                                <p class="item-preco">@((item.Preco * item.Quantidade).ToString("C", br))</p>
+
+                                @* Quando o cliente clicar em Remover, o formulário envia o ID do produto *@
                                 <form asp-action="RemoverItem" asp-route-id="@item.ID_Produto" method="post">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">Remover</button>
+                                    <button type="submit" class="remover">Remover</button>
                                 </form>
-                            </td>
-                        </tr>
+                            </div>
+                        </div>
                     }
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="3" class="text-end">Subtotal</th>
-                        <th>@total.ToString("C", br)</th>
-                        <th></th>
-                    </tr>
-                </tfoot>
-            </table>
+                }
+            </div>
+
+            <div class="links">
+                <a asp-controller="Home" asp-action="Index">Continuar comprando</a>
+            </div>
+
+            <div class="caixa" id="endereco-entrega">
+                <h3>Entregar no endereço</h3>
+                <a class="botao-endereco" asp-controller="Endereco" asp-action="Index">Adicionar endereço</a>
+            </div>
+
+            <div class="opcoes-entrega">
+                <h3>Opções de entrega</h3>
+                <label class="opcao">
+                    <div>
+                        <b>Delivery</b><br />
+                        <small>Entrega no endereço em 30-45 min</small>
+                    </div>
+                    @*Botão de seleção único*@
+                    <input type="radio" name="tipo" value="entrega" checked onchange="atualizar()" />
+                </label>
+
+                <label class="opcao">
+                    <div>
+                        <b>Retirada no Local</b><br />
+                        <small>R. Fradique Coutinho, 088 - Pronto em 20 min</small>
+                    </div>
+                    @*Botão de seleção único*@
+                    <input type="radio" name="tipo" value="retirada" onchange="atualizar()" />
+                </label>
+            </div>
         </div>
 
-        <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-outline-success" asp-controller="Home" asp-action="Index">Continuar comprando</a>
-            <form asp-action="LimparCarrinho" method="post" onsubmit="return confirm('Esvaziar o carrinho?');">
-                <button type="submit" class="btn btn-outline-danger">Limpar carrinho</button>
-            </form>
-            <a class="btn btn-success ms-auto" asp-action="Finalizar">Finalizar pedido</a>
+        <div class="resumo">
+            <h2>Resumo do Pedido</h2>
+
+            <div class="subtotal">
+                <span>Subtotal (@totalItens itens)</span>
+                <span>@subTotal.ToString("C", br)</span>
+            </div>
+
+            <div class="taxadeentrega">
+                <span>Taxa de Entrega</span>
+                <span id="taxa">@taxaEntrega.ToString("C", br)</span>
+            </div>
+
+            <hr />
+
+            <div class="total">
+                <span>Total</span>
+                <span id="total">@((subTotal + taxaEntrega).ToString("C", br))</span>
+            </div>
+
+            <a class="botao-laranja" asp-action="Finalizar">Finalizar Pedido</a>
+
+            <p class="pagamento">
+                Pagamento com: PIX, VISA, MASTER<br />
+                Pagamento 100% seguro e criptografado
+            </p>
         </div>
     }
 </div>
