@@ -6,7 +6,7 @@ use DbTucano;
 CREATE TABLE tbProduto (
 ID_Produto INT PRIMARY KEY AUTO_INCREMENT,
 Nome VARCHAR(150) not null,
-Preco DECIMAL(8,2) not null,
+Preco DECIMAL(6,2) not null,
 Descricao VARCHAR(200) not null,
 Disponibilidade BOOLEAN not null,
 ID_Categoria INT not null
@@ -22,7 +22,7 @@ ID_Item INT PRIMARY KEY AUTO_INCREMENT,
 NF INT,
 ID_Produto INT,
 Quantidade SMALLINT,
-Preco DECIMAL(8,2),
+Preco DECIMAL(6,2),
 FOREIGN KEY(ID_Produto) REFERENCES tbProduto (ID_Produto)
 );
 
@@ -32,9 +32,9 @@ DataPedido DATETIME,
 ID_Usuario INT,
 TipoPedido Enum('Entrega', 'Retirada'),
 StatusPedido Enum('Em preparo', 'Em Entrega', 'Concluido'),
-Subtotal DECIMAL(8,2),
-TaxaEntrega DECIMAL(8,2),
-ValorTotal DECIMAL(8,2),
+Subtotal DECIMAL(6,2),
+TaxaEntrega DECIMAL(6,2),
+ValorTotal DECIMAL(6,2),
 CEP VARCHAR(9),
 DetalhesPedido VARCHAR(150),
 ID_Funcionario INT
@@ -46,7 +46,7 @@ NF INT,
 FormaPagamento Enum('Pix', 'Cartão Débito', 'Cartão Crédito'),
 ChavePix VARCHAR(150),
 ID_Cartao INT,
-ValorPago DECIMAL(8,2),
+ValorPago DECIMAL(6,2),
 DataPagamento DATETIME,
 StatusPagamento Enum('Pago','Não Pago'),
 FOREIGN KEY(NF) REFERENCES tbPedido (NF)
