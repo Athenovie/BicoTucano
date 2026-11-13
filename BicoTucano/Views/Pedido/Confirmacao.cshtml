@@ -1,0 +1,65 @@
+﻿@model BicoTucano.Models.Pedido
+@using System.Globalization
+@{
+    ViewData["Title"] = "Pedido confirmado";
+    var br = new CultureInfo("pt-BR");
+    var itens = (List<Item_Pedido>)ViewBag.Itens;
+    var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
+
+    string status = Model.StatusPedido switch
+    {
+        StatusPedido.EmPreparo => "Em preparo",
+        StatusPedido.EmEntrega => "Em entrega",
+        StatusPedido.Concluido => "Concluído",
+        _ => ""
+    };
+}
+
+<div class="container my-4">
+    <div class="alert alert-success">
+        <h4 class="alert-heading mb-1">Pedido nº @Model.NF registrado!</h4>
+        <span>Feito em @Model.DataPedido.ToString("dd/MM/yyyy 'às' HH:mm")</span>
+    </div>
+
+    <p class="mb-1"><strong>Tipo:</strong> @(Model.TipoPedido == TipoPedido.Entrega ? "Entrega" : "Retirada")</p>
+    <p class="mb-1"><strong>Status:</strong> @status</p>
+    @if (Model.TipoPedido == TipoPedido.Entrega)
+    {
+        <p class="mb-1"><strong>CEP da entrega:</strong> @Model.CEP</p>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.DetalhesPedido))
+    {
+        <p class="mb-3"><strong>Detalhes:</strong> @Model.DetalhesPedido</p>
+    }
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Prato</th>
+                    <th>Preço</th>
+                    <th>Qtd.</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Item_Pedido item in itens)
+                {
+                    <tr>
+                        <td>@(produtos.ContainsKey(item.ID_Produto) ? produtos[item.ID_Produto].Nome : "Prato " + item.ID_Produto)</td>
+                        <td>@item.Preco.ToString("C", br)</td>
+                        <td>@item.Quantidade</td>
+                        <td>@((item.Preco * item.Quantidade).ToString("C", br))</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr><th colspan="3" class="text-end">Subtotal</th><th>@Model.Subtotal.ToString("C", br)</th></tr>
+                <tr><th colspan="3" class="text-end">Taxa de entrega</th><th>@Model.TaxaEntrega.ToString("C", br)</th></tr>
+                <tr><th colspan="3" class="text-end">Total</th><th>@Model.ValorTotal.ToString("C", br)</th></tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <a class="btn btn-success" asp-controller="Home" asp-action="Index">Voltar ao cardápio</a>
+</div>

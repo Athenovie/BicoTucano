@@ -15,6 +15,8 @@
             CookieOptions Options = new CookieOptions();
             Options.Expires = DateTime.Now.AddDays(7);
             Options.IsEssential = true;
+            Options.HttpOnly = true;
+            Options.SameSite = SameSiteMode.Lax;
 
             _context.HttpContext.Response.Cookies.Append(Key, Valor, Options);
 

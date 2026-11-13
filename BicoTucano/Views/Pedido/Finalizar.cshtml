@@ -1,0 +1,133 @@
+﻿@model List<BicoTucano.Models.Item_Pedido>
+@using System.Globalization
+@{
+    ViewData["Title"] = "Finalizar pedido";
+    var br = new CultureInfo("pt-BR");
+    var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
+    var enderecos = (List<Endereco>)ViewBag.Enderecos;
+    decimal taxa = (decimal)ViewBag.TaxaEntrega;
+    decimal subtotal = Model.Sum(i => i.Preco * i.Quantidade);
+
+    object? tipoObj = ViewBag.TipoSelecionado;
+    TipoPedido tipoSelecionado = tipoObj is TipoPedido tipoEscolhido ? tipoEscolhido : TipoPedido.Retirada;
+
+    object? enderecoObj = ViewBag.EnderecoSelecionado;
+    int enderecoSelecionado = enderecoObj is int idEscolhido ? idEscolhido : 0;
+
+    string observacao = ViewBag.Observacao as string ?? "";
+    bool ehEntrega = tipoSelecionado == TipoPedido.Entrega;
+}
+
+<div class="container my-4">
+    <h1 class="mb-3">Finalizar pedido</h1>
+
+    @if (ViewBag.Erro != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Erro</div>
+    }
+
+    <div class="row g-4">
+        <div class="col-md-7">
+            <form asp-action="Finalizar" method="post">
+
+                <h5>Como você quer receber?</h5>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="tipoPedido" id="tipoRetirada"
+                           value="@TipoPedido.Retirada" checked="@(!ehEntrega)" />
+                    <label class="form-check-label" for="tipoRetirada">Retirada no restaurante (sem taxa)</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="tipoPedido" id="tipoEntrega"
+                           value="@TipoPedido.Entrega" checked="@ehEntrega" />
+                    <label class="form-check-label" for="tipoEntrega">Entrega (taxa de @taxa.ToString("C", br))</label>
+                </div>
+
+                <div id="blocoEntrega" class="mb-3 @(ehEntrega ? "" : "d-none")">
+                    @if (enderecos.Count == 0)
+                    {
+                        <div class="alert alert-warning mb-0">
+                            Você ainda não tem endereço cadastrado.
+                            <a class="alert-link" asp-controller="Endereco" asp-action="Cadastrar">Cadastrar endereço</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <label for="idEndereco" class="form-label">Endereço de entrega</label>
+                        <select name="idEndereco" id="idEndereco" class="form-select">
+                            <option value="">Selecione...</option>
+                            @foreach (Endereco e in enderecos)
+                            {
+                                <option value="@e.ID_UsuarioEndereco" selected="@(enderecoSelecionado == e.ID_UsuarioEndereco)">
+                                    @e.NomeEndereco - @e.Logradouro, @e.Numero - @e.Bairro, @e.Cidade/@e.Estado
+                                </option>
+                            }
+                        </select>
+                    }
+                </div>
+
+                <div class="mb-3">
+                    <label for="observacao" class="form-label">Observação (opcional)</label>
+                    <textarea name="observacao" id="observacao" class="form-control" rows="2"
+                              maxlength="80" placeholder="Ex.: sem cebola, ponto da campainha...">@observacao</textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success">Confirmar pedido</button>
+                <a class="btn btn-outline-secondary" asp-action="Carrinho">Voltar ao carrinho</a>
+            </form>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Resumo</h5>
+
+                    @foreach (Item_Pedido item in Model)
+                    {
+                        <p class="d-flex justify-content-between mb-1">
+                            <span>@item.Quantidade x @produtos[item.ID_Produto].Nome</span>
+                            <span>@((item.Preco * item.Quantidade).ToString("C", br))</span>
+                        </p>
+                    }
+                    <hr />
+                    <p class="d-flex justify-content-between mb-1">
+                        <span>Subtotal</span>
+                        <span>@subtotal.ToString("C", br)</span>
+                    </p>
+                    <p id="linhaTaxa" class="d-flex justify-content-between mb-1 @(ehEntrega ? "" : "d-none")">
+                        <span>Taxa de entrega</span>
+                        <span>@taxa.ToString("C", br)</span>
+                    </p>
+                    <p class="d-flex justify-content-between fw-bold mb-0">
+                        <span>Total</span>
+                        <span id="totalFinal"
+                              data-retirada="@subtotal.ToString("C", br)"
+                              data-entrega="@((subtotal + taxa).ToString("C", br))">
+                            @((ehEntrega ? subtotal + taxa : subtotal).ToString("C", br))
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const blocoEntrega = document.getElementById('blocoEntrega');
+        const linhaTaxa = document.getElementById('linhaTaxa');
+        const totalFinal = document.getElementById('totalFinal');
+        const opcaoEntrega = document.getElementById('tipoEntrega');
+
+        function atualizarTela() {
+            const entrega = opcaoEntrega.checked;
+            blocoEntrega.classList.toggle('d-none', !entrega);
+            linhaTaxa.classList.toggle('d-none', !entrega);
+            totalFinal.textContent = entrega ? totalFinal.dataset.entrega : totalFinal.dataset.retirada;
+        }
+
+        document.querySelectorAll('input[name="tipoPedido"]').forEach(function(r) {
+            r.addEventListener('change', atualizarTela);
+        });
+        atualizarTela();
+    </script>
+}

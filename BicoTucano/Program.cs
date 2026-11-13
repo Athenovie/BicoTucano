@@ -15,6 +15,9 @@ builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
+builder.Services.AddScoped<BicoTucano.Cookie.Cookie>();
+builder.Services.AddScoped<BicoTucano.CarrinhoCompra.CookieCarrinhoCompra>();
 
 
 // Corrigir problema com TEMPDATA
@@ -22,7 +25,7 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     // Definir um tempo para duracao.
-    options.IdleTimeout = TimeSpan.FromSeconds(60);
+    options.IdleTimeout = TimeSpan.FromMinutes(20);
     options.Cookie.HttpOnly = true;
 
     // Mostrar para o navegador que o cookie é essencial

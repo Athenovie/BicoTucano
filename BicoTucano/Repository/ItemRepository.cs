@@ -13,47 +13,35 @@ namespace BicoTucano.Repository
             _conexaoMySQL = conf.GetConnectionString("ConexaoMySQL");
         }
 
-        public void Cadastrar(Item_Pedido item)
+        public IEnumerable<Item_Pedido> ObterTodosItens(int nf)
         {
+            var lista = new List<Item_Pedido>();
+
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand(
-                    "INSERT INTO tbItem_Pedido VALUES (@ID_Item, @ID_Produto, @Nome, @Quantidade, @Preco, @Imagem)",
-                    conexao
-                );
+                    "SELECT ID_Item, NF, ID_Produto, Quantidade, Preco " +
+                    "FROM tbItem_Pedido WHERE NF=@NF ORDER BY ID_Item", conexao);
+                cmd.Parameters.AddWithValue("@NF", nf);
 
-                cmd.Parameters.Add("@ID_Item", MySqlDbType.Guid).Value = item.ID_Item;
-                cmd.Parameters.Add("@ID_Produto", MySqlDbType.Int32).Value = item.ID_Produto;
-                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = item.Nome;
-                cmd.Parameters.Add("@Quantidade", MySqlDbType.Decimal).Value = item.Quantidade;
-                cmd.Parameters.Add("@Preco", MySqlDbType.Decimal).Value = item.Preco;
-                cmd.Parameters.Add("@Imagem", MySqlDbType.VarChar).Value = item.Imagem;
-
-                cmd.ExecuteNonQuery();
-                conexao.Close();
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new Item_Pedido
+                        {
+                            ID_Item = Convert.ToInt32(dr["ID_Item"]),
+                            NF = Convert.ToInt32(dr["NF"]),
+                            ID_Produto = Convert.ToInt32(dr["ID_Produto"]),
+                            Quantidade = Convert.ToInt32(dr["Quantidade"]),
+                            Preco = Convert.ToDecimal(dr["Preco"])
+                        });
+                    }
+                }
             }
-        }
-
-        public void Atualizar(Item_Pedido itens)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Excluir(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Item_Pedido ObterItens(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Item_Pedido> ObterTodosItens()
-        {
-            throw new NotImplementedException();
+            return lista;
         }
     }
 }

@@ -27,19 +27,20 @@
 
         <p class="detalhe-descricao">@Model.Descricao</p>
 
-        <div class="detalhe-compra">
+        <form asp-controller="Pedido" asp-action="AdicionarItem" asp-route-id="@Model.ID_Produto"
+              method="post" class="detalhe-compra">
 
             <div class="detalhe-quantidade">
                 <button type="button" id="botao-menos" class="botao-quantidade" aria-label="Diminuir quantidade">−</button>
-                <input type="number" id="campo-quantidade" value="1" min="1" max="99" aria-label="Quantidade" />
+                <input type="number" id="campo-quantidade" name="quantidade" value="1" min="1" max="99" aria-label="Quantidade" />
                 <button type="button" id="botao-mais" class="botao-quantidade" aria-label="Aumentar quantidade">+</button>
             </div>
 
-            <button type="button" class="botao-carrinho" disabled="@(!disponivel)">
+            <button type="submit" class="botao-carrinho" disabled="@(!disponivel)">
                 Adicionar ao carrinho
             </button>
 
-        </div>
+        </form>
 
     </div>
 

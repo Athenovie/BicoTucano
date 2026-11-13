@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BicoTucano.Controllers
 {
+    
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;

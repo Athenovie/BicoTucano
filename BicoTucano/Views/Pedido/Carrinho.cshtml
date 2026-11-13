@@ -1,0 +1,97 @@
+﻿@model List<BicoTucano.Models.Item_Pedido>
+@using System.Globalization
+@{
+    ViewData["Title"] = "Carrinho";
+    var br = new CultureInfo("pt-BR");
+    var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
+    decimal total = Model.Sum(i => i.Preco * i.Quantidade);
+}
+
+<div class="container my-4">
+    <h1 class="mb-3">Meu carrinho</h1>
+
+    @if (TempData["MSG_S"] != null)
+    {
+        <div class="alert alert-success">@TempData["MSG_S"]</div>
+    }
+    @if (TempData["MSG_E"] != null)
+    {
+        <div class="alert alert-warning">@TempData["MSG_E"]</div>
+    }
+
+    @if (!Model.Any())
+    {
+        <p>Seu carrinho está vazio.</p>
+        <a class="btn btn-success" asp-controller="Home" asp-action="Index">Ver cardápio</a>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Prato</th>
+                        <th>Preço</th>
+                        <th style="width:170px">Quantidade</th>
+                        <th>Subtotal</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Item_Pedido item in Model)
+                    {
+                        Produto produto = produtos[item.ID_Produto];
+                        <tr>
+                            <td>
+                                @if (!string.IsNullOrEmpty(produto.NomeImagem))
+                                {
+                                    <img src="~/img/@produto.NomeImagem" alt="@produto.Nome"
+                                         style="width:50px;height:50px;object-fit:cover" class="me-2 rounded" />
+                                }
+                                @produto.Nome
+                            </td>
+                            <td>@item.Preco.ToString("C", br)</td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <form asp-action="AlterarQuantidade" asp-route-id="@item.ID_Produto" method="post">
+                                        <input type="hidden" name="quantidade" value="@(item.Quantidade - 1)" />
+                                        <button type="submit" class="btn btn-outline-secondary btn-sm">-</button>
+                                    </form>
+                                    <span>@item.Quantidade</span>
+                                    <form asp-action="AlterarQuantidade" asp-route-id="@item.ID_Produto" method="post">
+                                        <input type="hidden" name="quantidade" value="@(item.Quantidade + 1)" />
+                                        <button type="submit" class="btn btn-outline-secondary btn-sm"
+                                                disabled="@(item.Quantidade >= 99)">
+                                            +
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                            <td>@((item.Preco * item.Quantidade).ToString("C", br))</td>
+                            <td>
+                                <form asp-action="RemoverItem" asp-route-id="@item.ID_Produto" method="post">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Remover</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3" class="text-end">Subtotal</th>
+                        <th>@total.ToString("C", br)</th>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-outline-success" asp-controller="Home" asp-action="Index">Continuar comprando</a>
+            <form asp-action="LimparCarrinho" method="post" onsubmit="return confirm('Esvaziar o carrinho?');">
+                <button type="submit" class="btn btn-outline-danger">Limpar carrinho</button>
+            </form>
+            <a class="btn btn-success ms-auto" asp-action="Finalizar">Finalizar pedido</a>
+        </div>
+    }
+</div>

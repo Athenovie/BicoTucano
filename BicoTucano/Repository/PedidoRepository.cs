@@ -40,54 +40,121 @@ namespace BicoTucano.Repository
             }
         }
 
-        public void Cadastrar(Pedido pedido)
+        public int Cadastrar(Pedido pedido, IEnumerable<Item_Pedido> itens)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                using (var transacao = conexao.BeginTransaction())
+                {
+                    MySqlCommand cmdPedido = new MySqlCommand(
+                        "INSERT INTO tbPedido (DataPedido, ID_Usuario, TipoPedido, StatusPedido, Subtotal, " +
+                        "TaxaEntrega, ValorTotal, CEP, DetalhesPedido, ID_Funcionario) " +
+                        "VALUES (@DataPedido, @ID_Usuario, @TipoPedido, @StatusPedido, @Subtotal, " +
+                        "@TaxaEntrega, @ValorTotal, @CEP, @DetalhesPedido, @ID_Funcionario)",
+                        conexao, transacao);
+
+                    cmdPedido.Parameters.AddWithValue("@DataPedido", pedido.DataPedido);
+                    cmdPedido.Parameters.AddWithValue("@ID_Usuario", pedido.ID_Usuario);
+                    cmdPedido.Parameters.AddWithValue("@TipoPedido", TipoParaTexto(pedido.TipoPedido));
+                    cmdPedido.Parameters.AddWithValue("@StatusPedido", StatusParaTexto(pedido.StatusPedido));
+                    cmdPedido.Parameters.AddWithValue("@Subtotal", pedido.Subtotal);
+                    cmdPedido.Parameters.AddWithValue("@TaxaEntrega", pedido.TaxaEntrega);
+                    cmdPedido.Parameters.AddWithValue("@ValorTotal", pedido.ValorTotal);
+                    cmdPedido.Parameters.AddWithValue("@CEP", (object?)pedido.CEP ?? DBNull.Value);
+                    cmdPedido.Parameters.AddWithValue("@DetalhesPedido", (object?)pedido.DetalhesPedido ?? DBNull.Value);
+                    cmdPedido.Parameters.AddWithValue("@ID_Funcionario", (object?)pedido.ID_Funcionario ?? DBNull.Value);
+                    cmdPedido.ExecuteNonQuery();
+
+                    int nf = (int)cmdPedido.LastInsertedId;
+
+                    foreach (Item_Pedido item in itens)
+                    {
+                        MySqlCommand cmdItem = new MySqlCommand(
+                            "INSERT INTO tbItem_Pedido (NF, ID_Produto, Quantidade, Preco) " +
+                            "VALUES (@NF, @ID_Produto, @Quantidade, @Preco)",
+                            conexao, transacao);
+
+                        cmdItem.Parameters.AddWithValue("@NF", nf);
+                        cmdItem.Parameters.AddWithValue("@ID_Produto", item.ID_Produto);
+                        cmdItem.Parameters.AddWithValue("@Quantidade", item.Quantidade);
+                        cmdItem.Parameters.AddWithValue("@Preco", item.Preco);
+                        cmdItem.ExecuteNonQuery();
+                    }
+
+                    transacao.Commit();
+                    return nf;
+                }
+            }
+        }
+
+        public Pedido? ObterPedidos(int nf)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand(
-                    "INSERT INTO tbPedido VALUES" +
-                    " (default, @DataPedido, @ID_Usuario, @TipoPedido, @StatusPedido, @Subtotal, @TaxaEntrega, @ValorTotal, @CEP, @DetalhesPedido, @ID_Funcionario)",
-                    conexao
-                );
+                    "SELECT NF, DataPedido, ID_Usuario, TipoPedido, StatusPedido, Subtotal, TaxaEntrega, " +
+                    "ValorTotal, CEP, DetalhesPedido, ID_Funcionario FROM tbPedido WHERE NF=@NF", conexao);
+                cmd.Parameters.AddWithValue("@NF", nf);
 
-                cmd.Parameters.Add("@DataPedido", MySqlDbType.DateTime).Value = pedido.DataPedido;
-                cmd.Parameters.Add("@ID_Usuario", MySqlDbType.Int32).Value = pedido.ID_Usuario;
-                cmd.Parameters.Add("@TipoPedido", MySqlDbType.VarChar).Value = pedido.TipoPedido == TipoPedido.Entrega ? "Entrega" : "Retirada";
-                cmd.Parameters.Add("@StatusPedido", MySqlDbType.VarChar).Value = pedido.StatusPedido switch
+                using (MySqlDataReader dr = cmd.ExecuteReader())
                 {
-                    StatusPedido.EmPreparo => "Em preparo",
-                    StatusPedido.EmEntrega => "Em Entrega",
-                    StatusPedido.Concluido => "Concluido",
-                    _ => throw new ArgumentException("Status do pedido inválido")
-                };
-                cmd.Parameters.Add("@Subtotal", MySqlDbType.Decimal).Value = pedido.Subtotal;
-                cmd.Parameters.Add("@TaxaEntrega", MySqlDbType.Decimal).Value = pedido.TaxaEntrega;
-                cmd.Parameters.Add("@ValorTotal", MySqlDbType.Decimal).Value = pedido.ValorTotal;
-                cmd.Parameters.Add("@CEP", MySqlDbType.VarChar).Value = (object?)pedido.CEP;
-                cmd.Parameters.Add("@DetalhesPedido", MySqlDbType.VarChar).Value = (object?)pedido.DetalhesPedido;
-                cmd.Parameters.Add("@ID_Funcionario", MySqlDbType.Int32).Value = (object?)pedido.ID_Funcionario;
+                    if (!dr.Read())
+                        return null;
 
-                cmd.ExecuteNonQuery();
-
-                conexao.Close();
+                    return new Pedido
+                    {
+                        NF = Convert.ToInt32(dr["NF"]),
+                        DataPedido = Convert.ToDateTime(dr["DataPedido"]),
+                        ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]),
+                        TipoPedido = TextoParaTipo(Convert.ToString(dr["TipoPedido"])),
+                        StatusPedido = TextoParaStatus(Convert.ToString(dr["StatusPedido"])),
+                        Subtotal = Convert.ToDecimal(dr["Subtotal"]),
+                        TaxaEntrega = Convert.ToDecimal(dr["TaxaEntrega"]),
+                        ValorTotal = Convert.ToDecimal(dr["ValorTotal"]),
+                        CEP = dr["CEP"] as string,
+                        DetalhesPedido = dr["DetalhesPedido"] as string,
+                        ID_Funcionario = dr["ID_Funcionario"] == DBNull.Value ? null : Convert.ToInt32(dr["ID_Funcionario"])
+                    };
+                }
             }
         }
 
-        public void Excluir(int id)
+        private static string TipoParaTexto(TipoPedido tipo)
         {
-            throw new NotImplementedException();
+            return tipo == TipoPedido.Entrega ? "Entrega" : "Retirada";
         }
 
-        public Pedido ObterPedidos(int id)
+        private static string StatusParaTexto(StatusPedido status)
         {
-            throw new NotImplementedException();
+            return status switch
+            {
+                StatusPedido.EmPreparo => "Em preparo",
+                StatusPedido.EmEntrega => "Em Entrega",
+                StatusPedido.Concluido => "Concluido",
+                _ => throw new ArgumentException("Status do pedido inválido")
+            };
         }
 
-        public IEnumerable<Pedido> ObterTodosItens()
+        private static TipoPedido TextoParaTipo(string? texto)
         {
-            throw new NotImplementedException();
+            return texto == "Entrega" ? TipoPedido.Entrega : TipoPedido.Retirada;
         }
+        private static StatusPedido TextoParaStatus(string? texto)
+        {
+            return texto switch
+            {
+                "Em Entrega" => StatusPedido.EmEntrega,
+                "Concluido" => StatusPedido.Concluido,
+                _ => StatusPedido.EmPreparo
+            };
+        }
+
+
+
+
     }
 }
