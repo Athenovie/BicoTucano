@@ -36,6 +36,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Funcionario/Home/Login"><i class="fas fa-user-alt"></i> Login Funcionário</a>
                         </li>
+
+                        <li>
+                            <a class="dropdown-item" asp-area="" asp-controller="Cartao" asp-action="Index">Meus Cartões</a>
+                            
+                        </li>
                     </ul>
                     <li class="nav-item dropdown" style="list-style:none">
                         @if (_LoginCliente.GetCliente() != null)

@@ -75,6 +75,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Cartao/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGFvXENhZGFzdHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Cartao/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGFvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Endereco/Atualizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cQXR1YWxpemFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -109,6 +117,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Pagamento/Confirmacao.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvXENvbmZpcm1hY2FvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Pagamento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Pagamento/Pix.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvXFBpeC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Sammuel/Desktop/Nova pasta (10)/BicoTucano/Views/Pedido/Carrinho.cshtml]

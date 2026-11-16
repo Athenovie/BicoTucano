@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BicoTucano.Models.Cartao>
+@{
+    ViewData["Title"] = "Meus cartões";
+}
+
+<div class="container my-4">
+    <h1 class="mb-3">Meus cartões</h1>
+
+    @if (TempData["MSG_S"] != null)
+    {
+        <div class="alert alert-success">@TempData["MSG_S"]</div>
+    }
+    @if (TempData["MSG_E"] != null)
+    {
+        <div class="alert alert-danger">@TempData["MSG_E"]</div>
+    }
+
+    <p><a class="btn btn-outline-success" asp-action="Cadastrar">Novo cartão</a></p>
+
+    @if (!Model.Any())
+    {
+        <p>Você ainda não cadastrou nenhum cartão.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Apelido</th>
+                        <th>Bandeira</th>
+                        <th>Número</th>
+                        <th>Titular</th>
+                        <th>Validade</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Cartao c in Model)
+                    {
+                        bool vencido = c.DataValidade.Date < DateTime.Today;
+                        <tr>
+                            <td>@c.Apelido</td>
+                            <td><partial name="_Bandeira" model="c.Bandeira" /></td>
+                            <td>@c.NumeroCartao</td>
+                            <td>@c.NomeTitular</td>
+                            <td>
+                                @c.DataValidade.ToString("MM/yy")
+                                @if (vencido)
+                                {
+                                    <span class="badge bg-danger">Vencido</span>
+                                }
+                            </td>
+                            <td>
+                                <form asp-action="Excluir" asp-route-id="@c.ID_Cartao" method="post"
+                                      onsubmit="return confirm('Excluir este cartão?');">
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

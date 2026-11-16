@@ -1,0 +1,44 @@
+﻿@model BicoTucano.Models.Pedido
+@using System.Globalization
+@{
+    ViewData["Title"] = "Pagamento aprovado";
+    var br = new CultureInfo("pt-BR");
+    var pagamento = (Pagamento)ViewBag.Pagamento;
+    Cartao? cartao = ViewBag.Cartao as Cartao;
+
+    string forma = pagamento.FormaPagamento switch
+    {
+        FormaPagamento.Pix => "Pix",
+        FormaPagamento.CartaoDebito => "Cartão de débito",
+        FormaPagamento.CartaoCredito => "Cartão de crédito",
+        _ => ""
+    };
+}
+
+<div class="container my-4" style="max-width:700px">
+    <div class="alert alert-success">
+        <h4 class="alert-heading mb-1">Pagamento aprovado!</h4>
+        <span>Seu pedido nº @Model.NF segue para o preparo.</span>
+    </div>
+
+    <p class="mb-1"><strong>Forma de pagamento:</strong> @forma</p>
+
+    @if (cartao != null)
+    {
+        <p class="mb-1"><strong>Cartão:</strong> @cartao.Apelido - <partial name="_Bandeira" model="cartao.Bandeira" /> @cartao.NumeroCartao</p>
+    }
+
+    <p class="mb-1"><strong>Valor pago:</strong> @pagamento.ValorPago.ToString("C", br)</p>
+
+    @if (pagamento.DataPagamento.HasValue)
+    {
+        <p class="mb-3"><strong>Data:</strong> @pagamento.DataPagamento.Value.ToString("dd/MM/yyyy 'às' HH:mm")</p>
+    }
+
+    <p class="text-muted">Pagamento de demonstração: nenhuma cobrança real foi feita.</p>
+
+    <div class="d-flex flex-wrap gap-2">
+        <a class="btn btn-success" asp-controller="Pedido" asp-action="Confirmacao" asp-route-id="@Model.NF">Ver meu pedido</a>
+        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Voltar ao cardápio</a>
+    </div>
+</div>

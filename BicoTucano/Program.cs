@@ -18,6 +18,8 @@ builder.Services.AddScoped<IItemRepository, ItemRepository>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<BicoTucano.Cookie.Cookie>();
 builder.Services.AddScoped<BicoTucano.CarrinhoCompra.CookieCarrinhoCompra>();
+builder.Services.AddScoped<ICartaoRepository, CartaoRepository>();
+builder.Services.AddScoped<IPagamentoRepository, PagamentoRepository>();
 
 
 // Corrigir problema com TEMPDATA

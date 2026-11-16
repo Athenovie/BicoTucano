@@ -1,0 +1,64 @@
+﻿@model BicoTucano.Models.Cartao
+@{
+    ViewData["Title"] = "Novo cartão";
+    object? nfObj = ViewBag.Nf;
+    int? nf = nfObj is int nfValor ? nfValor : null;
+    string validade = ViewBag.Validade as string ?? "";
+}
+
+<div class="container my-4" style="max-width:600px">
+    <h1 class="mb-2">Novo cartão</h1>
+    <p class="text-muted">
+        Por segurança, guardamos só os 4 últimos dígitos. O código de segurança (CVV) nunca é salvo:
+        você informa só na hora de pagar.
+    </p>
+
+    <form asp-action="Cadastrar" asp-route-nf="@nf" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="NumeroCartao" class="form-label"></label>
+            <div class="input-group">
+                <input asp-for="NumeroCartao" class="form-control" inputmode="numeric" autocomplete="cc-number"
+                       placeholder="0000 0000 0000 0000" maxlength="23"
+                       data-url="@Url.Content("~/api/cartao/bandeira")" />
+                <span class="input-group-text" id="seloBandeira" style="min-width:150px"></span>
+            </div>
+            <span asp-validation-for="NumeroCartao" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="NomeTitular" class="form-label"></label>
+            <input asp-for="NomeTitular" class="form-control" autocomplete="cc-name" placeholder="Como está impresso no cartão" />
+            <span asp-validation-for="NomeTitular" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="validade" class="form-label">Validade</label>
+                <input type="text" name="validade" id="validade" class="form-control" value="@validade"
+                       inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5" />
+                <span class="text-danger">@Html.ValidationMessage("validade")</span>
+            </div>
+            <div class="col-6 mb-3">
+                <label asp-for="Apelido" class="form-label"></label>
+                <input asp-for="Apelido" class="form-control" placeholder="Ex.: Meu Nubank" />
+                <span asp-validation-for="Apelido" class="text-danger"></span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Salvar cartão</button>
+        @if (nf.HasValue)
+        {
+            <a class="btn btn-outline-secondary" asp-controller="Pagamento" asp-action="Index" asp-route-id="@nf">Voltar ao pagamento</a>
+        }
+        else
+        {
+            <a class="btn btn-outline-secondary" asp-action="Index">Voltar</a>
+        }
+    </form>
+</div>
+
+@section Scripts {
+    <script src="~/js/cartao.js" asp-append-version="true"></script>
+}

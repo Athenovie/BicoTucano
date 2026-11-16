@@ -177,7 +177,7 @@ namespace BicoTucano.Controllers
             int nf = _pedidoRepository.Cadastrar(pedido, itens);
 
             _cookieCarrinhoCompra.RemoverTodos();
-            return RedirectToAction(nameof(Confirmacao), new { id = nf });
+            return RedirectToAction("Index", "Pagamento", new { id = nf });
         }
 
         [ClienteAutorizacao]
