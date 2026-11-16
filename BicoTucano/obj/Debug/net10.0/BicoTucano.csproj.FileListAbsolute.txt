@@ -1418,3 +1418,4 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-e9uvik2hqk-e9uvik2hqk.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-l2qlwuu9mj-l2qlwuu9mj.gz

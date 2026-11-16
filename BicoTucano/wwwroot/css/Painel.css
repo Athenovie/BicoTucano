@@ -1,0 +1,132 @@
+﻿
+/* Configuração da página */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f4ee;
+    font-family: Arial, sans-serif;
+}
+
+/* Menu lateral */
+.menu-lateral {
+    background-color: #194b30;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    color: white;
+}
+
+    .menu-lateral h6 {
+        padding: 55px 25px 20px;
+        font-size: 12px;
+        border-bottom: 1px solid #356448;
+    }
+
+    .menu-lateral nav {
+        padding: 20px;
+    }
+
+    .menu-lateral a {
+        display: block;
+        color: #d5e0d8;
+        text-decoration: none;
+        padding: 12px 5px;
+        font-size: 13px;
+    }
+
+        .menu-lateral a:hover {
+            color: white;
+        }
+
+    .menu-lateral .sair {
+        color: #ed8958;
+    }
+
+/* Parte principal */
+.conteudo {
+    margin-left: 260px;
+    padding: 20px 25px;
+}
+
+/* Pesquisa */
+.barra-pesquisa {
+    margin-bottom: 20px;
+}
+
+    .barra-pesquisa input {
+        width: 250px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+    }
+
+/* Título */
+.conteudo h2 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Botão de cadastro */
+.botao-cadastrar {
+    display: inline-block;
+    background-color: #4b8060;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+    .botao-cadastrar:hover {
+        background-color: #356448;
+        color: white;
+    }
+
+/* Tabela */
+.tabela {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+    .tabela table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .tabela th {
+        text-align: left;
+        padding: 12px 10px;
+        font-weight: normal;
+        border-bottom: 1px solid #a5c2ad;
+    }
+
+    .tabela td {
+        padding: 12px 10px;
+        border-bottom: 1px solid #a5c2ad;
+    }
+
+    .tabela tr:last-child td {
+        border-bottom: none;
+    }
+
+/* Botões de ação */
+.botao-acao {
+    background-color: #ed8958;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+    .botao-acao:hover {
+        background-color: #d87343;
+        color: white;
+    }

@@ -18,6 +18,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="~/resources/lib/bootstrap-4.2.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/resources/lib/pagedlist/PagedList.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/css/Painel.css">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
 
@@ -43,81 +44,53 @@
     <link href="~/resources/lib/dashboard/dashboard.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Painel</a>
-        <input class="form-control form-control-dark w-100" type="hidden" placeholder="" aria-label="Search">
+    <!--Adicionando Menu Lateral do Painel Admin-->
+    <div class="menu-lateral">
 
-        <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" asp-area="Funcionario" asp-action="Logout" asp-controller="Home"><span>@_funcionario.GetFuncionario()?.Nome </span> Sair</a>
-            </li>
+        <h6>PAINEL ADMIN</h6>
 
-        </ul>
+        <nav>
+            <a asp-area="Funcionario" asp-controller="Home" asp-action="Painel">
+                <span>▦</span> DASHBOARD
+            </a>
 
-    </nav>
+            <a asp-area="Funcionario" asp-controller="Home" asp-action="Painel">
+                <span>♟</span> PERFIL
+            </a>
 
-    <div class="container-fluid">
-        <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-action="Painel">
-                                <span data-feather="home"></span>
-                                Painel de Controle
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Categoria">
-                                <span data-feather="file"></span>
-                                Categoria
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="Funcionario" asp-controller="Produto" asp-action="Index">
-                                <span data-feather="shopping-cart"></span>
-                                Produtos
-                            </a>
-                        </li>
+            <a asp-area="Funcionario" asp-controller="Produto" asp-action="Index">
+                <span>🌱</span> PRODUTOS
+            </a>
 
-                        @if (_funcionario.GetFuncionario() != null && _funcionario.GetFuncionario().NivelAcesso == BicoTucano.Models.NivelAcesso.Administrador)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="Funcionario" asp-controller="Home" asp-action="Index">
-                                    <span data-feather="users"></span>
-                                    Funcionario
-                                </a>
-                            </li>
-                        }
+            @if (_funcionario.GetFuncionario() != null &&
+                 _funcionario.GetFuncionario().NivelAcesso == BicoTucano.Models.NivelAcesso.Administrador)
+            {
+                <a asp-area="Funcionario" asp-controller="Home" asp-action="Index">
+                    <span>♙</span> FUNCIONÁRIOS
+                </a>
+            }
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Cliente" asp-action="Index">
-                                <span data-feather="users"></span>
-                                Cliente
-                            </a>
-                        </li>
+            <a asp-area="Funcionario" asp-controller="Cliente" asp-action="Index">
+                <span>♙</span> CLIENTES
+            </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="file"></span>
-                                Pedidos
-                            </a>
-                        </li>
+            <a href="#">
+                <span>📦</span> PEDIDOS
+            </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2"></span>
-                                Relatórios
-                            </a>
-                        </li>
-                    </ul>
+            <a asp-area="Funcionario" asp-controller="Home" asp-action="Logout" class="sair">
+                <span>⇥</span> SAIR
+            </a>
+        </nav>
 
-   
-                </div>
-            </nav>
+    </div>
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <main class="conteudo">
 
+        <div class="barra-pesquisa">
+            <input type="text" id="pesquisa" placeholder="⌕  Buscar por nome, email ou CPF...">
+        </div>
+        <!--RenderBody(): método do Bootstrap que organiza o conteúdo da página-->
                 @RenderBody()
 
             </main>
