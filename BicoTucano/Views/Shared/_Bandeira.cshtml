@@ -1,0 +1,21 @@
+﻿@model string?
+@{
+    string? img = (Model ?? "").ToLower() switch
+    {
+        "visa" => "~/img/Logo_Visa.png",
+        "mastercard" => "~/img/Logo_Mastercard.svg",
+        "elo" => "~/img/Logo_Elo.png",
+        "amex" => "~/img/Logo_Amex.png",
+        _ => null
+    };
+}
+
+@if (img != null)
+{
+    <img src="@Url.Content(img)" alt="@Model" style="height:28px" />
+    <span class="ms-1">@Model</span>
+}
+else
+{
+    <span class="text-muted">-</span>
+}

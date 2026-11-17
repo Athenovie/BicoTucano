@@ -1,0 +1,82 @@
+﻿.cartao-preview {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1.586;
+    padding: 20px;
+    border-radius: 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #6c757d, #343a40);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+    .cartao-preview:hover {
+        transform: translateY(-4px) rotate(-1deg);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, .3);
+    }
+
+.cartao-visa {
+    background: linear-gradient(135deg, #1a1f71, #2b6cb0);
+}
+
+.cartao-mastercard {
+    background: linear-gradient(135deg, #3a3a3a, #eb001b);
+}
+
+.cartao-elo {
+    background: linear-gradient(135deg, #111, #00a4e0);
+}
+
+.cartao-amex {
+    background: linear-gradient(135deg, #006fcf, #4aa3df);
+}
+
+.cartao-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartao-apelido {
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: .9;
+}
+
+.cartao-bandeira {
+    height: 34px;
+    padding: 4px 8px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.cartao-chip {
+    width: 46px;
+    height: 34px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #f5d76e, #c9a227);
+}
+
+.cartao-numero {
+    font-family: "Courier New", monospace;
+    font-size: 1.35rem;
+    letter-spacing: 2px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+}
+
+.cartao-base {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: .85rem;
+}
+
+    .cartao-base small {
+        display: block;
+        font-size: .65rem;
+        text-transform: uppercase;
+        opacity: .7;
+    }

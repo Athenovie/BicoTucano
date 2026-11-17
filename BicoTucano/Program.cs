@@ -56,6 +56,7 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.UseCookiePolicy();
 app.UseSession();
+app.UseStaticFiles();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

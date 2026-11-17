@@ -6,12 +6,41 @@
     string validade = ViewBag.Validade as string ?? "";
 }
 
+<link rel="stylesheet" href="~/css/cartao.css" asp-append-version="true" />
+
 <div class="container my-4" style="max-width:600px">
     <h1 class="mb-2">Novo cartão</h1>
     <p class="text-muted">
         Por segurança, guardamos só os 4 últimos dígitos. O código de segurança (CVV) nunca é salvo:
         você informa só na hora de pagar.
     </p>
+
+    <!-- PRÉVIA DO CARTÃO -->
+    <div id="cartao" class="cartao-preview mb-4">
+        <div class="cartao-topo">
+            <span id="apelidoCartaoVisu" class="cartao-apelido">APELIDO</span>
+            <img id="bandeira" class="cartao-bandeira" src="~/img/Logo.svg" alt="Logo do Cartão" />
+        </div>
+
+        <div class="cartao-chip"></div>
+
+        <div id="numeroCartaoVisu" class="cartao-numero">0000 0000 0000 0000</div>
+
+        <div class="cartao-base">
+            <div>
+                <small>Titular</small>
+                <div id="nomeCartaoVisu">NOME IMPRESSO</div>
+            </div>
+            <div>
+                <small>Validade</small>
+                <div id="validadeCartaoVisu">MM/AA</div>
+            </div>
+            <div>
+                <small>Tipo</small>
+                <div id="tipo-cartao-visu">Tipo</div>
+            </div>
+        </div>
+    </div>
 
     <form asp-action="Cadastrar" asp-route-nf="@nf" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -20,8 +49,7 @@
             <label asp-for="NumeroCartao" class="form-label"></label>
             <div class="input-group">
                 <input asp-for="NumeroCartao" class="form-control" inputmode="numeric" autocomplete="cc-number"
-                       placeholder="0000 0000 0000 0000" maxlength="23"
-                       data-url="@Url.Content("~/api/cartao/bandeira")" />
+                       placeholder="0000 0000 0000 0000" maxlength="23" />
                 <span class="input-group-text" id="seloBandeira" style="min-width:150px"></span>
             </div>
             <span asp-validation-for="NumeroCartao" class="text-danger"></span>

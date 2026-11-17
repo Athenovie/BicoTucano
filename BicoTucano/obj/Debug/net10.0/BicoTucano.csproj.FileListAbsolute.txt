@@ -1706,3 +1706,8 @@ C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\refint\Bic
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\BicoTucano.pdb
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-e9uvik2hqk-e9uvik2hqk.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-gkqu1e99ci-gkqu1e99ci.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ejwh4cjpyj-{0}-wmlk0it8y4-wmlk0it8y4.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\o93yxtvq7t-{0}-554i2n3xwz-554i2n3xwz.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\n7kvoltnoe-{0}-mztb6zriwy-mztb6zriwy.gz

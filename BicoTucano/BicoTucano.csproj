@@ -7,14 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="26.7.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.6.0" />
+    <Compile Remove="wwwroot\Imagens\**" />
+    <Content Remove="wwwroot\Imagens\**" />
+    <EmbeddedResource Remove="wwwroot\Imagens\**" />
+    <None Remove="wwwroot\Imagens\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\img\" />
-    <Folder Include="wwwroot\Imagens\" />
+    <PackageReference Include="MySql.Data" Version="26.7.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="10.6.0" />
   </ItemGroup>
 
 </Project>
