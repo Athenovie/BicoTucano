@@ -4,6 +4,8 @@
 
 @{
     ViewData["Title"] = "Carrinho";
+    ViewData["LarguraTotal"] = true;
+
     var br = new CultureInfo("pt-BR");
     var produtos = ViewBag.Produtos as Dictionary<int, Produto> ?? new Dictionary<int, Produto>();
 
@@ -15,117 +17,153 @@
 @* Linha para conectar HTML com CSS *@
 <link rel="stylesheet" href="~/css/Carrinho.css" asp-append-version="true" />
 
-<div class="carrinho">
-    <p class="caminho"><a asp-controller="Home" asp-action="Index">Início</a> &gt; Meu carrinho</p>
-    <h1 class="titulo">Meu carrinho <small>(@totalItens itens)</small></h1>
+@if (Model == null || !Model.Any())
+{
+    @* CARRINHO VAZIO *@
+    <section class="pagina-carrinho">
 
-    @if (TempData["MSG_S"] != null)
-    {
-        <div class="alert alert-success">@TempData["MSG_S"]</div>
-    }
-    @if (TempData["MSG_E"] != null)
-    {
-        <div class="alert alert-warning">@TempData["MSG_E"]</div>
-    }
+        <nav class="carrinho-caminho" aria-label="Você está em">
+            <a asp-controller="Home" asp-action="Index">Início</a>
+            <span>Meu Carrinho</span>
+        </nav>
 
-    @if (Model == null || !Model.Any())
-    {
-        <div class="vazio">
-            <p>Seu carrinho está vazio.</p>
-            <a class="botao-laranja" asp-controller="Home" asp-action="Index">Ver cardápio</a>
-        </div>
-    }
-    else
-    {
-        <div class="produtos-carrinho">
-            <div class="lista-produtos">
-                @* O foreach vai percorrer todos os produtos da model *@
-                @foreach (Item_Pedido item in Model)
-                {
-                    @* Busca o produto pelo ID *@
-                    if (produtos.TryGetValue(item.ID_Produto, out Produto produto))
-                    {
-                        <div class="item">
-                            @* Mostra a imagem do produto *@
-                            <img src="~/img/@produto.NomeImagem" alt="@produto.Nome" />
+        <h1 class="carrinho-titulo">Meu carrinho</h1>
 
-                            @* Mostra o Nome e Categoria *@
-                            <div class="item-meio">
-                                <h2>@produto.Nome</h2>
-                                <small>@produto.Categoria</small>
-                            </div>
+        @if (TempData["MSG_S"] != null)
+        {
+            <div class="alert alert-success">@TempData["MSG_S"]</div>
+        }
+        @if (TempData["MSG_E"] != null)
+        {
+            <div class="alert alert-warning">@TempData["MSG_E"]</div>
+        }
 
-                            <div class="item-direita">
-                                @* Multiplica o preço pela quantidade e transforma em real *@
-                                <p class="item-preco">@((item.Preco * item.Quantidade).ToString("C", br))</p>
+        <div class="carrinho-vazio">
+            <img src="~/img/carrinho-vazio.png" alt="" class="carrinho-vazio-imagem" />
 
-                                @* Quando o cliente clicar em Remover, o formulário envia o ID do produto *@
-                                <form asp-action="RemoverItem" asp-route-id="@item.ID_Produto" method="post">
-                                    <button type="submit" class="remover">Remover</button>
-                                </form>
-                            </div>
-                        </div>
-                    }
-                }
-            </div>
+            <h2 class="carrinho-vazio-titulo">Seu carrinho está vazio</h2>
 
-            <div class="links">
-                <a asp-controller="Home" asp-action="Index">Continuar comprando</a>
-            </div>
-
-            <div class="caixa" id="endereco-entrega">
-                <h3>Entregar no endereço</h3>
-                <a class="botao-endereco" asp-controller="Endereco" asp-action="Index">Adicionar endereço</a>
-            </div>
-
-            <div class="opcoes-entrega">
-                <h3>Opções de entrega</h3>
-                <label class="opcao">
-                    <div>
-                        <b>Delivery</b><br />
-                        <small>Entrega no endereço em 30-45 min</small>
-                    </div>
-                    @*Botão de seleção único*@
-                    <input type="radio" name="tipo" value="entrega" checked onchange="atualizar()" />
-                </label>
-
-                <label class="opcao">
-                    <div>
-                        <b>Retirada no Local</b><br />
-                        <small>R. Fradique Coutinho, 088 - Pronto em 20 min</small>
-                    </div>
-                    @*Botão de seleção único*@
-                    <input type="radio" name="tipo" value="retirada" onchange="atualizar()" />
-                </label>
-            </div>
-        </div>
-
-        <div class="resumo">
-            <h2>Resumo do Pedido</h2>
-
-            <div class="subtotal">
-                <span>Subtotal (@totalItens itens)</span>
-                <span>@subTotal.ToString("C", br)</span>
-            </div>
-
-            <div class="taxadeentrega">
-                <span>Taxa de Entrega</span>
-                <span id="taxa">@taxaEntrega.ToString("C", br)</span>
-            </div>
-
-            <hr />
-
-            <div class="total">
-                <span>Total</span>
-                <span id="total">@((subTotal + taxaEntrega).ToString("C", br))</span>
-            </div>
-
-            <a class="botao-laranja" asp-action="Finalizar">Finalizar Pedido</a>
-
-            <p class="pagamento">
-                Pagamento com: PIX, VISA, MASTER<br />
-                Pagamento 100% seguro e criptografado
+            <p class="carrinho-vazio-texto">
+                Explore nossa variedade de pratos veganos e adicione seus favoritos ao carrinho!
             </p>
+
+            <a asp-controller="Home" asp-action="Index" class="botao-explorar">Explorar Cardápio</a>
         </div>
-    }
-</div>
+
+    </section>
+}
+else
+{
+    @* CARRINHO COM ITENS *@
+    <div class="carrinho">
+
+        <p class="caminho"><a asp-controller="Home" asp-action="Index">Início</a> &gt; Meu carrinho</p>
+        <h1 class="titulo">Meu carrinho <small>(@totalItens itens)</small></h1>
+
+        @if (TempData["MSG_S"] != null)
+        {
+            <div class="alert alert-success">@TempData["MSG_S"]</div>
+        }
+        @if (TempData["MSG_E"] != null)
+        {
+            <div class="alert alert-warning">@TempData["MSG_E"]</div>
+        }
+
+        <div class="carrinho-corpo">
+
+            <div class="produtos-carrinho">
+                <div class="lista-produtos">
+                    @* O foreach vai percorrer todos os produtos da model *@
+                    @foreach (Item_Pedido item in Model)
+                    {
+                        @* Busca o produto pelo ID *@
+                        if (produtos.TryGetValue(item.ID_Produto, out Produto produto))
+                        {
+                            <div class="item">
+                                @* Mostra a imagem do produto *@
+                                <img src="~/img/@produto.NomeImagem" alt="@produto.Nome" />
+
+                                @* Mostra o Nome e Categoria *@
+                                <div class="item-meio">
+                                    <h2>@produto.Nome</h2>
+                                    <small>@produto.Categoria</small>
+                                </div>
+
+                                <div class="item-direita">
+                                    @* Multiplica o preço pela quantidade e transforma em real *@
+                                    <p class="item-preco">@((item.Preco * item.Quantidade).ToString("C", br))</p>
+
+                                    @* Quando o cliente clicar em Remover, o formulário envia o ID do produto *@
+                                    <form asp-action="RemoverItem" asp-route-id="@item.ID_Produto" method="post">
+                                        <button type="submit" class="remover">Remover</button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="links">
+                    <a asp-controller="Home" asp-action="Index">Continuar comprando</a>
+                </div>
+
+                <div class="caixa" id="endereco-entrega">
+                    <h3>Entregar no endereço</h3>
+                    <a class="botao-endereco" asp-controller="Endereco" asp-action="Index">Adicionar endereço</a>
+                </div>
+
+                <div class="opcoes-entrega">
+                    <h3>Opções de entrega</h3>
+
+                    <label class="opcao">
+                        <div>
+                            <b>Delivery</b><br />
+                            <small>Entrega no endereço em 30-45 min</small>
+                        </div>
+                        @* Botão de seleção único *@
+                        <input type="radio" name="tipo" value="entrega" checked onchange="atualizar()" />
+                    </label>
+
+                    <label class="opcao">
+                        <div>
+                            <b>Retirada no Local</b><br />
+                            <small>R. Fradique Coutinho, 088 - Pronto em 20 min</small>
+                        </div>
+                        @* Botão de seleção único *@
+                        <input type="radio" name="tipo" value="retirada" onchange="atualizar()" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="resumo">
+                <h2>Resumo do Pedido</h2>
+
+                <div class="subtotal">
+                    <span>Subtotal (@totalItens itens)</span>
+                    <span>@subTotal.ToString("C", br)</span>
+                </div>
+
+                <div class="taxadeentrega">
+                    <span>Taxa de Entrega</span>
+                    <span id="taxa">@taxaEntrega.ToString("C", br)</span>
+                </div>
+
+                <hr />
+
+                <div class="total">
+                    <span>Total</span>
+                    <span id="total">@((subTotal + taxaEntrega).ToString("C", br))</span>
+                </div>
+
+                <a class="botao-laranja" asp-action="Finalizar">Finalizar Pedido</a>
+
+                <p class="pagamento">
+                    Pagamento com: PIX, VISA, MASTER<br />
+                    Pagamento 100% seguro e criptografado
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+}

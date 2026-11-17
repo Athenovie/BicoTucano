@@ -70,10 +70,71 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - BicoTucano - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+                <a asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo-tucano.png" alt="Bico de Tucano" class="rodape-logo" />
+                </a>
+
+                <p class="rodape-descricao">
+                    Culinária vegana artesanal feita com amor, ingredientes frescos e cuidado com o planeta.
+                </p>
+
+                <div class="rodape-redes">
+                    <a href="https://www.instagram.com/athenovie/" class="rodape-rede" aria-label="Instagram" target="_blank" rel="noopener">
+                        <img src="~/img/instagram.png" alt="" />
+                    </a>
+                    <a href="https://wa.me/5511999998888" class="rodape-rede" aria-label="WhatsApp" target="_blank" rel="noopener">
+                        <img src="~/img/whatsapp.png" alt="" />
+                    </a>
+                    <a href="https://www.facebook.com/" class="rodape-rede" aria-label="Facebook" target="_blank" rel="noopener">
+                        <img src="~/img/facebook.png" alt="" />
+                    </a>
+                </div>
+            </div>
+
+            
+            <nav class="rodape-coluna" aria-label="Cardápio">
+                <h3 class="rodape-titulo">Cardápio</h3>
+                <ul class="rodape-lista">
+                    @* esses links ainda nao funcionam *@
+                    <li><a asp-controller="Produto" asp-action="Index" asp-route-categoria="Entradas">Entradas</a></li>
+                    <li><a asp-controller="Produto" asp-action="Index" asp-route-categoria="Lanches">Lanches</a></li>
+                    <li><a asp-controller="Produto" asp-action="Index" asp-route-categoria="Pratos Completos">Pratos Completos</a></li>
+                    <li><a asp-controller="Produto" asp-action="Index" asp-route-categoria="Sobremesas">Sobremesas</a></li>
+                </ul>
+            </nav>
+
+            
+            <nav class="rodape-coluna" aria-label="Ajuda">
+                <h3 class="rodape-titulo">Ajuda</h3>
+                <ul class="rodape-lista">
+                    @* esses links ainda nao funcionam *@
+                    <li><a asp-controller="Cliente" asp-action="Perfil">Meu Perfil</a></li>
+                    <li><a asp-controller="Home" asp-action="Contato">Fale conosco</a></li>
+                </ul>
+            </nav>
+
+            
+            <div class="rodape-coluna">
+                <h3 class="rodape-titulo">Contato</h3>
+                <ul class="rodape-lista">
+                    <li>R. Fradique Coutinho, 986 - Pinheiros</li>
+                    <li><a>(11) 99999-8888</a></li>
+                    <li><a">bicodetucano@gmail.com</a></li>
+                </ul>
+            </div>
+
         </div>
+
+        <div class="rodape-base">
+            <span>© 2026 Bico de Tucano. Todos os direitos reservados.</span>
+            <span>Feito com carinho e ingredientes frescos.</span>
+        </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/resources/lib/mask/jquery.mask.min.js"></script>

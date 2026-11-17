@@ -1,10 +1,15 @@
-﻿:root {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
+
+:root {
     --fundo: #f7f4ee;
     --texto: #2b2b2b;
     --laranja: #e8875a;
     --laranja-hover: #d9753f;
     --verde: #4a7c59;
     --verde-hover: #3d6a4a;
+    --verde-escuro: #1f3a2a;
+    --cinza: #6b6b6b;
+    --estrela: #f5b800;
 }
 
 .banner {
@@ -229,4 +234,97 @@
 .botao-ver-cardapio:hover {
     background: var(--verde-hover);
     color: #fff;
+}
+
+/*seção avaliações*/
+
+.secao-avaliacoes {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 56px 24px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.avaliacoes-selo {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--laranja);
+}
+
+.avaliacoes-titulo {
+    margin: 4px 0 6px;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--verde-escuro);
+}
+
+.avaliacoes-subtitulo {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+.avaliacoes-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.avaliacao-card {
+    display: flex;
+    flex-direction: column;
+    padding: 14px 16px 16px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    text-align: left;
+}
+
+.avaliacao-estrelas {
+    margin: 0 0 6px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--estrela);
+}
+
+.avaliacao-texto {
+    margin: 0 0 14px;
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: var(--cinza);
+}
+
+.avaliacao-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.avaliacao-avatar {
+    font-size: 34px;
+    line-height: 1;
+}
+
+.avaliacao-autor-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.avaliacao-autor-info strong {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111;
+}
+
+.avaliacao-autor-info time {
+    font-size: 13px;
+    color: var(--cinza);
 }

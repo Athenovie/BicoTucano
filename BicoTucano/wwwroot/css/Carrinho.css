@@ -1,24 +1,27 @@
-﻿.carrinho {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
+
+.carrinho,
+.pagina-carrinho {
+    --laranja: #e8875a;
+    --laranja-hover: #d9753f;
     background-color: #f7f4ee;
-    padding: 24px;
-    border-radius: 15px;
+    min-height: 70vh;
+    padding: 24px max(24px, calc((100% - 1100px) / 2)) 64px;
     font-family: 'Inter', sans-serif;
     color: #2b2b2b;
 }
 
-/* Caminho da página */
 .caminho {
     font-size: 13px;
     color: #777;
     margin-bottom: 5px;
 }
 
-    .caminho a {
-        color: #777;
-        text-decoration: none;
-    }
+.caminho a {
+    color: #777;
+    text-decoration: none;
+}
 
-/* Título */
 .titulo {
     font-family: 'Playfair Display', serif;
     font-size: 30px;
@@ -32,7 +35,13 @@
         color: #777;
     }
 
-/* Lista de produtos */
+.carrinho-corpo {
+    display: grid;
+    grid-template-columns: 1fr 330px;
+    gap: 24px;
+    align-items: start;
+}
+
 .produtos-carrinho {
     display: flex;
     flex-direction: column;
@@ -43,7 +52,6 @@
     flex: 1;
 }
 
-/* Produto */
 .item {
     display: flex;
     gap: 15px;
@@ -87,14 +95,25 @@
         margin: 0;
     }
 
+    .item-direita form {
+        margin: 0;
+    }
+
 .item-preco {
     font-family: 'Playfair Display', serif;
     font-size: 17px;
     font-weight: bold;
-    color: #e8875a;
+    color: var(--laranja);
 }
 
-/* Links */
+.remover {
+    border: none;
+    background: none;
+    color: #d9534f;
+    font-size: 13px;
+    cursor: pointer;
+}
+
 .links {
     display: flex;
     justify-content: space-between;
@@ -107,16 +126,6 @@
         font-weight: 500;
     }
 
-/* Botão remover */
-.remover {
-    border: none;
-    background: none;
-    color: #d9534f;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-/* Endereço */
 .caixa {
     background-color: white;
     padding: 15px;
@@ -126,7 +135,7 @@
 }
 
     .caixa h3,
-    .opcao-entrega h3 {
+    .opcoes-entrega h3 {
         font-family: 'Playfair Display', serif;
         font-size: 17px;
         font-weight: 500;
@@ -143,8 +152,7 @@
     text-decoration: none;
 }
 
-/* Opções de entrega */
-.opcao-entrega {
+.opcoes-entrega {
     background-color: white;
     padding: 15px;
     border-radius: 12px;
@@ -152,36 +160,33 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-    .opcao-entrega label,
-    .opcaodelivery {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px;
-        border: 1px solid #e5e5e5;
-        border-radius: 10px;
-        margin-bottom: 8px;
+.opcao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+    .opcao small {
+        color: #777;
+    }
+
+    .opcao input {
+        accent-color: #4a7c59;
         cursor: pointer;
     }
 
-        .opcao-entrega small,
-        .opcaodelivery small {
-            color: #777;
-        }
-
-        .opcao-entrega input,
-        .opcaodelivery input {
-            accent-color: #4a7c59;
-            cursor: pointer;
-        }
-
-/* Resumo do pedido */
 .resumo {
-    width: 330px;
     background-color: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 24px;
 }
 
     .resumo h2 {
@@ -190,7 +195,7 @@
         margin-bottom: 16px;
     }
 
-/* Subtotal e taxa */
+
 .subtotal,
 .taxadeentrega {
     display: flex;
@@ -200,7 +205,6 @@
     margin-bottom: 8px;
 }
 
-/* Total */
 .total {
     display: flex;
     justify-content: space-between;
@@ -210,11 +214,10 @@
     margin-bottom: 16px;
 }
 
-/* Botão finalizar */
 .botao-laranja {
     display: block;
     text-align: center;
-    background-color: #e8875a;
+    background-color: var(--laranja);
     color: white;
     padding: 12px;
     border-radius: 10px;
@@ -223,11 +226,10 @@
 }
 
     .botao-laranja:hover {
-        background-color: #d9753f;
+        background-color: var(--laranja-hover);
         color: white;
     }
 
-/* Pagamento */
 .pagamento {
     margin-top: 12px;
     text-align: center;
@@ -235,15 +237,86 @@
     color: #777;
 }
 
-/* Carrinho vazio */
-.vazio {
-    background-color: white;
-    padding: 40px;
-    border-radius: 12px;
+.pagina-carrinho .alert {
+    margin-top: 16px;
+}
+
+.carrinho-caminho {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #777;
+}
+
+    .carrinho-caminho a {
+        color: #777;
+        text-decoration: none;
+    }
+
+        .carrinho-caminho a:hover {
+            text-decoration: underline;
+        }
+
+    .carrinho-caminho span {
+        color: #111;
+    }
+
+        .carrinho-caminho span::before {
+            content: "/";
+            margin-right: 8px;
+            color: #aaa;
+        }
+
+.carrinho-titulo {
+    margin: 16px 0 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.carrinho-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 72px;
     text-align: center;
 }
 
-    .vazio .botao-laranja {
-        display: inline-block;
-        padding: 12px 28px;
+.carrinho-vazio-imagem {
+    width: 90px;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.carrinho-vazio-titulo {
+    margin: 0 0 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.carrinho-vazio-texto {
+    max-width: 340px;
+    margin: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #444;
+}
+
+.botao-explorar {
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 999px;
+    background: var(--laranja);
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+    .botao-explorar:hover {
+        background: var(--laranja-hover);
+        color: #fff;
     }
