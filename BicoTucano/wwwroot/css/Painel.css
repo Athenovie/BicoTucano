@@ -124,6 +124,10 @@ body {
     border-radius: 15px;
     text-decoration: none;
     font-size: 11px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
 }
 
     .botao-acao:hover {

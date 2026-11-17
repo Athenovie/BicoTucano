@@ -5,67 +5,67 @@
 }
 
 
-            <h1>Clientes</h1>
-
+<h2>CLIENTES</h2>
+<!--Código embutido do Bootstrap-->
             @if (TempData["MSG_E"] !=null)
             {
     <div class="alert alert-danger">@TempData["MSG_E"]</div>
 }
-<p class="btn btn-outline-primary" role="button">
-                <a asp-action="Cadastrar">
-                    <span class="fas fa-user-plus" title="Cadastro" aria-hidden="true"></span>
-                    <span>Cadastrar</span>
-                </a>
-            </p>
+<a asp-action="Cadastrar" class="botao-cadastrar">CADASTRAR CLIENTE</a>
 
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">@Html.DisplayNameFor(model => model.First().ID_Usuario)</th>
-                            <th scope="col">@Html.DisplayNameFor(model => model.First().Nome)</th>
-                            <th scope="col">@Html.DisplayNameFor(model => model.First().CPF)</th>
-                            <th scope="col">@Html.DisplayNameFor(model => model.First().Telefone)</th>
-                            <th scope="col">@Html.DisplayNameFor(model => model.First().Email)</th>
-                            <th scope="col">Ações</th>
-                        </tr>
-                    </thead>
-            <tbody>
-                @foreach (Cliente cliente in Model)
-                {
-                    <tr>
-                        <th scope="row">@cliente.ID_Usuario</th>
-                        <td>@cliente.Nome</td>
-                        <td>@cliente.CPF</td>
-                        <td>@cliente.Telefone</td>
-                        <td>@cliente.Email</td>
-                       
+<div class="tabela">
+    <table id="tabelaClientes">
+        <thead>
+            <tr>
+                <th>CÓDIGO</th>
+                <th>NOME</th>
+                <th>CPF</th>
+                <th>TELEFONE</th>
+                <th>EMAIL</th>
+                <th>AÇÕES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--foreach cria uma linha para cada cliente da lista, e cada td(célula) mostra um dado-->
+            @foreach (Cliente cliente in Model)
+            {
+                <tr>
+                    <td>@cliente.ID_Usuario</td>
+                    <td>@cliente.Nome</td>
+                    <td>@cliente.CPF</td>
+                    <td>@cliente.Telefone</td>
+                    <td>@cliente.Email</td>
+                    <td>
+                        @if (cliente.Situacao == "A")
+                        {
+                            <form asp-action="Desativar" asp-route-id="@cliente.ID_Usuario" method="post"
+                                  onsubmit="return confirm('Deseja realmente desligar?');">
+                                <button type="submit" class="botao-acao">Desligar</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-action="Ativar" asp-route-id="@cliente.ID_Usuario" method="post"
+                                  onsubmit="return confirm('Deseja realmente reativar?');">
+                                <button type="submit" class="botao-acao">Reativar</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!--Essa parte não mexi-->
+@section Scripts {
+    <script>
+        $("#pesquisa").on("keyup", function () {
+            var texto = $(this).val().toLowerCase();
 
-                        <td>
-                            <a class="btn btn-primary btn-sm" asp-action="Atualizar" asp-route-id="@cliente.ID_Usuario">Editar</a>
-
-                             @if (cliente.Situacao == "A")
-                                {
-                                    <form asp-action="Desativar" asp-route-id="@cliente.ID_Usuario" method="post" class="d-inline"
-                                          onsubmit="return confirm('Deseja realmente desativar?');">
-                                        <button type="submit" class="btn btn-warning btn-sm">Desativar</button>
-                                    </form>
-                                }
-                                    else if (cliente.Situacao == "D")
-                                    {
-                                        <form asp-action="Ativar" asp-route-id="@cliente.ID_Usuario" method="post" class="d-inline"
-                                              onsubmit="return confirm('Deseja realmente ativar?');">
-                                            <button type="submit" class="btn btn-secondary btn-sm">Ativar</button>
-                                        </form>
-                                    }
-                                        <form asp-action="Excluir" asp-route-id="@cliente.ID_Usuario" method="post" class="d-inline"
-                                              onsubmit="return confirm('Excluir definitivamente este cliente?');">
-                                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                                        </form>
-
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+            $("#tabelaClientes tbody tr").each(function () {
+                var linha = $(this).text().toLowerCase();
+                $(this).toggle(linha.indexOf(texto) > -1);
+            });
+        });
+    </script>
+}

@@ -1418,7 +1418,6 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-e9uvik2hqk-e9uvik2hqk.gz
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-l2qlwuu9mj-l2qlwuu9mj.gz
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\bin\Debug\net10.0\appsettings.json
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\bin\Debug\net10.0\BicoTucano.staticwebassets.runtime.json
@@ -1711,3 +1710,7 @@ C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270f
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ejwh4cjpyj-{0}-wmlk0it8y4-wmlk0it8y4.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\o93yxtvq7t-{0}-554i2n3xwz-554i2n3xwz.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\n7kvoltnoe-{0}-mztb6zriwy-mztb6zriwy.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ejwh4cjpyj-{0}-wmlk0it8y4-wmlk0it8y4.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\o93yxtvq7t-{0}-djbw82j066-djbw82j066.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ozonq2em2c-{0}-mztb6zriwy-mztb6zriwy.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-e78ku6n664-e78ku6n664.gz
