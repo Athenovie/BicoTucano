@@ -17,6 +17,7 @@ namespace BicoTucano.Controllers
         private readonly IPedidoRepository _pedidoRepository;
         private readonly IItemRepository _itemRepository;
         private readonly IEnderecoRepository _enderecoRepository;
+        private readonly IClienteRepository _clienteRepository;
         private readonly CookieCarrinhoCompra _cookieCarrinhoCompra;
         private readonly LoginCliente _loginCliente;
 
@@ -24,6 +25,7 @@ namespace BicoTucano.Controllers
                                 IPedidoRepository pedidoRepository,
                                 IItemRepository itemRepository,
                                 IEnderecoRepository enderecoRepository,
+                                IClienteRepository clienteRepository,
                                 CookieCarrinhoCompra cookieCarrinhoCompra,
                                 LoginCliente loginCliente)
         {
@@ -31,6 +33,7 @@ namespace BicoTucano.Controllers
             _pedidoRepository = pedidoRepository;
             _itemRepository = itemRepository;
             _enderecoRepository = enderecoRepository;
+            _clienteRepository = clienteRepository;
             _cookieCarrinhoCompra = cookieCarrinhoCompra;
             _loginCliente = loginCliente;
         }
@@ -247,6 +250,7 @@ namespace BicoTucano.Controllers
             ViewBag.Produtos = produtos;
             ViewBag.Enderecos = _enderecoRepository.ObterEnderecoDoUsuario(cliente.ID_Usuario).ToList();
             ViewBag.TaxaEntrega = TaxaEntregaPadrao;
+            ViewBag.Cliente = _clienteRepository.ObterCliente(cliente.ID_Usuario);
         }
 
         // O pedido só tem o CEP (tbPedido.CEP). Número, complemento e observação vão em DetalhesPedido (150 caracteres).

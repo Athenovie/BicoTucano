@@ -2,6 +2,8 @@
 @using System.Globalization
 @{
     ViewData["Title"] = "Finalizar pedido";
+    ViewData["LarguraTotal"] = true;
+
     var br = new CultureInfo("pt-BR");
     var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
     var enderecos = (List<Endereco>)ViewBag.Enderecos;
@@ -16,44 +18,71 @@
 
     string observacao = ViewBag.Observacao as string ?? "";
     bool ehEntrega = tipoSelecionado == TipoPedido.Entrega;
+
+    Usuario cliente = ViewBag.Cliente;
 }
 
-<div class="container my-4">
-    <h1 class="mb-3">Finalizar pedido</h1>
+<link rel="stylesheet" href="~/css/Finalizar.css" asp-append-version="true" />
+
+<section class="pagina-finalizar">
+    <h1 class="finalizar-titulo">Finalizar Pedido</h1>
 
     @if (ViewBag.Erro != null)
     {
-        <div class="alert alert-danger">@ViewBag.Erro</div>
+        <div class="finalizar-erro">@ViewBag.Erro</div>
     }
 
-    <div class="row g-4">
-        <div class="col-md-7">
-            <form asp-action="Finalizar" method="post">
+    <div class="finalizar-corpo">
+        <div class="finalizar-esquerda">
+            <div class="finalizar-caixa">
+                <h2 class="finalizar-caixa-titulo">Dados do cliente</h2>
 
-                <h5>Como você quer receber?</h5>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="tipoPedido" id="tipoRetirada"
-                           value="@TipoPedido.Retirada" checked="@(!ehEntrega)" />
-                    <label class="form-check-label" for="tipoRetirada">Retirada no restaurante (sem taxa)</label>
-                </div>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="radio" name="tipoPedido" id="tipoEntrega"
-                           value="@TipoPedido.Entrega" checked="@ehEntrega" />
-                    <label class="form-check-label" for="tipoEntrega">Entrega (taxa de @taxa.ToString("C", br))</label>
+                <div class="finalizar-dados">
+                    <div class="finalizar-dado">
+                        <span class="finalizar-rotulo">Nome</span>
+                        <span>@cliente.Nome</span>
+                    </div>
+                    <div class="finalizar-dado">
+                        <span class="finalizar-rotulo">Telefone</span>
+                        <span>@cliente.Telefone</span>
+                    </div>
+                    <div class="finalizar-dado">
+                        <span class="finalizar-rotulo">E-mail</span>
+                        <span>@cliente.Email</span>
+                    </div>
                 </div>
 
-                <div id="blocoEntrega" class="mb-3 @(ehEntrega ? "" : "d-none")">
+            </div>
+
+            <form asp-action="Finalizar" method="post" class="finalizar-formulario">
+
+                <div class="finalizar-caixa">
+                    <h2 class="finalizar-caixa-titulo">Como você quer receber?</h2>
+
+                    <label class="finalizar-opcao" for="tipoRetirada">
+                        <input type="radio" name="tipoPedido" id="tipoRetirada"
+                               value="@TipoPedido.Retirada" checked="@(!ehEntrega)" />
+                        <span>Retirada no restaurante (sem taxa)</span>
+                    </label>
+                    <label class="finalizar-opcao" for="tipoEntrega">
+                        <input type="radio" name="tipoPedido" id="tipoEntrega"
+                               value="@TipoPedido.Entrega" checked="@ehEntrega" />
+                        <span>Entrega (taxa de @taxa.ToString("C", br))</span>
+                    </label>
+                </div>
+
+                <div id="blocoEntrega" class="finalizar-caixa @(ehEntrega ? "" : "finalizar-oculto")">
                     @if (enderecos.Count == 0)
                     {
-                        <div class="alert alert-warning mb-0">
+                        <div class="finalizar-aviso">
                             Você ainda não tem endereço cadastrado.
-                            <a class="alert-link" asp-controller="Endereco" asp-action="Cadastrar">Cadastrar endereço</a>
+                            <a asp-controller="Endereco" asp-action="Cadastrar">Cadastrar endereço</a>
                         </div>
                     }
                     else
                     {
-                        <label for="idEndereco" class="form-label">Endereço de entrega</label>
-                        <select name="idEndereco" id="idEndereco" class="form-select">
+                        <label for="idEndereco" class="finalizar-caixa-titulo">Endereço de entrega</label>
+                        <select name="idEndereco" id="idEndereco" class="finalizar-campo">
                             <option value="">Selecione...</option>
                             @foreach (Endereco e in enderecos)
                             {
@@ -65,51 +94,52 @@
                     }
                 </div>
 
-                <div class="mb-3">
-                    <label for="observacao" class="form-label">Observação (opcional)</label>
-                    <textarea name="observacao" id="observacao" class="form-control" rows="2"
+                <div class="finalizar-botoes">
+                    <label for="observacao" class="finalizar-caixa-titulo">Observação (opcional)</label>
+                    <textarea name="observacao" id="observacao" class="finalizar-campo" rows="2"
                               maxlength="80" placeholder="Ex.: sem cebola, ponto da campainha...">@observacao</textarea>
                 </div>
 
-                <button type="submit" class="btn btn-success">Confirmar pedido</button>
-                <a class="btn btn-outline-secondary" asp-action="Carrinho">Voltar ao carrinho</a>
+                <div class="finalizar-botoes">
+                    <a class="finalizar-botao-voltar" asp-action="Carrinho">Voltar ao carrinho</a>
+                    <button type="submit" class="finalizar-botao-confirmar">Confirmar pedido</button>
+                </div>
+                
             </form>
         </div>
 
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Resumo</h5>
+        <div class="finalizar-resumo">
+            <h2 class="finalizar-resumo-titulo">Resumo</h2>
 
-                    @foreach (Item_Pedido item in Model)
-                    {
-                        <p class="d-flex justify-content-between mb-1">
-                            <span>@item.Quantidade x @produtos[item.ID_Produto].Nome</span>
-                            <span>@((item.Preco * item.Quantidade).ToString("C", br))</span>
-                        </p>
-                    }
-                    <hr />
-                    <p class="d-flex justify-content-between mb-1">
-                        <span>Subtotal</span>
-                        <span>@subtotal.ToString("C", br)</span>
-                    </p>
-                    <p id="linhaTaxa" class="d-flex justify-content-between mb-1 @(ehEntrega ? "" : "d-none")">
-                        <span>Taxa de entrega</span>
-                        <span>@taxa.ToString("C", br)</span>
-                    </p>
-                    <p class="d-flex justify-content-between fw-bold mb-0">
-                        <span>Total</span>
-                        <span id="totalFinal"
-                              data-retirada="@subtotal.ToString("C", br)"
-                              data-entrega="@((subtotal + taxa).ToString("C", br))">
-                            @((ehEntrega ? subtotal + taxa : subtotal).ToString("C", br))
-                        </span>
-                    </p>
-                </div>
-            </div>
+            @foreach (Item_Pedido item in Model)
+            {
+                <p class="finalizar-linha">
+                    <span>@item.Quantidade x @produtos[item.ID_Produto].Nome</span>
+                    <span>@((item.Preco * item.Quantidade).ToString("C", br))</span>
+                </p>
+            }
+            <hr />
+            <p class="finalizar-linha">
+                <span>Subtotal</span>
+                <span>@subtotal.ToString("C", br)</span>
+            </p>
+            <p id="linhaTaxa" class="finalizar-linha @(ehEntrega ? "" : "finalizar-oculto")">
+                <span>Taxa de entrega</span>
+                <span>@taxa.ToString("C", br)</span>
+            </p>
+            <p class="finalizar-linha finalizar-total">
+                <span>Total</span>
+                <span id="totalFinal"
+                      data-retirada="@subtotal.ToString("C", br)"
+                      data-entrega="@((subtotal + taxa).ToString("C", br))">
+                    @((ehEntrega ? subtotal + taxa : subtotal).ToString("C", br))
+                </span>
+            </p>
         </div>
+
     </div>
-</div>
+
+</section>
 
 @section Scripts {
     <script>
@@ -120,8 +150,8 @@
 
         function atualizarTela() {
             const entrega = opcaoEntrega.checked;
-            blocoEntrega.classList.toggle('d-none', !entrega);
-            linhaTaxa.classList.toggle('d-none', !entrega);
+            blocoEntrega.classList.toggle('finalizar-oculto', !entrega);
+            linhaTaxa.classList.toggle('finalizar-oculto', !entrega);
             totalFinal.textContent = entrega ? totalFinal.dataset.entrega : totalFinal.dataset.retirada;
         }
 
