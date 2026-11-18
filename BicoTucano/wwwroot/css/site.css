@@ -20,7 +20,19 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* A área do conteúdo cresce e empurra o rodapé para o fim da tela */
+.conteudo-pagina {
+    flex: 1 0 auto;
+}
+
+/* Páginas de largura total: o espaço que sobrar fica bege, não branco */
+.fundo-bege {
+    background: #f7f4ee;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
