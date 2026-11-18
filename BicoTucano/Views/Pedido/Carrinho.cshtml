@@ -107,32 +107,9 @@ else
                     <a asp-controller="Home" asp-action="Index">Continuar comprando</a>
                 </div>
 
-                <div class="caixa" id="endereco-entrega">
-                    <h3>Entregar no endereço</h3>
-                    <a class="botao-endereco" asp-controller="Endereco" asp-action="Index">Adicionar endereço</a>
-                </div>
+                
 
-                <div class="opcoes-entrega">
-                    <h3>Opções de entrega</h3>
-
-                    <label class="opcao">
-                        <div>
-                            <b>Delivery</b><br />
-                            <small>Entrega no endereço em 30-45 min</small>
-                        </div>
-                        @* Botão de seleção único *@
-                        <input type="radio" name="tipo" value="entrega" checked onchange="atualizar()" />
-                    </label>
-
-                    <label class="opcao">
-                        <div>
-                            <b>Retirada no Local</b><br />
-                            <small>R. Fradique Coutinho, 088 - Pronto em 20 min</small>
-                        </div>
-                        @* Botão de seleção único *@
-                        <input type="radio" name="tipo" value="retirada" onchange="atualizar()" />
-                    </label>
-                </div>
+                
             </div>
 
             <div class="resumo">

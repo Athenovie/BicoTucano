@@ -127,60 +127,6 @@
         font-weight: 500;
     }
 
-.caixa {
-    background-color: white;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-    .caixa h3,
-    .opcoes-entrega h3 {
-        font-family: 'Playfair Display', serif;
-        font-size: 17px;
-        font-weight: 500;
-        margin-bottom: 12px;
-    }
-
-.botao-endereco {
-    display: block;
-    text-align: center;
-    padding: 12px;
-    border: 1px dashed #4a7c59;
-    border-radius: 10px;
-    color: #4a7c59;
-    text-decoration: none;
-}
-
-.opcoes-entrega {
-    background-color: white;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.opcao {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px;
-    border: 1px solid #e5e5e5;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    cursor: pointer;
-}
-
-    .opcao small {
-        color: #777;
-    }
-
-    .opcao input {
-        accent-color: #4a7c59;
-        cursor: pointer;
-    }
-
 .resumo {
     background-color: white;
     padding: 20px;
