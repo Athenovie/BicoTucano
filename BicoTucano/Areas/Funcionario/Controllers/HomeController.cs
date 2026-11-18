@@ -4,6 +4,7 @@ using BicoTucano.Models;
 using BicoTucano.Models.Constants;
 using BicoTucano.Repository;
 using BicoTucano.Repository.Contract;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 
@@ -20,6 +21,17 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             _repositoryFuncionario = repositoryFuncionario;
             _loginFuncionario = loginFuncionario;
         }
+        [HttpGet("/GerarHashFuncionario")]
+        public IActionResult GerarHashTemporario()
+        {
+            var funcionario = new Models.Funcionario();
+
+            var hasher = new PasswordHasher<Models.Funcionario>();
+
+            string senhaHash = hasher.HashPassword(funcionario, "123456");
+
+            return Content(senhaHash);
+        }
         public IActionResult Login()
         {
             return View();
@@ -30,18 +42,31 @@ namespace BicoTucano.Areas.Funcionario.Controllers
         {
             Models.Funcionario funcionarioDB = _repositoryFuncionario.Login(funcionario.Email, funcionario.Senha);
 
-            if (funcionarioDB.Email != null && funcionarioDB.Senha != null)
+            if (funcionarioDB != null && !string.IsNullOrEmpty(funcionarioDB.Senha))
             {
-                _loginFuncionario.Login(funcionarioDB);
+                // Verificando a senha digitada com o hash do banco
+                var hasher = new PasswordHasher<Models.Funcionario>();
 
-                return new RedirectResult(Url.Action(nameof(Painel)));
+                var resultado = hasher.VerifyHashedPassword(
+                    funcionarioDB,
+                    funcionarioDB.Senha,
+                    funcionario.Senha
+                );
+
+                if (resultado != PasswordVerificationResult.Failed)
+                {
+                    _loginFuncionario.Login(funcionarioDB);
+
+                    return RedirectToAction(nameof(Painel));
+                }
             }
-            else
-            {
-                ViewData["MSG_E"] = "Usuário não encontrado, verifique o e-mail e senha digitado!";
-                return View();
-            }
+
+            ViewData["MSG_E"] =
+                "Usuário não localizado, por favor verifique e-mail e senha digitado";
+
+            return View();
         }
+
 
         [FuncionarioAutorizacao(FuncionarioTipoConstant.Gerente)]
         public IActionResult Cadastrar()

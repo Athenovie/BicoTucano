@@ -5,6 +5,7 @@ using BicoTucano.Models.Constants;
 using BicoTucano.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 
 namespace BicoTucano.Controllers
 {
@@ -72,22 +73,32 @@ namespace BicoTucano.Controllers
         {
             Cliente clienteDB = _clienteRepository.Login(cliente.Email, cliente.Senha);
 
-            if (clienteDB.Email != null && clienteDB.Senha != null)
+            if (clienteDB != null && !string.IsNullOrEmpty(clienteDB.Senha))
             {
-                _loginCliente.Login(clienteDB);
+                // Verificando a senha digitada com o hash do banco
+                var hasher = new PasswordHasher<Cliente>();
 
-                return RedirectToAction(nameof(PainelCliente));
-               
-            }
-            else
-            {
-                // Erro na sessão
-                ViewData["MSG_E"] =
-                    "Usuário não localizado, por favor verifique e-mail e senha digitado";
+                var resultado = hasher.VerifyHashedPassword(
+                    clienteDB,
+                    clienteDB.Senha,
+                    cliente.Senha
+                );
 
-                return View();
+                if (resultado != PasswordVerificationResult.Failed)
+                {
+                  
+                    _loginCliente.Login(clienteDB);
+
+                    return RedirectToAction(nameof(PainelCliente));
+                }
             }
+
+            ViewData["MSG_E"] =
+                "Usuário não localizado, por favor verifique e-mail e senha digitado";
+
+            return View();
         }
+        
 
         [ClienteAutorizacao]
         public IActionResult PainelCliente()

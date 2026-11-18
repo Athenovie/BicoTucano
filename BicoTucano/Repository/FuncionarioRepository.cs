@@ -1,5 +1,6 @@
 ﻿using BicoTucano.Models;
 using BicoTucano.Repository.Contract;
+using Microsoft.AspNetCore.Identity;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using System.Data;
@@ -29,7 +30,7 @@ namespace BicoTucano.Repository
                 MySqlCommand cmd = new MySqlCommand(
                     "select u.ID_Usuario, u.Nome, u.Email, u.Senha, f.NivelAcesso, f.Cargo " +
                     "from tbUsuario u inner join tbFuncionario f on f.ID_Funcionario = u.ID_Usuario " +
-                    "where u.Email = @Email and u.Senha = @Senha", conexao);
+                    "where u.Email = @Email", conexao);
 
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;
@@ -85,7 +86,11 @@ namespace BicoTucano.Repository
                 cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = funcionario.CPF;
                 cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.Decimal).Value = funcionario.Telefone;
                 cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = funcionario.Email;
-                cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = funcionario.Senha;
+                    var hasher = new PasswordHasher<Funcionario>();
+                    string senhaHash = hasher.HashPassword(
+                        funcionario,
+                        funcionario.Senha);
+                    cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = senhaHash;
 
                 cmdUsuario.ExecuteNonQuery();
 

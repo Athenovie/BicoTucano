@@ -4,6 +4,7 @@ using BicoTucano.Repository.Contract;
 using MySql.Data.MySqlClient;
 using System.Data;
 using X.PagedList;
+using Microsoft.AspNetCore.Identity;
 
 namespace BicoTucano.Repository
 {
@@ -32,7 +33,7 @@ namespace BicoTucano.Repository
                  u.Email, u.Senha, c.DataCadastro, c.Situacao
           FROM tbUsuario u
           INNER JOIN tbCliente c ON c.ID_Cliente = u.ID_Usuario
-          WHERE u.Email = @Email AND u.Senha = @Senha", conexao);
+          WHERE u.Email = @Email", conexao);
 
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;
@@ -66,6 +67,8 @@ namespace BicoTucano.Repository
         {
             string Situacao = SituacaoConstant.Ativo;
 
+
+
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
                 conexao.Open();
@@ -88,7 +91,12 @@ namespace BicoTucano.Repository
                     cmdUsuario.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = cliente.CPF;
                     cmdUsuario.Parameters.Add("@Telefone", MySqlDbType.Decimal).Value = cliente.Telefone;
                     cmdUsuario.Parameters.Add("@Email", MySqlDbType.VarChar).Value = cliente.Email;
-                    cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = cliente.Senha;
+                    var hasher = new PasswordHasher<Cliente>();
+                    string senhaHash = hasher.HashPassword(
+                        cliente,
+                        cliente.Senha);
+                    cmdUsuario.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = senhaHash;
+
 
                     cmdUsuario.ExecuteNonQuery();
 
@@ -106,6 +114,7 @@ namespace BicoTucano.Repository
                     cmdCliente.Parameters.Add("@Situacao", MySqlDbType.VarChar).Value = Situacao;
 
                     cmdCliente.ExecuteNonQuery();
+
 
                     transacao.Commit();
                 }

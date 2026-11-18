@@ -2,7 +2,7 @@
 
 CREATE DATABASE IF NOT EXISTS DbTucano;
 use DbTucano;
-ALTER TABLE tbPagamento DROP FOREIGN KEY tbpagamento_ibfk_2;
+
 
 
 CREATE TABLE tbProduto (
