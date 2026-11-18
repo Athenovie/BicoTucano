@@ -104,15 +104,64 @@ namespace BicoTucano.Controllers
             return RedirectToAction(nameof(Confirmacao), new { id });
         }
 
-        
+
         // CARTÃO (crédito ou débito)
-        
 
-       
+        [HttpPost]
+        public IActionResult PagarCartao(int id, FormaPagamento forma, int? idCartao, string? cvv)
+        {
+            Pedido? pedido = ObterPedidoDoCliente(id);
+            if (pedido == null)
+                return RedirectToAction("Index", "Home");
 
-        
+            if (JaFoiPago(id))
+                return RedirectToAction(nameof(Confirmacao), new { id });
+
+            // esta tela só aceita crédito ou débito
+            if (forma != FormaPagamento.CartaoCredito && forma != FormaPagamento.CartaoDebito)
+                forma = FormaPagamento.CartaoCredito;
+
+            Cliente cliente = _loginCliente.GetCliente();
+
+            if (!idCartao.HasValue)
+                return ErroCartao(pedido, forma, null, "Selecione um cartão.");
+
+            Cartao? cartao = _cartaoRepository.ObterCartao(idCartao.Value);
+
+            // o cartão precisa existir e ser do cliente logado
+            if (cartao == null || cartao.ID_Usuario != cliente.ID_Usuario)
+                return ErroCartao(pedido, forma, null, "Cartão inválido.");
+
+            if (cartao.DataValidade.Date < DateTime.Today)
+                return ErroCartao(pedido, forma, cartao.ID_Cartao, "Este cartão está vencido.");
+
+            // o CVV nunca é salvo: só confere o formato (3 ou 4 dígitos)
+            string cvvLimpo = new string((cvv ?? "").Where(char.IsDigit).ToArray());
+            if (cvvLimpo.Length < 3 || cvvLimpo.Length > 4)
+                return ErroCartao(pedido, forma, cartao.ID_Cartao, "Informe o código de segurança (CVV) com 3 ou 4 dígitos.");
+
+            // cartão terminado em 0002 simula recusa da operadora
+            if (cartao.NumeroCartao.EndsWith(FinalRecusado))
+                return ErroCartao(pedido, forma, cartao.ID_Cartao, "Pagamento recusado pela operadora. Tente outro cartão.");
+
+            GravarPagamento(pedido, forma, null, cartao.ID_Cartao, StatusPagamento.Pago);
+            return RedirectToAction(nameof(Confirmacao), new { id = pedido.NF });
+        }
+
+        // Volta para a tela de pagamento mantendo o que o cliente escolheu
+        private IActionResult ErroCartao(Pedido pedido, FormaPagamento forma, int? idCartao, string mensagem)
+        {
+            PrepararIndex();
+            ViewBag.Erro = mensagem;
+            ViewBag.FormaSelecionada = forma;
+            ViewBag.CartaoSelecionado = idCartao ?? 0;
+            return View("Index", pedido);
+        }
+
+
+
         // CONFIRMAÇÃO
-       
+
 
         public IActionResult Confirmacao(int id)
         {
