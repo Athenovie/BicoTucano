@@ -1,22 +1,29 @@
 ﻿@model BicoTucano.Models.Endereco
 @{
-    ViewData["Title"] = "Atualizar endereço";
+    ViewData["Title"] = "Endereço";
+    ViewData["LarguraTotal"] = true;
 }
 
-<h1>Atualizar endereço</h1>
+<link rel="stylesheet" href="~/css/Endereco.css" asp-append-version="true" />
 
+<div class="pagina-endereco">
+    <div class="endereco-conteudo">
+        <h1>Endereço</h1>
 
-<form asp-action="Atualizar" method="post" class="col-md-6 p-0">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Atualizar" method="post" class="endereco-card">
+            <input type="hidden" asp-for="ID_UsuarioEndereco" />
+            <input type="hidden" asp-for="ID_Usuario" />
+            <input type="hidden" asp-for="NomeEndereco" />
 
-    <input type="hidden" asp-for="ID_UsuarioEndereco" />
-    <input type="hidden" asp-for="ID_Usuario" />
+            <partial name="_Form" model="Model" />
 
-    <partial name="_Form" model="Model" />
-
-    <button type="submit" class="btn btn-primary">Salvar</button>
-    <a class="btn btn-secondary" asp-action="Index">Voltar</a>
-</form>
+            <div class="endereco-botoes">
+                <a class="btn-endereco" asp-action="Index">Voltar</a>
+                <button type="submit" class="btn-endereco">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 @section Scripts {
     @{

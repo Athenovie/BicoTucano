@@ -1719,7 +1719,6 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-8tydufnm9b-8tydufnm9b.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-ubgejlmkho-ubgejlmkho.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\rjjql98h94-{0}-d1vf1o2cvb-d1vf1o2cvb.gz
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qzwkesf6ae-{0}-a9ya4cirmv-a9ya4cirmv.gz
 C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\bin\Debug\net10.0\appsettings.json
 C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\bin\Debug\net10.0\BicoTucano.staticwebassets.runtime.json
@@ -2300,3 +2299,5 @@ C:\Users\3mtec\Desktop\Nova pasta (2)\BicoTucano\obj\Debug\net10.0\refint\BicoTu
 C:\Users\3mtec\Desktop\Nova pasta (2)\BicoTucano\obj\Debug\net10.0\BicoTucano.pdb
 C:\Users\3mtec\Desktop\Nova pasta (2)\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\3mtec\Desktop\Nova pasta (2)\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qzwkesf6ae-{0}-j1dktu9p6i-j1dktu9p6i.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\5iqtm2ruuf-{0}-ui99c0klya-ui99c0klya.gz
