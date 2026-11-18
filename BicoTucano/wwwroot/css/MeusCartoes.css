@@ -1,0 +1,64 @@
+﻿.pagina {
+    background: #f5f1ea;
+    padding: 40px 20px 60px;
+}
+
+.conteudo {
+    display: flex;
+    gap: 30px;
+    max-width: 960px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+/* menu lateral */
+.menu {
+    width: 220px;
+    background: white;
+    border: 1px solid #e6e2da;
+    border-radius: 12px;
+    padding: 20px 14px;
+}
+
+.menu-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+}
+
+.menu-link {
+    display: block;
+    border: 1px solid #e6e2da;
+    border-radius: 10px;
+    padding: 9px 12px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #777;
+    text-decoration: none;
+}
+
+    .menu-link.ativo {
+        background: #dcf5e0;
+        border-color: #dcf5e0;
+        color: #2f6b3f;
+    }
+
+    .menu-link.sair {
+        color: #e8703a;
+    }
+
+/* conteúdo */
+.cartões {
+    flex: 1;
+}
+
+    .cartões h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
