@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\3mtec\\desktop\\bicotucano\\bicotucano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\3mtec\\desktop\\bicotucano\\bicotucano\\wwwroot\\css\\meuscartoes.css||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\wwwroot\\css\\meuscartoes.css||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\3mtec\\desktop\\bicotucano\\bicotucano\\views\\cartao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\cartao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\3mtec\\desktop\\bicotucano\\bicotucano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\3mtec\\desktop\\bicotucano\\bicotucano\\models\\cartao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Cadastrar.cshtml",
               "DocumentMoniker": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\Views\\Home\\Cadastrar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Home\\Cadastrar.cshtml",
@@ -82,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Cadastrar.cshtml",
               "DocumentMoniker": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\Views\\Cartao\\Cadastrar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Cartao\\Cadastrar.cshtml",
@@ -90,8 +90,7 @@
               "RelativeToolTip": "BicoTucano\\Views\\Cartao\\Cadastrar.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAowBYAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-18T11:30:10.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-18T11:30:10.988Z"
             },
             {
               "$type": "Document",
@@ -119,20 +118,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MeusCartoes.css",
               "DocumentMoniker": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\MeusCartoes.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\MeusCartoes.css",
               "ToolTip": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\MeusCartoes.css",
               "RelativeToolTip": "BicoTucano\\wwwroot\\css\\MeusCartoes.css",
-              "ViewState": "AgIAAGUAAAAAAAAAAADwv30AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAADwv30AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-11-18T01:00:39.14Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\Views\\Cartao\\Index.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Cartao\\Index.cshtml",
@@ -192,15 +191,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "BicoTucano\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAH4AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAAAH4AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-17T22:43:29.213Z"
+              "WhenOpened": "2026-11-17T22:43:29.213Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -216,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Home\\Index.cshtml",
