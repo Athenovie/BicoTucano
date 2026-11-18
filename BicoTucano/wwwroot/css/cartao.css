@@ -53,6 +53,16 @@
     border-radius: 6px;
 }
 
+.cartao-bandeira.cartao-bandeira-logo {
+    width: 72px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: 50% 33%;
+}
+
 .cartao-chip {
     width: 46px;
     height: 34px;

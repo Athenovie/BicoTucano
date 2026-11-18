@@ -53,6 +53,7 @@
         if (bandeira) {
             bandeira.src = dados.imagem;
             bandeira.alt = `Bandeira ${dados.nome}`;
+            bandeira.classList.remove("cartao-bandeira-logo");   // volta o fundo branco
         }
         removerClassesBandeira();
         if (cartao) cartao.classList.add(dados.classe);
@@ -64,6 +65,7 @@
         if (bandeira) {
             bandeira.src = LOGO_PADRAO;
             bandeira.alt = "Logo do Cartão";
+            bandeira.classList.add("cartao-bandeira-logo");      // tira o fundo branco
         }
         removerClassesBandeira();
         if (tipoVisu) tipoVisu.textContent = "Tipo";
