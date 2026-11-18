@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KphvHVHhCg8=",
+  "dgSpecHash": "HX5MYQEKgf4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\3mtec\\Desktop\\BicoTucano\\BicoTucano\\BicoTucano.csproj",
+  "projectFilePath": "C:\\Users\\3mtec\\Desktop\\Nova pasta (2)\\BicoTucano\\BicoTucano.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\3mtec\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\3mtec\\.nuget\\packages\\google.protobuf\\3.35.0\\google.protobuf.3.35.0.nupkg.sha512",
