@@ -62,3 +62,66 @@
         text-transform: uppercase;
         margin-bottom: 30px;
     }
+
+
+/*formulário*/
+
+.formulario {
+    background: white;
+    border: 1px solid #e6e2da;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 480px;
+}
+
+.formulario h2{
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    padding-bottom: 4px;
+    margin-bottom: 16px;
+}
+
+.formulario label {
+    display: block;
+    font-size: 12px;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+.formulario input {
+    width: 100%;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #c9c9c9;
+    border-radius: 8px;
+}
+
+.formulario input.curto {
+    width: 60%;
+}
+
+.botoes {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.btn-cancelar, .btn-salvar{
+    padding: 8px 22px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-cancelar{
+    background: white;
+    border: 1px solid #c9c9c9;
+    color: #777;
+}
+
+.btn salvar {
+    background: #e8845a;
+    border: 1px solid #e8845a;
+    color: white;
+}
