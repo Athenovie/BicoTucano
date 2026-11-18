@@ -1715,7 +1715,6 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ozonq2em2c-{0}-mztb6zriwy-mztb6zriwy.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-ubgejlmkho-ubgejlmkho.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\rjjql98h94-{0}-d1vf1o2cvb-d1vf1o2cvb.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-3pf63r9asd-3pf63r9asd.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-8tydufnm9b-8tydufnm9b.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-ubgejlmkho-ubgejlmkho.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\rjjql98h94-{0}-d1vf1o2cvb-d1vf1o2cvb.gz
@@ -2301,3 +2300,6 @@ C:\Users\3mtec\Desktop\Nova pasta (2)\BicoTucano\obj\Debug\net10.0\BicoTucano.ge
 C:\Users\3mtec\Desktop\Nova pasta (2)\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qzwkesf6ae-{0}-j1dktu9p6i-j1dktu9p6i.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\5iqtm2ruuf-{0}-ui99c0klya-ui99c0klya.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\5iqtm2ruuf-{0}-ui99c0klya-ui99c0klya.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qzwkesf6ae-{0}-j1dktu9p6i-j1dktu9p6i.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-zwu26tjzrb-zwu26tjzrb.gz
