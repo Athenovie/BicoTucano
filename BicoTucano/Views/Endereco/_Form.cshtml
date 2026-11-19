@@ -1,10 +1,16 @@
 ﻿@model BicoTucano.Models.Endereco
 
 <div asp-validation-summary="ModelOnly" class="erro"></div>
-<!--A classe campo metade foi criada para facilitar a estilização no css-->
+
+<div class="campo metade">
+    <label asp-for="NomeEndereco"></label>
+    <input asp-for="NomeEndereco" placeholder="Ex.: Casa, Trabalho" />
+    <span asp-validation-for="NomeEndereco" class="erro"></span>
+</div>
+
 <div class="campo metade">
     <label asp-for="CEP"></label>
-    <input asp-for="CEP" class="CEP" placeholder="00000-000" />
+    <input asp-for="CEP" class="CEP" placeholder="00000-000" maxlength="9" />
     <span asp-validation-for="CEP" class="erro"></span>
 </div>
 
@@ -14,6 +20,7 @@
         <input asp-for="Estado" maxlength="2" placeholder="SP" />
         <span asp-validation-for="Estado" class="erro"></span>
     </div>
+
     <div class="campo">
         <label asp-for="Cidade"></label>
         <input asp-for="Cidade" />
@@ -33,6 +40,7 @@
         <input asp-for="Bairro" />
         <span asp-validation-for="Bairro" class="erro"></span>
     </div>
+
     <div class="campo">
         <label asp-for="Numero"></label>
         <input asp-for="Numero" placeholder="Nº" />

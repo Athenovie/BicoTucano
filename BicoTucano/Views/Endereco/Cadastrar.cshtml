@@ -1,4 +1,5 @@
 ﻿@model BicoTucano.Models.Endereco
+
 @{
     ViewData["Title"] = "Endereço";
     ViewData["LarguraTotal"] = true;
@@ -11,19 +12,22 @@
         <h1>Endereço</h1>
 
         <form asp-action="Cadastrar" method="post" class="endereco-card">
+
             <partial name="_Form" model="Model" />
 
             <div class="endereco-botoes">
                 <a class="btn-endereco" asp-action="Index">Voltar</a>
-                <button type="submit" class="btn-endereco">Cadastrar</button>
+
+                <button type="submit" class="btn-endereco">
+                    Cadastrar
+                </button>
             </div>
+
         </form>
     </div>
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    <partial name="_ValidationScriptsPartial" />
     <script src="~/js/endereco.js" asp-append-version="true"></script>
 }
