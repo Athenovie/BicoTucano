@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = Model.Nome;
+    ViewData["LarguraTotal"] = true;
     var disponivel = Model.Disponibilidade;
 }
 
@@ -45,6 +46,64 @@
     </div>
 
 </section>
+
+
+<section class="secao-produtos">
+
+    <h3>Você também vai gostar</h3>
+    <h2>Produtos Relacionados</h2>
+
+    <div class="lista-produtos">
+
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@ViewBag.ProdutosRelacionados[0].ID_Produto" class="card-produto">
+            <img src="~/img/@ViewBag.ProdutosRelacionados[0].NomeImagem" />
+            <h3>@ViewBag.ProdutosRelacionados[0].Nome</h3>
+            <p class="descricao-produto">@ViewBag.ProdutosRelacionados[0].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @ViewBag.ProdutosRelacionados[0].Preco.ToString("F2")</strong>
+                </div>
+                <button type="submit" class="botao-adicionar" disabled="@(!disponivel)">
+                    Adicionar
+                </button>
+            </div>
+        </a>
+
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@ViewBag.ProdutosRelacionados[1].ID_Produto" class="card-produto">
+            <img src="~/img/@ViewBag.ProdutosRelacionados[1].NomeImagem" />
+            <h3>@ViewBag.ProdutosRelacionados[1].Nome</h3>
+            <p class="descricao-produto">@ViewBag.ProdutosRelacionados[1].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @ViewBag.ProdutosRelacionados[1].Preco.ToString("F2")</strong>
+                </div>
+                <button type="submit" class="botao-adicionar" disabled="@(!disponivel)">
+                    Adicionar
+                </button>
+            </div>
+        </a>
+
+        <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@ViewBag.ProdutosRelacionados[2].ID_Produto" class="card-produto">
+            <img src="~/img/@ViewBag.ProdutosRelacionados[2].NomeImagem" />
+            <h3>@ViewBag.ProdutosRelacionados[2].Nome</h3>
+            <p class="descricao-produto">@ViewBag.ProdutosRelacionados[2].Descricao</p>
+            <div class="rodape-produto">
+                <div class="preco-produto">
+                    <small>a partir de</small>
+                    <strong>R$ @ViewBag.ProdutosRelacionados[2].Preco.ToString("F2")</strong>
+                </div>
+                <button type="submit" class="botao-adicionar" disabled="@(!disponivel)">
+                    Adicionar
+                </button>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
 
 @section Scripts {
     <script>

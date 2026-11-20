@@ -9,6 +9,7 @@ namespace BicoTucano.Repository.Contract
         void Atualizar(Produto produto);
         void AlterarDisponibilidade(int id, bool disponibilidade);
         IEnumerable<Produto> ObterTodosProdutos();
+        IEnumerable<Produto> ObterProdutosAleatorios(int idProduto);
         Produto? ObterProduto(int Id);
     }
 }

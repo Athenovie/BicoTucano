@@ -4,16 +4,19 @@
     --texto: #2b2b2b;
     --laranja: #e8875a;
     --laranja-hover: #d9753f;
+    --fundo: #f7f4ee;
 }
 
 .detalhe-produto {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 400px 1fr;
+    gap: 48px;
     align-items: center;
-    margin-top: 48px;
+    padding: 48px max(24px, calc((100% - 1100px) / 2)) 24px;
+    background: var(--fundo);
     font-family: 'Playfair Display', serif;
     color: var(--texto);
+    width: 100%;
 }
 
 /* Imagem */
@@ -166,3 +169,24 @@
         cursor: not-allowed;
     }
 
+.botao-adicionar {
+    border: none;
+    border-radius: 999px;
+    background: var(--laranja);
+    padding: 9px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+    .botao-adicionar:hover:not(:disabled) {
+        background: var(--laranja-hover);
+    }
+
+    .botao-adicionar:disabled {
+        background: #cfcac2;
+        cursor: not-allowed;
+    }

@@ -176,6 +176,8 @@ namespace BicoTucano.Repository
 
             return prodList;
         }
+
+
     
 
         // Usado pelos botões DESATIVAR / ATIVAR da listagem
@@ -195,6 +197,57 @@ namespace BicoTucano.Repository
                 cmd.ExecuteNonQuery();
                 conexao.Close();
             }
+        }
+
+        public IEnumerable<Produto> ObterProdutosAleatorios(int idProduto)
+        {
+            List<Produto> prodList = new List<Produto>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "SELECT p.ID_Produto, p.Nome, p.Preco, p.Descricao, " +
+                    "p.Disponibilidade, p.ID_Categoria, c.Categoria, i.NomeImagem " +
+                    "FROM tbProduto p " +
+                    "INNER JOIN tbCategoria c ON p.ID_Categoria = c.ID_Categoria " +
+                    "LEFT JOIN tbImagem i ON p.ID_Produto = i.ID_Produto " +
+                    "WHERE p.ID_Produto <> @Id " +
+                    "ORDER BY RAND() " +
+                    "LIMIT 3",
+                    conexao
+                );
+
+                cmd.Parameters.AddWithValue("@Id", idProduto);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    prodList.Add(
+                        new Produto
+                        {
+                            ID_Produto = Convert.ToInt32(dr["ID_Produto"]),
+                            Nome = Convert.ToString(dr["Nome"]) ?? "",
+                            Preco = Convert.ToDecimal(dr["Preco"]),
+                            Descricao = Convert.ToString(dr["Descricao"]) ?? "",
+                            Disponibilidade = Convert.ToBoolean(dr["Disponibilidade"]),
+                            ID_Categoria = Convert.ToInt32(dr["ID_Categoria"]),
+                            Categoria = Convert.ToString(dr["Categoria"]) ?? "",
+                            NomeImagem = dr["NomeImagem"] == DBNull.Value
+                                ? ""
+                                : Convert.ToString(dr["NomeImagem"]) ?? ""
+                        }
+                    );
+                }
+
+                conexao.Close();
+            }
+
+            return prodList;
         }
     }
 }
