@@ -1,0 +1,116 @@
+﻿.pagina-pagamento {
+    background: #f7f4ee;
+    min-height: 70vh;
+    padding: 60px 80px;
+    font-family: 'Inter', sans-serif;
+}
+
+    .pagina-pagamento h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .pagina-pagamento .subtitulo {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+.mensagem-erro {
+    max-width: 640px;
+    background: #fbe4e1;
+    color: #b3382c;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    max-width: 900px;
+}
+
+.card-pagamento {
+    flex: 1;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #e6e2da;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+    .card-pagamento h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+
+    .card-pagamento p {
+        font-size: 14px;
+        margin: 0;
+    }
+    .card-pagamento form {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+.botao-area {
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.botao-verde, .botao-laranja {
+    display: inline-block;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.botao-verde {
+    background: #4a7c59;
+}
+
+.botao-laranja {
+    background: #e8875a;
+}
+
+.botao-verde:hover {
+    background: #3e6a4b;
+    color: white;
+}
+
+.botao-laranja:hover {
+    background: #d9753f;
+    color: white;
+}
+
+.opcao-cartao {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.campo-cvv {
+    width: 100px;
+    padding: 6px 10px;
+    border: 1px solid #c9c9c9;
+    border-radius: 8px;
+    margin-top: 6px;
+}
+
+.vencido {
+    color: #b3382c;
+    font-weight: bold;
+}

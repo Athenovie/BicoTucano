@@ -2,110 +2,80 @@
 @using System.Globalization
 @{
     ViewData["Title"] = "Pagamento";
+    ViewData["LarguraTotal"] = true;
+
     var br = new CultureInfo("pt-BR");
     var cartoes = (List<Cartao>)ViewBag.Cartoes;
 
     object? formaObj = ViewBag.FormaSelecionada;
-    FormaPagamento formaSelecionada = formaObj is FormaPagamento formaEscolhida ? formaEscolhida : FormaPagamento.CartaoCredito;
+    FormaPagamento formaSelecionada = formaObj is FormaPagamento forma ? forma : FormaPagamento.CartaoCredito;
 
     object? cartaoObj = ViewBag.CartaoSelecionado;
-    int cartaoSelecionado = cartaoObj is int idEscolhido ? idEscolhido : 0;
+    int cartaoSelecionado = cartaoObj is int idCartao ? idCartao : 0;
 }
 
-<div class="container my-4">
-    <h1 class="mb-1">Pagamento</h1>
-    <p class="text-muted">Pedido nº @Model.NF - total de <strong>@Model.ValorTotal.ToString("C", br)</strong></p>
+<link rel="stylesheet" href="~/css/Pagamento.css" asp-append-version="true" />
 
-    <div class="alert alert-info">
-        Pagamento de demonstração: nenhuma cobrança real é feita.
-        Dica para testar: um cartão terminado em <strong>0002</strong> é recusado.
-    </div>
+<section class="pagina-pagamento">
+    <h1>Pagamento</h1>
+    <p class="subtitulo">Pedido nº @Model.NF - total de @Model.ValorTotal.ToString("C", br)</p>
 
-    @if (TempData["MSG_S"] != null)
-    {
-        <div class="alert alert-success">@TempData["MSG_S"]</div>
-    }
     @if (ViewBag.Erro != null)
     {
-        <div class="alert alert-danger">@ViewBag.Erro</div>
+        <div class="mensagem-erro">@ViewBag.Erro</div>
     }
 
-    <div class="row g-4">
+    <div class="cards">
 
-        <div class="col-md-5">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Pix</h5>
-                    <p class="card-text">Você recebe um código "copia e cola" para pagar no app do seu banco.</p>
-                    <form asp-action="PagarPix" asp-route-id="@Model.NF" method="post">
-                        <button type="submit" class="btn btn-success">Pagar com Pix</button>
-                    </form>
+        <div class="card-pagamento">
+            <h2>Pix</h2>
+            <form asp-action="PagarPix" asp-route-id="@Model.NF" method="post">
+                <p>Você recebe um código "copia e cola" para pagar no app do seu banco.</p>
+                <div class="botao-area">
+                    <button type="submit" class="botao-verde">Pagar com Pix</button>
                 </div>
-            </div>
+            </form>
         </div>
 
-        <div class="col-md-7">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">Cartão</h5>
-
-                    @if (cartoes.Count == 0)
-                    {
-                        <p>Você ainda não tem cartão cadastrado.</p>
-                    }
-                    else
-                    {
-                        <form asp-action="PagarCartao" asp-route-id="@Model.NF" method="post">
-
-                            <div class="mb-3">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="forma" id="formaCredito"
-                                           value="@FormaPagamento.CartaoCredito"
-                                           checked="@(formaSelecionada != FormaPagamento.CartaoDebito)" />
-                                    <label class="form-check-label" for="formaCredito">Crédito</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="forma" id="formaDebito"
-                                           value="@FormaPagamento.CartaoDebito"
-                                           checked="@(formaSelecionada == FormaPagamento.CartaoDebito)" />
-                                    <label class="form-check-label" for="formaDebito">Débito</label>
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                @foreach (Cartao c in cartoes)
-                                {
-                                    bool vencido = c.DataValidade.Date < DateTime.Today;
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="idCartao" id="cartao@(c.ID_Cartao)"
-                                               value="@c.ID_Cartao" disabled="@vencido"
-                                               checked="@(cartaoSelecionado == c.ID_Cartao)" />
-                                        <label class="form-check-label" for="cartao@(c.ID_Cartao)">
-                                            @c.Apelido - <partial name="_Bandeira" model="c.Bandeira" /> @c.NumeroCartao (validade @c.DataValidade.ToString("MM/yy"))
-                                            @if (vencido)
-                                            {
-                                                <span class="badge bg-danger">Vencido</span>
-                                            }
-                                        </label>
-                                    </div>
-                                }
-                            </div>
-
-                            <div class="mb-3" style="max-width:200px">
-                                <label for="cvv" class="form-label">Código de segurança (CVV)</label>
-                                <input type="password" name="cvv" id="cvv" class="form-control" inputmode="numeric"
-                                       autocomplete="cc-csc" maxlength="4" placeholder="123" />
-                            </div>
-
-                            <button type="submit" class="btn btn-success">Pagar @Model.ValorTotal.ToString("C", br)</button>
-                        </form>
-                    }
-
-                    <hr />
-                    <a asp-controller="Cartao" asp-action="Cadastrar" asp-route-nf="@Model.NF">Cadastrar novo cartão</a>
+        <div class="card-pagamento">
+            <h2>Cartão</h2>
+        <!--Criando estruturas de condição caso usuário tenha ou não o cartão-->
+            @if (cartoes.Count == 0)
+            {
+                <p>Você ainda não tem cartão cadastrado.</p>
+                <div class="botao-area">
+                    <a class="botao-laranja" asp-controller="Cartao" asp-action="Cadastrar" asp-route-nf="@Model.NF">Cadastrar Cartão</a>
                 </div>
-            </div>
+            }
+            else
+            {
+                <form asp-action="PagarCartao" asp-route-id="@Model.NF" method="post">
+                    <div>
+                        <label><input type="radio" name="forma" value="@FormaPagamento.CartaoCredito" checked="@(formaSelecionada != FormaPagamento.CartaoDebito)" /> Crédito</label>
+                        <label><input type="radio" name="forma" value="@FormaPagamento.CartaoDebito" checked="@(formaSelecionada == FormaPagamento.CartaoDebito)" /> Débito</label>
+                    </div>
+
+                    @foreach (Cartao c in cartoes)
+                    {
+                        bool vencido = c.DataValidade.Date < DateTime.Today;
+                        <label class="opcao-cartao">
+                            <input type="radio" name="idCartao" value="@c.ID_Cartao" disabled="@vencido" checked="@(cartaoSelecionado == c.ID_Cartao)" />
+                            @c.Apelido - @c.NumeroCartao (@c.DataValidade.ToString("MM/yy"))
+                            @if (vencido)
+                            {
+                                <span class="vencido">Vencido</span>
+                            }
+                        </label>
+                    }
+
+                    <input type="password" name="cvv" class="campo-cvv" maxlength="4" placeholder="CVV" />
+
+                    <div class="botao-area">
+                        <button type="submit" class="botao-verde">Pagar @Model.ValorTotal.ToString("C", br)</button>
+                    </div>
+                </form>
+            }
         </div>
 
     </div>
-</div>
+</section>
