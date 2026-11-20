@@ -12,7 +12,7 @@
                 file.CopyTo(Stream);
             }
 
-            return Path.Combine("/Imagens", NomeArquivo).Replace("//", "/");
+            return NomeArquivo;
         }
     }
 }
