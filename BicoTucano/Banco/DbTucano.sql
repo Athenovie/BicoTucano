@@ -85,7 +85,6 @@ CREATE TABLE tbUsuarioEndereco (
 );
 
 
-
 CREATE TABLE tbBairro (
 ID_Bairro INT PRIMARY KEY AUTO_INCREMENT,
 Bairro VARCHAR(75)
