@@ -1,44 +1,62 @@
 ﻿@model BicoTucano.Models.Pedido
 @using System.Globalization
 @{
-    ViewData["Title"] = "Pagamento aprovado";
+    ViewData["Title"] = "Pedido confirmado";
+    ViewData["LarguraTotal"] = true;
     var br = new CultureInfo("pt-BR");
-    var pagamento = (Pagamento)ViewBag.Pagamento;
-    Cartao? cartao = ViewBag.Cartao as Cartao;
-
-    string forma = pagamento.FormaPagamento switch
+    
+    string status = "";
+    if (Model.StatusPedido == StatusPedido.EmPreparo)
     {
-        FormaPagamento.Pix => "Pix",
-        FormaPagamento.CartaoDebito => "Cartão de débito",
-        FormaPagamento.CartaoCredito => "Cartão de crédito",
-        _ => ""
-    };
+        status = "Em preparo";
+    }
+    else if (Model.StatusPedido == StatusPedido.EmEntrega)
+    {
+        status = "A caminho";
+    }
+    else
+    {
+        status = "Concluído";
+    }
 }
+<!-- Criei a variável status do tipo string vazia que vai se preenchida quando a condicional for verificada-->
+<link rel="stylesheet" href="~/css/Confirmacao.css" asp-append-version="true" />
 
-<div class="container my-4" style="max-width:700px">
-    <div class="alert alert-success">
-        <h4 class="alert-heading mb-1">Pagamento aprovado!</h4>
-        <span>Seu pedido nº @Model.NF segue para o preparo.</span>
+<section class="pagina-confirmacao">
+    <div class="icone-check">✓</div>
+
+    <h1>Pedido Confirmado!</h1>
+    <p class="mensagem">Seu pagamento foi aprovado. Seu pedido já está sendo preparado com carinho e chegará em breve!</p>
+
+    <div class="card-pedido">
+        <div class="linha">
+            <span>Nº do pedido</span>
+            <strong>#VN-@Model.NF.ToString("D7")</strong>
+        </div>
+        <div class="linha">
+            <span>Total Pago</span>
+            <strong>@Model.ValorTotal.ToString("C", br)</strong>
+        </div>
+        <div class="linha">
+            @if (Model.TipoPedido == TipoPedido.Entrega)
+            {
+                <span>Previsão de entrega</span>
+                <strong>~ 35min</strong>
+            }
+            else
+            {
+                <span>Retirada</span>
+                <strong>No restaurante</strong>
+            }
+        </div>
+        <div class="linha">
+            <span>Status</span>
+            <strong>@status</strong>
+        </div>
     </div>
 
-    <p class="mb-1"><strong>Forma de pagamento:</strong> @forma</p>
-
-    @if (cartao != null)
-    {
-        <p class="mb-1"><strong>Cartão:</strong> @cartao.Apelido - <partial name="_Bandeira" model="cartao.Bandeira" /> @cartao.NumeroCartao</p>
-    }
-
-    <p class="mb-1"><strong>Valor pago:</strong> @pagamento.ValorPago.ToString("C", br)</p>
-
-    @if (pagamento.DataPagamento.HasValue)
-    {
-        <p class="mb-3"><strong>Data:</strong> @pagamento.DataPagamento.Value.ToString("dd/MM/yyyy 'às' HH:mm")</p>
-    }
-
-    <p class="text-muted">Pagamento de demonstração: nenhuma cobrança real foi feita.</p>
-
-    <div class="d-flex flex-wrap gap-2">
-        <a class="btn btn-success" asp-controller="Pedido" asp-action="Confirmacao" asp-route-id="@Model.NF">Ver meu pedido</a>
-        <a class="btn btn-outline-secondary" asp-controller="Home" asp-action="Index">Voltar ao cardápio</a>
+    <div class="botoes">
+        <a class="botao-verde" asp-controller="Pedido" asp-action="Confirmacao" asp-route-id="@Model.NF">Ver meus pedidos</a>
+        <a class="botao-laranja" asp-controller="Home" asp-action="Index">Voltar ao Menu</a>
     </div>
-</div>
+</section>
