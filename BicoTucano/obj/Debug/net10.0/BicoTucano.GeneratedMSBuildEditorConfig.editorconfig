@@ -63,6 +63,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxQYWluZWxDb211bS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Renato/Desktop/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Alterar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUHJvZHV0b1xBbHRlcmFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Renato/Desktop/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Cadastrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUHJvZHV0b1xDYWRhc3RyYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Renato/Desktop/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUHJvZHV0b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Renato/Desktop/BicoTucano/BicoTucano/Areas/Funcionario/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

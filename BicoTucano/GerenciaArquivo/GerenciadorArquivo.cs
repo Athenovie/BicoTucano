@@ -5,8 +5,7 @@
         public static string CadastrarImagemProduto(IFormFile file)
         {
             var NomeArquivo = Path.GetFileName(file.FileName);
-            var Caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Imagens", NomeArquivo);
-
+            var Caminho = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", NomeArquivo);
             using (var Stream = new FileStream(Caminho, FileMode.Create))
             {
                 file.CopyTo(Stream);

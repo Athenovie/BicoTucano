@@ -50,13 +50,12 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
 }
 
-
+app.UseSession();
+app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 app.MapStaticAssets();
 app.UseCookiePolicy();
-app.UseSession();
-app.UseStaticFiles();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
