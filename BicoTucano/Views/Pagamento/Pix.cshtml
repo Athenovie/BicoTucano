@@ -1,52 +1,40 @@
 ﻿@model BicoTucano.Models.Pedido
-@using System.Globalization
 @{
     ViewData["Title"] = "Pagamento com Pix";
-    var br = new CultureInfo("pt-BR");
-    string codigoPix = (string)ViewBag.CodigoPix;
+    ViewData["LarguraTotal"] = true;
 }
 
-<div class="container my-4" style="max-width:700px">
-    <h1 class="mb-1">Pagamento com Pix</h1>
-    <p class="text-muted">Pedido nº @Model.NF - total de <strong>@Model.ValorTotal.ToString("C", br)</strong></p>
+<link rel="stylesheet" href="~/css/PagamentoPix.css" asp-append-version="true" />
 
-    <div class="alert alert-info">
-        Pagamento de demonstração: o código abaixo é um texto fixo e nenhuma cobrança real é feita.
+<section class="pagina-pix">
+    <p class="aviso">Pedido confirmado! Realize o pagamento para processarmos sua entrega.</p>
+
+    <h1>Pagamento com Pix</h1>
+
+    <div class="qr">
+        <div class="qr-quadrado"></div>
     </div>
 
-    <ol>
-        <li>Copie o código Pix abaixo.</li>
-        <li>Clique em <strong>Já paguei</strong> para simular a confirmação do pagamento.</li>
-    </ol>
+    <div class="codigo" id="codigo">@ViewBag.CodigoPix</div>
 
-    <label for="codigoPix" class="form-label">Código Pix</label>
-    <textarea id="codigoPix" class="form-control mb-2" rows="4" readonly>@codigoPix</textarea>
-    <button type="button" class="btn btn-outline-secondary btn-sm mb-4" id="botaoCopiar">Copiar código</button>
-    <span id="avisoCopiado" class="text-success ms-2 d-none">Código copiado!</span>
+    <button type="button" class="botao-verde" id="copiar">Copiar código Pix</button>
 
-    <div class="d-flex flex-wrap gap-2">
+    <p class="prazo">*O pagamento deve ser efetuado em até 50 minutos</p>
+
+    <div class="botoes">
         <form asp-action="ConfirmarPix" asp-route-id="@Model.NF" method="post">
-            <button type="submit" class="btn btn-success">Já paguei (simular pagamento)</button>
+            <button type="submit" class="botao-laranja">Confirmar pagamento</button>
         </form>
-        <a class="btn btn-outline-secondary" asp-action="Index" asp-route-id="@Model.NF">Escolher outra forma</a>
+        <a class="voltar" asp-controller="Home" asp-action="Index">Voltar para o menu</a>
     </div>
-</div>
+</section>
 
 @section Scripts {
     <script>
-        document.getElementById('botaoCopiar').addEventListener('click', function() {
-            var campo = document.getElementById('codigoPix');
-            campo.select();
-
-            var aviso = document.getElementById('avisoCopiado');
-            var mostrar = function() { aviso.classList.remove('d-none'); };
-
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(campo.value).then(mostrar);
-            } else {
-                document.execCommand('copy');
-                mostrar();
-            }
+        document.getElementById("copiar").addEventListener("click", function () {
+            var texto = document.getElementById("codigo").innerText;
+            navigator.clipboard.writeText(texto);
+            this.innerText = "Código copiado!";
         });
     </script>
 }

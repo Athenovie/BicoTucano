@@ -1,0 +1,91 @@
+﻿.pagina-pix {
+    background: #f7f4ee;
+    min-height: 70vh;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.aviso {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4a7c59;
+    margin-bottom: 40px;
+}
+
+.pagina-pix h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #2f4a3a;
+    margin-bottom: 20px;
+}
+
+.qr {
+    width: 136px;
+    height: 136px;
+    background: white;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-quadrado {
+    width: 32px;
+    height: 32px;
+    background: #1d2b1f;
+}
+
+.codigo {
+    width: 340px;
+    margin: 0 auto 24px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #2f4a3a;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    word-break: break-all;
+}
+
+.botao-verde {
+    border: none;
+    border-radius: 6px;
+    padding: 14px 24px;
+    background: #4a7c59;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.prazo {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4a7c59;
+    margin: 24px 0 14px;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+}
+
+.botao-laranja {
+    border: none;
+    border-radius: 12px;
+    padding: 16px 20px;
+    background: #e8875a;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.voltar {
+    color: #5b6b5f;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
