@@ -20,7 +20,7 @@ builder.Services.AddScoped<BicoTucano.Cookie.Cookie>();
 builder.Services.AddScoped<BicoTucano.CarrinhoCompra.CookieCarrinhoCompra>();
 builder.Services.AddScoped<ICartaoRepository, CartaoRepository>();
 builder.Services.AddScoped<IPagamentoRepository, PagamentoRepository>();
-
+builder.Services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
 // Corrigir problema com TEMPDATA
 builder.Services.AddDistributedMemoryCache();
