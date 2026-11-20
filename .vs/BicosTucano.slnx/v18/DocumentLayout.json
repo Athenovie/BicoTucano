@@ -3,6 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\Renato\\Desktop\\BicoTucano\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\areas\\funcionario\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\areas\\funcionario\\controllers\\produtocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\repository\\categoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\repository\\categoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\repository\\contract\\icategoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\repository\\contract\\icategoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\repository\\contract\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\repository\\contract\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\areas\\funcionario\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\areas\\funcionario\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\gerenciaarquivo\\gerenciadorarquivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\gerenciaarquivo\\gerenciadorarquivo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,28 +43,12 @@
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\repository\\categoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\repository\\categoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\repository\\contract\\icategoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\repository\\contract\\icategoriarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\models\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\areas\\funcionario\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\areas\\funcionario\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\areas\\funcionario\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\areas\\funcionario\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\renato\\desktop\\bicotucano\\bicotucano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -150,73 +158,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "IProdutoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
-              "RelativeDocumentMoniker": "BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
-              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
-              "RelativeToolTip": "BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T13:32:13.891Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProdutoRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\ProdutoRepository.cs",
-              "RelativeDocumentMoniker": "BicoTucano\\Repository\\ProdutoRepository.cs",
-              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\ProdutoRepository.cs",
-              "RelativeToolTip": "BicoTucano\\Repository\\ProdutoRepository.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAswLIAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T13:32:37.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GerenciadorArquivo.cs",
-              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
-              "RelativeDocumentMoniker": "BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
-              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
-              "RelativeToolTip": "BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T13:33:32.087Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Program.cs",
-              "RelativeDocumentMoniker": "BicoTucano\\Program.cs",
-              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Program.cs",
-              "RelativeToolTip": "BicoTucano\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T15:05:15.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "CategoriaRepository.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\CategoriaRepository.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Repository\\CategoriaRepository.cs",
               "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\CategoriaRepository.cs",
               "RelativeToolTip": "BicoTucano\\Repository\\CategoriaRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T15:02:08.524Z"
+              "WhenOpened": "2026-11-20T15:02:08.524Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
+              "Title": "ProdutoController.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Controllers\\ProdutoController.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Controllers\\ProdutoController.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Controllers\\ProdutoController.cs",
+              "RelativeToolTip": "BicoTucano\\Areas\\Funcionario\\Controllers\\ProdutoController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAowB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T15:17:32.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ICategoriaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
+              "RelativeToolTip": "BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T15:01:22.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\IClienteRepository.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Repository\\Contract\\IClienteRepository.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\IClienteRepository.cs",
+              "RelativeToolTip": "BicoTucano\\Repository\\Contract\\IClienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T15:30:44.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Categoria.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Models\\Categoria.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Models\\Categoria.cs",
@@ -229,18 +227,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ICategoriaRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
-              "RelativeDocumentMoniker": "BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
-              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
-              "RelativeToolTip": "BicoTucano\\Repository\\Contract\\ICategoriaRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T15:01:22.363Z"
+              "WhenOpened": "2026-11-20T13:41:12.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GerenciadorArquivo.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
+              "RelativeToolTip": "BicoTucano\\GerenciaArquivo\\GerenciadorArquivo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T13:33:32.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProdutoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\ProdutoRepository.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Repository\\ProdutoRepository.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\ProdutoRepository.cs",
+              "RelativeToolTip": "BicoTucano\\Repository\\ProdutoRepository.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAswLIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T13:32:37.259Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "IProdutoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
+              "RelativeToolTip": "BicoTucano\\Repository\\Contract\\IProdutoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T13:32:13.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Program.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Program.cs",
+              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Program.cs",
+              "RelativeToolTip": "BicoTucano\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-20T15:05:15.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Views\\Shared\\_Layout.cshtml",
@@ -252,19 +298,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "BicoTucano\\Areas\\Funcionario\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-20T13:41:12.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "DbTucano.sql",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Banco\\DbTucano.sql",
               "RelativeDocumentMoniker": "BicoTucano\\Banco\\DbTucano.sql",
@@ -275,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "site.js",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\js\\site.js",
@@ -287,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Produto.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Models\\Produto.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Models\\Produto.cs",
@@ -299,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "CadastrarProduto.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Produto\\CadastrarProduto.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Produto\\CadastrarProduto.cshtml",
@@ -311,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "PedidoRepository.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\PedidoRepository.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Repository\\PedidoRepository.cs",
@@ -323,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\appsettings.json",
               "RelativeDocumentMoniker": "BicoTucano\\appsettings.json",
@@ -335,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "Confirmacao.css",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\Confirmacao.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\Confirmacao.css",
@@ -347,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Confirmacao.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Pagamento\\Confirmacao.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pagamento\\Confirmacao.cshtml",
@@ -359,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "Pagamento.css",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\Pagamento.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\Pagamento.css",
@@ -371,7 +405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Pagamento\\Index.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pagamento\\Index.cshtml",
@@ -383,7 +417,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "_Form.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Endereco\\_Form.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Endereco\\_Form.cshtml",
@@ -395,7 +429,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "Atualizar.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Endereco\\Atualizar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Endereco\\Atualizar.cshtml",
@@ -407,7 +441,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Endereco\\Index.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Endereco\\Index.cshtml",
@@ -419,7 +453,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "Cadastrar.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Endereco\\Cadastrar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Endereco\\Cadastrar.cshtml",
@@ -431,7 +465,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "EnderecoRepository.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Repository\\EnderecoRepository.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Repository\\EnderecoRepository.cs",
@@ -443,7 +477,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "Cartao.js",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\js\\Cartao.js",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\js\\Cartao.js",
@@ -455,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "Cadastrar.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Cartao\\Cadastrar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Cartao\\Cadastrar.cshtml",
@@ -467,7 +501,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "cartao.css",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\cartao.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\cartao.css",
@@ -479,7 +513,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Shared\\_Layout.cshtml",
@@ -491,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\site.css",
@@ -503,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "Finalizar.css",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\Finalizar.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\Finalizar.css",
@@ -515,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "Usuario.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Models\\Usuario.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Models\\Usuario.cs",
@@ -527,7 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "Finalizar.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Pedido\\Finalizar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pedido\\Finalizar.cshtml",
@@ -539,7 +573,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "PedidoController.cs",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Controllers\\PedidoController.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Controllers\\PedidoController.cs",
@@ -551,7 +585,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "Carrinho.cshtml",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\Views\\Pedido\\Carrinho.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pedido\\Carrinho.cshtml",
@@ -563,7 +597,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "Carrinho.css",
               "DocumentMoniker": "C:\\Users\\Renato\\Desktop\\BicoTucano\\BicoTucano\\wwwroot\\css\\Carrinho.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\Carrinho.css",

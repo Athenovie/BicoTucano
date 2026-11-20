@@ -13,7 +13,6 @@ namespace BicoTucano.Repository
         {
             _conexaoMySQL = conf.GetConnectionString("ConexaoMySQL");
         }
-
         public IEnumerable<Categoria> ObterTodasCategorias()
         {
             List<Categoria> lista = new List<Categoria>();
@@ -44,3 +43,4 @@ namespace BicoTucano.Repository
         }
     }
 }
+
