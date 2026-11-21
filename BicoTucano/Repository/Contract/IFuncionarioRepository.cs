@@ -10,7 +10,7 @@ namespace BicoTucano.Repository.Contract
         //CRUD
         void Cadastrar(Funcionario funcionario);
         void Atualizar(Funcionario funcionario);
-        void AtualizarSenha(Funcionario funcionario);
+        bool AtualizarSenha(string email, string novaSenha);
         void Excluir(int Id);
 
         void Desativar(Funcionario funcionario);

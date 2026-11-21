@@ -331,5 +331,25 @@ namespace BicoTucano.Repository
                 return cliente;
             }
         }
+
+        public bool AtualizarSenha(string email, string novaSenha)
+        {
+            var hasher = new PasswordHasher<Cliente>();
+            string senhaHash = hasher.HashPassword(new Cliente(), novaSenha);
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "update tbUsuario u inner join tbCliente c on c.ID_Cliente = u.ID_Usuario " +
+                    "set u.Senha = @Senha where u.Email = @Email", conexao);
+
+                cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = senhaHash;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = email;
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }

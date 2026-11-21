@@ -15,6 +15,7 @@ namespace BicoTucano.Repository.Contract
         void Cadastrar(Cliente cliente);
         void Atualizar(Cliente cliente);
         void Excluir(int Id);
+        bool AtualizarSenha(string email, string novaSenha);
         Cliente BuscaCpfCliente(string CPF);
         Cliente BuscaEmailCliente(string email);
         Cliente ObterCliente(int Id);

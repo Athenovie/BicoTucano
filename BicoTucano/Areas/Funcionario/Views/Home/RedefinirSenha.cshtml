@@ -1,0 +1,71 @@
+﻿@model BicoTucano.Models.Funcionario
+
+@{
+    ViewData["Title"] = "Redefinir senha";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redefinir senha | Bico Tucano</title>
+    <!-- fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/LoginFuncionario.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/RedefinirSenha.css" asp-append-version="true" />
+    <script src="~/js/site.js" defer></script>
+</head>
+<body class="corpo-login">
+    <div class="container-login">
+
+        <!-- painel verde -->
+        <div class="painel-verde painel-centralizado">
+            <div class="painel-verde-conteudo">
+                <span class="painel-icone" aria-hidden="true">🔑</span>
+                <h1>Crie uma nova senha</h1>
+                <p>Use de 6 a 10 caracteres, combinando letras, números e símbolos para manter sua conta protegida.</p>
+            </div>
+        </div>
+
+        <!-- formulário -->
+        <div class="area-formulario">
+            <form class="formulario-login formulario-redefinir" asp-action="RedefinirSenha" method="post">
+
+                <h2>Digite aqui sua nova senha!</h2>
+                <p class="subtitulo">Informe seu e-mail e a nova senha abaixo</p>
+
+                @if (ViewData["MSG_E"] != null)
+                {
+                    <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
+                }
+
+                <div class="campo-formulario">
+                    <label asp-for="Email">E-mail</label>
+                    <input asp-for="Email" type="email" placeholder="seu@email.com" />
+                    <span asp-validation-for="Email" class="texto-erro"></span>
+                </div>
+
+                <div class="campo-formulario">
+                    <label asp-for="Senha">Nova senha</label>
+                    <input asp-for="Senha" type="password" placeholder="Digite sua nova senha" autocomplete="new-password" />
+                    <span asp-validation-for="Senha" class="texto-erro"></span>
+                </div>
+
+                <div class="campo-formulario">
+                    <label for="confirmarSenha">Confirmar senha</label>
+                    <input id="confirmarSenha" name="confirmarSenha" type="password" placeholder="Digite sua nova senha" autocomplete="new-password" />
+                    @Html.ValidationMessage("confirmarSenha", new { @class = "texto-erro" })
+                </div>
+
+                <button type="submit" class="botao-enviar">Confirmar nova senha</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

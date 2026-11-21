@@ -1,0 +1,41 @@
+﻿.painel-centralizado {
+    justify-content: center;
+    text-align: center;
+}
+
+.painel-centralizado .painel-verde-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.painel-icone {
+    margin-bottom: 8px;
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.painel-centralizado h1 {
+    font-size: 2.2rem;
+}
+
+.painel-centralizado p {
+    max-width: 300px;
+}
+
+.formulario-redefinir h2 {
+    font-size: 1.75rem;
+}
+
+.formulario-redefinir .subtitulo {
+    margin-bottom: 32px;
+}
+
+.formulario-redefinir .campo-formulario {
+    margin-bottom: 24px;
+}
+
+.formulario-redefinir .campo-formulario input:focus {
+    border-color: var(--verde-botao);
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, .15);
+}

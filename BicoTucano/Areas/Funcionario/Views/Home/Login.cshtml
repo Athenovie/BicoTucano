@@ -37,6 +37,10 @@
                 {
                     <p class="aviso aviso-erro">@Html.Raw(ViewData["MSG_E"])</p>
                 }
+                @if (TempData["MSG_S"] != null)
+                {
+                    <p class="aviso aviso-sucesso">@TempData["MSG_S"]</p>
+                }
 
                 <div class="campo-formulario">
                     <label asp-for="Email">E-mail</label>
@@ -47,7 +51,7 @@
                 <div class="campo-formulario">
                     <label asp-for="Senha">Senha</label>
                     <input asp-for="Senha" type="password" placeholder="•••••••" />
-                    <a class="link-esqueci" href="#">Esqueci a senha</a>
+                    <a class="link-esqueci" asp-action="RedefinirSenha">Esqueci a senha</a>
                     <span asp-validation-for="Senha" class="texto-erro"></span>
                 </div>
 

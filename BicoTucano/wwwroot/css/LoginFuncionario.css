@@ -163,3 +163,8 @@
     color: var(--erro);
     background: #fdecea;
 }
+
+.aviso-sucesso {
+    color: #2f6b43;
+    background: #e3f1e7;
+}

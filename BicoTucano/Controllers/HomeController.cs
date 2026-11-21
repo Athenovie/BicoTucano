@@ -133,6 +133,35 @@ namespace BicoTucano.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet]
+        public IActionResult RedefinirSenha()
+        {
+            return View(new Cliente()); 
+        }
+
+        [HttpPost]
+        public IActionResult RedefinirSenha([FromForm] Cliente cliente, string confirmarSenha)
+        {
+            if (cliente.Senha != confirmarSenha)
+                ModelState.AddModelError("confirmarSenha", "As senhas não coincidem");
+
+            bool invalido = ModelState["Email"]?.Errors.Count > 0
+                         || ModelState["Senha"]?.Errors.Count > 0
+                         || ModelState["confirmarSenha"]?.Errors.Count > 0;
+
+            if (invalido)
+                return View(cliente);
+
+            if (!_clienteRepository.AtualizarSenha(cliente.Email, cliente.Senha))
+            {
+                ViewData["MSG_E"] = "E-mail não encontrado, por favor verifique o e-mail digitado";
+                return View(cliente);
+            }
+
+            TempData["MSG_S"] = "Senha alterada com sucesso! Entre com a nova senha.";
+            return RedirectToAction(nameof(Login));
+        }
     }
 
 }

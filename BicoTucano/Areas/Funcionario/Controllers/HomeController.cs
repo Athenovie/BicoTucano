@@ -130,5 +130,35 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             _loginFuncionario.logout();
             return RedirectToAction("Login", "Home");
         }
+
+        [HttpGet]
+        [HttpGet]
+        public IActionResult RedefinirSenha()
+        {
+            return View(new Models.Funcionario());
+        }
+
+        [HttpPost]
+        public IActionResult RedefinirSenha([FromForm] Models.Funcionario funcionario, string confirmarSenha)
+        {
+            if (funcionario.Senha != confirmarSenha)
+                ModelState.AddModelError("confirmarSenha", "As senhas não coincidem");
+
+            bool invalido = ModelState["Email"]?.Errors.Count > 0
+                         || ModelState["Senha"]?.Errors.Count > 0
+                         || ModelState["confirmarSenha"]?.Errors.Count > 0;
+
+            if (invalido)
+                return View(funcionario);
+
+            if (!_repositoryFuncionario.AtualizarSenha(funcionario.Email, funcionario.Senha))
+            {
+                ViewData["MSG_E"] = "E-mail não encontrado, por favor verifique o e-mail digitado";
+                return View(funcionario);
+            }
+
+            TempData["MSG_S"] = "Senha alterada com sucesso! Entre com a nova senha.";
+            return RedirectToAction(nameof(Login));
+        }
     }
 }

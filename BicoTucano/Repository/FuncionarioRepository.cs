@@ -58,13 +58,6 @@ namespace BicoTucano.Repository
             throw new NotImplementedException();
         }
 
-        
-
-        public void AtualizarSenha(Funcionario funcionario)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Cadastrar(Funcionario funcionario)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
@@ -237,6 +230,26 @@ namespace BicoTucano.Repository
         public void Ativar(Funcionario funcionario)
         {
             throw new NotImplementedException();
+        }
+
+        public bool AtualizarSenha(string email, string novaSenha)
+        {
+            var hasher = new PasswordHasher<Funcionario>();
+            string senhaHash = hasher.HashPassword(new Funcionario(), novaSenha);
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "update tbUsuario u inner join tbFuncionario f on f.ID_Funcionario = u.ID_Usuario " +
+                    "set u.Senha = @Senha where u.Email = @Email", conexao);
+
+                cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = senhaHash;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = email;
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
         }
     }
 }
