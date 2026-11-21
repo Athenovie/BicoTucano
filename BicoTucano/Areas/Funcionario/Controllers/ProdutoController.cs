@@ -1,4 +1,5 @@
 ﻿using BicoTucano.GerenciaArquivo;
+using BicoTucano.Libraries.Filtro;
 using BicoTucano.Models;
 using BicoTucano.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace BicoTucano.Areas.Funcionario.Controllers
 {
     [Area("Funcionario")]
+    [FuncionarioAutorizacao]
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;
