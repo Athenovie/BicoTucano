@@ -10,5 +10,8 @@ namespace BicoTucano.Repository.Contract
         IEnumerable<PedidoLista> ObterTodosPedidosAdmin();
         PedidoDetalhe? ObterDetalhePedido(int nf);
         void AtualizarStatus(int nf, StatusPedido status);
+
+        IEnumerable<Pedido> ObterPedidosDoCliente(int idUsuario);
+
     }
 }

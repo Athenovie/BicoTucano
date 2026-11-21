@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BicoTucano.Controllers
 {
-   
     [ClienteAutorizacao]
     public class PagamentoController : Controller
     {
@@ -43,15 +42,13 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Confirmacao", "Pedido", new { id });
 
             PrepararIndex();
             return View(pedido);
         }
 
-        
         // PIX
-        
 
         [HttpPost]
         public IActionResult PagarPix(int id)
@@ -61,9 +58,8 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Confirmacao", "Pedido", new { id });
 
-            
             GravarPagamento(pedido, FormaPagamento.Pix, ChavePixLoja, null, StatusPagamento.NaoPago);
             return RedirectToAction(nameof(Pix), new { id });
         }
@@ -75,7 +71,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Confirmacao", "Pedido", new { id });
 
             Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
             if (pagamento == null || pagamento.FormaPagamento != FormaPagamento.Pix)
@@ -94,16 +90,15 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Confirmacao", "Pedido", new { id });
 
             Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
             if (pagamento == null || pagamento.FormaPagamento != FormaPagamento.Pix)
                 return RedirectToAction(nameof(Index), new { id });
 
             GravarPagamento(pedido, FormaPagamento.Pix, ChavePixLoja, null, StatusPagamento.Pago);
-            return RedirectToAction(nameof(Confirmacao), new { id });
+            return RedirectToAction("Confirmacao", "Pedido", new { id });
         }
-
 
         // CARTÃO (crédito ou débito)
 
@@ -115,7 +110,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Confirmacao", "Pedido", new { id });
 
             // esta tela só aceita crédito ou débito
             if (forma != FormaPagamento.CartaoCredito && forma != FormaPagamento.CartaoDebito)
@@ -145,7 +140,7 @@ namespace BicoTucano.Controllers
                 return ErroCartao(pedido, forma, cartao.ID_Cartao, "Pagamento recusado pela operadora. Tente outro cartão.");
 
             GravarPagamento(pedido, forma, null, cartao.ID_Cartao, StatusPagamento.Pago);
-            return RedirectToAction(nameof(Confirmacao), new { id = pedido.NF });
+            return RedirectToAction("Confirmacao", "Pedido", new { id = pedido.NF });
         }
 
         // Volta para a tela de pagamento mantendo o que o cliente escolheu
@@ -158,10 +153,7 @@ namespace BicoTucano.Controllers
             return View("Index", pedido);
         }
 
-
-
-        // CONFIRMAÇÃO
-
+        // CONFIRMAÇÃO (continua disponível, caso alguma view ainda aponte para ela)
 
         public IActionResult Confirmacao(int id)
         {
@@ -180,9 +172,7 @@ namespace BicoTucano.Controllers
             return View(pedido);
         }
 
-        // ---------------------------------------------------------------
         // AUXILIARES
-        // ---------------------------------------------------------------
 
         // Só devolve o pedido se ele existir e for do cliente logado
         private Pedido? ObterPedidoDoCliente(int nf)
@@ -209,7 +199,6 @@ namespace BicoTucano.Controllers
         }
 
         // Cria o pagamento do pedido ou atualiza o que já existe (um pagamento por pedido).
-       
         private void GravarPagamento(Pedido pedido, FormaPagamento forma, string? chavePix, int? idCartao, StatusPagamento status)
         {
             Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(pedido.NF);

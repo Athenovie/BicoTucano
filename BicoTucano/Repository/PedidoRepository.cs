@@ -90,6 +90,37 @@ namespace BicoTucano.Repository
             }
         }
 
+        public IEnumerable<Pedido> ObterPedidosDoCliente(int idUsuario)
+        {
+            List<Pedido> lista = new List<Pedido>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "SELECT NF, DataPedido, StatusPedido, ValorTotal " +
+                    "FROM tbPedido WHERE ID_Usuario = @ID_Usuario ORDER BY NF DESC", conexao);
+                cmd.Parameters.AddWithValue("@ID_Usuario", idUsuario);
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new Pedido
+                        {
+                            NF = Convert.ToInt32(dr["NF"]),
+                            DataPedido = Convert.ToDateTime(dr["DataPedido"]),
+                            StatusPedido = TextoParaStatus(Convert.ToString(dr["StatusPedido"])),
+                            ValorTotal = Convert.ToDecimal(dr["ValorTotal"])
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
+
         public Pedido? ObterPedidos(int nf)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
@@ -304,5 +335,8 @@ namespace BicoTucano.Repository
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+      
     }
 }
