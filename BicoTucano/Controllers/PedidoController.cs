@@ -20,12 +20,16 @@ namespace BicoTucano.Controllers
         private readonly IClienteRepository _clienteRepository;
         private readonly CookieCarrinhoCompra _cookieCarrinhoCompra;
         private readonly LoginCliente _loginCliente;
+        private readonly IPagamentoRepository _pagamentoRepository;
+        private readonly ICartaoRepository _cartaoRepository;
 
         public PedidoController(IProdutoRepository produtoRepository,
                                 IPedidoRepository pedidoRepository,
                                 IItemRepository itemRepository,
                                 IEnderecoRepository enderecoRepository,
                                 IClienteRepository clienteRepository,
+                                IPagamentoRepository pagamentoRepository,
+                                ICartaoRepository cartaoRepository,
                                 CookieCarrinhoCompra cookieCarrinhoCompra,
                                 LoginCliente loginCliente)
         {
@@ -34,6 +38,8 @@ namespace BicoTucano.Controllers
             _itemRepository = itemRepository;
             _enderecoRepository = enderecoRepository;
             _clienteRepository = clienteRepository;
+            _pagamentoRepository = pagamentoRepository;
+            _cartaoRepository = cartaoRepository;
             _cookieCarrinhoCompra = cookieCarrinhoCompra;
             _loginCliente = loginCliente;
         }
@@ -43,11 +49,10 @@ namespace BicoTucano.Controllers
             return RedirectToAction(nameof(Carrinho));
         }
 
-        // ---------------------------------------------------------------
+     
         // CARRINHO (não precisa estar logado)
-        // ---------------------------------------------------------------
+       
 
-        // Item ID = ID do Produto
         [HttpPost]
         public IActionResult AdicionarItem(int id, int quantidade = 1)
         {
@@ -189,7 +194,7 @@ namespace BicoTucano.Controllers
             Cliente cliente = _loginCliente.GetCliente();
             Pedido? pedido = _pedidoRepository.ObterPedidos(id);
 
-            // só o dono do pedido vê a confirmação
+            // só o dono do pedido vê
             if (pedido == null || pedido.ID_Usuario != cliente.ID_Usuario)
                 return RedirectToAction("Index", "Home");
 
@@ -203,14 +208,48 @@ namespace BicoTucano.Controllers
                     produtos[item.ID_Produto] = produto;
             }
 
+            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
+            if (pagamento != null && pagamento.ID_Cartao.HasValue)
+                ViewBag.Cartao = _cartaoRepository.ObterCartao(pagamento.ID_Cartao.Value);
+
             ViewBag.Itens = itens;
             ViewBag.Produtos = produtos;
+            ViewBag.Pagamento = pagamento;
+            ViewBag.Cliente = cliente;
             return View(pedido);
         }
 
 
+        [ClienteAutorizacao]
+        public IActionResult MeusPedidos()
+        {
+            Cliente cliente = _loginCliente.GetCliente();
+            List<Pedido> pedidos = _pedidoRepository.ObterPedidosDoCliente(cliente.ID_Usuario).ToList();
+
+            // para cada pedido, a lista de produtos (para mostrar as fotos)
+            Dictionary<int, List<Produto>> produtosPorPedido = new Dictionary<int, List<Produto>>();
+
+            foreach (Pedido pedido in pedidos)
+            {
+                List<Produto> lista = new List<Produto>();
+
+                foreach (Item_Pedido item in _itemRepository.ObterTodosItens(pedido.NF))
+                {
+                    Produto? produto = _produtoRepository.ObterProduto(item.ID_Produto);
+                    if (produto != null)
+                        lista.Add(produto);
+                }
+
+                produtosPorPedido[pedido.NF] = lista;
+            }
+
+            ViewBag.Produtos = produtosPorPedido;
+            ViewBag.Cliente = cliente;
+            return View(pedidos);
+        }
+
         // AUXILIARES
-      
+
 
         // Relê cada prato do carrinho no banco: prato apagado ou indisponível sai do carrinho
         // e o preço é sempre o do banco (o cookie só guarda código e quantidade).
