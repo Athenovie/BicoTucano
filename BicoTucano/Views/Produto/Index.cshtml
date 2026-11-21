@@ -1,0 +1,122 @@
+﻿@model List<BicoTucano.Models.Produto>
+@using BicoTucano.Models
+@using System.Globalization
+
+@{
+    ViewData["Title"] = "Cardápio";
+    ViewData["LarguraTotal"] = true;
+
+    var categorias = (List<Categoria>)ViewBag.Categorias;
+    var selecionadas = (List<int>)ViewBag.CategoriasSelecionadas;
+    decimal? precoMin = ViewBag.PrecoMin;
+    decimal? precoMax = ViewBag.PrecoMax;
+    decimal precoMaximoCatalogo = ViewBag.PrecoMaximoCatalogo;
+
+    bool filtrando = selecionadas.Count > 0 || precoMin.HasValue || precoMax.HasValue;
+    var br = new CultureInfo("pt-BR");
+}
+
+<link rel="stylesheet" href="~/css/Cardapio.css" asp-append-version="true" />
+
+<section class="pagina-cardapio">
+
+    <div class="cardapio-corpo">
+
+        <!-- filtros -->
+        <aside class="filtros">
+            <form method="get" asp-controller="Produto" asp-action="Index" id="formulario-filtros">
+
+                <h2 class="filtros-titulo">Filtros</h2>
+
+                <fieldset class="filtros-grupo">
+                    <legend class="filtros-rotulo">Categoria</legend>
+
+                    @foreach (Categoria c in categorias)
+                    {
+                        <label class="filtros-opcao">
+                            <input type="checkbox" name="categorias" value="@c.ID_Categoria"
+                                   checked="@selecionadas.Contains(c.ID_Categoria)" />
+                            <span>@c.NomeCategoria</span>
+                        </label>
+                    }
+                </fieldset>
+
+                <fieldset class="filtros-grupo">
+                    <legend class="filtros-rotulo">Preço</legend>
+
+                    <div class="filtros-preco">
+                        <input type="number" name="precoMin" min="0" step="0.01" placeholder="0"
+                               value="@precoMin?.ToString("0.##", CultureInfo.InvariantCulture)"
+                               aria-label="Preço mínimo" />
+                        <span aria-hidden="true">—</span>
+                        <input type="number" name="precoMax" min="0" step="0.01"
+                               placeholder="@precoMaximoCatalogo.ToString("0.00", br)"
+                               value="@precoMax?.ToString("0.##", CultureInfo.InvariantCulture)"
+                               aria-label="Preço máximo" />
+                    </div>
+                </fieldset>
+
+                @if (filtrando)
+                {
+                    <a asp-controller="Produto" asp-action="Index" class="filtros-limpar">Limpar filtros</a>
+                }
+
+                <noscript>
+                    <button type="submit" class="filtros-aplicar">Aplicar filtros</button>
+                </noscript>
+
+            </form>
+        </aside>
+
+        <!-- produtos -->
+        <div class="cardapio-resultados">
+
+            @if (Model.Count == 0)
+            {
+                <div class="cardapio-vazio">
+                    <p>Nenhum prato encontrado com esses filtros.</p>
+                    <a asp-controller="Produto" asp-action="Index" class="filtros-limpar">Limpar filtros</a>
+                </div>
+            }
+            else
+            {
+                <div class="cardapio-grade">
+                    @foreach (Produto p in Model)
+                    {
+                        <div class="card-produto">
+
+                            <a asp-controller="Produto" asp-action="Detalhes" asp-route-id="@p.ID_Produto" class="card-produto-link">
+                                <img src="~/img/@p.NomeImagem" alt="@p.Nome" loading="lazy" />
+                                <h3>@p.Nome</h3>
+                                <p class="descricao-produto">@p.Descricao</p>
+                            </a>
+
+                            <form asp-controller="Pedido" asp-action="AdicionarItem" asp-route-id="@p.ID_Produto"
+                                  method="post" class="rodape-produto">
+                                <div class="preco-produto">
+                                    <small>a partir de</small>
+                                    <strong>R$ @p.Preco.ToString("F2")</strong>
+                                </div>
+                                <button type="submit" class="botao-adicionar" disabled="@(!p.Disponibilidade)">
+                                    @(p.Disponibilidade ? "Adicionar" : "Indisponível")
+                                </button>
+                            </form>
+
+                        </div>
+                    }
+                </div>
+            }
+
+        </div>
+    </div>
+
+</section>
+
+@section Scripts {
+    <script>
+        const formularioFiltros = document.getElementById('formulario-filtros');
+        formularioFiltros.addEventListener('change', function () {
+            formularioFiltros.submit();
+        });
+    </script>
+}

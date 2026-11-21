@@ -1,0 +1,171 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;700&display=swap');
+
+.pagina-cardapio {
+    --laranja: #e8875a;
+    --laranja-hover: #d9753f;
+    --verde: #4a7c59;
+    background: #f7f4ee;
+    min-height: 70vh;
+    padding: 32px max(24px, calc((100% - 1100px) / 2)) 64px;
+    font-family: 'Playfair Display', serif;
+    color: #2b2b2b;
+}
+
+.cardapio-corpo {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.filtros {
+    position: sticky;
+    top: 24px;
+    padding: 18px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.filtros-titulo {
+    margin: 0 0 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.filtros-grupo {
+    margin: 0 0 20px;
+    padding: 0;
+    border: none;
+}
+
+.filtros-rotulo {
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.filtros-opcao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.filtros-opcao input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--verde);
+    cursor: pointer;
+}
+
+.filtros-preco {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #aaa;
+}
+
+.filtros-preco input {
+    width: 100%;
+    min-width: 0;
+    height: 34px;
+    padding: 0 6px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-align: center;
+    color: #2b2b2b;
+    -moz-appearance: textfield;
+}
+
+.filtros-preco input::-webkit-outer-spin-button,
+.filtros-preco input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.filtros-preco input:focus {
+    outline: none;
+    border-color: var(--verde);
+}
+
+.filtros-limpar {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--verde);
+    text-decoration: underline;
+}
+
+.filtros-aplicar {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: var(--verde);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cardapio-grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cardapio-vazio {
+    padding: 56px 16px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #555;
+}
+
+.cardapio-vazio p {
+    margin: 0 0 12px;
+}
+
+.card-produto-link {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+}
+
+.botao-adicionar {
+    border: none;
+    border-radius: 999px;
+    background: var(--laranja);
+    padding: 9px 22px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.botao-adicionar:hover:not(:disabled) {
+    background: var(--laranja-hover);
+}
+
+.botao-adicionar:disabled {
+    background: #cfcac2;
+    cursor: not-allowed;
+}
