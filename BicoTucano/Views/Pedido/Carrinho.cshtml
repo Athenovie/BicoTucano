@@ -87,6 +87,25 @@ else
                                 <div class="item-meio">
                                     <h2>@produto.Nome</h2>
                                     <small>@produto.Categoria</small>
+
+                                    <form asp-action="AlterarQuantidade" asp-route-id="@item.ID_Produto" method="post" class="item-quantidade">
+                                        <button type="submit" name="quantidade" value="@(item.Quantidade - 1)"
+                                                class="item-botao-quantidade"
+                                                aria-label="Diminuir quantidade de @produto.Nome"
+                                                disabled="@(item.Quantidade <= 1)">
+                                            −
+                                        </button>
+
+                                        <span class="item-quantidade-valor">@item.Quantidade</span>
+
+                                        <button type="submit" name="quantidade" value="@(item.Quantidade + 1)"
+                                                class="item-botao-quantidade"
+                                                aria-label="Aumentar quantidade de @produto.Nome"
+                                                disabled="@(item.Quantidade >= 99)">
+                                            +
+                                        </button>
+                                    </form>
+
                                 </div>
 
                                 <div class="item-direita">

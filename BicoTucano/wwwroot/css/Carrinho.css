@@ -107,6 +107,50 @@
     color: var(--laranja);
 }
 
+.item-quantidade {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 8px;
+    border: 1px solid #e5e5e5;
+    border-radius: 999px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.item-botao-quantidade {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+    color: #2b2b2b;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.item-botao-quantidade:hover:not(:disabled) {
+    background: #f1ede6;
+}
+
+.item-botao-quantidade:focus-visible {
+    outline: 2px solid var(--laranja);
+    outline-offset: -2px;
+}
+
+.item-botao-quantidade:disabled {
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+.item-quantidade-valor {
+    min-width: 28px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .remover {
     border: none;
     background: none;
