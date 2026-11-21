@@ -147,6 +147,10 @@ ALTER TABLE tbEndereco ADD FOREIGN KEY(Estado) REFERENCES tbEstado (ID_Uf);
 INSERT INTO tbUsuario (Nome, Email, Senha, CPF, Telefone, DataNasc, Sexo)
 VALUES ('Administrador', 'admin@bicotucano.com', '123456', '00000000000', 11999999999, '2000-01-01', 'M');
 
+UPDATE tbUsuario
+SET Senha = 'AQAAAAIAAYagAAAAEEIIhhLJkUH3daZdLk2PSzZ22g6b7hn+8zoq/0nngy92lPqKuOpceTp2OabLzK617Q=='
+WHERE Email = 'admin@bicotucano.com';
+
 INSERT INTO tbFuncionario (ID_Funcionario, DataAdmissao, NivelAcesso, Cargo)
 VALUES (LAST_INSERT_ID(), CURDATE(), 'Administrador', 'Gerente');
 

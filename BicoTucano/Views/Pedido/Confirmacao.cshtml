@@ -1,65 +1,115 @@
 ﻿@model BicoTucano.Models.Pedido
-@using System.Globalization
+@using BicoTucano.Models
+
 @{
-    ViewData["Title"] = "Pedido confirmado";
-    var br = new CultureInfo("pt-BR");
+    ViewBag.Title = "Detalhes do Pedido";
+    var pt = new System.Globalization.CultureInfo("pt-BR");
     var itens = (List<Item_Pedido>)ViewBag.Itens;
     var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
+    var pagamento = ViewBag.Pagamento as Pagamento;
+    var cartao = ViewBag.Cartao as Cartao;
 
-    string status = Model.StatusPedido switch
+    // etapa atual: 1 = em preparo, 2 = em entrega, 3 = concluído
+    int etapa = (int)Model.StatusPedido;
+
+    string metodo = "Não informado";
+    if (pagamento != null)
     {
-        StatusPedido.EmPreparo => "Em preparo",
-        StatusPedido.EmEntrega => "Em entrega",
-        StatusPedido.Concluido => "Concluído",
-        _ => ""
-    };
+        if (pagamento.FormaPagamento == FormaPagamento.Pix)
+        {
+            metodo = "Pix";
+        }
+        else if (cartao != null)
+        {
+            string numero = cartao.NumeroCartao;
+            string final = numero.Length >= 4 ? numero.Substring(numero.Length - 4) : numero;
+            metodo = "Cartão •••• " + final;
+        }
+        else
+        {
+            metodo = "Cartão";
+        }
+    }
 }
 
-<div class="container my-4">
-    <div class="alert alert-success">
-        <h4 class="alert-heading mb-1">Pedido nº @Model.NF registrado!</h4>
-        <span>Feito em @Model.DataPedido.ToString("dd/MM/yyyy 'às' HH:mm")</span>
+<div class="container mt-4">
+
+    <a asp-action="MeusPedidos" class="text-muted">← Meus pedidos</a>
+    <h2>DETALHES DO PEDIDO</h2>
+
+    <!-- Número e andamento -->
+    <div class="card p-3 mb-3">
+        <small class="text-muted">Nº DO PEDIDO</small>
+        <h5>#@Model.NF</h5>
+
+        <div class="d-flex justify-content-between text-center mt-2">
+            <div style="color:@(etapa >= 1 ? "#4a7c59" : "#aaa");">
+                <strong>@(etapa >= 1 ? "✔" : "○")</strong><br />Em preparo
+            </div>
+            <div style="color:@(etapa >= 2 ? "#4a7c59" : "#aaa");">
+                <strong>@(etapa >= 2 ? "✔" : "○")</strong><br />Em entrega
+            </div>
+            <div style="color:@(etapa >= 3 ? "#4a7c59" : "#aaa");">
+                <strong>@(etapa >= 3 ? "✔" : "○")</strong><br />Concluído
+            </div>
+        </div>
     </div>
 
-    <p class="mb-1"><strong>Tipo:</strong> @(Model.TipoPedido == TipoPedido.Entrega ? "Entrega" : "Retirada")</p>
-    <p class="mb-1"><strong>Status:</strong> @status</p>
-    @if (Model.TipoPedido == TipoPedido.Entrega)
-    {
-        <p class="mb-1"><strong>CEP da entrega:</strong> @Model.CEP</p>
-    }
-    @if (!string.IsNullOrWhiteSpace(Model.DetalhesPedido))
-    {
-        <p class="mb-3"><strong>Detalhes:</strong> @Model.DetalhesPedido</p>
-    }
+    <div class="row">
 
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Prato</th>
-                    <th>Preço</th>
-                    <th>Qtd.</th>
-                    <th>Subtotal</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Item_Pedido item in itens)
+        <!-- Itens -->
+        <div class="col-md-8">
+            <div class="card p-3 mb-3">
+                <h6>Itens do pedido</h6>
+
+                @foreach (var item in itens)
                 {
-                    <tr>
-                        <td>@(produtos.ContainsKey(item.ID_Produto) ? produtos[item.ID_Produto].Nome : "Prato " + item.ID_Produto)</td>
-                        <td>@item.Preco.ToString("C", br)</td>
-                        <td>@item.Quantidade</td>
-                        <td>@((item.Preco * item.Quantidade).ToString("C", br))</td>
-                    </tr>
-                }
-            </tbody>
-            <tfoot>
-                <tr><th colspan="3" class="text-end">Subtotal</th><th>@Model.Subtotal.ToString("C", br)</th></tr>
-                <tr><th colspan="3" class="text-end">Taxa de entrega</th><th>@Model.TaxaEntrega.ToString("C", br)</th></tr>
-                <tr><th colspan="3" class="text-end">Total</th><th>@Model.ValorTotal.ToString("C", br)</th></tr>
-            </tfoot>
-        </table>
-    </div>
+                    var produto = produtos[item.ID_Produto];
 
-    <a class="btn btn-success" asp-controller="Home" asp-action="Index">Voltar ao cardápio</a>
+                    <div class="d-flex align-items-center border-bottom py-2">
+                        <img src="~/img/@produto.NomeImagem" style="width:50px; height:50px; object-fit:cover; border-radius:8px;" class="mr-3 me-3" />
+                        <div class="flex-grow-1">
+                            <strong>@produto.Nome</strong><br />
+                            <small class="text-muted">x@(item.Quantidade)</small>
+                        </div>
+                        <strong>R$ @((item.Preco * item.Quantidade).ToString("N2", pt))</strong>
+                    </div>
+                }
+            </div>
+
+            <!-- Endereço -->
+            @if (Model.TipoPedido == TipoPedido.Entrega)
+            {
+                <div class="card p-3 mb-3">
+                    <h6>Endereço de entrega</h6>
+                    <div class="row">
+                        <div class="col-6"><small class="text-muted">CEP</small><br />@Model.CEP</div>
+                        <div class="col-6"><small class="text-muted">NÚMERO / COMPLEMENTO</small><br />@Model.DetalhesPedido</div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="card p-3 mb-3">
+                    <h6>Retirada</h6>
+                    <p class="mb-0">Retire seu pedido na loja.</p>
+                </div>
+            }
+        </div>
+
+        <!-- Resumo -->
+        <div class="col-md-4">
+            <div class="card p-3 mb-3">
+                <h6>Resumo</h6>
+
+                <div class="d-flex justify-content-between"><span>Subtotal</span><strong>R$ @Model.Subtotal.ToString("N2", pt)</strong></div>
+                <div class="d-flex justify-content-between"><span>Entrega</span><strong>R$ @Model.TaxaEntrega.ToString("N2", pt)</strong></div>
+                <hr />
+                <div class="d-flex justify-content-between"><strong>Total</strong><strong>R$ @Model.ValorTotal.ToString("N2", pt)</strong></div>
+                <div class="d-flex justify-content-between mt-2"><span>Pagamento</span><span>@metodo</span></div>
+                <div class="d-flex justify-content-between"><span>Data do pedido</span><span>@Model.DataPedido.ToString("dd/MM/yyyy")</span></div>
+            </div>
+        </div>
+
+    </div>
 </div>

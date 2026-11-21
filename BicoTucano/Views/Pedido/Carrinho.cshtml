@@ -10,7 +10,7 @@
     var produtos = ViewBag.Produtos as Dictionary<int, Produto> ?? new Dictionary<int, Produto>();
 
     decimal subTotal = Model?.Sum(i => i.Preco * i.Quantidade) ?? 0;
-    decimal taxaEntrega = 6.00m;
+   
     int totalItens = Model?.Sum(i => i.Quantidade) ?? 0;
 }
 
@@ -126,7 +126,7 @@ else
 
                 <div class="total">
                     <span>Total</span>
-                    <span id="total">@((subTotal + taxaEntrega).ToString("C", br))</span>
+                    <span id="total">@((subTotal).ToString("C", br))</span>
                 </div>
 
                 <a class="botao-laranja" asp-action="Finalizar">Finalizar Pedido</a>
