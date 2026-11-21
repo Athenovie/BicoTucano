@@ -1,4 +1,5 @@
 ﻿using BicoTucano.Models;
+using static BicoTucano.Models.PedidoAdmin;
 
 namespace BicoTucano.Repository.Contract
 {
@@ -6,5 +7,8 @@ namespace BicoTucano.Repository.Contract
     {
         int Cadastrar(Pedido pedido, IEnumerable<Item_Pedido> itens);
         Pedido? ObterPedidos(int nf);
+        IEnumerable<PedidoLista> ObterTodosPedidosAdmin();
+        PedidoDetalhe? ObterDetalhePedido(int nf);
+        void AtualizarStatus(int nf, StatusPedido status);
     }
 }

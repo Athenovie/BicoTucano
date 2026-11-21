@@ -1,6 +1,7 @@
 ﻿using BicoTucano.Models;
 using BicoTucano.Repository.Contract;
 using MySql.Data.MySqlClient;
+using static BicoTucano.Models.PedidoAdmin;
 
 namespace BicoTucano.Repository
 {
@@ -153,8 +154,155 @@ namespace BicoTucano.Repository
             };
         }
 
+        // LISTAGEM: uma linha por pedido
+        public IEnumerable<PedidoLista> ObterTodosPedidosAdmin()
+        {
+            List<PedidoLista> lista = new List<PedidoLista>();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "SELECT p.NF, p.DataPedido, p.ValorTotal, p.StatusPedido, u.Nome, u.Email, u.CPF, " +
+                    "GROUP_CONCAT(CONCAT(pr.Nome, ' x', ip.Quantidade) SEPARATOR '|') AS Produtos " +
+                    "FROM tbPedido p " +
+                    "INNER JOIN tbUsuario u ON p.ID_Usuario = u.ID_Usuario " +
+                    "INNER JOIN tbItem_Pedido ip ON ip.NF = p.NF " +
+                    "INNER JOIN tbProduto pr ON pr.ID_Produto = ip.ID_Produto " +
+                    "GROUP BY p.NF, p.DataPedido, p.ValorTotal, p.StatusPedido, u.Nome, u.Email, u.CPF " +
+                    "ORDER BY p.NF DESC",
+                    conexao);
+
+                using (MySqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        lista.Add(new PedidoLista
+                        {
+                            NF = Convert.ToInt32(dr["NF"]),
+                            DataPedido = Convert.ToDateTime(dr["DataPedido"]),
+                            ValorTotal = Convert.ToDecimal(dr["ValorTotal"]),
+                            StatusPedido = TextoParaStatus(Convert.ToString(dr["StatusPedido"])),
+                            Cliente = Convert.ToString(dr["Nome"]) ?? "",
+                            Email = Convert.ToString(dr["Email"]) ?? "",
+                            CPF = Convert.ToString(dr["CPF"]) ?? "",
+                            Produtos = Convert.ToString(dr["Produtos"]) ?? ""
+                        });
+                    }
+                }
+            }
+
+            return lista;
+        }
 
 
+        // DETALHES: pedido + itens + cliente + endereço + forma de pagamento
+        public PedidoDetalhe? ObterDetalhePedido(int nf)
+        {
+            Pedido? pedido = ObterPedidos(nf);
 
+            if (pedido == null)
+                return null;
+
+            PedidoDetalhe detalhe = new PedidoDetalhe();
+            detalhe.Pedido = pedido;
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                // 1) Itens do pedido (nome do produto vem da tbProduto)
+                MySqlCommand cmdItens = new MySqlCommand(
+                    "SELECT pr.Nome, ip.Quantidade, ip.Preco " +
+                    "FROM tbItem_Pedido ip " +
+                    "INNER JOIN tbProduto pr ON ip.ID_Produto = pr.ID_Produto " +
+                    "WHERE ip.NF = @NF", conexao);
+                cmdItens.Parameters.AddWithValue("@NF", nf);
+
+                using (MySqlDataReader dr = cmdItens.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        detalhe.Itens.Add(new PedidoItemDetalhe
+                        {
+                            Produto = Convert.ToString(dr["Nome"]) ?? "",
+                            Quantidade = Convert.ToInt32(dr["Quantidade"]),
+                            Preco = Convert.ToDecimal(dr["Preco"])
+                        });
+                    }
+                }
+
+                // 2) Dados do cliente
+                MySqlCommand cmdCliente = new MySqlCommand(
+                    "SELECT Nome, Email, Telefone, CPF FROM tbUsuario WHERE ID_Usuario = @Id", conexao);
+                cmdCliente.Parameters.AddWithValue("@Id", pedido.ID_Usuario);
+
+                using (MySqlDataReader dr = cmdCliente.ExecuteReader())
+                {
+                    if (dr.Read())
+                    {
+                        detalhe.NomeCliente = Convert.ToString(dr["Nome"]) ?? "";
+                        detalhe.Email = Convert.ToString(dr["Email"]) ?? "";
+                        detalhe.Telefone = Convert.ToString(dr["Telefone"]) ?? "";
+                        detalhe.CPF = Convert.ToString(dr["CPF"]) ?? "";
+                    }
+                }
+
+                // 3) Endereço (só existe quando o pedido tem CEP, ou seja, entrega)
+                if (!string.IsNullOrEmpty(pedido.CEP))
+                {
+                    MySqlCommand cmdEnd = new MySqlCommand(
+                        "SELECT e.CEP, e.Logradouro, b.Bairro, c.Cidade, es.UF " +
+                        "FROM tbEndereco e " +
+                        "LEFT JOIN tbBairro b ON e.Bairro = b.ID_Bairro " +
+                        "LEFT JOIN tbCidade c ON e.Cidade = c.ID_Cidade " +
+                        "LEFT JOIN tbEstado es ON e.Estado = es.ID_Uf " +
+                        "WHERE e.CEP = @CEP", conexao);
+                    cmdEnd.Parameters.AddWithValue("@CEP", pedido.CEP);
+
+                    using (MySqlDataReader dr = cmdEnd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            detalhe.CEP = Convert.ToString(dr["CEP"]) ?? "";
+                            detalhe.Logradouro = Convert.ToString(dr["Logradouro"]) ?? "";
+                            detalhe.Bairro = Convert.ToString(dr["Bairro"]) ?? "";
+                            detalhe.CidadeUF = Convert.ToString(dr["Cidade"]) + " - " + Convert.ToString(dr["UF"]);
+                        }
+                    }
+                }
+
+                // 4) Forma de pagamento (último pagamento do pedido)
+                MySqlCommand cmdPag = new MySqlCommand(
+                    "SELECT FormaPagamento FROM tbPagamento WHERE NF = @NF ORDER BY ID_Pagamento DESC LIMIT 1",
+                    conexao);
+                cmdPag.Parameters.AddWithValue("@NF", nf);
+
+                object? forma = cmdPag.ExecuteScalar();
+                if (forma != null && forma != DBNull.Value)
+                    detalhe.MetodoPagamento = Convert.ToString(forma) ?? "Não informado";
+            }
+
+            return detalhe;
+        }
+
+
+        // ALTERAR STATUS
+        public void AtualizarStatus(int nf, StatusPedido status)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "UPDATE tbPedido SET StatusPedido = @Status WHERE NF = @NF", conexao);
+
+                cmd.Parameters.AddWithValue("@Status", StatusParaTexto(status));
+                cmd.Parameters.AddWithValue("@NF", nf);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
