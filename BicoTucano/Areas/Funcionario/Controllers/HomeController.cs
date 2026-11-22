@@ -114,7 +114,53 @@ namespace BicoTucano.Areas.Funcionario.Controllers
 
             return View("PainelComum");
         }
-      
+
+        [FuncionarioAutorizacao]
+        public IActionResult Perfil()
+        {
+            Models.Funcionario logado = _loginFuncionario.GetFuncionario();
+            return View(_repositoryFuncionario.ObterFuncionario(logado.ID_Usuario));
+        }
+
+        [FuncionarioAutorizacao]
+        public IActionResult EditarPerfil()
+        {
+            Models.Funcionario logado = _loginFuncionario.GetFuncionario();
+            return View(_repositoryFuncionario.ObterFuncionario(logado.ID_Usuario));
+        }
+
+        [FuncionarioAutorizacao]
+        [HttpPost]
+        public IActionResult EditarPerfil([FromForm] Models.Funcionario funcionario)
+        {
+            Models.Funcionario logado = _loginFuncionario.GetFuncionario();
+            funcionario.ID_Usuario = logado.ID_Usuario;
+
+            ModelState.Remove(nameof(funcionario.Senha));
+            ModelState.Remove(nameof(funcionario.NivelAcesso));
+            ModelState.Remove(nameof(funcionario.Cargo));
+            ModelState.Remove(nameof(funcionario.DataAdmissao));
+
+            if (funcionario.CPF != null)
+                funcionario.CPF = new string(funcionario.CPF.Where(char.IsDigit).ToArray());
+
+            if (!ModelState.IsValid)
+                return View(funcionario);
+
+            try
+            {
+                _repositoryFuncionario.Atualizar(funcionario);
+            }
+            catch (MySqlException ex) when (ex.Number == 1062)
+            {
+                ViewData["MSG_E"] = "CPF ou e-mail já pertence a outro cadastro.";
+                return View(funcionario);
+            }
+
+            TempData["MSG_S"] = "Perfil atualizado com sucesso!";
+            return RedirectToAction(nameof(Perfil));
+        }
+
         public IActionResult Logout()
         {
             _loginFuncionario.logout();

@@ -1,0 +1,36 @@
+﻿@model BicoTucano.Models.Funcionario
+
+@{
+    ViewBag.Title = "Meu Perfil";
+
+    string tel = Model.Telefone.HasValue ? Model.Telefone.Value.ToString("0") : "";
+    if (tel.Length == 11)
+        tel = "(" + tel.Substring(0, 2) + ") " + tel.Substring(2, 5) + "-" + tel.Substring(7);
+
+    string cpf = Model.CPF ?? "";
+    if (cpf.Length == 11)
+        cpf = cpf.Substring(0, 3) + "." + cpf.Substring(3, 3) + "." + cpf.Substring(6, 3) + "-" + cpf.Substring(9);
+}
+
+<h1>MEU PERFIL</h1>
+
+@if (TempData["MSG_S"] != null)
+{
+    <div class="alert alert-success">@TempData["MSG_S"]</div>
+}
+
+<div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between">
+        <h5>Dados pessoais</h5>
+        <a asp-action="EditarPerfil" style="color:#4a7c59;"><strong>Modificar</strong></a>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-6 mb-3"><strong>Nome</strong><br /><span class="text-muted">@Model.Nome</span></div>
+        <div class="col-md-6 mb-3"><strong>Data de Nascimento</strong><br /><span class="text-muted">@(Model.DataNasc.HasValue ? Model.DataNasc.Value.ToString("dd/MM/yyyy") : "")</span></div>
+        <div class="col-md-6 mb-3"><strong>E-mail</strong><br /><span class="text-muted">@Model.Email</span></div>
+        <div class="col-md-6 mb-3"><strong>Telefone</strong><br /><span class="text-muted">@tel</span></div>
+        <div class="col-md-6 mb-3"><strong>CPF</strong><br /><span class="text-muted">@cpf</span></div>
+        <div class="col-md-6 mb-3"><strong>Cargo / Nível</strong><br /><span class="text-muted">@Model.Cargo / @Model.NivelAcesso</span></div>
+    </div>
+</div>
