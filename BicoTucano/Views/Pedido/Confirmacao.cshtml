@@ -3,14 +3,16 @@
 
 @{
     ViewBag.Title = "Detalhes do Pedido";
-    var pt = new System.Globalization.CultureInfo("pt-BR");
+    ViewData["LarguraTotal"] = true;
+    var br = new System.Globalization.CultureInfo("pt-BR");
+   @*Recebendo os dados do pedido*@
     var itens = (List<Item_Pedido>)ViewBag.Itens;
     var produtos = (Dictionary<int, Produto>)ViewBag.Produtos;
     var pagamento = ViewBag.Pagamento as Pagamento;
     var cartao = ViewBag.Cartao as Cartao;
-
-    // etapa atual: 1 = em preparo, 2 = em entrega, 3 = concluído
-    int etapa = (int)Model.StatusPedido;
+    var cliente = (Cliente)ViewBag.Cliente;
+   @*Verificando status do pedido*@
+    bool concluido = Model.StatusPedido == StatusPedido.Concluido;
 
     string metodo = "Não informado";
     if (pagamento != null)
@@ -32,82 +34,126 @@
     }
 }
 
-<div class="container mt-4">
+<link rel="stylesheet" href="~/css/MeusCartoes.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/PedidoDetalhes.css" asp-append-version="true" />
 
-    <a asp-action="MeusPedidos" class="text-muted">← Meus pedidos</a>
-    <h2>DETALHES DO PEDIDO</h2>
+<div class="pagina">
+    <div class="conteudo">
 
-    <!-- Número e andamento -->
-    <div class="card p-3 mb-3">
-        <small class="text-muted">Nº DO PEDIDO</small>
-        <h5>#@Model.NF</h5>
-
-        <div class="d-flex justify-content-between text-center mt-2">
-            <div style="color:@(etapa >= 1 ? "#4a7c59" : "#aaa");">
-                <strong>@(etapa >= 1 ? "✔" : "○")</strong><br />Em preparo
+        <div class="menu">
+            <div class="menu-perfil">
+                <div class="foto">@cliente.Nome.Substring(0, 1)</div>
+                <strong>@cliente.Nome</strong>
+                <small>@cliente.Email</small>
             </div>
-            <div style="color:@(etapa >= 2 ? "#4a7c59" : "#aaa");">
-                <strong>@(etapa >= 2 ? "✔" : "○")</strong><br />Em entrega
-            </div>
-            <div style="color:@(etapa >= 3 ? "#4a7c59" : "#aaa");">
-                <strong>@(etapa >= 3 ? "✔" : "○")</strong><br />Concluído
-            </div>
+            <a asp-controller="Home" asp-action="Perfil" class="menu-link">Meu Perfil</a>
+            <a asp-controller="Pedido" asp-action="MeusPedidos" class="menu-link ativo">Meus Pedidos</a>
+            <a asp-controller="Cartao" asp-action="Index" class="menu-link">Meus Cartões</a>
+            <a href="/Home/LogoutCliente" class="menu-link sair">Sair</a>
         </div>
-    </div>
 
-    <div class="row">
+        <div class="detalhes">
+            <a asp-action="MeusPedidos" class="voltar">← Meus pedidos</a>
+            <h1>Detalhes do pedido</h1>
 
-        <!-- Itens -->
-        <div class="col-md-8">
-            <div class="card p-3 mb-3">
-                <h6>Itens do pedido</h6>
+            <div class="caixa">
+                <div class="numero">
+                    <div>
+                        <small>Nº DO PEDIDO</small>
+                        <h2>#VN-@Model.NF.ToString("D7")</h2>
+                    </div>
+                    <span class="status">@(concluido ? "Concluído" : "Em andamento")</span>
+                </div>
+                @*etapa atual: 1 = em preparo, 2 = em entrega, 3 = concluído*@
+                <div class="etapas">
+                    <div class="etapa">
+                        <span class="bolinha verde">✓</span>
+                        <strong>Confirmado</strong>
+                        <small>@Model.DataPedido.ToString("HH:mm")</small>
+                    </div>
+                    <div class="etapa">
+                        <span class="bolinha verde">✓</span>
+                        <strong>Preparando</strong>
+                    </div>
+                    <div class="etapa">
+                        <span class="bolinha @(concluido ? "verde" : "")">@(concluido ? "✓" : "⌂")</span>
+                        <strong>Entregue</strong>
+                        <small>~@Model.DataPedido.AddMinutes(35).ToString("HH:mm")</small>
+                    </div>
+                </div>
+            </div>
 
-                @foreach (var item in itens)
-                {
-                    var produto = produtos[item.ID_Produto];
+            <div class="conteudo-pedido">
+                <div class="informacoes-pedido">
+                    <div class="secao-pedido">
+                        <h3>Itens do pedido</h3>
+                        @foreach (var item in itens)
+                        {
+                            var produto = produtos[item.ID_Produto];
+                            <div class="item">
+                                <img src="~/img/@produto.NomeImagem" />
+                                <div class="item-nome">
+                                    <strong>@produto.Nome</strong>
+                                    <small>x@(item.Quantidade)</small>
+                                </div>
+                                <strong>R$ @((item.Preco * item.Quantidade).ToString("N2", br))</strong>
+                            </div>
+                        }
+                    </div>
 
-                    <div class="d-flex align-items-center border-bottom py-2">
-                        <img src="~/img/@produto.NomeImagem" style="width:50px; height:50px; object-fit:cover; border-radius:8px;" class="mr-3 me-3" />
-                        <div class="flex-grow-1">
-                            <strong>@produto.Nome</strong><br />
-                            <small class="text-muted">x@(item.Quantidade)</small>
+                    @if (Model.TipoPedido == TipoPedido.Entrega)
+                    {
+                        <div class="secao-pedido">
+                            <h3>Endereço de entrega</h3>
+                            <div class="endereco">
+                                <div><small>CEP</small>@Model.CEP</div>
+                                <div><small>NÚMERO / COMPLEMENTO</small>@Model.DetalhesPedido</div>
+                            </div>
                         </div>
-                        <strong>R$ @((item.Preco * item.Quantidade).ToString("N2", pt))</strong>
-                    </div>
-                }
-            </div>
-
-            <!-- Endereço -->
-            @if (Model.TipoPedido == TipoPedido.Entrega)
-            {
-                <div class="card p-3 mb-3">
-                    <h6>Endereço de entrega</h6>
-                    <div class="row">
-                        <div class="col-6"><small class="text-muted">CEP</small><br />@Model.CEP</div>
-                        <div class="col-6"><small class="text-muted">NÚMERO / COMPLEMENTO</small><br />@Model.DetalhesPedido</div>
-                    </div>
+                    }
+                    else
+                    {
+                        <div class="secao-pedido">
+                            <h3>Retirada</h3>
+                            <p>Retire seu pedido na loja.</p>
+                        </div>
+                    }
                 </div>
-            }
-            else
-            {
-                <div class="card p-3 mb-3">
-                    <h6>Retirada</h6>
-                    <p class="mb-0">Retire seu pedido na loja.</p>
+
+                <div class="resumo-pedido">
+                    <div class="secao-pedido">
+                       <h2 class="resumo-titulo">Resumo</h2>
+
+<div class="informacao-resumo">
+    <span>Subtotal</span>
+    <strong>R$ @Model.Subtotal.ToString("N2", br)</strong>
+</div>
+
+<div class="informacao-resumo">
+    <span>Entrega</span>
+    <strong>R$ @Model.TaxaEntrega.ToString("N2", br)</strong>
+</div>
+
+<hr />
+
+<div class="informacao-resumo">
+    <strong>Total pago</strong>
+    <strong>R$ @Model.ValorTotal.ToString("N2", br)</strong>
+</div>
+
+<div class="informacao-resumo">
+    <span>Pagamento</span>
+    <strong>@metodo</strong>
+</div>
+
+<div class="informacao-resumo">
+    <span>Data do pedido</span>
+    <strong>@Model.DataPedido.ToString("dd/MM/yyyy")</strong>
+</div>
+
+<button type="button" class="btn-via" onclick="window.print()"> Segunda via </button>
+</div>
                 </div>
-            }
-        </div>
-
-        <!-- Resumo -->
-        <div class="col-md-4">
-            <div class="card p-3 mb-3">
-                <h6>Resumo</h6>
-
-                <div class="d-flex justify-content-between"><span>Subtotal</span><strong>R$ @Model.Subtotal.ToString("N2", pt)</strong></div>
-                <div class="d-flex justify-content-between"><span>Entrega</span><strong>R$ @Model.TaxaEntrega.ToString("N2", pt)</strong></div>
-                <hr />
-                <div class="d-flex justify-content-between"><strong>Total</strong><strong>R$ @Model.ValorTotal.ToString("N2", pt)</strong></div>
-                <div class="d-flex justify-content-between mt-2"><span>Pagamento</span><span>@metodo</span></div>
-                <div class="d-flex justify-content-between"><span>Data do pedido</span><span>@Model.DataPedido.ToString("dd/MM/yyyy")</span></div>
             </div>
         </div>
 
