@@ -1,0 +1,74 @@
+﻿.conteudo {
+    max-width: 1000px;
+}
+
+.foto {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #4a7c59;
+    color: white;
+    font-size: 24px;
+    line-height: 56px;
+    margin-bottom: 8px;
+}
+
+.perfil {
+    flex: 1;
+}
+
+    .perfil h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+
+.secao-perfil {
+    background: white;
+    border: 1px solid #e6e2da;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+.titulo-secao {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+    .titulo-secao h3 {
+        font-size: 13px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .titulo-secao a {
+        font-size: 12px;
+        font-weight: bold;
+        color: #4a7c59;
+        text-decoration: none;
+    }
+
+.dados-perfil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 20px;
+}
+
+.item-perfil strong {
+    display: block;
+    font-size: 12px;
+}
+
+.item-perfil span {
+    font-size: 10px;
+    color: #777;
+}
+
+.vazio {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+}

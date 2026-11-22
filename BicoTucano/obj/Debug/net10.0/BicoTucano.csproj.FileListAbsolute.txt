@@ -2615,4 +2615,5 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\bsw08dwqn7-{0}-gfy4py88y3-gfy4py88y3.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-3khsxfgae5-3khsxfgae5.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2r6463n1ro-{0}-ml7a626agg-ml7a626agg.gz
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-fzm9yptvjv-fzm9yptvjv.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-etteb4ky1x-etteb4ky1x.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\mbjct1zf0g-{0}-b9iq42klpw-b9iq42klpw.gz
