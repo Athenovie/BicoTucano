@@ -1,21 +1,161 @@
-﻿@{
-    ViewData["Title"] = "Painel";
+﻿@model BicoTucano.Models.Dashboard
+@using BicoTucano.Models
+
+@{
+    ViewBag.Title = "Dashboard";
+    var pt = new System.Globalization.CultureInfo("pt-BR");
+    bool ehAdmin = (bool)ViewBag.EhAdmin;
+
+    decimal maior = Model.VendasSemana.Max(v => v.Total);
+    if (maior == 0) { maior = 1; }
 }
 
-<h1>Painel</h1>
+<p class="text-muted mb-0 mt-3">VISÃO GERAL</p>
+<h3 class="mb-4">Acompanhe a movimentação do e-commerce</h3>
 
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border bottom">
-    <h1 class="h2">Dashboard</h1>
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+<!-- Cards -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card p-3">
+            <small class="text-muted">PEDIDOS EM ANDAMENTO</small>
+            <h3>@Model.PedidosEmAndamento</h3>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-        </button>
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <div class="card p-3">
+            <small class="text-muted">PEDIDOS HOJE</small>
+            <h3>@Model.PedidosHoje</h3>
+        </div>
+    </div>
+
+    @if (ehAdmin)
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card p-3">
+                <small class="text-muted">FATURAMENTO DO MÊS</small>
+                <h3>R$ @Model.FaturamentoMes.ToString("N2", pt)</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card p-3">
+                <small class="text-muted">CLIENTES CADASTRADOS</small>
+                <h3>@Model.TotalClientes</h3>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row">
+
+    <!-- Gráfico (só admin) -->
+    @if (ehAdmin)
+    {
+        <div class="col-md-7 mb-3">
+            <div class="card p-3">
+                <h5>Total de vendas (últimos 7 dias)</h5>
+                <h3 class="mb-3">R$ @Model.TotalSemana.ToString("N2", pt)</h3>
+
+                <div class="d-flex align-items-end justify-content-between" style="height:180px; background:#ddd; border-radius:12px; padding:10px;">
+                    @foreach (var v in Model.VendasSemana)
+                    {
+                        int altura = (int)(v.Total / maior * 100);
+                        if (altura < 3) { altura = 3; }
+
+                        <div class="text-center" style="width:12%; height:100%; display:flex; flex-direction:column; justify-content:flex-end;">
+                            <div title="R$ @v.Total.ToString("N2", pt)" style="height:@(altura)%; background:#4a7c59; border-radius:6px;"></div>
+                        </div>
+                    }
+                </div>
+
+                <div class="d-flex justify-content-between px-2 mt-1">
+                    @foreach (var v in Model.VendasSemana)
+                    {
+                        <small class="text-center" style="width:12%;">@v.Data.ToString("ddd", pt)</small>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Pratos mais vendidos (todos) -->
+    <div class="@(ehAdmin ? "col-md-5" : "col-md-12") mb-3">
+        <div class="card p-3">
+            <h5>Pratos mais vendidos</h5>
+
+            @if (!Model.MaisVendidos.Any())
+            {
+                <p class="text-muted mb-0">Ainda não há vendas.</p>
+            }
+
+            @{
+                int pos = 1;
+            }
+            @foreach (var prato in Model.MaisVendidos)
+            {
+                <div class="d-flex align-items-center border-bottom py-2">
+                    <strong class="mr-2 me-2">@pos</strong>
+                    @if (!string.IsNullOrEmpty(prato.NomeImagem))
+                    {
+                        <img src="~/img/@prato.NomeImagem" style="width:40px; height:40px; object-fit:cover; border-radius:8px;" class="mr-2 me-2" />
+                    }
+                    <div class="flex-grow-1">
+                        @prato.Nome<br />
+                        <small class="text-muted">@(prato.Quantidade) vendidos</small>
+                    </div>
+                    @if (ehAdmin)
+                    {
+                        <strong>R$ @prato.Total.ToString("N2", pt)</strong>
+                    }
+                </div>
+                pos++;
+            }
+        </div>
     </div>
 </div>
 
+<!-- Pedidos em andamento (todos) -->
+<div class="card p-3 mb-4">
+    <h5>Pedidos em andamento</h5>
 
+    @if (!Model.UltimosPedidos.Any())
+    {
+        <p class="text-muted mb-0">Nenhum pedido em andamento.</p>
+    }
+    else
+    {
+        <table class="table table-borderless mb-0">
+            <thead>
+                <tr>
+                    <th>Nº</th>
+                    <th>CLIENTE</th>
+                    <th>STATUS</th>
+                    <th>VALOR</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.UltimosPedidos)
+                {
+                    <tr style="border-top:1px solid #8fbc94;">
+                        <td>@p.NF</td>
+                        <td>@p.Cliente</td>
+                        <td>
+                            @if (p.StatusPedido == StatusPedido.EmPreparo)
+                            {
+                                <span class="badge badge-pill text-white" style="background:#e8845c;">Em preparo</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-pill text-white" style="background:#f0b429;">Em entrega</span>
+                            }
+                        </td>
+                        <td>R$ @p.ValorTotal.ToString("N2", pt)</td>
+                        <td><a asp-controller="Pedido" asp-action="Detalhes" asp-route-id="@p.NF" style="color:#4a7c59;">DETALHES</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

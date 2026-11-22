@@ -121,6 +121,106 @@ namespace BicoTucano.Repository
             return lista;
         }
 
+        public Dashboard ObterDashboard()
+        {
+            Dashboard dash = new Dashboard();
+
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                // Cards
+                dash.PedidosEmAndamento = Convert.ToInt32(Escalar(conexao,
+                    "SELECT COUNT(*) FROM tbPedido WHERE StatusPedido IN ('Em preparo','Em Entrega')"));
+
+                dash.PedidosHoje = Convert.ToInt32(Escalar(conexao,
+                    "SELECT COUNT(*) FROM tbPedido WHERE DATE(DataPedido) = CURDATE()"));
+
+                dash.FaturamentoMes = Convert.ToDecimal(Escalar(conexao,
+                    "SELECT COALESCE(SUM(ValorTotal),0) FROM tbPedido " +
+                    "WHERE YEAR(DataPedido) = YEAR(CURDATE()) AND MONTH(DataPedido) = MONTH(CURDATE())"));
+
+                dash.TotalClientes = Convert.ToInt32(Escalar(conexao, "SELECT COUNT(*) FROM tbCliente"));
+
+                // Vendas dos últimos 7 dias (um dia sem pedido fica com 0)
+                Dictionary<DateTime, decimal> vendas = new Dictionary<DateTime, decimal>();
+
+                MySqlCommand cmdSemana = new MySqlCommand(
+                    "SELECT DATE(DataPedido) AS Dia, SUM(ValorTotal) AS Total FROM tbPedido " +
+                    "WHERE DATE(DataPedido) >= DATE_SUB(CURDATE(), INTERVAL 6 DAY) " +
+                    "GROUP BY DATE(DataPedido)", conexao);
+
+                using (MySqlDataReader dr = cmdSemana.ExecuteReader())
+                {
+                    while (dr.Read())
+                        vendas[Convert.ToDateTime(dr["Dia"]).Date] = Convert.ToDecimal(dr["Total"]);
+                }
+
+                for (int i = 6; i >= 0; i--)
+                {
+                    DateTime dia = DateTime.Today.AddDays(-i);
+                    decimal total = vendas.ContainsKey(dia) ? vendas[dia] : 0m;
+
+                    dash.VendasSemana.Add(new VendaDia { Data = dia, Total = total });
+                    dash.TotalSemana += total;
+                }
+
+                // Pratos mais vendidos
+                MySqlCommand cmdTop = new MySqlCommand(
+                    "SELECT p.Nome, i.NomeImagem, SUM(ip.Quantidade) AS Qtd, SUM(ip.Quantidade * ip.Preco) AS Total " +
+                    "FROM tbItem_Pedido ip " +
+                    "INNER JOIN tbProduto p ON ip.ID_Produto = p.ID_Produto " +
+                    "LEFT JOIN tbImagem i ON p.ID_Produto = i.ID_Produto " +
+                    "GROUP BY p.ID_Produto, p.Nome, i.NomeImagem " +
+                    "ORDER BY Qtd DESC LIMIT 5", conexao);
+
+                using (MySqlDataReader dr = cmdTop.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        dash.MaisVendidos.Add(new PratoRanking
+                        {
+                            Nome = Convert.ToString(dr["Nome"]) ?? "",
+                            NomeImagem = dr["NomeImagem"] == DBNull.Value ? "" : Convert.ToString(dr["NomeImagem"]) ?? "",
+                            Quantidade = Convert.ToInt32(dr["Qtd"]),
+                            Total = Convert.ToDecimal(dr["Total"])
+                        });
+                    }
+                }
+
+                // Últimos pedidos em andamento
+                MySqlCommand cmdUlt = new MySqlCommand(
+                    "SELECT p.NF, u.Nome, p.StatusPedido, p.ValorTotal " +
+                    "FROM tbPedido p INNER JOIN tbUsuario u ON p.ID_Usuario = u.ID_Usuario " +
+                    "WHERE p.StatusPedido IN ('Em preparo','Em Entrega') " +
+                    "ORDER BY p.NF DESC LIMIT 5", conexao);
+
+                using (MySqlDataReader dr = cmdUlt.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        dash.UltimosPedidos.Add(new PedidoDashboard
+                        {
+                            NF = Convert.ToInt32(dr["NF"]),
+                            Cliente = Convert.ToString(dr["Nome"]) ?? "",
+                            StatusPedido = TextoParaStatus(Convert.ToString(dr["StatusPedido"])),
+                            ValorTotal = Convert.ToDecimal(dr["ValorTotal"])
+                        });
+                    }
+                }
+            }
+
+            return dash;
+        }
+
+        // Executa um SELECT que devolve um número só
+        private static object Escalar(MySqlConnection conexao, string sql)
+        {
+            MySqlCommand cmd = new MySqlCommand(sql, conexao);
+            object? valor = cmd.ExecuteScalar();
+            return valor == null || valor == DBNull.Value ? 0 : valor;
+        }
+
         public Pedido? ObterPedidos(int nf)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
@@ -335,6 +435,8 @@ namespace BicoTucano.Repository
                 cmd.ExecuteNonQuery();
             }
         }
+
+
 
 
       

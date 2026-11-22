@@ -15,13 +15,15 @@ namespace BicoTucano.Areas.Funcionario.Controllers
     public class HomeController : Controller
     {
         private IFuncionarioRepository _repositoryFuncionario;
+        private IPedidoRepository _pedidoRepository;
         private LoginFuncionario _loginFuncionario;
-        public HomeController(IFuncionarioRepository repositoryFuncionario, LoginFuncionario loginFuncionario)
+        public HomeController(IFuncionarioRepository repositoryFuncionario, IPedidoRepository pedidoRepository, LoginFuncionario loginFuncionario)
         {
             _repositoryFuncionario = repositoryFuncionario;
+            _pedidoRepository = pedidoRepository;
             _loginFuncionario = loginFuncionario;
         }
-       
+
         public IActionResult Login()
         {
             return View();
@@ -107,18 +109,15 @@ namespace BicoTucano.Areas.Funcionario.Controllers
 
 
         [FuncionarioAutorizacao]
+        
         public IActionResult Painel()
         {
-
             Models.Funcionario funcionario = _loginFuncionario.GetFuncionario();
-            ViewBag.Nome= funcionario.Nome;
-            ViewBag.Email = funcionario.Email;
-            ViewBag.NivelAcesso = funcionario.NivelAcesso;
-            
-            if(funcionario.NivelAcesso == NivelAcesso.Administrador)
-                return View("PainelAdministrador");
 
-            return View("PainelComum");
+            ViewBag.Nome = funcionario.Nome;
+            ViewBag.EhAdmin = funcionario.NivelAcesso == NivelAcesso.Administrador;
+
+            return View(_pedidoRepository.ObterDashboard());
         }
 
 

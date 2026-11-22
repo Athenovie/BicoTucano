@@ -97,7 +97,7 @@ namespace BicoTucano.Controllers
                 {
                     _loginCliente.Login(clienteDB);
 
-                    return RedirectToAction(nameof(PainelCliente));
+                    return RedirectToAction(nameof(Index));
                 }
             }
 
@@ -107,16 +107,6 @@ namespace BicoTucano.Controllers
             return View();
         }
 
-
-        [ClienteAutorizacao]
-        public IActionResult PainelCliente()
-        {
-            ViewBag.Nome = _loginCliente.GetCliente().Nome;
-            ViewBag.CPF = _loginCliente.GetCliente().CPF;
-            ViewBag.Email = _loginCliente.GetCliente().Email;
-            return View();
-
-        }
 
         [ClienteAutorizacao]
         public IActionResult Perfil()

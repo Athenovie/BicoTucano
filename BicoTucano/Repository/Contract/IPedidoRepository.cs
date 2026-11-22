@@ -13,5 +13,7 @@ namespace BicoTucano.Repository.Contract
 
         IEnumerable<Pedido> ObterPedidosDoCliente(int idUsuario);
 
+        Dashboard ObterDashboard();
+
     }
 }
