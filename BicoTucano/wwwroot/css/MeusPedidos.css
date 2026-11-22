@@ -1,0 +1,138 @@
+﻿.pedido-card {
+    margin-bottom: 20px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid #e6e2da;
+    border-radius: 14px;
+}
+
+.pedido-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.pedido-numero {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.pedido-status {
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pedido-status-preparo {
+    color: #e8875a;
+}
+
+.pedido-status-entrega {
+    color: #c98a00;
+}
+
+.pedido-status-concluido {
+    color: #4a7c59;
+}
+
+.pedido-itens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 14px 0 0;
+    padding: 0 0 14px;
+    list-style: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.pedido-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 72px;
+    font-size: 11px;
+    line-height: 1.25;
+    text-align: center;
+    color: #4a4a4a;
+}
+
+.pedido-item img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 6px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.pedido-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.pedido-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #2f6b3f;
+}
+
+.pedido-detalhes {
+    font-size: 14px;
+    color: #777;
+    text-decoration: none;
+}
+
+.pedido-detalhes:hover {
+    color: #4a7c59;
+    text-decoration: underline;
+}
+
+.pedidos-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 48px;
+    text-align: center;
+}
+
+.pedidos-vazio-imagem {
+    width: 110px;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+.pedidos-vazio-titulo {
+    margin: 0 0 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.pedidos-vazio-texto {
+    max-width: 360px;
+    margin: 0 0 24px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #555;
+}
+
+.pedidos-vazio-botao {
+    display: inline-block;
+    padding: 10px 28px;
+    border-radius: 999px;
+    background: #e8875a;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.pedidos-vazio-botao:hover {
+    background: #d9753f;
+    color: #fff;
+}

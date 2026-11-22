@@ -1,0 +1,97 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
+
+.perfil-pagina {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    min-height: 70vh;
+    padding: 40px max(20px, calc((100% - 960px) / 2)) 60px;
+    background: #f7f4ee;
+    font-family: 'Inter', sans-serif;
+    color: #2b2b2b;
+}
+
+.perfil-principal {
+    flex: 1;
+    min-width: 0;
+}
+
+.perfil-titulo {
+    margin: 0 0 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.perfil-menu {
+    position: sticky;
+    top: 24px;
+    flex-shrink: 0;
+    width: 220px;
+    padding: 20px 14px;
+    background: #fff;
+    border: 1px solid #e6e2da;
+    border-radius: 12px;
+}
+
+.perfil-menu-topo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.perfil-foto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    background: #4a7c59;
+    font-size: 24px;
+    color: #fff;
+}
+
+.perfil-menu-topo strong {
+    font-size: 14px;
+}
+
+.perfil-menu-topo small {
+    max-width: 100%;
+    font-size: 12px;
+    color: #777;
+    overflow-wrap: anywhere;
+}
+
+.perfil-menu-link {
+    display: block;
+    margin-bottom: 8px;
+    padding: 9px 12px;
+    border: 1px solid #e6e2da;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #777;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.perfil-menu-link:hover {
+    background: #f7f4ee;
+}
+
+.perfil-menu-link-ativo,
+.perfil-menu-link-ativo:hover {
+    background: #dcf5e0;
+    border-color: #dcf5e0;
+    color: #2f6b3f;
+}
+
+.perfil-menu-link-sair {
+    color: #e8703a;
+}

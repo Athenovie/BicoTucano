@@ -3,64 +3,95 @@
 
 @{
     ViewBag.Title = "Meus Pedidos";
+    ViewData["LarguraTotal"] = true;
+
     var pt = new System.Globalization.CultureInfo("pt-BR");
     var produtos = (Dictionary<int, List<Produto>>)ViewBag.Produtos;
+    var cliente = (Cliente)ViewBag.Cliente;
 }
 
-<div class="container mt-4">
+<link rel="stylesheet" href="~/css/MenuPerfil.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/MeusPedidos.css" asp-append-version="true" />
 
-    <h2>MEUS PEDIDOS</h2>
+<section class="perfil-pagina">
 
-    @if (!Model.Any())
-    {
-        <div class="text-center my-5">
-            <h3>Não há pedidos no momento</h3>
-            <p class="text-muted">Explore nossa variedade de pratos veganos e faça seu primeiro pedido!</p>
-            <a asp-controller="Home" asp-action="Index" class="btn btn-lg text-white rounded-pill" style="background:#e8845c;">Explorar Cardápio</a>
+    <aside class="perfil-menu">
+        <div class="perfil-menu-topo">
+            <div class="perfil-foto" aria-hidden="true">@cliente.Nome.Substring(0, 1)</div>
+            <strong>@cliente.Nome</strong>
+            <small>@cliente.Email</small>
         </div>
-    }
-    else
-    {
-        @foreach (var p in Model)
+
+        <nav aria-label="Perfil">
+            <a asp-controller="Home" asp-action="Perfil" class="perfil-menu-link">Meu Perfil</a>
+            <a asp-controller="Pedido" asp-action="MeusPedidos" class="perfil-menu-link perfil-menu-link-ativo">Meus Pedidos</a>
+            <a asp-controller="Cartao" asp-action="Index" class="perfil-menu-link">Meus Cartões</a>
+            <a asp-controller="Home" asp-action="LogoutCliente" class="perfil-menu-link perfil-menu-link-sair">Sair</a>
+        </nav>
+    </aside>
+
+    <div class="perfil-principal">
+
+        <h1 class="perfil-titulo">Meus pedidos</h1>
+
+        @if (!Model.Any())
         {
-            string statusTexto = "Em preparo";
-            string statusCor = "#e8845c";
+            <div class="pedidos-vazio">
+                <img src="~/img/pedidosvazio.png" alt="" class="pedidos-vazio-imagem" />
 
-            if (p.StatusPedido == StatusPedido.EmEntrega)
-            {
-                statusTexto = "Em entrega";
-                statusCor = "#f0b429";
-            }
-            else if (p.StatusPedido == StatusPedido.Concluido)
-            {
-                statusTexto = "Concluído";
-                statusCor = "#4a7c59";
-            }
+                <h2 class="pedidos-vazio-titulo">Não há pedidos no momento</h2>
 
-            <div class="card p-3 mb-3">
-                <div class="d-flex justify-content-between">
-                    <strong>Nº pedido @p.NF</strong>
-                    <strong style="color:@statusCor;">@statusTexto</strong>
-                </div>
+                <p class="pedidos-vazio-texto">
+                    Explore nossa variedade de pratos veganos e faça seu primeiro pedido!
+                </p>
 
-                <div class="d-flex flex-wrap mt-2">
-                    @foreach (var produto in produtos[p.NF])
-                    {
-                        <div class="text-center mr-3 me-3 mb-2" style="width:80px;">
-                            <img src="~/img/@produto.NomeImagem" style="width:70px; height:70px; object-fit:cover; border-radius:12px;" />
-                            <div style="font-size:11px;">@produto.Nome</div>
-                        </div>
-                    }
-                </div>
-
-                <hr />
-
-                <div class="d-flex justify-content-between align-items-center">
-                    <h4 class="mb-0" style="color:#2f6b3f;">R$ @p.ValorTotal.ToString("N2", pt)</h4>
-                    <a asp-action="Confirmacao" asp-route-id="@p.NF" class="text-muted">Detalhes</a>
-                </div>
+                <a asp-controller="Produto" asp-action="Index" class="pedidos-vazio-botao">Explorar Cardápio</a>
             </div>
         }
-    }
+        else
+        {
+            @foreach (Pedido p in Model)
+            {
+                string statusTexto = "Em preparo";
+                string statusClasse = "pedido-status-preparo";
 
-</div>
+                if (p.StatusPedido == StatusPedido.EmEntrega)
+                {
+                    statusTexto = "Em entrega";
+                    statusClasse = "pedido-status-entrega";
+                }
+                else if (p.StatusPedido == StatusPedido.Concluido)
+                {
+                    statusTexto = "Concluído";
+                    statusClasse = "pedido-status-concluido";
+                }
+
+                <article class="pedido-card">
+
+                    <div class="pedido-topo">
+                        <h2 class="pedido-numero">Nº pedido @p.NF</h2>
+                        <span class="pedido-status @statusClasse">@statusTexto</span>
+                    </div>
+
+                    <ul class="pedido-itens">
+                        @foreach (Produto produto in produtos[p.NF])
+                        {
+                            <li class="pedido-item">
+                                <img src="~/img/@produto.NomeImagem" alt="@produto.Nome" />
+                                <span>@produto.Nome</span>
+                            </li>
+                        }
+                    </ul>
+
+                    <div class="pedido-rodape">
+                        <strong class="pedido-total">R$ @p.ValorTotal.ToString("N2", pt)</strong>
+                        <a asp-action="Confirmacao" asp-route-id="@p.NF" class="pedido-detalhes">Detalhes</a>
+                    </div>
+
+                </article>
+            }
+        }
+
+    </div>
+
+</section>
