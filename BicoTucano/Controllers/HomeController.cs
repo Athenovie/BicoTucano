@@ -12,19 +12,21 @@ namespace BicoTucano.Controllers
     public class HomeController : Controller
     {
 
-        // Injeção de dependência
         private IClienteRepository _clienteRepository;
         private LoginCliente _loginCliente;
         private IProdutoRepository _produtoRepository;
+        private IEnderecoRepository _enderecoRepository;
 
         public HomeController(
             IClienteRepository clienteRepository,
             LoginCliente loginCliente,
-            IProdutoRepository produtoRepository)
+            IProdutoRepository produtoRepository,
+            IEnderecoRepository enderecoRepository)
         {
             _clienteRepository = clienteRepository;
             _loginCliente = loginCliente;
             _produtoRepository = produtoRepository;
+            _enderecoRepository = enderecoRepository;
         }
 
         public IActionResult Cadastrar()
@@ -108,6 +110,54 @@ namespace BicoTucano.Controllers
             ViewBag.Email = _loginCliente.GetCliente().Email;
             return View();
 
+        }
+
+        [ClienteAutorizacao]
+        public IActionResult Perfil()
+        {
+            Cliente logado = _loginCliente.GetCliente();
+            Cliente cliente = _clienteRepository.ObterCliente(logado.ID_Usuario);
+
+            ViewBag.Enderecos = _enderecoRepository.ObterEnderecoDoUsuario(logado.ID_Usuario).ToList();
+            return View(cliente);
+        }
+
+        [ClienteAutorizacao]
+        public IActionResult EditarPerfil()
+        {
+            Cliente logado = _loginCliente.GetCliente();
+            return View(_clienteRepository.ObterCliente(logado.ID_Usuario));
+        }
+
+        [ClienteAutorizacao]
+        [HttpPost]
+        public IActionResult EditarPerfil([FromForm] Cliente cliente)
+        {
+            Cliente logado = _loginCliente.GetCliente();
+            cliente.ID_Usuario = logado.ID_Usuario;
+
+            ModelState.Remove(nameof(cliente.Senha));
+            ModelState.Remove(nameof(cliente.Situacao));
+            ModelState.Remove(nameof(cliente.DataCadastro));
+
+            if (cliente.CPF != null)
+                cliente.CPF = new string(cliente.CPF.Where(char.IsDigit).ToArray());
+
+            if (!ModelState.IsValid)
+                return View(cliente);
+
+            try
+            {
+                _clienteRepository.Atualizar(cliente);
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex) when (ex.Number == 1062)
+            {
+                ViewData["MSG_E"] = "CPF ou e-mail já pertence a outro cadastro.";
+                return View(cliente);
+            }
+
+            TempData["MSG_S"] = "Perfil atualizado com sucesso!";
+            return RedirectToAction(nameof(Perfil));
         }
 
         public IActionResult LogoutCliente()
