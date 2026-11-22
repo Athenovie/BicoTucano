@@ -55,7 +55,24 @@ namespace BicoTucano.Repository
 
         public void Atualizar(Funcionario funcionario)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "update tbUsuario set Nome=@Nome, DataNasc=@DataNasc, Sexo=@Sexo, CPF=@CPF, " +
+                    "Telefone=@Telefone, Email=@Email where ID_Usuario=@Id", conexao);
+
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = funcionario.ID_Usuario;
+                cmd.Parameters.Add("@Nome", MySqlDbType.VarChar).Value = funcionario.Nome;
+                cmd.Parameters.Add("@DataNasc", MySqlDbType.DateTime).Value = funcionario.DataNasc.HasValue ? funcionario.DataNasc.Value : DBNull.Value;
+                cmd.Parameters.Add("@Sexo", MySqlDbType.VarChar).Value = funcionario.Sexo;
+                cmd.Parameters.Add("@CPF", MySqlDbType.VarChar).Value = funcionario.CPF;
+                cmd.Parameters.Add("@Telefone", MySqlDbType.Decimal).Value = funcionario.Telefone;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = funcionario.Email;
+
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void Cadastrar(Funcionario funcionario)
