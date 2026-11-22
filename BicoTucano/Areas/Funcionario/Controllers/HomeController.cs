@@ -21,17 +21,7 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             _repositoryFuncionario = repositoryFuncionario;
             _loginFuncionario = loginFuncionario;
         }
-        [HttpGet("/GerarHashFuncionario")]
-        public IActionResult GerarHashTemporario()
-        {
-            var funcionario = new Models.Funcionario();
-
-            var hasher = new PasswordHasher<Models.Funcionario>();
-
-            string senhaHash = hasher.HashPassword(funcionario, "123456");
-
-            return Content(senhaHash);
-        }
+       
         public IActionResult Login()
         {
             return View();

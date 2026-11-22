@@ -607,8 +607,6 @@ C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\Views\
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\bundle\BicoTucano.styles.css
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\projectbundle\BicoTucano.bundle.scp.css
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-ndcxr2rcdz-ndcxr2rcdz.gz
-C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\bsw08dwqn7-{0}-vel3ois0dw-vel3ois0dw.gz
-C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-i3rcy5weqm-i3rcy5weqm.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\boqoolz8er-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\bbps1bcw8m-{0}-3ajuy3enib-3ajuy3enib.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\3hukmjtd2n-{0}-s5dlx7ztc3-s5dlx7ztc3.gz
@@ -2584,12 +2582,10 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ozonq2em2c-{0}-0uemhqumnh-0uemhqumnh.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\aqvdtcs94c-{0}-4gf3gnf1ig-4gf3gnf1ig.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\trho365o7d-{0}-l2n659ctnn-l2n659ctnn.gz
-C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-my4p8l0cwd-my4p8l0cwd.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ejwh4cjpyj-{0}-z2e5ge3uvt-z2e5ge3uvt.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\trho365o7d-{0}-l2n659ctnn-l2n659ctnn.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\5iqtm2ruuf-{0}-ui99c0klya-ui99c0klya.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\xxyzw5qgtf-{0}-at0arkwmh5-at0arkwmh5.gz
-C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-ubgejlmkho-ubgejlmkho.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qzwkesf6ae-{0}-j1dktu9p6i-j1dktu9p6i.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\aqvdtcs94c-{0}-4gf3gnf1ig-4gf3gnf1ig.gz
 C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-e78ku6n664-e78ku6n664.gz
@@ -2611,3 +2607,9 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-3khsxfgae5-3khsxfgae5.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2r6463n1ro-{0}-ml7a626agg-ml7a626agg.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\f6qm07tmnm-{0}-ew9birc93e-ew9birc93e.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\f6qm07tmnm-{0}-ew9birc93e-ew9birc93e.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2k8vqcqc5o-{0}-dzg9dhw978-dzg9dhw978.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\nu16ubn2sz-{0}-ganz5q7p7d-ganz5q7p7d.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\bsw08dwqn7-{0}-gfy4py88y3-gfy4py88y3.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\fzcjj8g4gc-{0}-3khsxfgae5-3khsxfgae5.gz
+C:\Users\Renato\Desktop\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\2r6463n1ro-{0}-ml7a626agg-ml7a626agg.gz
