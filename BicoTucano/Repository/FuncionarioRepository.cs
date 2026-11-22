@@ -28,9 +28,9 @@ namespace BicoTucano.Repository
                 conexao.Open();
 
                 MySqlCommand cmd = new MySqlCommand(
-                    "select u.ID_Usuario, u.Nome, u.Email, u.Senha, f.NivelAcesso, f.Cargo " +
-                    "from tbUsuario u inner join tbFuncionario f on f.ID_Funcionario = u.ID_Usuario " +
-                    "where u.Email = @Email", conexao);
+     "select u.ID_Usuario, u.Nome, u.Email, u.Senha, f.NivelAcesso, f.Cargo, f.DataDemissao " +
+     "from tbUsuario u inner join tbFuncionario f on f.ID_Funcionario = u.ID_Usuario " +
+     "where u.Email = @Email", conexao);
 
                 cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = Email;
                 cmd.Parameters.Add("@Senha", MySqlDbType.VarChar).Value = Senha;
@@ -48,6 +48,10 @@ namespace BicoTucano.Repository
                     funcionario.NivelAcesso = (NivelAcesso)Enum.Parse(typeof(NivelAcesso), dr["NivelAcesso"].ToString());
                     funcionario.Email = (string)(dr["Email"]);
                     funcionario.Senha = (string)(dr["Senha"]);
+
+
+                    if (dr["DataDemissao"] != DBNull.Value)
+                        funcionario.DataDemissao = Convert.ToDateTime(dr["DataDemissao"]);
                 }
                 return funcionario;
             }

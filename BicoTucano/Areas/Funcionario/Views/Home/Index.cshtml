@@ -38,23 +38,19 @@
                     <td>@funcionario.NivelAcesso</td>
 
                     <td>
-                        @if (funcionario.DataDemissao == default(DateTime))
+                        @if (funcionario.DataDemissao.Year > 1)
                         {
-                            <a asp-action="Desligar"
-                               asp-route-id="@funcionario.ID_Usuario"
-                               class="botao-acao"
-                               onclick="return confirm('Deseja realmente desligar?');">
-                                Desligar
-                            </a>
+                            <form asp-action="Ativar" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
+                                <button type="submit" class="btn btn-sm btn-success">Ativar</button>
+                            </form>
                         }
                         else
                         {
-                            <a asp-action="Reativar"
-                               asp-route-id="@funcionario.ID_Usuario"
-                               class="botao-acao"
-                               onclick="return confirm('Deseja realmente reativar?');">
-                                Reativar
-                            </a>
+                            <form asp-action="Desativar" method="post" style="display:inline;">
+                                <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
+                                <button type="submit" class="btn btn-sm btn-warning">Desativar</button>
+                            </form>
                         }
                     </td>
                 </tr>

@@ -34,6 +34,12 @@ namespace BicoTucano.Areas.Funcionario.Controllers
 
             if (funcionarioDB != null && !string.IsNullOrEmpty(funcionarioDB.Senha))
             {
+                // funcionário desativado (com data de demissão) não entra
+                if (funcionarioDB.DataDemissao.Year > 1)
+                {
+                    ViewData["MSG_E"] = "Este funcionário está desativado. Procure o gerente.";
+                    return View();
+                }
                 // Verificando a senha digitada com o hash do banco
                 var hasher = new PasswordHasher<Models.Funcionario>();
 

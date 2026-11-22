@@ -77,6 +77,13 @@ namespace BicoTucano.Controllers
 
             if (clienteDB != null && !string.IsNullOrEmpty(clienteDB.Senha))
             {
+                // cliente desativado não entra
+                if (clienteDB.Situacao == SituacaoConstant.Desativado)
+                {
+                    ViewData["MSG_E"] = "Sua conta está desativada. Entre em contato conosco.";
+                    return View();
+                }
+
                 // Verificando a senha digitada com o hash do banco
                 var hasher = new PasswordHasher<Cliente>();
 
@@ -88,7 +95,6 @@ namespace BicoTucano.Controllers
 
                 if (resultado != PasswordVerificationResult.Failed)
                 {
-                  
                     _loginCliente.Login(clienteDB);
 
                     return RedirectToAction(nameof(PainelCliente));
@@ -100,7 +106,7 @@ namespace BicoTucano.Controllers
 
             return View();
         }
-        
+
 
         [ClienteAutorizacao]
         public IActionResult PainelCliente()
