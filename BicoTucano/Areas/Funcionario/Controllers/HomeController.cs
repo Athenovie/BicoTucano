@@ -115,6 +115,26 @@ namespace BicoTucano.Areas.Funcionario.Controllers
             return View("PainelComum");
         }
 
+
+        [FuncionarioAutorizacao(FuncionarioTipoConstant.Gerente)]
+        [HttpPost]
+        public IActionResult Ativar(int id)
+        {
+            _repositoryFuncionario.Ativar(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [FuncionarioAutorizacao(FuncionarioTipoConstant.Gerente)]
+        [HttpPost]
+        public IActionResult Desativar(int id)
+        {
+            // o gerente não pode desativar a si mesmo
+            if (id != _loginFuncionario.GetFuncionario().ID_Usuario)
+                _repositoryFuncionario.Desativar(id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         [FuncionarioAutorizacao]
         public IActionResult Perfil()
         {

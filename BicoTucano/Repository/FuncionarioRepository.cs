@@ -226,16 +226,35 @@ namespace BicoTucano.Repository
             return funcList;
         }
 
-     
 
-        public void Desativar(Funcionario funcionario)
+
+        public void Desativar(int id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand(
+                    "update tbFuncionario set DataDemissao=@Data WHERE ID_Funcionario=@Id", conexao);
+
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = id;
+                cmd.Parameters.Add("@Data", MySqlDbType.DateTime).Value = DateTime.Today;
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
         }
 
-        public void Ativar(Funcionario funcionario)
+        public void Ativar(int id)
         {
-            throw new NotImplementedException();
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+                MySqlCommand cmd = new MySqlCommand(
+                    "update tbFuncionario set DataDemissao=NULL WHERE ID_Funcionario=@Id", conexao);
+
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = id;
+                cmd.ExecuteNonQuery();
+                conexao.Close();
+            }
         }
 
         public bool AtualizarSenha(string email, string novaSenha)
