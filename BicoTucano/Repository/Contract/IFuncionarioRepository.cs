@@ -11,15 +11,14 @@ namespace BicoTucano.Repository.Contract
         void Cadastrar(Funcionario funcionario);
         void Atualizar(Funcionario funcionario);
         bool AtualizarSenha(string email, string novaSenha);
-        void Excluir(int Id);
 
-        void Desativar(Funcionario funcionario);
-        void Ativar(Funcionario funcionario);
+        void Desativar(int id);
+        void Ativar(int id);
         Funcionario ObterFuncionario(int Id);
 
 
-        IEnumerable<Funcionario> ObterFuncionarioPorEmail();
+   
         IEnumerable<Funcionario> ObterTodosFuncionarios();
-        IPagedList<Funcionario> ObterTodosFuncionarios(int? pagina, string pesquisa);
+    
     }
 }

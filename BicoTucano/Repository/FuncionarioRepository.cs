@@ -125,11 +125,6 @@ namespace BicoTucano.Repository
             }
         }
 
-        public void Excluir(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
 
 
         public Funcionario ObterFuncionario(int Id)
@@ -159,14 +154,14 @@ namespace BicoTucano.Repository
                 {
                     funcionario.ID_Usuario = Convert.ToInt32(dr["ID_Usuario"]);
                     funcionario.Nome = (string)(dr["Nome"]);
-                    funcionario.DataNasc = (DateTime)(dr["DataNasc"]);
+                    funcionario.DataNasc = Convert.ToDateTime(dr["DataNasc"]);  
                     funcionario.Sexo = (string)(dr["Sexo"]);
                     funcionario.CPF = (string)(dr["CPF"]);
-                    funcionario.Telefone = (decimal)(dr["Telefone"]);
+                    funcionario.Telefone = Convert.ToDecimal(dr["Telefone"]);
                     funcionario.Email = (string)(dr["Email"]);
                     funcionario.NivelAcesso = (NivelAcesso)Enum.Parse(typeof(NivelAcesso), dr["NivelAcesso"].ToString());
                     funcionario.Cargo = (string)(dr["Cargo"]);
-                    funcionario.DataAdmissao = (DateTime)(dr["DataAdmissao"]);
+                    funcionario.DataAdmissao = Convert.ToDateTime(dr["DataAdmissao"]);
 
                     if (dr["DataDemissao"] != DBNull.Value)
                     {
@@ -178,10 +173,7 @@ namespace BicoTucano.Repository
             }
         }
 
-        public IEnumerable<Funcionario> ObterFuncionarioPorEmail()
-        {
-            throw new NotImplementedException();
-        }
+ 
 
         public IEnumerable<Funcionario> ObterTodosFuncionarios()
         {
@@ -234,10 +226,7 @@ namespace BicoTucano.Repository
             return funcList;
         }
 
-        public IPagedList<Funcionario> ObterTodosFuncionarios(int? pagina, string pesquisa)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public void Desativar(Funcionario funcionario)
         {
