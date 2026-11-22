@@ -1,0 +1,86 @@
+﻿@model BicoTucano.Models.Cliente
+@using BicoTucano.Models
+
+@{
+    ViewBag.Title = "Meu Perfil";
+    var enderecos = (List<Endereco>)ViewBag.Enderecos;
+
+    string tel = Model.Telefone.HasValue ? Model.Telefone.Value.ToString("0") : "";
+    if (tel.Length == 11)
+        tel = "(" + tel.Substring(0, 2) + ") " + tel.Substring(2, 5) + "-" + tel.Substring(7);
+
+    string cpf = Model.CPF ?? "";
+    if (cpf.Length == 11)
+        cpf = cpf.Substring(0, 3) + "." + cpf.Substring(3, 3) + "." + cpf.Substring(6, 3) + "-" + cpf.Substring(9);
+}
+
+<div class="container mt-4">
+    <div class="row">
+
+        <div class="col-md-3 mb-3">
+            <div class="card p-3 text-center">
+                <h6 class="mb-0">@Model.Nome</h6>
+                <small class="text-muted">@Model.Email</small>
+                <hr />
+                <a asp-controller="Home" asp-action="Perfil" class="btn btn-block rounded-pill mb-2" style="background:#d9f5e0; color:#2f6b3f;">Meu Perfil</a>
+                <a asp-controller="Pedido" asp-action="MeusPedidos" class="btn btn-light btn-block rounded-pill mb-2">Meus Pedidos</a>
+                <a asp-controller="Cartao" asp-action="Index" class="btn btn-light btn-block rounded-pill mb-2">Meus Cartões</a>
+                <a href="/Home/LogoutCliente" class="btn btn-light btn-block rounded-pill" style="color:#e8845c;">Sair</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h2>MEU PERFIL</h2>
+
+            @if (TempData["MSG_S"] != null)
+            {
+                <div class="alert alert-success">@TempData["MSG_S"]</div>
+            }
+
+            <div class="card p-3 mb-3">
+                <div class="d-flex justify-content-between">
+                    <h5>Dados pessoais</h5>
+                    <a asp-action="EditarPerfil" style="color:#4a7c59;"><strong>Modificar</strong></a>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-6 mb-3"><strong>Nome</strong><br /><span class="text-muted">@Model.Nome</span></div>
+                    <div class="col-md-6 mb-3"><strong>Data de Nascimento</strong><br /><span class="text-muted">@(Model.DataNasc.HasValue ? Model.DataNasc.Value.ToString("dd/MM/yyyy") : "")</span></div>
+                    <div class="col-md-6 mb-3"><strong>E-mail</strong><br /><span class="text-muted">@Model.Email</span></div>
+                    <div class="col-md-6 mb-3"><strong>Telefone</strong><br /><span class="text-muted">@tel</span></div>
+                    <div class="col-md-6 mb-3"><strong>CPF</strong><br /><span class="text-muted">@cpf</span></div>
+                </div>
+            </div>
+
+            @if (enderecos.Count == 0)
+            {
+                <div class="card p-3 mb-3">
+                    <div class="d-flex justify-content-between">
+                        <h5>Endereço</h5>
+                        <a asp-controller="Endereco" asp-action="Index" style="color:#4a7c59;"><strong>Cadastrar</strong></a>
+                    </div>
+                    <p class="text-muted mb-0">Você ainda não cadastrou nenhum endereço.</p>
+                </div>
+            }
+
+            @for (int i = 0; i < enderecos.Count; i++)
+            {
+                var e = enderecos[i];
+
+                <div class="card p-3 mb-3">
+                    <div class="d-flex justify-content-between">
+                        <h5>@(i == 0 ? "Endereço" : "Endereço Secundário")</h5>
+                        <a asp-controller="Endereco" asp-action="Index" style="color:#4a7c59;"><strong>Modificar</strong></a>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-md-6 mb-3"><strong>CEP</strong><br /><span class="text-muted">@e.CEP</span></div>
+                        <div class="col-md-6 mb-3"><strong>Nº de Endereço</strong><br /><span class="text-muted">@e.Numero</span></div>
+                        <div class="col-md-12 mb-3"><strong>Complemento</strong><br /><span class="text-muted">@e.Complemento</span></div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
