@@ -1,7 +1,6 @@
 ﻿@model BicoTucano.Models.Cliente
 @using BicoTucano.Models
 
-@*Esse trecho do código não mexi, já veio do Bootstrap*@
 @{
     ViewBag.Title = "Meu Perfil";
     ViewData["LarguraTotal"] = true;
@@ -17,80 +16,82 @@
         cpf = cpf.Substring(0, 3) + "." + cpf.Substring(3, 3) + "." + cpf.Substring(6, 3) + "-" + cpf.Substring(9);
 }
 
-<link rel="stylesheet" href="~/css/MeusCartoes.css" />
-<link rel="stylesheet" href="~/css/Perfil.css" />
+<link rel="stylesheet" href="~/css/MenuPerfil.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/Perfil.css" asp-append-version="true" />
 
-<div class="pagina">
-    <div class="conteudo">
+<section class="perfil-pagina">
 
-        <div class="menu">
-            <div class="menu-perfil">
-                <div class="foto">@Model.Nome.Substring(0, 1)</div>
-                <strong>@Model.Nome</strong>
-                <small>@Model.Email</small>
-            </div>
-
-            <a asp-controller="Home" asp-action="Perfil" class="menu-link ativo">Meu Perfil</a>
-            <a asp-controller="Pedido" asp-action="MeusPedidos" class="menu-link">Meus Pedidos</a>
-            <a asp-controller="Cartao" asp-action="Index" class="menu-link">Meus Cartões</a>
-            <a href="/Home/LogoutCliente" class="menu-link sair">Sair</a>
+    <aside class="perfil-menu">
+        <div class="perfil-menu-topo">
+            <div class="perfil-foto" aria-hidden="true">@Model.Nome.Substring(0, 1)</div>
+            <strong>@Model.Nome</strong>
+            <small>@Model.Email</small>
         </div>
 
-        <div class="perfil">
-            <h1>Meu Perfil</h1>
+        <nav aria-label="Perfil">
+            <a asp-controller="Home" asp-action="Perfil" class="perfil-menu-link perfil-menu-link-ativo">Meu Perfil</a>
+            <a asp-controller="Pedido" asp-action="MeusPedidos" class="perfil-menu-link">Meus Pedidos</a>
+            <a asp-controller="Cartao" asp-action="Index" class="perfil-menu-link">Meus Cartões</a>
+            <a asp-controller="Home" asp-action="LogoutCliente" class="perfil-menu-link perfil-menu-link-sair">Sair</a>
+        </nav>
+    </aside>
 
-            @if (TempData["MSG_S"] != null)
-            {
-                <div class="alert alert-success">@TempData["MSG_S"]</div>
-            }
+    <div class="perfil-principal">
+
+        <h1 class="perfil-titulo">Meu perfil</h1>
+
+        @if (TempData["MSG_S"] != null)
+        {
+            <p class="perfil-aviso perfil-aviso-sucesso">@TempData["MSG_S"]</p>
+        }
+
+        <div class="secao-perfil">
+            <div class="titulo-secao">
+                <h3>Dados pessoais</h3>
+                <a asp-action="EditarPerfil">Modificar</a>
+            </div>
+
+            <div class="dados-perfil">
+                <div class="item-perfil"><strong>Nome</strong><span>@Model.Nome</span></div>
+                <div class="item-perfil"><strong>Data de Nascimento</strong><span>@Model.DataNasc?.ToString("dd/MM/yyyy")</span></div>
+                <div class="item-perfil"><strong>Telefone</strong><span>@tel</span></div>
+                <div class="item-perfil"><strong>CPF</strong><span>@cpf</span></div>
+            </div>
+        </div>
+
+        @if (enderecos.Count == 0)
+        {
+            <div class="secao-perfil">
+                <div class="titulo-secao">
+                    <h3>Endereço</h3>
+                    <a asp-controller="Endereco" asp-action="Index">Cadastrar</a>
+                </div>
+
+                <p class="vazio">Você ainda não cadastrou nenhum endereço.</p>
+            </div>
+        }
+
+        @for (int i = 0; i < enderecos.Count; i++)
+        {
+            var e = enderecos[i];
 
             <div class="secao-perfil">
                 <div class="titulo-secao">
-                    <h3>Dados pessoais</h3>
-                    <a asp-action="EditarPerfil">Modificar</a>
+                    <h3>@(i == 0 ? "Endereço" : "Endereço Secundário")</h3>
+                    <a asp-controller="Endereco" asp-action="Index">Modificar</a>
                 </div>
 
                 <div class="dados-perfil">
-                    <div class="item-perfil"><strong>Nome</strong><span>@Model.Nome</span></div>
-                    <div class="item-perfil"><strong>Data de Nascimento</strong><span>@Model.DataNasc?.ToString("dd/MM/yyyy")</span></div>
-                    <div class="item-perfil"><strong>Telefone</strong><span>@tel</span></div>
-                    <div class="item-perfil"><strong>CPF</strong><span>@cpf</span></div>
+                    <div class="item-perfil"><strong>Logradouro</strong><span>@e.Logradouro</span></div>
+                    <div class="item-perfil"><strong>Bairro</strong><span>@e.Bairro</span></div>
+                    <div class="item-perfil"><strong>Nº de Endereço</strong><span>@e.Numero</span></div>
+                    <div class="item-perfil"><strong>CEP</strong><span>@e.CEP</span></div>
+                    <div class="item-perfil"><strong>Cidade</strong><span>@e.Cidade</span></div>
+                    <div class="item-perfil"><strong>Estado</strong><span>@e.Estado</span></div>
                 </div>
             </div>
-
-            @if (enderecos.Count == 0)
-            {
-                <div class="secao-perfil">
-                    <div class="titulo-secao">
-                        <h3>Endereço</h3>
-                        <a asp-controller="Endereco" asp-action="Index">Cadastrar</a>
-                    </div>
-
-                    <p class="vazio">Você ainda não cadastrou nenhum endereço.</p>
-                </div>
-            }
-
-            @for (int i = 0; i < enderecos.Count; i++)
-            {
-                var e = enderecos[i];
-
-                <div class="secao-perfil">
-                    <div class="titulo-secao">
-                        <h3>@(i == 0 ? "Endereço" : "Endereço Secundário")</h3>
-                        <a asp-controller="Endereco" asp-action="Index">Modificar</a>
-                    </div>
-
-                    <div class="dados-perfil">
-                        <div class="item-perfil"><strong>Logradouro</strong><span>@e.Logradouro</span></div>
-                        <div class="item-perfil"><strong>Bairro</strong><span>@e.Bairro</span></div>
-                        <div class="item-perfil"><strong>Nº de Endereço</strong><span>@e.Numero</span></div>
-                        <div class="item-perfil"><strong>CEP</strong><span>@e.CEP</span></div>
-                        <div class="item-perfil"><strong>Cidade</strong><span>@e.Cidade</span></div>
-                        <div class="item-perfil"><strong>Estado</strong><span>@e.Estado</span></div>
-                    </div>
-                </div>
-            }
-        </div>
+        }
 
     </div>
-</div>
+
+</section>
