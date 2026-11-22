@@ -5,9 +5,11 @@ using BicoTucano.Models;
 using BicoTucano.Repository.Contract;
 using BicoTucano.Libraries.Login;
 using Microsoft.AspNetCore.Mvc;
+using BicoTucano.Libraries.Filtro;
 
 namespace BicoTucano.Controllers
 {
+    [ClienteAutorizacao]
     public class CartaoController : Controller
     {
         private readonly ICartaoRepository _cartaoRepository;
@@ -37,11 +39,10 @@ namespace BicoTucano.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var cartoes = _cartaoRepository.ObterCartoesDoUsuario(
-                ObterIdUsuarioLogado()
-            );
+            Cliente cliente = _loginCliente.GetCliente();
 
-            return View(cartoes);
+            ViewBag.Cliente = cliente;
+            return View(_cartaoRepository.ObterCartoesDoUsuario(cliente.ID_Usuario));
         }
 
         [HttpGet]

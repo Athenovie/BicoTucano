@@ -1,67 +1,123 @@
 ﻿@model IEnumerable<BicoTucano.Models.Cartao>
+@using BicoTucano.Models
+
 @{
     ViewData["Title"] = "Meus cartões";
+    ViewData["LarguraTotal"] = true;
+
+    var cliente = (Cliente)ViewBag.Cliente;
+    List<Cartao> cartoes = Model.ToList();
 }
 
-<div class="container my-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="mb-0">Meus cartões</h1>
-        <a class="btn btn-success" asp-action="Cadastrar">Novo cartão</a>
-    </div>
+<link rel="stylesheet" href="~/css/MenuPerfil.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/MeusCartoes.css" asp-append-version="true" />
 
-    @if (TempData["MSG_S"] != null)
-    {
-        <div class="alert alert-success">@TempData["MSG_S"]</div>
-    }
-    @if (TempData["MSG_E"] != null)
-    {
-        <div class="alert alert-danger">@TempData["MSG_E"]</div>
-    }
+<section class="perfil-pagina">
 
-    @if (!Model.Any())
-    {
-        <div class="alert alert-secondary">Você ainda não cadastrou nenhum cartão.</div>
-    }
-    else
-    {
-        <div class="table-responsive">
-            <table class="table align-middle">
-                <thead>
-                    <tr>
-                        <th>Apelido</th>
-                        <th>Bandeira</th>
-                        <th>Número</th>
-                        <th>Titular</th>
-                        <th>Validade</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (BicoTucano.Models.Cartao c in Model)
-                    {
-                        bool vencido = c.DataValidade.Date < DateTime.Today;
-                        <tr>
-                            <td>@c.Apelido</td>
-                            <td><partial name="_Bandeira" model="c.Bandeira" /></td>
-                            <td>@c.NumeroCartao</td>
-                            <td>@c.NomeTitular</td>
-                            <td>
-                                @c.DataValidade.ToString("MM/yy")
+    <aside class="perfil-menu">
+        <div class="perfil-menu-topo">
+            <div class="perfil-foto" aria-hidden="true">@cliente.Nome.Substring(0, 1)</div>
+            <strong>@cliente.Nome</strong>
+            <small>@cliente.Email</small>
+        </div>
+
+        <nav aria-label="Perfil">
+            <a asp-controller="Home" asp-action="Perfil" class="perfil-menu-link">Meu Perfil</a>
+            <a asp-controller="Pedido" asp-action="MeusPedidos" class="perfil-menu-link">Meus Pedidos</a>
+            <a asp-controller="Cartao" asp-action="Index" class="perfil-menu-link perfil-menu-link-ativo">Meus Cartões</a>
+            <a asp-controller="Home" asp-action="LogoutCliente" class="perfil-menu-link perfil-menu-link-sair">Sair</a>
+        </nav>
+    </aside>
+
+    <div class="perfil-principal">
+
+        <div class="cartoes-topo">
+            <h1 class="perfil-titulo">Meus cartões</h1>
+
+            @if (cartoes.Count > 0)
+            {
+                <a asp-action="Cadastrar" class="cartoes-botao">Adicionar cartão</a>
+            }
+        </div>
+
+        @if (TempData["MSG_S"] != null)
+        {
+            <p class="cartoes-aviso cartoes-aviso-sucesso">@TempData["MSG_S"]</p>
+        }
+        @if (TempData["MSG_E"] != null)
+        {
+            <p class="cartoes-aviso cartoes-aviso-erro">@TempData["MSG_E"]</p>
+        }
+
+        @if (cartoes.Count == 0)
+        {
+            <div class="cartoes-vazio">
+                <img src="~/img/cartoesvazio.png" alt="" class="cartoes-vazio-imagem" />
+
+                <h2 class="cartoes-vazio-titulo">Não há cartões cadastrados</h2>
+
+                <p class="cartoes-vazio-texto">
+                    Cadastre seu cartão para utilizá-lo nas próximas compras!
+                </p>
+
+                <a asp-action="Cadastrar" class="cartoes-botao">Adicionar Cartão</a>
+            </div>
+        }
+        else
+        {
+            <div class="cartoes-lista">
+                @for (int i = 0; i < cartoes.Count; i++)
+                {
+                    Cartao c = cartoes[i];
+                    bool vencido = c.DataValidade.Date < DateTime.Today;
+                    string finalCartao = c.NumeroCartao.Length >= 4
+                        ? c.NumeroCartao.Substring(c.NumeroCartao.Length - 4)
+                        : c.NumeroCartao;
+
+                    <div class="meu-cartao">
+
+                        <div class="meu-cartao-visual @(i % 2 == 0 ? "meu-cartao-verde" : "meu-cartao-laranja")">
+                            <span class="meu-cartao-bandeira">@(c.Bandeira ?? "Cartão")</span>
+                            <span class="meu-cartao-numero">●●●● ●●●● @finalCartao</span>
+
+                            <div class="meu-cartao-base">
+                                <span class="meu-cartao-titular">@c.NomeTitular</span>
+                                <span class="meu-cartao-bolinhas" aria-hidden="true"><span></span><span></span></span>
+                            </div>
+                        </div>
+
+                        <div class="meu-cartao-info">
+                            <span>
+                                @c.Apelido · @c.DataValidade.ToString("MM/yy")
                                 @if (vencido)
                                 {
-                                    <span class="badge bg-danger">Vencido</span>
+                                    <span class="meu-cartao-vencido">Vencido</span>
                                 }
-                            </td>
-                            <td class="text-end">
-                                <form asp-action="Excluir" asp-route-id="@c.ID_Cartao" method="post"
-                                      onsubmit="return confirm('Excluir o cartão @c.Apelido?');">
-                                    <button type="submit" class="btn btn-outline-danger btn-sm">Excluir</button>
-                                </form>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    }
-</div>
+                            </span>
+
+                            <form asp-action="Excluir" asp-route-id="@c.ID_Cartao" method="post"
+                                  data-confirmar="Excluir o cartão @c.Apelido?">
+                                <button type="submit" class="meu-cartao-excluir">Excluir</button>
+                            </form>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+
+</section>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('form[data-confirmar]').forEach(function(formulario) {
+            formulario.addEventListener('submit', function(evento) {
+                if (!confirm(formulario.dataset.confirmar)) {
+                    evento.preventDefault();
+                }
+            });
+        });
+    </script>
+}

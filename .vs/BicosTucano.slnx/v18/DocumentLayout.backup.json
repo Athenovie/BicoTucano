@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\ifrat\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\views\\pedido\\meuspedidos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\pedido\\meuspedidos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\ifrat\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\controllers\\cartaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\controllers\\cartaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\ifrat\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\wwwroot\\css\\meuspedidos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\wwwroot\\css\\meuspedidos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\ifrat\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\views\\cartao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\cartao\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\ifrat\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\wwwroot\\css\\menuperfil.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\wwwroot\\css\\menuperfil.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\ifrat\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\wwwroot\\css\\meuscartoes.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\wwwroot\\css\\meuscartoes.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,38 +27,38 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MenuPerfil.css",
-              "DocumentMoniker": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\MenuPerfil.css",
-              "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\MenuPerfil.css",
-              "ToolTip": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\MenuPerfil.css",
-              "RelativeToolTip": "BicoTucano\\wwwroot\\css\\MenuPerfil.css",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGAAAAABAAAAAAAAAA==",
+              "Title": "MeusCartoes.css",
+              "DocumentMoniker": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\MeusCartoes.css",
+              "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\MeusCartoes.css",
+              "ToolTip": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\MeusCartoes.css",
+              "RelativeToolTip": "BicoTucano\\wwwroot\\css\\MeusCartoes.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-22T21:14:04.005Z"
+              "WhenOpened": "2026-11-22T22:18:12.219Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MeusPedidos.css",
-              "DocumentMoniker": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\MeusPedidos.css",
-              "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\MeusPedidos.css",
-              "ToolTip": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\MeusPedidos.css",
-              "RelativeToolTip": "BicoTucano\\wwwroot\\css\\MeusPedidos.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-22T21:13:12.033Z"
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Views\\Cartao\\Index.cshtml",
+              "RelativeDocumentMoniker": "BicoTucano\\Views\\Cartao\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Views\\Cartao\\Index.cshtml",
+              "RelativeToolTip": "BicoTucano\\Views\\Cartao\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-22T22:04:30.483Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MeusPedidos.cshtml",
-              "DocumentMoniker": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Views\\Pedido\\MeusPedidos.cshtml",
-              "RelativeDocumentMoniker": "BicoTucano\\Views\\Pedido\\MeusPedidos.cshtml",
-              "ToolTip": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Views\\Pedido\\MeusPedidos.cshtml",
-              "RelativeToolTip": "BicoTucano\\Views\\Pedido\\MeusPedidos.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-22T21:06:43.065Z",
+              "Title": "CartaoController.cs",
+              "DocumentMoniker": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Controllers\\CartaoController.cs",
+              "RelativeDocumentMoniker": "BicoTucano\\Controllers\\CartaoController.cs",
+              "ToolTip": "C:\\Users\\ifrat\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Controllers\\CartaoController.cs",
+              "RelativeToolTip": "BicoTucano\\Controllers\\CartaoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-22T21:54:06.111Z",
               "EditorCaption": ""
             }
           ]
