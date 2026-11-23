@@ -1690,7 +1690,6 @@ C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\BicoTucano
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\BicoTucano.genruntimeconfig.cache
 C:\Users\Sammuel\Desktop\Nova pasta (10)\BicoTucano\obj\Debug\net10.0\ref\BicoTucano.dll
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\o93yxtvq7t-{0}-djbw82j066-djbw82j066.gz
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-e78ku6n664-e78ku6n664.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-e78ku6n664-e78ku6n664.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\o93yxtvq7t-{0}-djbw82j066-djbw82j066.gz
 C:\Users\3mtec\Desktop\BicoTucano\BicoTucano\bin\Debug\net10.0\appsettings.Development.json
@@ -2623,3 +2622,4 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\mbjct1zf0g-{0}-nmjcsvjede-nmjcsvjede.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\trho365o7d-{0}-i71ok06rne-i71ok06rne.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-b46xtod41a-b46xtod41a.gz
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-h6gbsr9oxu-h6gbsr9oxu.gz

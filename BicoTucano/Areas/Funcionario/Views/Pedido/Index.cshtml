@@ -6,58 +6,76 @@
     var pt = new System.Globalization.CultureInfo("pt-BR");
 }
 
-<h1>PEDIDOS</h1>
+<div class="pedidos">
 
-<div class="card p-3 mt-3">
-    <table class="table table-borderless mb-0" id="tabelaPedidos">
-        <thead>
-            <tr>
-                <th>Nº DO PEDIDO</th>
-                <th>PRODUTO(S)</th>
-                <th>VALOR</th>
-                <th>DATA</th>
-                <th>CLIENTE</th>
-                <th>STATUS</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var p in Model)
-            {
-                string texto = "Em preparo";
-                string cor = "#e8845c";
+    <h1>PEDIDOS</h1>
 
-                if (p.StatusPedido == StatusPedido.EmEntrega)
+    <div class="tabela-pedidos">
+
+        <table id="tabelaPedidos">
+            <thead>
+                <tr>
+                    <th>Nº DO PEDIDO</th>
+                    <th>PRODUTO(S)</th>
+                    <th>VALOR</th>
+                    <th>DATA</th>
+                    <th>CLIENTE</th>
+                    <th>STATUS</th>
+                    <th></th>
+                 </tr>
+           </thead>
+
+            <tbody>
+                @foreach (var p in Model)
                 {
-                    texto = "Em entrega";
-                    cor = "#f0b429";
-                }
-                else if (p.StatusPedido == StatusPedido.Concluido)
-                {
-                    texto = "Concluído";
-                    cor = "#8fbc94";
-                }
+                    string texto = "Em preparo";
+                    string classe = "preparo";
 
-                <tr style="border-top:1px solid #8fbc94;" data-busca="@p.Email @p.CPF">
-                    <td>@p.NF</td>
-                    <td>
-                        @foreach (var produto in p.Produtos.Split('|'))
-                        {
-                            <div>@produto</div>
-                        }
-                    </td>
-                    <td>R$ @p.ValorTotal.ToString("N2", pt)</td>
-                    <td>@p.DataPedido.ToString("dd/MM/yyyy")</td>
-                    <td>@p.Cliente</td>
-                    <td>
-                        <span class="badge badge-pill text-white" style="background:@cor;">@texto</span>
-                    </td>
-                    <td>
-                        <a asp-action="Detalhes" asp-route-id="@p.NF" style="color:#4a7c59;">DETALHES</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+                    if (p.StatusPedido == StatusPedido.EmEntrega)
+                    {
+                        texto = "Em entrega";
+                        classe = "entrega";
+                    }
+                    else if (p.StatusPedido == StatusPedido.Concluido)
+                    {
+                        texto = "Concluído";
+                        classe = "concluido";
+                    }
+
+                    <tr data-busca="@p.Email @p.CPF">
+                        <td>@p.NF</td>
+
+                        <td>
+                            @foreach (var produto in p.Produtos.Split('|'))
+                            {
+                                <div>@produto</div>
+                            }
+                        </td>
+
+                        <td>R$ @p.ValorTotal.ToString("N2", pt)</td>
+
+                        <td>@p.DataPedido.ToString("dd/MM/yyyy")</td>
+
+                        <td>@p.Cliente</td>
+                        <td>
+                            <span class="status @classe">
+                                @texto
+                            </span>
+                        </td>
+
+                        <td>
+                            <a class="detalhes"
+                               asp-action="Detalhes"
+                               asp-route-id="@p.NF">
+                                DETALHES
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
 </div>
-

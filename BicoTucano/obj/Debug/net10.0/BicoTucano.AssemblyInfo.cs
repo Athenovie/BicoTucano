@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BicoTucano")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f3d62407c9673e9f7f087107babbc54d0dabb84")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc773089a9d3b4f0e53bf8af19018c4e4ab9f4f1")]
 [assembly: System.Reflection.AssemblyProductAttribute("BicoTucano")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BicoTucano")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

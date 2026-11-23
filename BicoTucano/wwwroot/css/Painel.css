@@ -112,9 +112,6 @@ body {
         border-bottom: 1px solid #a5c2ad;
     }
 
-    .tabela tr:last-child td {
-        border-bottom: none;
-    }
 
 /* Botões de ação */
 .botao-acao {
@@ -134,3 +131,83 @@ body {
         background-color: #d87343;
         color: white;
     }
+
+/* Página de pedidos */
+.pedidos {
+    font-family: Arial, sans-serif;
+}
+
+    .pedidos h1 {
+        font-family: Arial, sans-serif;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 12px 0 10px;
+    }
+
+/* Fundo da tabela de pedidos */
+.tabela-pedidos {
+    background-color: white;
+    border-radius: 7px;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+    /* Tabela de pedidos */
+    .tabela-pedidos table {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    /* Linhas e colunas */
+    .tabela-pedidos th,
+    .tabela-pedidos td {
+        text-align: left;
+        padding: 12px 10px;
+        border-bottom: 1px solid #a5c2ad;
+        vertical-align: middle;
+    }
+
+    /* Cabeçalho */
+    .tabela-pedidos th {
+        font-weight: normal;
+    }
+
+    /* Última linha */
+    .tabela-pedidos tr:last-child td {
+        border-bottom: none;
+    }
+
+    /* Status dos pedidos */
+    .tabela-pedidos .status {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 15px;
+        color: white;
+        font-size: 11px;
+    }
+
+    /* Pedido em preparo */
+    .tabela-pedidos .preparo {
+        background-color: #e8845c;
+    }
+
+    /* Pedido em entrega */
+    .tabela-pedidos .entrega {
+        background-color: #f0b429;
+    }
+
+    /* Pedido concluído */
+    .tabela-pedidos .concluido {
+        background-color: #8fbc94;
+    }
+
+    /* Link detalhes */
+    .tabela-pedidos .detalhes {
+        color: #4a7c59;
+        text-decoration: none;
+        font-size: 11px;
+    }
+
+        .tabela-pedidos .detalhes:hover {
+            text-decoration: underline;
+        }
