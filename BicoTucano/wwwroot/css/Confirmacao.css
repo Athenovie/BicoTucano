@@ -54,6 +54,68 @@
     gap: 40px;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
+
+.pagina-confirmacao {
+    background: #f7f4ee;
+    min-height: 70vh;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    color: #2b2b2b;
+}
+
+.icone-check {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #d9d9d9;
+    color: #3fcf3f;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 68px;
+}
+
+.pagina-confirmacao h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.mensagem {
+    max-width: 330px;
+    margin: 0 auto 28px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a7c59;
+}
+
+.card-pedido {
+    max-width: 320px;
+    margin: 0 auto 36px;
+    padding: 12px 20px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    color: #4a7c59;
+    font-family: 'Inter', sans-serif;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
 .botao-verde, .botao-laranja {
     padding: 12px 28px;
     border-radius: 8px;
@@ -70,3 +132,4 @@
 .botao-laranja {
     background: #e8875a;
 }
+

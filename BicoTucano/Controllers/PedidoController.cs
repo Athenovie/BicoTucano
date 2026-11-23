@@ -216,7 +216,7 @@ namespace BicoTucano.Controllers
             ViewBag.Produtos = produtos;
             ViewBag.Pagamento = pagamento;
             ViewBag.Cliente = cliente;
-            return View(pedido);
+            return View("DetalhesPedido",pedido);
         }
 
 

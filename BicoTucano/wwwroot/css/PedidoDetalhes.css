@@ -1,8 +1,7 @@
 ﻿
-/* o menu vem do MeusCartoes.css */
-
 .conteudo {
     max-width: 1000px;
+    font-family: 'Inter', sans-serif;
 }
 
 .foto {
@@ -22,14 +21,14 @@
 
     .detalhes h1 {
         font-family: 'Playfair Display', serif;
-        font-size: 24px;
+        font-size: 26px;
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 16px;
     }
 
 .voltar {
-    font-size: 11px;
+    font-size: 13px;
     color: #4a7c59;
     text-decoration: none;
 }
@@ -42,7 +41,7 @@
 }
 
     .secao-pedido h3 {
-        font-size: 12px;
+        font-size: 15px;
         font-weight: bold;
         color: #2f6b3f;
         margin-bottom: 12px;
@@ -55,21 +54,21 @@
 }
 
     .numero small {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bold;
         color: #2f6b3f;
     }
 
     .numero h2 {
-        font-size: 15px;
+        font-size: 17px;
         color: #2f6b3f;
     }
 
 .status {
     background: #bfe3c6;
     color: #2f6b3f;
-    font-size: 10px;
-    padding: 2px 10px;
+    font-size: 12px;
+    padding: 4px 12px;
     border-radius: 10px;
     height: fit-content;
 }
@@ -87,7 +86,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: -11px;
-    font-size: 9px;
+    font-size: 11px;
 }
 
     .etapa strong {
@@ -96,6 +95,7 @@
 
     .etapa small {
         color: #777;
+        font-size: 10px;
     }
 
 .bolinha {
@@ -134,13 +134,9 @@
     gap: 12px;
     padding: 10px 0;
     border-bottom: 1px solid #333;
-    font-size: 11px;
+    font-size: 13px;
     color: #2f6b3f;
 }
-
-    .item:last-child {
-        border-bottom: none;
-    }
 
     .item img {
         width: 36px;
@@ -157,27 +153,27 @@
 
     .item-nome small {
         color: #777;
-        font-size: 9px;
+        font-size: 11px;
     }
 
 .endereco {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px 20px;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: bold;
     color: #2f6b3f;
 }
 
     .endereco small {
         display: block;
-        font-size: 9px;
+        font-size: 11px;
         color: #777;
     }
 
 .resumo-titulo {
     font-family: 'Playfair Display', serif;
-    font-size: 16px;
+    font-size: 19px;
     color: #2f6b3f;
     margin-bottom: 14px;
 }
@@ -185,9 +181,9 @@
 .informacao-resumo {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
+    font-size: 13px;
     color: #2f6b3f;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .btn-via {
@@ -197,6 +193,6 @@
     border: 1px solid #2f6b3f;
     border-radius: 3px;
     color: #4a7c59;
-    font-size: 10px;
-    padding: 4px 0;
+    font-size: 12px;
+    padding: 6px 0;
 }

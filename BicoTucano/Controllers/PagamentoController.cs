@@ -169,7 +169,7 @@ namespace BicoTucano.Controllers
                 ViewBag.Cartao = _cartaoRepository.ObterCartao(pagamento.ID_Cartao.Value);
 
             ViewBag.Pagamento = pagamento;
-            return View(pedido);
+            return View (pedido);
         }
 
         // AUXILIARES
