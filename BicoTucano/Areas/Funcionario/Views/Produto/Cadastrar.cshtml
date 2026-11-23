@@ -4,87 +4,109 @@
     ViewBag.Title = "Cadastrar Produto";
 }
 
-<h1>CADASTRAR PRODUTO</h1>
+<link rel="stylesheet" href="~/css/CadastroProduto.css" />
 
-<form asp-action="Cadastrar" asp-controller="Produto" method="post" enctype="multipart/form-data">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="pagina-cadastro-produto">
 
-    <div class="row">
+    <div class="cabecalho-cadastro-produto">
+        <h2>CADASTRAR PRODUTO</h2>
+        <span class="identificacao-administrador">👨 Administrador</span>
+    </div>
 
-        <!-- Coluna esquerda: dados -->
-        <div class="col-md-8">
-            <div class="card p-3 mb-3">
+    <form asp-action="Cadastrar" asp-controller="Produto"
+          method="post" enctype="multipart/form-data">
+          @*Não mexi já veio do Bootstrap*@
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div class="form-group">
-                    <label asp-for="Nome">Nome *</label>
-                    <input asp-for="Nome" class="form-control" placeholder="Digite o nome do produto" />
+        <div class="formulario-cadastro-produto">
+
+            <div class="informacoes-produto">
+
+                <div class="campo-informacao-produto">
+                    <label asp-for="Nome">Nome <span>*</span></label>
+                    <input asp-for="Nome" placeholder="Digite o nome do produto" />
                     <span asp-validation-for="Nome" class="text-danger"></span>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label asp-for="Preco">Valor Unitário *</label>
-                        <input asp-for="Preco" type="number" step="0.01" class="form-control" />
+                <div class="campos-preco-categoria">
+
+                    <div class="campo-informacao-produto">
+                        <label asp-for="Preco">Valor Unitário <span>*</span></label>
+                        <input asp-for="Preco" type="number" step="0.01" min="0" />
                         <span asp-validation-for="Preco" class="text-danger"></span>
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <label asp-for="ID_Categoria">Categoria *</label>
-                        <select asp-for="ID_Categoria" asp-items="(SelectList)ViewBag.Categorias" class="form-control">
+                    <div class="campo-informacao-produto">
+                        <label asp-for="ID_Categoria">Categoria <span>*</span></label>
+                        <select asp-for="ID_Categoria"
+                                asp-items="(SelectList)ViewBag.Categorias">
                             <option value="">Selecione</option>
                         </select>
                         <span asp-validation-for="ID_Categoria" class="text-danger"></span>
                     </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label asp-for="Descricao">Descrição *</label>
-                    <textarea asp-for="Descricao" class="form-control" rows="4"></textarea>
+                <div class="campo-informacao-produto">
+                    <label asp-for="Descricao">Descrição <span>*</span></label>
+                    <textarea asp-for="Descricao" rows="4"></textarea>
                     <span asp-validation-for="Descricao" class="text-danger"></span>
                 </div>
 
-                <div class="form-group">
-                    <label>Disponibilidade *</label><br />
-                    <label class="mr-3">
-                        <input type="radio" asp-for="Disponibilidade" value="true" /> Disponível
-                    </label>
+                <div class="disponibilidade-produto">
+                    <p>Disponibilidade <span>*</span></p>
+
                     <label>
-                        <input type="radio" asp-for="Disponibilidade" value="false" /> Indisponível
+                        <input asp-for="Disponibilidade"
+                               type="radio" value="true" />
+                        Disponível
+                    </label>
+
+                    <label>
+                        <input asp-for="Disponibilidade"
+                               type="radio" value="false" />
+                        Indisponível
                     </label>
                 </div>
 
             </div>
-        </div>
 
-        <!-- Coluna direita: imagem -->
-        <div class="col-md-4">
-            <div class="card p-3 mb-3">
-                <label>Imagem *</label>
-                <img id="previa" style="display:none; width:100%; max-height:200px; object-fit:cover;" class="mb-2" />
-                <input type="file" name="file" id="file" accept="image/*" />
-                <span asp-validation-for="NomeImagem" class="text-danger"></span>
+            <div class="area-imagem-botoes">
+
+                <div class="area-upload-imagem">
+                    <label for="file">Imagem <span>*</span></label>
+
+                    <label for="file" class="botao-adicionar-imagem">
+                        <span>+</span>
+                    </label>
+
+                    <input type="file" name="file" id="file"
+                           accept="image/*" />
+
+                    <span asp-validation-for="NomeImagem"
+                          class="text-danger"></span>
+                </div>
+
+                <div class="acoes-cadastro-produto">
+                    <a asp-action="Index" class="botao-cancelar-cadastro">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="botao-salvar-produto">
+                        Salvar
+                    </button>
+                </div>
+
             </div>
 
-            <a asp-action="Index" class="btn btn-light rounded-pill">Cancelar</a>
-            <button type="submit" class="btn btn-warning rounded-pill">Salvar</button>
         </div>
 
-    </div>
-</form>
+    </form>
+
+</div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-    <script>
-        // Mostra a prévia da imagem escolhida
-        document.getElementById("file").addEventListener("change", function () {
-            var arquivo = this.files[0];
-            if (arquivo) {
-                var previa = document.getElementById("previa");
-                previa.src = URL.createObjectURL(arquivo);
-                previa.style.display = "block";
-            }
-        });
-    </script>
 }

@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\tamar\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\wwwroot\\css\\cadastroproduto.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\wwwroot\\css\\cadastroproduto.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\tamar\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\areas\\funcionario\\views\\produto\\cadastrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\areas\\funcionario\\views\\produto\\cadastrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\tamar\\onedrive\\\u00E1rea de trabalho\\bicotucano\\bicotucano\\wwwroot\\css\\cadastrofuncionario.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\wwwroot\\css\\cadastrofuncionario.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -51,6 +59,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CadastroProduto.css",
+              "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\CadastroProduto.css",
+              "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\CadastroProduto.css",
+              "ToolTip": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\CadastroProduto.css",
+              "RelativeToolTip": "BicoTucano\\wwwroot\\css\\CadastroProduto.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAK8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-11-23T21:21:34.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Cadastrar.cshtml",
+              "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Views\\Produto\\Cadastrar.cshtml",
+              "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Views\\Produto\\Cadastrar.cshtml",
+              "ToolTip": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Views\\Produto\\Cadastrar.cshtml",
+              "RelativeToolTip": "BicoTucano\\Areas\\Funcionario\\Views\\Produto\\Cadastrar.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAABEAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-23T21:18:51.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "CadastroFuncionario.css",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\CadastroFuncionario.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\CadastroFuncionario.css",
@@ -58,12 +91,11 @@
               "RelativeToolTip": "BicoTucano\\wwwroot\\css\\CadastroFuncionario.css",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAFsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-23T20:49:12.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-23T20:49:12.977Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Cadastrar.cshtml",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Views\\Home\\Cadastrar.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Views\\Home\\Cadastrar.cshtml",
@@ -71,12 +103,11 @@
               "RelativeToolTip": "BicoTucano\\Areas\\Funcionario\\Views\\Home\\Cadastrar.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAL4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-11-23T20:48:03.455Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-23T20:48:03.455Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Painel.css",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\Painel.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\Painel.css",
@@ -84,12 +115,11 @@
               "RelativeToolTip": "BicoTucano\\wwwroot\\css\\Painel.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAALkAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-11-23T20:16:11.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-11-23T20:16:11.341Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Areas\\Funcionario\\Views\\Pedido\\Index.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Areas\\Funcionario\\Views\\Pedido\\Index.cshtml",
@@ -101,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "PedidoDetalhes.css",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\PedidoDetalhes.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\PedidoDetalhes.css",
@@ -113,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Confirmacao.css",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\wwwroot\\css\\Confirmacao.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\Confirmacao.css",
@@ -125,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "PagamentoController.cs",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Controllers\\PagamentoController.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Controllers\\PagamentoController.cs",
@@ -137,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\appsettings.json",
               "RelativeDocumentMoniker": "BicoTucano\\appsettings.json",
@@ -149,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "DetalhesPedido.cshtml",
               "DocumentMoniker": "C:\\Users\\tamar\\OneDrive\\\u00C1rea de Trabalho\\BicoTucano\\BicoTucano\\Views\\Pedido\\DetalhesPedido.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pedido\\DetalhesPedido.cshtml",

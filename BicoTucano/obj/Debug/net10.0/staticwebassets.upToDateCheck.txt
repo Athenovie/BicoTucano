@@ -1,4 +1,5 @@
 wwwroot\css\CadastroCliente.css
+wwwroot\css\CadastroFuncionario.css
 wwwroot\css\Cardapio.css
 wwwroot\css\Carrinho.css
 wwwroot\css\cartao.css
@@ -631,8 +632,9 @@ wwwroot\resources\lib\jquery3.3.1\jquery-3.3.1.min.js
 wwwroot\resources\lib\mask\jquery.mask.min.js
 wwwroot\resources\lib\pagedlist\PagedList.css
 wwwroot\resources\lib\popper1.14.6\popper.min.js
-wwwroot\css\CadastroFuncionario.css
+wwwroot\css\CadastroProduto.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroCliente.css
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroFuncionario.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Cardapio.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Carrinho.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\cartao.css
@@ -873,4 +875,4 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resource
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\mask\jquery.mask.min.js
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\pagedlist\PagedList.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\popper1.14.6\popper.min.js
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroFuncionario.css
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroProduto.css
