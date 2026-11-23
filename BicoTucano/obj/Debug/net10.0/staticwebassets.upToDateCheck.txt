@@ -14,6 +14,7 @@ wwwroot\css\MeusCartoes.css
 wwwroot\css\MeusPedidos.css
 wwwroot\css\Pagamento.css
 wwwroot\css\PagamentoPix.css
+wwwroot\css\Painel.css
 wwwroot\css\PedidoDetalhes.css
 wwwroot\css\Perfil.css
 wwwroot\css\RedefinirSenha.css
@@ -630,7 +631,7 @@ wwwroot\resources\lib\jquery3.3.1\jquery-3.3.1.min.js
 wwwroot\resources\lib\mask\jquery.mask.min.js
 wwwroot\resources\lib\pagedlist\PagedList.css
 wwwroot\resources\lib\popper1.14.6\popper.min.js
-wwwroot\css\Painel.css
+wwwroot\css\CadastroFuncionario.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroCliente.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Cardapio.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Carrinho.css
@@ -647,6 +648,7 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Meus
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\MeusPedidos.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Pagamento.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\PagamentoPix.css
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Painel.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\PedidoDetalhes.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Perfil.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\RedefinirSenha.css
@@ -871,4 +873,4 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resource
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\mask\jquery.mask.min.js
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\pagedlist\PagedList.css
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\popper1.14.6\popper.min.js
-C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Painel.css
+C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroFuncionario.css

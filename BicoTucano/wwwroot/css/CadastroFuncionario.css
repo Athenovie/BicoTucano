@@ -1,0 +1,105 @@
+﻿
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f7f4ee;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px 15px;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+form {
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+}
+
+.dados-funcionario,
+.endereco-funcionario,
+.senha-funcionario {
+    background-color: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.linha-campos {
+    display: flex;
+    gap: 25px;
+}
+
+.campo-formulario {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+    .campo-formulario label {
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .campo-formulario input,
+    .campo-formulario select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        background-color: white;
+    }
+
+    .campo-formulario span {
+        color: red;
+        font-size: 12px;
+    }
+
+.senha-funcionario h4 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.senha-funcionario p {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.botoes-cadastro {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+    .botoes-cadastro button {
+        background-color: #ed8958;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 12px 35px;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+    }
+
+        .botoes-cadastro button:hover {
+            background-color: #d87343;
+        }
+
+.mensagem-cadastro {
+    color: red;
+    text-align: center;
+    font-size: 13px;
+}
