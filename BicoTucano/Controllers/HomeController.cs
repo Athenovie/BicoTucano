@@ -122,6 +122,7 @@ namespace BicoTucano.Controllers
         public IActionResult EditarPerfil()
         {
             Cliente logado = _loginCliente.GetCliente();
+            ViewBag.Cliente = logado;
             return View(_clienteRepository.ObterCliente(logado.ID_Usuario));
         }
 
@@ -130,6 +131,7 @@ namespace BicoTucano.Controllers
         public IActionResult EditarPerfil([FromForm] Cliente cliente)
         {
             Cliente logado = _loginCliente.GetCliente();
+            ViewBag.Cliente = logado;
             cliente.ID_Usuario = logado.ID_Usuario;
 
             ModelState.Remove(nameof(cliente.Senha));
@@ -151,6 +153,8 @@ namespace BicoTucano.Controllers
                 ViewData["MSG_E"] = "CPF ou e-mail já pertence a outro cadastro.";
                 return View(cliente);
             }
+
+            _loginCliente.Login(_clienteRepository.ObterCliente(logado.ID_Usuario));
 
             TempData["MSG_S"] = "Perfil atualizado com sucesso!";
             return RedirectToAction(nameof(Perfil));

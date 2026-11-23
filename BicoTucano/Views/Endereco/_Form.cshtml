@@ -2,16 +2,18 @@
 
 <div asp-validation-summary="ModelOnly" class="erro"></div>
 
-<div class="campo metade">
-    <label asp-for="NomeEndereco"></label>
-    <input asp-for="NomeEndereco" placeholder="Ex.: Casa, Trabalho" />
-    <span asp-validation-for="NomeEndereco" class="erro"></span>
-</div>
+<div class="linha">
+    <div class="campo">
+        <label asp-for="NomeEndereco"></label>
+        <input asp-for="NomeEndereco" placeholder="Ex.: Casa, Trabalho" />
+        <span asp-validation-for="NomeEndereco" class="erro"></span>
+    </div>
 
-<div class="campo metade">
-    <label asp-for="CEP"></label>
-    <input asp-for="CEP" class="CEP" placeholder="00000-000" maxlength="9" />
-    <span asp-validation-for="CEP" class="erro"></span>
+    <div class="campo">
+        <label asp-for="CEP"></label>
+        <input asp-for="CEP" class="CEP" placeholder="00000-000" maxlength="9" />
+        <span asp-validation-for="CEP" class="erro"></span>
+    </div>
 </div>
 
 <div class="linha">

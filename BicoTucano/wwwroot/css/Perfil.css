@@ -71,3 +71,45 @@
     font-size: 14px;
     color: #777;
 }
+
+.titulo-secao-acoes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.titulo-secao-acoes form {
+    margin: 0;
+}
+
+.botao-excluir {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    color: #d9534f;
+    cursor: pointer;
+}
+
+.botao-excluir:hover {
+    text-decoration: underline;
+}
+
+.perfil-botao-adicionar {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: #e8875a;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.perfil-botao-adicionar:hover {
+    background: #d9753f;
+    color: #fff;
+}

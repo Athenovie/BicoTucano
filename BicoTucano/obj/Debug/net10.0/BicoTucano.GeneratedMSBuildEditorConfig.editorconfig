@@ -12,205 +12,201 @@ build_property.EntryPointFilePath =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BicoTucano
 build_property.RootNamespace = BicoTucano
-build_property.ProjectDir = C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\
+build_property.ProjectDir = C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano
+build_property.MSBuildProjectDirectory = C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Atualizar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Atualizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxBdHVhbGl6YXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Cadastrar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Endereco.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Endereco.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxFbmRlcmVjby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Cliente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcQ2xpZW50ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Cadastrar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/EditarPerfil.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/EditarPerfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxFZGl0YXJQZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Login.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Painel.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Painel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxQYWluZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Perfil.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxQZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/RedefinirSenha.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Home/RedefinirSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcSG9tZVxSZWRlZmluaXJTZW5oYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Pedido/Detalhes.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Pedido/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUGVkaWRvXERldGFsaGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Pedido/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Pedido/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Alterar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Alterar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUHJvZHV0b1xBbHRlcmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Cadastrar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUHJvZHV0b1xDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Produto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcUHJvZHV0b1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Shared/_Layout.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/_ViewImports.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/_ViewStart.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Areas/Funcionario/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRnVuY2lvbmFyaW9cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Cartao/Cadastrar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Cartao/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGFvXENhZGFzdHJhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Cartao/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Cartao/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydGFvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/Atualizar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/Atualizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cQXR1YWxpemFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/Cadastrar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cQ2FkYXN0cmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/_Form.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Endereco/_Form.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW5kZXJlY29cX0Zvcm0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Cadastrar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Cadastrar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWRhc3RyYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/EditarPerfil.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/EditarPerfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0YXJQZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Login.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Perfil.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Perfil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQZXJmaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Privacy.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/RedefinirSenha.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Home/RedefinirSenha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWRlZmluaXJTZW5oYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pagamento/Confirmacao.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pagamento/Confirmacao.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvXENvbmZpcm1hY2FvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pagamento/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pagamento/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pagamento/Pix.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pagamento/Pix.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFnYW1lbnRvXFBpeC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/Carrinho.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/Carrinho.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENhcnJpbmhvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/DetalhesPedido.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/DetalhesPedido.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXERldGFsaGVzUGVkaWRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/Finalizar.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/Finalizar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEZpbmFsaXphci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/MeusPedidos.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Pedido/MeusPedidos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXE1ldXNQZWRpZG9zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Produto/CadastrarProduto.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Produto/CadastrarProduto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xDYWRhc3RyYXJQcm9kdXRvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Produto/Detalhes.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Produto/Detalhes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xEZXRhbGhlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Produto/Index.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Produto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/Error.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/_Bandeira.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/_Bandeira.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CYW5kZWlyYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/_ViewImports.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/_ViewStart.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tamar/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/_Layout.cshtml]
+[C:/Users/ifrat/OneDrive/Área de Trabalho/BicoTucano/BicoTucano/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8fxwvtf4a0

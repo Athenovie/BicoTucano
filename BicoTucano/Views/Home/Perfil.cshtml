@@ -64,7 +64,7 @@
             <div class="secao-perfil">
                 <div class="titulo-secao">
                     <h3>Endereço</h3>
-                    <a asp-controller="Endereco" asp-action="Index">Cadastrar</a>
+                    <a asp-controller="Endereco" asp-action="Cadastrar">Cadastrar</a>
                 </div>
 
                 <p class="vazio">Você ainda não cadastrou nenhum endereço.</p>
@@ -78,7 +78,15 @@
             <div class="secao-perfil">
                 <div class="titulo-secao">
                     <h3>@(i == 0 ? "Endereço" : "Endereço Secundário")</h3>
-                    <a asp-controller="Endereco" asp-action="Index">Modificar</a>
+
+                    <div class="titulo-secao-acoes">
+                        <a asp-controller="Endereco" asp-action="Atualizar" asp-route-id="@e.ID_UsuarioEndereco">Modificar</a>
+
+                        <form asp-controller="Endereco" asp-action="Excluir" asp-route-id="@e.ID_UsuarioEndereco" method="post"
+                              data-confirmar="Excluir este endereço?">
+                            <button type="submit" class="botao-excluir">Excluir</button>
+                        </form>
+                    </div>
                 </div>
 
                 <div class="dados-perfil">
@@ -92,6 +100,23 @@
             </div>
         }
 
+        @if (enderecos.Count > 0)
+        {
+            <a asp-controller="Endereco" asp-action="Cadastrar" class="perfil-botao-adicionar">Adicionar endereço</a>
+        }
+
     </div>
 
 </section>
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('form[data-confirmar]').forEach(function(formulario) {
+            formulario.addEventListener('submit', function(evento) {
+                if (!confirm(formulario.dataset.confirmar)) {
+                    evento.preventDefault();
+                }
+            });
+        });
+    </script>
+}

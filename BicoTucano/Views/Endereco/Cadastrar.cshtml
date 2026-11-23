@@ -1,31 +1,50 @@
 ﻿@model BicoTucano.Models.Endereco
+@using BicoTucano.Models
 
 @{
-    ViewData["Title"] = "Endereço";
+    ViewData["Title"] = "Novo endereço";
     ViewData["LarguraTotal"] = true;
+
+    var cliente = (Cliente)ViewBag.Cliente;
 }
 
-<link rel="stylesheet" href="~/css/Endereco.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/MenuPerfil.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/FormPerfil.css" asp-append-version="true" />
 
-<div class="pagina-endereco">
-    <div class="endereco-conteudo">
-        <h1>Endereço</h1>
+<section class="perfil-pagina">
 
-        <form asp-action="Cadastrar" method="post" class="endereco-card">
+    <aside class="perfil-menu">
+        <div class="perfil-menu-topo">
+            <div class="perfil-foto" aria-hidden="true">@cliente.Nome.Substring(0, 1)</div>
+            <strong>@cliente.Nome</strong>
+            <small>@cliente.Email</small>
+        </div>
+
+        <nav aria-label="Perfil">
+            <a asp-controller="Home" asp-action="Perfil" class="perfil-menu-link perfil-menu-link-ativo">Meu Perfil</a>
+            <a asp-controller="Pedido" asp-action="MeusPedidos" class="perfil-menu-link">Meus Pedidos</a>
+            <a asp-controller="Cartao" asp-action="Index" class="perfil-menu-link">Meus Cartões</a>
+            <a asp-controller="Home" asp-action="LogoutCliente" class="perfil-menu-link perfil-menu-link-sair">Sair</a>
+        </nav>
+    </aside>
+
+    <div class="perfil-principal">
+
+        <h1 class="perfil-titulo">Novo endereço</h1>
+
+        <form asp-action="Cadastrar" method="post" class="form-card">
 
             <partial name="_Form" model="Model" />
 
-            <div class="endereco-botoes">
-                <a class="btn-endereco" asp-action="Index">Voltar</a>
-
-                <button type="submit" class="btn-endereco">
-                    Cadastrar
-                </button>
+            <div class="form-botoes">
+                <a class="form-botao form-botao-cancelar" asp-controller="Home" asp-action="Perfil">Cancelar</a>
+                <button type="submit" class="form-botao">Cadastrar</button>
             </div>
-
         </form>
+
     </div>
-</div>
+
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
