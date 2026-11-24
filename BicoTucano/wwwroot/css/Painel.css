@@ -212,7 +212,7 @@ body {
             text-decoration: underline;
         }
 
-    /* Meu perfil */
+    /* Perfil do Funcionário */
     .perfil-cartao {
     background-color: white;
     border: 1px solid #e6e2da;
@@ -253,4 +253,79 @@ body {
     .perfil-campo-valor {
     display: block;
     color: #777;
+    }
+
+/* Produtos da Área do Funcionario */
+.produtos-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+    .produtos-cabecalho h2 {
+        font-size: 26px;
+    }
+
+    .produtos-cabecalho .botao-cadastrar {
+        font-size: 14px;
+        padding: 10px 18px;
+    }
+
+.produtos-lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.produto-cartao {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-cartao-imagem {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.produto-cartao-texto {
+    padding: 12px;
+    flex: 1;
+    font-size: 14px;
+}
+
+.produto-cartao-nome {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.produto-cartao-descricao {
+    margin-bottom: 12px;
+}
+
+.produto-cartao-legenda {
+    display: block;
+    font-size: 12px;
+}
+
+.produto-cartao-preco {
+    font-size: 17px;
+}
+
+.produto-cartao-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 10px 18px;
+}
+
+    .produto-cartao-botoes .botao-acao {
+        display: inline-block;
+        font-size: 13px;
+        padding: 8px 16px;
+        border-radius: 20px;
     }
