@@ -211,3 +211,46 @@ body {
         .tabela-pedidos .detalhes:hover {
             text-decoration: underline;
         }
+
+    /* Meu perfil */
+    .perfil-cartao {
+    background-color: white;
+    border: 1px solid #e6e2da;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    max-width: 720px;
+    font-size: 14px;
+    }
+
+    .perfil-cartao-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    }
+
+    .perfil-cartao-titulo {
+    font-size: 17px;
+    }
+
+    .perfil-cartao-link {
+    color: #4a7c59;
+    font-weight: bold;
+    text-decoration: none;
+    }
+
+    .perfil-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 25px;
+    }
+
+    .perfil-campo-nome {
+    display: block;
+    font-weight: bold;
+    }
+
+    .perfil-campo-valor {
+    display: block;
+    color: #777;
+    }

@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Meu Perfil";
+    ViewData["SemBusca"] = true;
 
     string tel = Model.Telefone.HasValue ? Model.Telefone.Value.ToString("0") : "";
     if (tel.Length == 11)
@@ -12,25 +13,103 @@
         cpf = cpf.Substring(0, 3) + "." + cpf.Substring(3, 3) + "." + cpf.Substring(6, 3) + "-" + cpf.Substring(9);
 }
 
-<h1>MEU PERFIL</h1>
+<h2>MEU PERFIL</h2>
 
 @if (TempData["MSG_S"] != null)
 {
     <div class="alert alert-success">@TempData["MSG_S"]</div>
 }
 
-<div class="card p-3 mb-3">
-    <div class="d-flex justify-content-between">
-        <h5>Dados pessoais</h5>
-        <a asp-action="EditarPerfil" style="color:#4a7c59;"><strong>Modificar</strong></a>
+<section class="perfil-cartao">
+    <div class="perfil-cartao-cabecalho">
+        <h3 class="perfil-cartao-titulo">Dados pessoais</h3>
+        <a class="perfil-cartao-link" asp-action="EditarPerfil">Modificar</a>
     </div>
 
-    <div class="row mt-2">
-        <div class="col-md-6 mb-3"><strong>Nome</strong><br /><span class="text-muted">@Model.Nome</span></div>
-        <div class="col-md-6 mb-3"><strong>Data de Nascimento</strong><br /><span class="text-muted">@(Model.DataNasc.HasValue ? Model.DataNasc.Value.ToString("dd/MM/yyyy") : "")</span></div>
-        <div class="col-md-6 mb-3"><strong>E-mail</strong><br /><span class="text-muted">@Model.Email</span></div>
-        <div class="col-md-6 mb-3"><strong>Telefone</strong><br /><span class="text-muted">@tel</span></div>
-        <div class="col-md-6 mb-3"><strong>CPF</strong><br /><span class="text-muted">@cpf</span></div>
-        <div class="col-md-6 mb-3"><strong>Cargo / Nível</strong><br /><span class="text-muted">@Model.Cargo / @Model.NivelAcesso</span></div>
+    <div class="perfil-campos">
+        <div>
+            <span class="perfil-campo-nome">Nome</span>
+            <span class="perfil-campo-valor">@Model.Nome</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Data de Nascimento</span>
+            <span class="perfil-campo-valor">@Model.DataNasc?.ToString("dd/MM/yyyy")</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Telefone</span>
+            <span class="perfil-campo-valor">@tel</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">CPF</span>
+            <span class="perfil-campo-valor">@cpf</span>
+        </div>
     </div>
-</div>
+</section>
+
+<section class="perfil-cartao">
+    <div class="perfil-cartao-cabecalho">
+        <h3 class="perfil-cartao-titulo">Endereço</h3>
+        <a class="perfil-cartao-link" href="#">Modificar</a>
+    </div>
+
+    <div class="perfil-campos">
+        <div>
+            <span class="perfil-campo-nome">Logradouro</span>
+            <span class="perfil-campo-valor">Rua das Flores</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Bairro</span>
+            <span class="perfil-campo-valor">Vila Leopoldo</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Nº de Endereço</span>
+            <span class="perfil-campo-valor">1234</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">CEP</span>
+            <span class="perfil-campo-valor">1234</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Cidade</span>
+            <span class="perfil-campo-valor">São Paulo</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Estado</span>
+            <span class="perfil-campo-valor">UF</span>
+        </div>
+    </div>
+</section>
+
+<section class="perfil-cartao">
+    <div class="perfil-cartao-cabecalho">
+        <h3 class="perfil-cartao-titulo">Endereço Secundário</h3>
+        <a class="perfil-cartao-link" href="#">Modificar</a>
+    </div>
+
+    <div class="perfil-campos">
+        <div>
+            <span class="perfil-campo-nome">Logradouro</span>
+            <span class="perfil-campo-valor">Rua das Flores</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Bairro</span>
+            <span class="perfil-campo-valor">Vila Leopoldo</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Nº de Endereço</span>
+            <span class="perfil-campo-valor">1234</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">CEP</span>
+            <span class="perfil-campo-valor">1234</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Cidade</span>
+            <span class="perfil-campo-valor">São Paulo</span>
+        </div>
+        <div>
+            <span class="perfil-campo-nome">Estado</span>
+            <span class="perfil-campo-valor">UF</span>
+        </div>
+    </div>
+</section>

@@ -1,5 +1,4 @@
-﻿
-@using BicoTucano.Models.Constants
+﻿@using BicoTucano.Models.Constants
 @inject BicoTucano.Libraries.Login.LoginFuncionario _funcionario
 
 
@@ -86,10 +85,13 @@
     </div>
 
     <main class="conteudo">
-
-        <div class="barra-pesquisa">
-            <input type="text" id="pesquisa" placeholder="⌕  Buscar por nome, email ou CPF...">
-        </div>
+        @*O Layout só mostra a barra de pesquisa se SemBusca estiver vazia*@
+        @if (ViewData["SemBusca"] == null)
+        {
+            <div class="barra-pesquisa">
+                <input type="text" id="pesquisa" placeholder="⌕  Buscar por nome, email ou CPF...">
+            </div>
+        }
         <!--RenderBody(): método do Bootstrap que organiza o conteúdo da página-->
                 @RenderBody()
 
