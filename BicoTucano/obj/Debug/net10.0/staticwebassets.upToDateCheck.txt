@@ -4,6 +4,7 @@ wwwroot\css\CadastroProduto.css
 wwwroot\css\Cardapio.css
 wwwroot\css\Carrinho.css
 wwwroot\css\cartao.css
+wwwroot\css\Confirmacao.css
 wwwroot\css\Detalhes.css
 wwwroot\css\Finalizar.css
 wwwroot\css\FormPerfil.css
@@ -33,7 +34,9 @@ wwwroot\img\burguerabacate.jpg
 wwwroot\img\burguergraodebico.jpg
 wwwroot\img\burguerjaca.jpg
 wwwroot\img\burguersoja.jpg
+wwwroot\img\busca.png
 wwwroot\img\carrinho-vazio.png
+wwwroot\img\carrinho.png
 wwwroot\img\cartoesvazio.png
 wwwroot\img\chacamomila.jpg
 wwwroot\img\chahibisco.jpg
@@ -43,10 +46,12 @@ wwwroot\img\doceabobora.jpg
 wwwroot\img\facebook.png
 wwwroot\img\fricasse.jpg
 wwwroot\img\guarana.jpg
+wwwroot\img\icon-check.png
 wwwroot\img\instagram.png
 wwwroot\img\lasanhaberinjela.jpg
 wwwroot\img\legumessalteados.jpg
 wwwroot\img\limonada.jpg
+wwwroot\img\logo-tucano-verde.png
 wwwroot\img\logo-tucano.png
 wwwroot\img\Logo.Amex.png
 wwwroot\img\Logo.png
@@ -632,13 +637,14 @@ wwwroot\resources\lib\jquery3.3.1\jquery-3.3.1.min.js
 wwwroot\resources\lib\mask\jquery.mask.min.js
 wwwroot\resources\lib\pagedlist\PagedList.css
 wwwroot\resources\lib\popper1.14.6\popper.min.js
-wwwroot\css\Confirmacao.css
+wwwroot\css\Cabecalho.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroCliente.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroFuncionario.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroProduto.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Cardapio.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Carrinho.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\cartao.css
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Confirmacao.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Detalhes.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Finalizar.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\FormPerfil.css
@@ -875,4 +881,4 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resource
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\mask\jquery.mask.min.js
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\pagedlist\PagedList.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\popper1.14.6\popper.min.js
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Confirmacao.css
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Cabecalho.css

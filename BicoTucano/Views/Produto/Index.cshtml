@@ -11,8 +11,9 @@
     decimal? precoMin = ViewBag.PrecoMin;
     decimal? precoMax = ViewBag.PrecoMax;
     decimal precoMaximoCatalogo = ViewBag.PrecoMaximoCatalogo;
+    string? busca = ViewBag.Busca;
 
-    bool filtrando = selecionadas.Count > 0 || precoMin.HasValue || precoMax.HasValue;
+    bool filtrando = selecionadas.Count > 0 || precoMin.HasValue || precoMax.HasValue || !string.IsNullOrWhiteSpace(busca);
     var br = new CultureInfo("pt-BR");
 }
 
@@ -27,6 +28,11 @@
             <form method="get" asp-controller="Produto" asp-action="Index" id="formulario-filtros">
 
                 <h2 class="filtros-titulo">Filtros</h2>
+
+                @if (!string.IsNullOrWhiteSpace(busca))
+                {
+                    <input type="hidden" name="busca" value="@busca" />
+                }
 
                 <fieldset class="filtros-grupo">
                     <legend class="filtros-rotulo">Categoria</legend>
@@ -70,6 +76,13 @@
 
         <!-- produtos -->
         <div class="cardapio-resultados">
+
+            @if (!string.IsNullOrWhiteSpace(busca))
+            {
+                <p class="cardapio-busca-resumo">
+                    @Model.Count resultado@(Model.Count == 1 ? "" : "s") para “@busca”
+                </p>
+            }
 
             @if (Model.Count == 0)
             {

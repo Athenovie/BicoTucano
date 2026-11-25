@@ -169,3 +169,10 @@
     background: #cfcac2;
     cursor: not-allowed;
 }
+
+.cardapio-busca-resumo {
+    margin: 0 0 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
