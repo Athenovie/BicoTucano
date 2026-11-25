@@ -3,60 +3,60 @@
 @{
     ViewData["Title"] = "Funcionários";
 }
-<!--Página para listar os funcionários do restaurante-->
-  <h2>FUNCIONÁRIOS</h2>
-  <a asp-action="Cadastrar" class="botao-cadastrar">
-    CADASTRAR FUNCIONÁRIO
-</a>
 
-<div class="tabela">
+<section class="funcionarios-pagina">
+    <h2>FUNCIONÁRIOS</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>CÓDIGO</th>
-                <th>NOME</th>
-                <th>CPF</th>
-                <th>TELEFONE</th>
-                <th>EMAIL</th>
-                <th>CARGO</th>
-                <th>NÍVEL DE ACESSO</th>
-                <th>AÇÕES</th>
-            </tr>
-        </thead>
+    <a asp-action="Cadastrar" class="botao-cadastrar">
+        CADASTRAR FUNCIONÁRIO
+    </a>
 
-        <tbody>
-            @foreach (Funcionario funcionario in Model)
-            {
+    <div class="tabela">
+        <table>
+            <thead>
                 <tr>
-                    <td>@funcionario.ID_Usuario</td>
-                    <td>@funcionario.Nome</td>
-                    <td>@funcionario.CPF</td>
-                    <td>@funcionario.Telefone</td>
-                    <td>@funcionario.Email</td>
-                    <td>@funcionario.Cargo</td>
-                    <td>@funcionario.NivelAcesso</td>
-
-                    <td>
-                        @if (funcionario.DataDemissao.Year > 1)
-                        {
-                            <form asp-action="Ativar" method="post" style="display:inline;">
-                                <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
-                                <button type="submit" class="btn btn-sm btn-success">Ativar</button>
-                            </form>
-                        }
-                        else
-                        {
-                            <form asp-action="Desativar" method="post" style="display:inline;">
-                                <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
-                                <button type="submit" class="btn btn-sm btn-warning">Desativar</button>
-                            </form>
-                        }
-                    </td>
+                    <th>CÓDIGO</th>
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th>TELEFONE</th>
+                    <th>EMAIL</th>
+                    <th>CARGO</th>
+                    <th>NÍVEL DE ACESSO</th>
+                    <th>AÇÕES</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
 
-</div>
-            
+            <tbody>
+                @foreach (Funcionario funcionario in Model)
+                {
+                    <tr>
+                        <td>@funcionario.ID_Usuario</td>
+                        <td>@funcionario.Nome</td>
+                        <td>@funcionario.CPF</td>
+                        <td>@funcionario.Telefone</td>
+                        <td>@funcionario.Email</td>
+                        <td>@funcionario.Cargo</td>
+                        <td>@funcionario.NivelAcesso</td>
+
+                        <td>
+                            @if (funcionario.DataDemissao.Year > 1)
+                            {
+                                <form asp-action="Ativar" method="post">
+                                    <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
+                                    <button type="submit" class="funcionario-ativar">Ativar</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-action="Desativar" method="post">
+                                    <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
+                                    <button type="submit" class="funcionario-desativar">Desativar</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -329,3 +329,85 @@ body {
         padding: 8px 16px;
         border-radius: 20px;
     }
+
+    /*Página de listar funcionários */
+
+/* Página de funcionários */
+
+.funcionarios-pagina {
+    font-family: Arial, sans-serif;
+}
+
+    .funcionarios-pagina h2 {
+        font-family: Georgia, serif;
+        font-size: 24px;
+        font-weight: normal;
+        margin-bottom: 12px;
+    }
+
+    /* Botão cadastrar funcionário */
+
+    .funcionarios-pagina .botao-cadastrar {
+        display: inline-block;
+        background-color: #4b8060;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 20px;
+        font-size: 14px;
+        text-decoration: none;
+        margin-bottom: 15px;
+    }
+
+    /* Tabela de funcionários */
+
+    .funcionarios-pagina .tabela {
+        background-color: white;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+        .funcionarios-pagina .tabela table {
+            width: 100%;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .funcionarios-pagina .tabela th {
+            padding: 14px 10px;
+            text-align: left;
+            font-size: 14px;
+            font-weight: normal;
+            border-bottom: 1px solid #a5c2ad;
+        }
+
+        .funcionarios-pagina .tabela td {
+            padding: 14px 10px;
+            text-align: left;
+            font-size: 14px;
+            border-bottom: 1px solid #a5c2ad;
+        }
+
+    /* Botões de ações */
+
+    .funcionarios-pagina .funcionario-desativar {
+        background-color: #ed8958;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 14px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    .funcionarios-pagina .funcionario-ativar {
+        background-color: #4b8060;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 8px 14px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
