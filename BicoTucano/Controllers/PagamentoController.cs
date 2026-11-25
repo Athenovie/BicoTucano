@@ -42,7 +42,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction("Confirmacao", "Pedido", new { id });
+                return RedirectToAction(nameof(Confirmacao), new { id });
 
             PrepararIndex();
             return View(pedido);
@@ -58,7 +58,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction("Confirmacao", "Pedido", new { id });
+                return RedirectToAction(nameof(Confirmacao), new { id });
 
             GravarPagamento(pedido, FormaPagamento.Pix, ChavePixLoja, null, StatusPagamento.NaoPago);
             return RedirectToAction(nameof(Pix), new { id });
@@ -71,7 +71,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction("Confirmacao", "Pedido", new { id });
+                return RedirectToAction(nameof(Confirmacao), new { id });
 
             Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
             if (pagamento == null || pagamento.FormaPagamento != FormaPagamento.Pix)
@@ -90,14 +90,14 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction("Confirmacao", "Pedido", new { id });
+                return RedirectToAction(nameof(Confirmacao), new { id });
 
             Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
             if (pagamento == null || pagamento.FormaPagamento != FormaPagamento.Pix)
                 return RedirectToAction(nameof(Index), new { id });
 
             GravarPagamento(pedido, FormaPagamento.Pix, ChavePixLoja, null, StatusPagamento.Pago);
-            return RedirectToAction("Confirmacao", "Pedido", new { id });
+            return RedirectToAction(nameof(Confirmacao), new { id });
         }
 
         // CARTÃO (crédito ou débito)
@@ -110,7 +110,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Index", "Home");
 
             if (JaFoiPago(id))
-                return RedirectToAction("Confirmacao", "Pedido", new { id });
+                return RedirectToAction(nameof(Confirmacao), new { id });
 
             // esta tela só aceita crédito ou débito
             if (forma != FormaPagamento.CartaoCredito && forma != FormaPagamento.CartaoDebito)
@@ -140,7 +140,7 @@ namespace BicoTucano.Controllers
                 return ErroCartao(pedido, forma, cartao.ID_Cartao, "Pagamento recusado pela operadora. Tente outro cartão.");
 
             GravarPagamento(pedido, forma, null, cartao.ID_Cartao, StatusPagamento.Pago);
-            return RedirectToAction("Confirmacao", "Pedido", new { id = pedido.NF });
+            return RedirectToAction(nameof(Confirmacao), new { id = pedido.NF });
         }
 
         // Volta para a tela de pagamento mantendo o que o cliente escolheu
