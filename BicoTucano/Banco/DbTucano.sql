@@ -139,7 +139,7 @@ ALTER TABLE tbItem_Pedido ADD FOREIGN KEY(NF) REFERENCES tbPedido (NF);
 ALTER TABLE tbPedido ADD FOREIGN KEY(ID_Usuario) REFERENCES tbUsuario (ID_Usuario);
 ALTER TABLE tbPedido ADD FOREIGN KEY(CEP) REFERENCES tbEndereco (CEP);
 ALTER TABLE tbPedido ADD FOREIGN KEY(ID_Funcionario) REFERENCES tbFuncionario (ID_Funcionario);
-ALTER TABLE tbPagamento ADD FOREIGN KEY(ID_Cartao) REFERENCES tbCartao (ID_Cartao);
+ALTER TABLE tbPagamento ADD FOREIGN KEY(ID_Cartao) REFERENCES tbCartao (ID_Cartao) ON DELETE SET NULL;
 ALTER TABLE tbEndereco ADD FOREIGN KEY(Bairro) REFERENCES tbBairro (ID_Bairro);
 ALTER TABLE tbEndereco ADD FOREIGN KEY(Cidade) REFERENCES tbCidade (ID_Cidade);
 ALTER TABLE tbEndereco ADD FOREIGN KEY(Estado) REFERENCES tbEstado (ID_Uf);
