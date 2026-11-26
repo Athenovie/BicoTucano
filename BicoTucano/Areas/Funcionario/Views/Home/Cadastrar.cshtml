@@ -2,6 +2,19 @@
 
 @{
     Layout = null;
+
+    bool editando = Model != null && Model.ID_Usuario > 0;
+
+    // se voltou com erro usa o que foi digitado; se está alterando usa o endereço do banco
+    var form = Context.Request.HasFormContentType ? Context.Request.Form : null;
+    var end = ViewBag.Endereco as BicoTucano.Models.Endereco;
+
+    string Campo(string nome, object? valorBanco) =>
+        form != null ? form[nome].ToString() : (Convert.ToString(valorBanco) ?? "");
+
+    string dataDemissao = Model != null && Model.DataDemissao.Year > 1
+        ? Model.DataDemissao.ToString("yyyy-MM-dd")
+        : "";
 }
 
 <!DOCTYPE html>
@@ -9,16 +22,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de funcionário</title>
+    <title>@(editando ? "Alterar funcionário" : "Cadastro de funcionário")</title>
     <link rel="stylesheet" href="~/css/CadastroFuncionario.css" asp-append-version="true">
     <script src="~/js/site.js" defer></script>
 </head>
 
 <body>
 
-    <h2>Cadastro de funcionário</h2>
+    <h2>@(editando ? "Alterar funcionário" : "Cadastro de funcionário")</h2>
 
-    <form asp-area="Funcionario" asp-controller="Home" asp-action="Cadastrar" method="post" onsubmit="return validarSenhas()">
+    <form asp-area="Funcionario" asp-controller="Home"
+          asp-action="@(editando ? "Alterar" : "Cadastrar")"
+          asp-route-id="@(editando ? Model.ID_Usuario.ToString() : null)"
+          method="post" onsubmit="return validarSenhas()">
+
+        <div asp-validation-summary="All" class="mensagem-cadastro"></div>
 
         <div class="dados-funcionario">
 
@@ -93,57 +111,70 @@
             </div>
 
             <div class="campo-formulario">
-                <label asp-for="DataDemissao">Data de demissão</label>
-                <input asp-for="DataDemissao" type="date">
+                <label asp-for="DataDemissao">Data de demissão (opcional)</label>
+                <input asp-for="DataDemissao" type="date" value="@dataDemissao">
+                <span asp-validation-for="DataDemissao"></span>
             </div>
 
         </div>
 
         <div class="endereco-funcionario">
 
+            <div class="campo-formulario campo-inteiro">
+                <label for="tipo">Tipo de endereço</label>
+                <input id="tipo" name="NomeEndereco" maxlength="50" placeholder="Ex.: Casa, Trabalho" value="@Campo("NomeEndereco", end?.NomeEndereco)">
+                <span>@Html.ValidationMessage("NomeEndereco")</span>
+            </div>
+
             <div class="linha-campos">
                 <div class="campo-formulario">
                     <label for="cep">CEP</label>
-                    <input id="cep" name="CEP" placeholder="00000-000">
+                    <input id="cep" name="CEP" placeholder="00000-000" value="@Campo("CEP", end?.CEP)">
+                    <span>@Html.ValidationMessage("CEP")</span>
                 </div>
 
                 <div class="campo-formulario">
                     <label for="bairro">Bairro</label>
-                    <input id="bairro" name="Bairro" placeholder="Digite o bairro">
+                    <input id="bairro" name="Bairro" placeholder="Digite o bairro" value="@Campo("Bairro", end?.Bairro)">
+                    <span>@Html.ValidationMessage("Bairro")</span>
                 </div>
             </div>
 
             <div class="linha-campos">
                 <div class="campo-formulario">
                     <label for="cidade">Cidade</label>
-                    <input id="cidade" name="Cidade" placeholder="Digite a cidade">
+                    <input id="cidade" name="Cidade" placeholder="Digite a cidade" value="@Campo("Cidade", end?.Cidade)">
+                    <span>@Html.ValidationMessage("Cidade")</span>
                 </div>
 
                 <div class="campo-formulario">
                     <label for="estado">Estado</label>
                     <select id="estado" name="Estado">
                         <option value="">Selecione</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="MG">Minas Gerais</option>
+                        <option value="SP" selected="@(Campo("Estado", end?.Estado) == "SP")">São Paulo</option>
+                        <option value="RJ" selected="@(Campo("Estado", end?.Estado) == "RJ")">Rio de Janeiro</option>
+                        <option value="MG" selected="@(Campo("Estado", end?.Estado) == "MG")">Minas Gerais</option>
                     </select>
+                    <span>@Html.ValidationMessage("Estado")</span>
                 </div>
             </div>
 
             <div class="campo-formulario campo-inteiro">
                 <label for="logradouro">Logradouro</label>
-                <input id="logradouro" name="Logradouro" placeholder="Digite o logradouro">
+                <input id="logradouro" name="Logradouro" placeholder="Digite o logradouro" value="@Campo("Logradouro", end?.Logradouro)">
+                <span>@Html.ValidationMessage("Logradouro")</span>
             </div>
 
             <div class="linha-campos">
                 <div class="campo-formulario">
                     <label for="complemento">Complemento</label>
-                    <input id="complemento" name="Complemento" placeholder="Digite o complemento">
+                    <input id="complemento" name="Complemento" placeholder="Digite o complemento" value="@Campo("Complemento", end?.Complemento)">
                 </div>
 
                 <div class="campo-formulario">
                     <label for="numero">Número</label>
-                    <input id="numero" name="Numero" placeholder="Nº">
+                    <input id="numero" name="Numero" placeholder="Nº" value="@Campo("Numero", end?.Numero)">
+                    <span>@Html.ValidationMessage("Numero")</span>
                 </div>
             </div>
 
@@ -152,7 +183,11 @@
         <div class="senha-funcionario">
 
             <h4>Senha para login</h4>
-            <p>A senha deve ter entre 6 a 10 caracteres.</p>
+            <p>
+                @(editando
+                    ? "Deixe em branco para manter a senha atual."
+                    : "A senha deve ter entre 6 a 10 caracteres.")
+            </p>
 
             <div class="linha-campos">
                 <div class="campo-formulario">
@@ -170,8 +205,9 @@
         </div>
 
         <div class="botoes-cadastro">
-            <button type="reset">Alterar</button>
-            <button type="submit">Cadastrar</button>
+            <a asp-area="Funcionario" asp-controller="Home" asp-action="@(editando ? "Index" : "Painel")" class="botao-voltar">Voltar</a>
+            <button type="reset">Limpar</button>
+            <button type="submit">@(editando ? "Alterar" : "Cadastrar")</button>
         </div>
 
         @if (ViewData["MSG_E"] != null)

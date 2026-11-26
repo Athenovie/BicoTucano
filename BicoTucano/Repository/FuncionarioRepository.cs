@@ -129,7 +129,44 @@ namespace BicoTucano.Repository
             }
         }
 
+        // atualiza cargo, nível e datas (tbFuncionario)
+        public void AtualizarDadosFuncionario(Funcionario funcionario)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
 
+                MySqlCommand cmd = new MySqlCommand(
+                    "update tbFuncionario set DataAdmissao=@DataAdmissao, DataDemissao=@DataDemissao, " +
+                    "NivelAcesso=@NivelAcesso, Cargo=@Cargo where ID_Funcionario=@Id", conexao);
+
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = funcionario.ID_Usuario;
+                cmd.Parameters.Add("@DataAdmissao", MySqlDbType.DateTime).Value = funcionario.DataAdmissao;
+                cmd.Parameters.Add("@DataDemissao", MySqlDbType.DateTime).Value =
+                    funcionario.DataDemissao.Year > 1 ? funcionario.DataDemissao : DBNull.Value;
+                cmd.Parameters.Add("@NivelAcesso", MySqlDbType.VarChar).Value = funcionario.NivelAcesso.ToString();
+                cmd.Parameters.Add("@Cargo", MySqlDbType.VarChar).Value = funcionario.Cargo;
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // ID do endereço do funcionário 
+        public int ObterIdEndereco(int idUsuario)
+        {
+            using (var conexao = new MySqlConnection(_conexaoMySQL))
+            {
+                conexao.Open();
+
+                MySqlCommand cmd = new MySqlCommand(
+                    "select ID_UsuarioEndereco from tbUsuarioEndereco where ID_Usuario=@Id limit 1", conexao);
+
+                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = idUsuario;
+
+                object resultado = cmd.ExecuteScalar();
+                return resultado == null ? 0 : Convert.ToInt32(resultado);
+            }
+        }
 
         public Funcionario ObterFuncionario(int Id)
         {

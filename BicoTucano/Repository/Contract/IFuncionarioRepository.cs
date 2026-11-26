@@ -16,8 +16,9 @@ namespace BicoTucano.Repository.Contract
         void Ativar(int id);
         Funcionario ObterFuncionario(int Id);
 
+        void AtualizarDadosFuncionario(Funcionario funcionario);
+        int ObterIdEndereco(int idUsuario);
 
-   
         IEnumerable<Funcionario> ObterTodosFuncionarios();
     
     }
