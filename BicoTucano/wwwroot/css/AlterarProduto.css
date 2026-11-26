@@ -1,0 +1,145 @@
+﻿.pagina-alterar-produto {
+    color: #294332;
+}
+
+.cabecalho-alterar-produto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.cabecalho-alterar-produto h2 {
+    margin: 0;
+}
+
+.formulario-alterar-produto {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.informacoes-alterar-produto {
+    width: 62%;
+    padding: 15px;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.campo-alterar-produto {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 18px;
+}
+
+.campo-alterar-produto label,
+.cartao-imagem-alterar-produto > label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.campo-alterar-produto input:not([type="radio"]),
+.campo-alterar-produto select,
+.campo-alterar-produto textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #888;
+    border-radius: 7px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.campo-alterar-produto textarea {
+    resize: vertical;
+}
+
+.campos-preco-categoria-alterar {
+    display: flex;
+    gap: 15px;
+}
+
+.disponibilidade-alterar-produto p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.disponibilidade-alterar-produto label {
+    margin-right: 12px;
+    font-size: 13px;
+}
+
+.area-imagem-alterar-produto {
+    width: 38%;
+}
+
+.cartao-imagem-alterar-produto {
+    padding: 15px;
+    border-radius: 16px;
+    background: #fff;
+}
+
+.previa-imagem-produto {
+    display: block;
+    width: 100%;
+    max-height: 220px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.previa-imagem-oculta {
+    display: none;
+}
+
+.cartao-imagem-alterar-produto input[type="file"] {
+    display: block;
+    max-width: 100%;
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.cartao-imagem-alterar-produto small {
+    display: block;
+    color: #777;
+    font-size: 12px;
+}
+
+.acoes-alterar-produto {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.botao-cancelar-alterar-produto,
+.botao-salvar-alterar-produto {
+    padding: 7px 18px;
+    border: 0;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.botao-cancelar-alterar-produto {
+    background: #fff;
+    color: #888;
+}
+
+.botao-salvar-alterar-produto {
+    background: #ed8958;
+    color: #fff;
+}
+
+.erros-alterar-produto,
+.erro-campo-alterar-produto {
+    color: #c62828;
+    font-size: 12px;
+}
