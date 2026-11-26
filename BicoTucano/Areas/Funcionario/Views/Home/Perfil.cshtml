@@ -46,70 +46,71 @@
     </div>
 </section>
 
-<section class="perfil-cartao">
-    <div class="perfil-cartao-cabecalho">
-        <h3 class="perfil-cartao-titulo">Endereço</h3>
-        <a class="perfil-cartao-link" href="#">Modificar</a>
-    </div>
+@{
+    var enderecos = ViewBag.Enderecos as List<BicoTucano.Models.Endereco>
+                    ?? new List<BicoTucano.Models.Endereco>();
+}
 
-    <div class="perfil-campos">
-        <div>
-            <span class="perfil-campo-nome">Logradouro</span>
-            <span class="perfil-campo-valor">Rua das Flores</span>
+@if (enderecos.Count == 0)
+{
+    <section class="perfil-cartao">
+        <div class="perfil-cartao-cabecalho">
+            <h3 class="perfil-cartao-titulo">Endereço</h3>
         </div>
-        <div>
-            <span class="perfil-campo-nome">Bairro</span>
-            <span class="perfil-campo-valor">Vila Leopoldo</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">Nº de Endereço</span>
-            <span class="perfil-campo-valor">1234</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">CEP</span>
-            <span class="perfil-campo-valor">1234</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">Cidade</span>
-            <span class="perfil-campo-valor">São Paulo</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">Estado</span>
-            <span class="perfil-campo-valor">UF</span>
-        </div>
-    </div>
-</section>
+        <p class="perfil-campo-valor">Nenhum endereço cadastrado.</p>
+    </section>
+}
 
-<section class="perfil-cartao">
-    <div class="perfil-cartao-cabecalho">
-        <h3 class="perfil-cartao-titulo">Endereço Secundário</h3>
-        <a class="perfil-cartao-link" href="#">Modificar</a>
-    </div>
+@for (int i = 0; i < enderecos.Count; i++)
+{
+    var end = enderecos[i];
+    string titulo = i == 0 ? "Endereço"
+                  : i == 1 ? "Endereço Secundário"
+                  : "Endereço " + (i + 1);
 
-    <div class="perfil-campos">
-        <div>
-            <span class="perfil-campo-nome">Logradouro</span>
-            <span class="perfil-campo-valor">Rua das Flores</span>
+    <section class="perfil-cartao">
+        <div class="perfil-cartao-cabecalho">
+            <h3 class="perfil-cartao-titulo">
+                @titulo
+                @if (!string.IsNullOrEmpty(end.NomeEndereco))
+                {
+                    <span style="color:#777; font-size:14px;">(@end.NomeEndereco)</span>
+                }
+            </h3>
         </div>
-        <div>
-            <span class="perfil-campo-nome">Bairro</span>
-            <span class="perfil-campo-valor">Vila Leopoldo</span>
+
+        <div class="perfil-campos">
+            <div>
+                <span class="perfil-campo-nome">Logradouro</span>
+                <span class="perfil-campo-valor">@end.Logradouro</span>
+            </div>
+            <div>
+                <span class="perfil-campo-nome">Bairro</span>
+                <span class="perfil-campo-valor">@end.Bairro</span>
+            </div>
+            <div>
+                <span class="perfil-campo-nome">Nº de Endereço</span>
+                <span class="perfil-campo-valor">@end.Numero</span>
+            </div>
+            <div>
+                <span class="perfil-campo-nome">CEP</span>
+                <span class="perfil-campo-valor">@end.CEP</span>
+            </div>
+            <div>
+                <span class="perfil-campo-nome">Cidade</span>
+                <span class="perfil-campo-valor">@end.Cidade</span>
+            </div>
+            <div>
+                <span class="perfil-campo-nome">Estado</span>
+                <span class="perfil-campo-valor">@end.Estado</span>
+            </div>
+            @if (!string.IsNullOrEmpty(end.Complemento))
+            {
+                <div>
+                    <span class="perfil-campo-nome">Complemento</span>
+                    <span class="perfil-campo-valor">@end.Complemento</span>
+                </div>
+            }
         </div>
-        <div>
-            <span class="perfil-campo-nome">Nº de Endereço</span>
-            <span class="perfil-campo-valor">1234</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">CEP</span>
-            <span class="perfil-campo-valor">1234</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">Cidade</span>
-            <span class="perfil-campo-valor">São Paulo</span>
-        </div>
-        <div>
-            <span class="perfil-campo-nome">Estado</span>
-            <span class="perfil-campo-valor">UF</span>
-        </div>
-    </div>
-</section>
+    </section>
+}

@@ -411,3 +411,32 @@ body {
         cursor: pointer;
     }
 
+    /* Botão detalhes + alinhamento das ações */
+
+    .funcionarios-pagina .acoes-funcionario {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+        .funcionarios-pagina .acoes-funcionario form {
+            margin: 0;
+        }
+
+    .funcionarios-pagina .funcionario-detalhes {
+        display: inline-block;
+        background-color: white;
+        color: #4b8060;
+        border: 1px solid #4b8060;
+        border-radius: 20px;
+        padding: 7px 14px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+        .funcionarios-pagina .funcionario-detalhes:hover {
+            background-color: #4b8060;
+            color: white;
+        }

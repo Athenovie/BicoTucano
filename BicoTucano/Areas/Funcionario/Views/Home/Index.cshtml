@@ -37,22 +37,25 @@
                         <td>@funcionario.Email</td>
                         <td>@funcionario.Cargo</td>
                         <td>@funcionario.NivelAcesso</td>
-
                         <td>
-                            @if (funcionario.DataDemissao.Year > 1)
-                            {
-                                <form asp-action="Ativar" method="post">
-                                    <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
-                                    <button type="submit" class="funcionario-ativar">Ativar</button>
-                                </form>
-                            }
-                            else
-                            {
-                                <form asp-action="Desativar" method="post">
-                                    <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
-                                    <button type="submit" class="funcionario-desativar">Desativar</button>
-                                </form>
-                            }
+                            <div class="acoes-funcionario">
+                                <a asp-action="Detalhes" asp-route-id="@funcionario.ID_Usuario" class="funcionario-detalhes">Detalhes</a>
+
+                                @if (funcionario.DataDemissao.Year > 1)
+                                {
+                                    <form asp-action="Ativar" method="post">
+                                        <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
+                                        <button type="submit" class="funcionario-ativar">Ativar</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form asp-action="Desativar" method="post">
+                                        <input type="hidden" name="id" value="@funcionario.ID_Usuario" />
+                                        <button type="submit" class="funcionario-desativar">Desativar</button>
+                                    </form>
+                                }
+                            </div>
                         </td>
                     </tr>
                 }

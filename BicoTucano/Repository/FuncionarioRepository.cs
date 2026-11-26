@@ -151,22 +151,7 @@ namespace BicoTucano.Repository
             }
         }
 
-        // ID do endereço do funcionário 
-        public int ObterIdEndereco(int idUsuario)
-        {
-            using (var conexao = new MySqlConnection(_conexaoMySQL))
-            {
-                conexao.Open();
 
-                MySqlCommand cmd = new MySqlCommand(
-                    "select ID_UsuarioEndereco from tbUsuarioEndereco where ID_Usuario=@Id limit 1", conexao);
-
-                cmd.Parameters.Add("@Id", MySqlDbType.Int32).Value = idUsuario;
-
-                object resultado = cmd.ExecuteScalar();
-                return resultado == null ? 0 : Convert.ToInt32(resultado);
-            }
-        }
 
         public Funcionario ObterFuncionario(int Id)
         {

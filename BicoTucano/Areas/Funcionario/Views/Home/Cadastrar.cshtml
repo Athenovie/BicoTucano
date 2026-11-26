@@ -111,9 +111,8 @@
             </div>
 
             <div class="campo-formulario">
-                <label asp-for="DataDemissao">Data de demissão (opcional)</label>
-                <input asp-for="DataDemissao" type="date" value="@dataDemissao">
-                <span asp-validation-for="DataDemissao"></span>
+                <label for="DataDemissao">Data de demissão (opcional)</label>
+                <input id="DataDemissao" name="DataDemissao" type="date" value="@dataDemissao">
             </div>
 
         </div>
@@ -121,59 +120,55 @@
         <div class="endereco-funcionario">
 
             <div class="campo-formulario campo-inteiro">
-                <label for="tipo">Tipo de endereço</label>
-                <input id="tipo" name="NomeEndereco" maxlength="50" placeholder="Ex.: Casa, Trabalho" value="@Campo("NomeEndereco", end?.NomeEndereco)">
+                <label for="NomeEndereco">Tipo de endereço</label>
+                <input id="NomeEndereco" name="NomeEndereco" maxlength="50" placeholder="Ex.: Casa, Trabalho" value="@Campo("NomeEndereco", end?.NomeEndereco)">
                 <span>@Html.ValidationMessage("NomeEndereco")</span>
             </div>
 
             <div class="linha-campos">
                 <div class="campo-formulario">
-                    <label for="cep">CEP</label>
-                    <input id="cep" name="CEP" placeholder="00000-000" value="@Campo("CEP", end?.CEP)">
+                    <label for="CEP">CEP</label>
+                    <input id="CEP" name="CEP" class="CEP" placeholder="00000-000" value="@Campo("CEP", end?.CEP)">
                     <span>@Html.ValidationMessage("CEP")</span>
                 </div>
 
                 <div class="campo-formulario">
-                    <label for="bairro">Bairro</label>
-                    <input id="bairro" name="Bairro" placeholder="Digite o bairro" value="@Campo("Bairro", end?.Bairro)">
+                    <label for="Bairro">Bairro</label>
+                    <input id="Bairro" name="Bairro" placeholder="Digite o bairro" value="@Campo("Bairro", end?.Bairro)">
                     <span>@Html.ValidationMessage("Bairro")</span>
                 </div>
             </div>
 
             <div class="linha-campos">
                 <div class="campo-formulario">
-                    <label for="cidade">Cidade</label>
-                    <input id="cidade" name="Cidade" placeholder="Digite a cidade" value="@Campo("Cidade", end?.Cidade)">
+                    <label for="Cidade">Cidade</label>
+                    <input id="Cidade" name="Cidade" placeholder="Digite a cidade" value="@Campo("Cidade", end?.Cidade)">
                     <span>@Html.ValidationMessage("Cidade")</span>
                 </div>
 
                 <div class="campo-formulario">
-                    <label for="estado">Estado</label>
-                    <select id="estado" name="Estado">
-                        <option value="">Selecione</option>
-                        <option value="SP" selected="@(Campo("Estado", end?.Estado) == "SP")">São Paulo</option>
-                        <option value="RJ" selected="@(Campo("Estado", end?.Estado) == "RJ")">Rio de Janeiro</option>
-                        <option value="MG" selected="@(Campo("Estado", end?.Estado) == "MG")">Minas Gerais</option>
-                    </select>
+                    <label for="Estado">Estado</label>
+                    <input id="Estado" name="Estado" placeholder="Digite a sigla (ex: SP)" maxlength="2"
+                           style="text-transform: uppercase;" value="@Campo("Estado", end?.Estado)">
                     <span>@Html.ValidationMessage("Estado")</span>
                 </div>
             </div>
 
             <div class="campo-formulario campo-inteiro">
-                <label for="logradouro">Logradouro</label>
-                <input id="logradouro" name="Logradouro" placeholder="Digite o logradouro" value="@Campo("Logradouro", end?.Logradouro)">
+                <label for="Logradouro">Logradouro</label>
+                <input id="Logradouro" name="Logradouro" placeholder="Digite o logradouro" value="@Campo("Logradouro", end?.Logradouro)">
                 <span>@Html.ValidationMessage("Logradouro")</span>
             </div>
 
             <div class="linha-campos">
                 <div class="campo-formulario">
-                    <label for="complemento">Complemento</label>
-                    <input id="complemento" name="Complemento" placeholder="Digite o complemento" value="@Campo("Complemento", end?.Complemento)">
+                    <label for="Complemento">Complemento</label>
+                    <input id="Complemento" name="Complemento" placeholder="Digite o complemento" value="@Campo("Complemento", end?.Complemento)">
                 </div>
 
                 <div class="campo-formulario">
-                    <label for="numero">Número</label>
-                    <input id="numero" name="Numero" placeholder="Nº" value="@Campo("Numero", end?.Numero)">
+                    <label for="Numero">Número</label>
+                    <input id="Numero" name="Numero" placeholder="Nº" value="@Campo("Numero", end?.Numero)">
                     <span>@Html.ValidationMessage("Numero")</span>
                 </div>
             </div>
@@ -221,6 +216,12 @@
         }
 
     </form>
+
+    <!-- scripts (direto no body, porque a página não usa layout) -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/endereco.js" asp-append-version="true"></script>
 
 </body>
 </html>

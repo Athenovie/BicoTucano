@@ -1,0 +1,185 @@
+﻿@model BicoTucano.Models.Funcionario
+@{
+    Layout = null;
+    ViewData["Title"] = "Detalhes do funcionário";
+    var end = (BicoTucano.Models.Endereco)ViewBag.Endereco;
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do funcionário</title>
+    <link rel="stylesheet" href="~/css/CadastroFuncionario.css" asp-append-version="true">
+    <script src="~/js/site.js" defer></script>
+</head>
+<body>
+
+    <h2>Detalhes do funcionário</h2>
+
+    @if (TempData["MSG_S"] != null)
+    {
+        <p class="mensagem-cadastro" style="color:green">@TempData["MSG_S"]</p>
+    }
+    @if (TempData["MSG_E"] != null)
+    {
+        <p class="mensagem-cadastro">@TempData["MSG_E"]</p>
+    }
+    @if (ViewData["MSG_E"] != null)
+    {
+        <p class="mensagem-cadastro">@ViewData["MSG_E"]</p>
+    }
+
+    <!-- ===== DADOS DO FUNCIONÁRIO ===== -->
+    <form asp-action="Detalhes" method="post">
+        <div asp-validation-summary="ModelOnly" class="mensagem-cadastro"></div>
+        <input type="hidden" asp-for="ID_Usuario" />
+
+        <div class="dados-funcionario">
+            <h4 style="margin:0 0 15px; font-size:16px;">Dados pessoais</h4>
+
+            <div class="campo-formulario">
+                <label asp-for="Nome">Nome Completo</label>
+                <input asp-for="Nome" />
+                <span asp-validation-for="Nome"></span>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label asp-for="Email">E-mail</label>
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="campo-formulario">
+                    <label asp-for="Telefone">Telefone</label>
+                    <input asp-for="Telefone" type="text" />
+                    <span asp-validation-for="Telefone"></span>
+                </div>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label asp-for="CPF">CPF</label>
+                    <input asp-for="CPF" />
+                    <span asp-validation-for="CPF"></span>
+                </div>
+                <div class="campo-formulario">
+                    <label asp-for="Sexo">Sexo</label>
+                    <select asp-for="Sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label asp-for="DataNasc">Data de Nascimento</label>
+                    <input asp-for="DataNasc" type="date" asp-format="{0:yyyy-MM-dd}" />
+                    <span asp-validation-for="DataNasc"></span>
+                </div>
+                <div class="campo-formulario">
+                    <label asp-for="Cargo">Cargo</label>
+                    <input asp-for="Cargo" />
+                    <span asp-validation-for="Cargo"></span>
+                </div>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label asp-for="NivelAcesso">Nível de acesso</label>
+                    <select asp-for="NivelAcesso" asp-items="Html.GetEnumSelectList<BicoTucano.Models.NivelAcesso>()"></select>
+                </div>
+                <div class="campo-formulario">
+                    <label asp-for="DataAdmissao">Data de admissão</label>
+                    <input asp-for="DataAdmissao" type="date" asp-format="{0:yyyy-MM-dd}" />
+                </div>
+            </div>
+
+            <div class="campo-formulario">
+                <label>Data de demissão (opcional)</label>
+                <input name="DataDemissao" type="date"
+                       value="@(Model.DataDemissao.Year > 1 ? Model.DataDemissao.ToString("yyyy-MM-dd") : "")" />
+            </div>
+
+            <div class="botoes-cadastro">
+                <button type="submit">Salvar dados</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- ===== ENDEREÇO ===== -->
+    <form asp-action="SalvarEndereco" method="post">
+        <input type="hidden" name="idFuncionario" value="@Model.ID_Usuario" />
+        <input type="hidden" name="ID_UsuarioEndereco" value="@end.ID_UsuarioEndereco" />
+
+        <div class="endereco-funcionario">
+            <h4 style="margin:0 0 15px; font-size:16px;">Endereço</h4>
+
+            @if (end.ID_UsuarioEndereco == 0)
+            {
+                <p style="font-size:14px; margin-top:0;">Este funcionário ainda não tem endereço. Preencha abaixo para cadastrar.</p>
+            }
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label for="NomeEndereco">Tipo de endereço</label>
+                    <input id="NomeEndereco" name="NomeEndereco" value="@end.NomeEndereco" maxlength="50" placeholder="Ex: Casa" />
+                </div>
+                <div class="campo-formulario">
+                    <label for="CEP">CEP</label>
+                    <input id="CEP" name="CEP" class="CEP" value="@end.CEP" maxlength="9" placeholder="00000-000" />
+                </div>
+            </div>
+
+            <div class="campo-formulario">
+                <label for="Logradouro">Logradouro</label>
+                <input id="Logradouro" name="Logradouro" value="@end.Logradouro" maxlength="75" />
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label for="Numero">Número</label>
+                    <input id="Numero" name="Numero" value="@end.Numero" maxlength="10" />
+                </div>
+                <div class="campo-formulario">
+                    <label for="Complemento">Complemento (opcional)</label>
+                    <input id="Complemento" name="Complemento" value="@end.Complemento" maxlength="200" />
+                </div>
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo-formulario">
+                    <label for="Bairro">Bairro</label>
+                    <input id="Bairro" name="Bairro" value="@end.Bairro" />
+                </div>
+                <div class="campo-formulario">
+                    <label for="Cidade">Cidade</label>
+                    <input id="Cidade" name="Cidade" value="@end.Cidade" />
+                </div>
+            </div>
+
+            <div class="campo-formulario">
+                <label for="Estado">Estado (UF)</label>
+                <input id="Estado" name="Estado" value="@end.Estado" maxlength="2" placeholder="SP"
+                       style="text-transform: uppercase;" />
+            </div>
+
+            <div class="botoes-cadastro">
+                <button type="submit">Salvar endereço</button>
+            </div>
+        </div>
+
+        <div class="botoes-cadastro">
+            <button type="button" onclick="location.href='@Url.Action("Index")'">Voltar</button>
+        </div>
+    </form>
+
+    <!-- scripts (direto no body, porque a página não usa layout) -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/endereco.js" asp-append-version="true"></script>
+
+</body>
+</html>
