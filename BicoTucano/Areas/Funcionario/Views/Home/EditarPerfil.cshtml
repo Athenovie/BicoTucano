@@ -4,62 +4,69 @@
     ViewBag.Title = "Modificar Perfil";
 }
 
-<h1>MODIFICAR PERFIL</h1>
+<link rel="stylesheet" href="~/css/EditarPerfilFuncionario.css" />
 
-@if (ViewData["MSG_E"] != null)
-{
-    <div class="alert alert-danger">@ViewData["MSG_E"]</div>
-}
+<div class="editar-perfil-funcionario">
+    <h1>MODIFICAR PERFIL</h1>
 
-<form asp-action="EditarPerfil" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (ViewData["MSG_E"] != null)
+    {
+        <div class="editar-perfil-aviso">@ViewData["MSG_E"]</div>
+    }
 
-    <div class="card p-3 mb-3">
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label asp-for="Nome"></label>
-                <input asp-for="Nome" class="form-control" />
-                <span asp-validation-for="Nome" class="text-danger"></span>
+    <form asp-action="EditarPerfil" method="post">
+        <div asp-validation-summary="ModelOnly" class="editar-perfil-erros"></div>
+
+        <section class="editar-perfil-cartao">
+            <div class="editar-perfil-campos">
+                <div class="editar-perfil-campo">
+                    <label asp-for="Nome"></label>
+                    <input asp-for="Nome" />
+                    <span asp-validation-for="Nome" class="editar-perfil-erro"></span>
+                </div>
+
+                <div class="editar-perfil-campo">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email" class="editar-perfil-erro"></span>
+                </div>
+
+                <div class="editar-perfil-campo">
+                    <label asp-for="DataNasc"></label>
+                    <input asp-for="DataNasc" type="date"
+                           value="@(Model.DataNasc.HasValue ? Model.DataNasc.Value.ToString("yyyy-MM-dd") : "")" />
+                    <span asp-validation-for="DataNasc" class="editar-perfil-erro"></span>
+                </div>
+
+                <div class="editar-perfil-campo">
+                    <label asp-for="Sexo"></label>
+                    <select asp-for="Sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                    <span asp-validation-for="Sexo" class="editar-perfil-erro"></span>
+                </div>
+
+                <div class="editar-perfil-campo">
+                    <label asp-for="Telefone"></label>
+                    <input asp-for="Telefone" type="text" placeholder="11999999999" />
+                    <span asp-validation-for="Telefone" class="editar-perfil-erro"></span>
+                </div>
+
+                <div class="editar-perfil-campo">
+                    <label asp-for="CPF"></label>
+                    <input asp-for="CPF" />
+                    <span asp-validation-for="CPF" class="editar-perfil-erro"></span>
+                </div>
             </div>
+        </section>
 
-            <div class="form-group col-md-6">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label asp-for="DataNasc"></label>
-                <input asp-for="DataNasc" type="date" value="@(Model.DataNasc.HasValue ? Model.DataNasc.Value.ToString("yyyy-MM-dd") : "")" class="form-control" />
-                <span asp-validation-for="DataNasc" class="text-danger"></span>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label asp-for="Sexo"></label>
-                <select asp-for="Sexo" class="form-control">
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
-                </select>
-                <span asp-validation-for="Sexo" class="text-danger"></span>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label asp-for="Telefone"></label>
-                <input asp-for="Telefone" type="text" class="form-control" placeholder="11999999999" />
-                <span asp-validation-for="Telefone" class="text-danger"></span>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label asp-for="CPF"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
-            </div>
+        <div class="editar-perfil-acoes">
+            <a asp-action="Perfil" class="editar-perfil-cancelar">Cancelar</a>
+            <button type="submit" class="editar-perfil-salvar">Salvar</button>
         </div>
-    </div>
-
-    <a asp-action="Perfil" class="btn btn-light rounded-pill">Cancelar</a>
-    <button type="submit" class="btn btn-warning rounded-pill">Salvar</button>
-</form>
+    </form>
+</div>
 
 @section Scripts {
     @{
