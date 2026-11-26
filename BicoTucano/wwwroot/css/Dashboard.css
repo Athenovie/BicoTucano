@@ -1,6 +1,8 @@
-﻿.dashboard-funcionario {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Playfair+Display:wght@400;500;700&display=swap');
+
+.dashboard-funcionario {
     color: #292d2a;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', serif;
 }
 
 .dashboard-legenda {
@@ -12,7 +14,7 @@
 
 .dashboard-titulo {
     margin: 0 0 22px;
-    font-family: Georgia, serif;
+    font-family: 'Playfair Display', serif;
     font-size: 25px;
     font-weight: 500;
 }
@@ -58,7 +60,7 @@
 .dashboard-funcionario h2 {
     margin: 0 0 16px;
     color: #2f6b3f;
-    font-family: Georgia, serif;
+    font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 600;
 }

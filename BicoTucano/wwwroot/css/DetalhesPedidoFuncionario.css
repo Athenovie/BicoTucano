@@ -1,0 +1,227 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Playfair+Display:wght@400;500;700&display=swap');
+
+.detalhes-pedido-funcionario {
+    max-width: 1200px;
+    color: #292d2a;
+    font-family: 'Inter', serif;
+}
+
+.detalhes-pedido-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin: 12px 0 22px;
+}
+
+.detalhes-pedido-cabecalho h1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.detalhes-pedido-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'Inter', serif;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.detalhes-pedido-form-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.detalhes-pedido-form-status select {
+    min-height: 38px;
+    padding: 0 10px;
+    border: 1px solid #d8ded8;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+}
+
+.detalhes-pedido-form-status button {
+    min-height: 38px;
+    padding: 0 15px;
+    border: 1px solid #4a7c59;
+    border-radius: 999px;
+    background: #fff;
+    color: #4a7c59;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.detalhes-pedido-form-status button:hover {
+    background: #4a7c59;
+    color: #fff;
+}
+
+.detalhes-pedido-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+    align-items: start;
+    gap: 18px;
+}
+
+.detalhes-pedido-cartao {
+    margin-bottom: 16px;
+    padding: 20px;
+    border: 1px solid #e6e2da;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.detalhes-pedido-cartao h2 {
+    margin: 0 0 16px;
+    color: #2f6b3f;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.detalhes-pedido-tabela-wrapper {
+    overflow-x: auto;
+}
+
+.detalhes-pedido-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.detalhes-pedido-tabela th,
+.detalhes-pedido-tabela td {
+    padding: 12px 9px;
+    border-bottom: 1px solid #e4eae4;
+}
+
+.detalhes-pedido-tabela th {
+    color: #4a7c59;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.detalhes-pedido-tabela tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.alinhamento-centro {
+    text-align: center;
+}
+
+.alinhamento-direita {
+    text-align: right;
+}
+
+.detalhes-pedido-dados {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 22px;
+}
+
+.detalhes-pedido-dados span,
+.detalhes-pedido-observacao span {
+    display: block;
+    margin-bottom: 4px;
+    color: #4a7c59;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.detalhes-pedido-dados p,
+.detalhes-pedido-observacao p {
+    margin: 0;
+    color: #555;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.detalhes-pedido-observacao {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #e4eae4;
+}
+
+.detalhes-pedido-retirada {
+    margin: 0;
+    font-size: 13px;
+}
+
+.detalhes-pedido-linha-resumo,
+.detalhes-pedido-total {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+.detalhes-pedido-linha-resumo span {
+    color: #777;
+}
+
+.detalhes-pedido-linha-resumo strong {
+    color: #4a7c59;
+    text-align: right;
+}
+
+.detalhes-pedido-total {
+    margin: 4px 0 16px;
+    padding: 14px 0;
+    border-top: 1px solid #dce5dc;
+    border-bottom: 1px solid #dce5dc;
+    font-size: 15px;
+}
+
+.detalhes-pedido-total strong {
+    color: #2f6b3f;
+}
+
+.detalhes-pedido-voltar {
+    display: inline-block;
+    margin: 2px 0 18px;
+    padding: 9px 22px;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    background: #fff;
+    color: #777;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.detalhes-pedido-voltar:hover {
+    background: #f1ede6;
+    color: #555;
+    text-decoration: none;
+}
+
+.detalhes-pedido-aviso {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.detalhes-pedido-sucesso {
+    background: #e3f1e7;
+    color: #2f6b43;
+}
+
+.detalhes-pedido-erro {
+    background: #fbe4e1;
+    color: #b3382c;
+}

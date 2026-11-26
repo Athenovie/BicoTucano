@@ -2614,7 +2614,6 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-b46xtod41a-b46xtod41a.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cuply2mwba-{0}-77dk7yh55j-77dk7yh55j.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\9kobowjnvi-{0}-l4g3x2jjw8-l4g3x2jjw8.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cuply2mwba-{0}-77dk7yh55j-77dk7yh55j.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\9kobowjnvi-{0}-l4g3x2jjw8-l4g3x2jjw8.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-b46xtod41a-b46xtod41a.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\7ewie0akf7-{0}-6wv4sg90u5-6wv4sg90u5.gz
@@ -2628,5 +2627,7 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\trho365o7d-{0}-28b1hny9in-28b1hny9in.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\f6qm07tmnm-{0}-3mmciuc377-3mmciuc377.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\39rcv751r9-{0}-o2z1gwfbyh-o2z1gwfbyh.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\dgis70z6rq-{0}-5uvzf4w6cf-5uvzf4w6cf.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\vg1e6vykaz-{0}-boq3sp9pua-boq3sp9pua.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\vg1e6vykaz-{0}-j4j3u028mc-j4j3u028mc.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\gp2f1y9t6g-{0}-qptzk7rsx1-qptzk7rsx1.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\dgis70z6rq-{0}-ukk1m3yygs-ukk1m3yygs.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cuply2mwba-{0}-de8rk8nw9z-de8rk8nw9z.gz
