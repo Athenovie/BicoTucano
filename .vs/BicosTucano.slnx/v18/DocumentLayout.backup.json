@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\sammuel\\desktop\\nova pasta\\bicotucano\\controllers\\pagamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\controllers\\pagamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\sammuel\\desktop\\nova pasta\\bicotucano\\views\\pagamento\\confirmacao.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\pagamento\\confirmacao.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\sammuel\\desktop\\nova pasta\\bicotucano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -13,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\sammuel\\desktop\\nova pasta\\bicotucano\\views\\pagamento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\views\\pagamento\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\sammuel\\desktop\\nova pasta\\bicotucano\\controllers\\pagamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|solutionrelative:bicotucano\\controllers\\pagamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F8B9E93-EC18-5715-C688-91222B46922E}|BicoTucano\\BicoTucano.csproj|c:\\users\\sammuel\\desktop\\nova pasta\\bicotucano\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,12 +46,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -58,7 +58,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Confirmacao.cshtml",
+              "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Views\\Pagamento\\Confirmacao.cshtml",
+              "RelativeDocumentMoniker": "BicoTucano\\Views\\Pagamento\\Confirmacao.cshtml",
+              "ToolTip": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Views\\Pagamento\\Confirmacao.cshtml",
+              "RelativeToolTip": "BicoTucano\\Views\\Pagamento\\Confirmacao.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-27T21:54:19.624Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\appsettings.json",
               "RelativeDocumentMoniker": "BicoTucano\\appsettings.json",
@@ -72,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Pix.cshtml",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Views\\Pagamento\\Pix.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pagamento\\Pix.cshtml",
@@ -81,12 +95,11 @@
               "ViewState": "AgIAABYAAAAAAAAAAAAgwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-11-27T20:32:38.125Z",
-              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Views\\Pagamento\\Index.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pagamento\\Index.cshtml",
@@ -95,18 +108,17 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-11-27T20:32:20.439Z",
-              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PagamentoController.cs",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Controllers\\PagamentoController.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Controllers\\PagamentoController.cs",
               "ToolTip": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Controllers\\PagamentoController.cs",
               "RelativeToolTip": "BicoTucano\\Controllers\\PagamentoController.cs",
-              "ViewState": "AgIAAKMAAAAAAAAAAAAQwKsAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAswOQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-27T20:31:30.956Z",
               "EditorCaption": "",
@@ -114,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PedidoController.cs",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Controllers\\PedidoController.cs",
               "RelativeDocumentMoniker": "BicoTucano\\Controllers\\PedidoController.cs",
@@ -123,12 +135,11 @@
               "ViewState": "AgIAACQBAAAAAAAAAAAgwD4BAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-27T20:27:54.098Z",
-              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Shared\\_Layout.cshtml",
@@ -137,12 +148,11 @@
               "ViewState": "AgIAAEIAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-11-27T18:01:55.349Z",
-              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DetalhesPedido.cshtml",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\Views\\Pedido\\DetalhesPedido.cshtml",
               "RelativeDocumentMoniker": "BicoTucano\\Views\\Pedido\\DetalhesPedido.cshtml",
@@ -155,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PedidoDetalhes.css",
               "DocumentMoniker": "C:\\Users\\Sammuel\\Desktop\\Nova pasta\\BicoTucano\\wwwroot\\css\\PedidoDetalhes.css",
               "RelativeDocumentMoniker": "BicoTucano\\wwwroot\\css\\PedidoDetalhes.css",

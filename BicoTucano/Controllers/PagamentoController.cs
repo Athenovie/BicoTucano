@@ -85,7 +85,7 @@ namespace BicoTucano.Controllers
                 return RedirectToAction("Carrinho", "Pedido");
 
             int nf = ConcluirPedido(pedido, itens, FormaPagamento.Pix, ChavePixLoja, null);
-            return RedirectToAction("Confirmacao", "Pedido", new { id = nf });
+            return RedirectToAction(nameof(Confirmacao), new { id = nf });
         }
 
         // CARTÃO (crédito ou débito)
@@ -125,7 +125,7 @@ namespace BicoTucano.Controllers
                 return ErroCartao(pedido, forma, cartao.ID_Cartao, "Pagamento recusado pela operadora. Tente outro cartão.");
 
             int nf = ConcluirPedido(pedido, itens, forma, null, cartao.ID_Cartao);
-            return RedirectToAction("Confirmacao", "Pedido", new { id = nf });
+            return RedirectToAction(nameof(Confirmacao), new { id = nf });
         }
 
         // Volta para a tela de pagamento mantendo o que o cliente escolheu
@@ -138,7 +138,38 @@ namespace BicoTucano.Controllers
             return View("Index", pedido);
         }
 
+        // CONFIRMAÇÃO (só existe depois que o pedido foi gravado e pago)
+
+        public IActionResult Confirmacao(int id)
+        {
+            Pedido? pedido = ObterPedidoDoCliente(id);
+            if (pedido == null)
+                return RedirectToAction("Index", "Home");
+
+            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
+            if (pagamento == null || pagamento.StatusPagamento != StatusPagamento.Pago)
+                return RedirectToAction("MeusPedidos", "Pedido");
+
+            if (pagamento.ID_Cartao.HasValue)
+                ViewBag.Cartao = _cartaoRepository.ObterCartao(pagamento.ID_Cartao.Value);
+
+            ViewBag.Pagamento = pagamento;
+            return View(pedido);
+        }
+
         // AUXILIARES
+
+        // Só devolve o pedido se ele existir e for do cliente logado
+        private Pedido? ObterPedidoDoCliente(int nf)
+        {
+            Cliente cliente = _loginCliente.GetCliente();
+            Pedido? pedido = _pedidoRepository.ObterPedidos(nf);
+
+            if (pedido == null || pedido.ID_Usuario != cliente.ID_Usuario)
+                return null;
+
+            return pedido;
+        }
 
         // Pedido e itens guardados na sessão (ainda não gravados), só se forem do cliente logado
         private Pedido? ObterPendente(out List<Item_Pedido> itens)
