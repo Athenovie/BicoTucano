@@ -8,8 +8,7 @@
 
 body {
     background-color: #f7f4ee;
-    font-family: Arial, sans-serif;
-}
+     font-family: 'Inter', sans-serif;
 
 /* Menu lateral */
 .menu-lateral {
@@ -134,11 +133,11 @@ body {
 
 /* Página de pedidos */
 .pedidos {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
     .pedidos h1 {
-        font-family: Arial, sans-serif;
+        font-family: 'Inter', sans-serif;
         font-size: 19px;
         font-weight: normal;
         margin: 12px 0 10px;
@@ -330,12 +329,10 @@ body {
         border-radius: 20px;
     }
 
-    /*Página de listar funcionários */
-
-/* Página de funcionários */
+ /*Página de listar funcionários */
 
 .funcionarios-pagina {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
     .funcionarios-pagina h2 {
@@ -440,3 +437,44 @@ body {
             background-color: #4b8060;
             color: white;
         }
+
+
+    /* Fontes das páginas de clientes e funcionários */
+    .conteudo h2,
+    .funcionarios-pagina h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+    }
+
+    /* Tabelas */
+    .tabela table,
+    .funcionarios-pagina .tabela table {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+    }
+
+    /* Cabeçalhos e dados */
+    .tabela th,
+    .tabela td,
+    .funcionarios-pagina .tabela th,
+    .funcionarios-pagina .tabela td {
+        font-size: 14px;
+        padding: 12px 10px;
+    }
+
+    /* Botões de cadastro */
+    .botao-cadastrar,
+    .funcionarios-pagina .botao-cadastrar {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    /* Botões de ações */
+    .botao-acao,
+    .funcionarios-pagina .funcionario-desativar,
+    .funcionarios-pagina .funcionario-ativar,
+    .funcionarios-pagina .funcionario-detalhes {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+    }

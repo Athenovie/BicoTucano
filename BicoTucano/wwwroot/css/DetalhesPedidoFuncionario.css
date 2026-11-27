@@ -3,7 +3,7 @@
 .detalhes-pedido-funcionario {
     max-width: 1200px;
     color: #292d2a;
-    font-family: 'Inter', serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .detalhes-pedido-cabecalho {
@@ -30,7 +30,7 @@
     padding: 5px 12px;
     border-radius: 20px;
     color: #fff;
-    font-family: 'Inter', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;

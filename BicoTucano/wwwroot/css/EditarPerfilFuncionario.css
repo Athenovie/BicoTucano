@@ -1,11 +1,11 @@
 ﻿.editar-perfil-funcionario {
     max-width: 900px;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .editar-perfil-funcionario h1 {
     margin: 12px 0 20px;
-    font-family: Georgia, serif;
+    font-family: 'Playfair Display', serif;
     font-size: 24px;
     font-weight: 500;
 }
@@ -45,7 +45,7 @@
     border-radius: 10px;
     background: #fff;
     color: #2b2b2b;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
 }
 
@@ -86,7 +86,7 @@
     padding: 11px 22px;
     border: 1px solid transparent;
     border-radius: 999px;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
