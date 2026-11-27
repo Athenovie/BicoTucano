@@ -13,10 +13,10 @@
     transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
 }
 
-    .cartao-preview:hover {
-        transform: translateY(-4px) rotate(-1deg);
-        box-shadow: 0 16px 32px rgba(0, 0, 0, .3);
-    }
+.cartao-preview:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, .3);
+}
 
 .cartao-visa {
     background: linear-gradient(135deg, #1a1f71, #2b6cb0);
@@ -84,9 +84,9 @@
     font-size: .85rem;
 }
 
-    .cartao-base small {
-        display: block;
-        font-size: .65rem;
-        text-transform: uppercase;
-        opacity: .7;
-    }
+.cartao-base small {
+    display: block;
+    font-size: .65rem;
+    text-transform: uppercase;
+    opacity: .7;
+}

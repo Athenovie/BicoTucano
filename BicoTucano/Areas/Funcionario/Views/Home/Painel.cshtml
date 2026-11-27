@@ -3,9 +3,10 @@
 
 @{
     ViewBag.Title = "Dashboard";
+    ViewData["SemBusca"] = true;
+
     var pt = new System.Globalization.CultureInfo("pt-BR");
     bool ehAdmin = (bool)ViewBag.EhAdmin;
-
     decimal maior = Model.VendasSemana.Max(v => v.Total);
     if (maior == 0) { maior = 1; }
 }

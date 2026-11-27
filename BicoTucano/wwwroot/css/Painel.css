@@ -1,6 +1,4 @@
-﻿
-/* Configuração da página */
-* {
+﻿* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,443 +7,440 @@
 body {
     background-color: #f7f4ee;
     font-family: 'Inter', sans-serif;
-    /* Menu lateral */
-    .menu-lateral {
-        background-color: #194b30;
-        width: 260px;
-        height: 100vh;
-        position: fixed;
-        color: white;
-    }
 
-        .menu-lateral h6 {
-            padding: 55px 25px 20px;
-            font-size: 12px;
-            border-bottom: 1px solid #356448;
-        }
+.menu-lateral {
+    background-color: #194b30;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    color: white;
+}
 
-        .menu-lateral nav {
-            padding: 20px;
-        }
+.menu-lateral h6 {
+    padding: 55px 25px 20px;
+    font-size: 12px;
+    border-bottom: 1px solid #356448;
+}
 
-        .menu-lateral a {
-            display: block;
-            color: #d5e0d8;
-            text-decoration: none;
-            padding: 12px 5px;
-            font-size: 13px;
-        }
+.menu-lateral nav {
+    padding: 20px;
+}
 
-            .menu-lateral a:hover {
-                color: white;
-            }
+.menu-lateral a {
+    display: block;
+    color: #d5e0d8;
+    text-decoration: none;
+    padding: 12px 5px;
+    font-size: 13px;
+}
 
-        .menu-lateral .sair {
-            color: #ed8958;
-        }
-    /* Parte principal */
-    .conteudo {
-        margin-left: 260px;
-        padding: 20px 25px;
-    }
-    /* Pesquisa */
-    .barra-pesquisa {
-        margin-bottom: 20px;
-    }
+.menu-lateral a:hover {
+    color: white;
+}
 
-        .barra-pesquisa input {
-            width: 250px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-        }
-    /* Título */
-    .conteudo h2 {
-        font-family: Georgia, serif;
-        font-size: 22px;
-        margin-bottom: 15px;
-    }
-    /* Botão de cadastro */
-    .botao-cadastrar {
-        display: inline-block;
-        background-color: #4b8060;
-        color: white;
-        padding: 8px 15px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 12px;
-        margin-bottom: 15px;
-    }
+.menu-lateral .sair {
+    color: #ed8958;
+}
 
-        .botao-cadastrar:hover {
-            background-color: #356448;
-            color: white;
-        }
-    /* Tabela */
-    .tabela {
-        background-color: white;
-        border-radius: 8px;
-        padding: 10px;
-    }
+.conteudo {
+    margin-left: 260px;
+    padding: 20px 25px;
+}
 
-        .tabela table {
-            width: 100%;
-            font-size: 12px;
-        }
+.barra-pesquisa {
+    margin-bottom: 20px;
+}
 
-        .tabela th {
-            text-align: left;
-            padding: 12px 10px;
-            font-weight: normal;
-            border-bottom: 1px solid #a5c2ad;
-        }
+.barra-pesquisa input {
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
 
-        .tabela td {
-            padding: 12px 10px;
-            border-bottom: 1px solid #a5c2ad;
-        }
-    /* Botões de ação */
-    .botao-acao {
-        background-color: #ed8958;
-        color: white;
-        padding: 5px 10px;
-        border-radius: 15px;
-        text-decoration: none;
-        font-size: 11px;
-        border: none;
-        cursor: pointer;
-        font-family: inherit;
-        font-weight: bold;
-    }
+.conteudo h2 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
 
-        .botao-acao:hover {
-            background-color: #d87343;
-            color: white;
-        }
-    /* Página de pedidos */
-    .pedidos {
-        font-family: 'Inter', sans-serif;
-    }
+.botao-cadastrar {
+    display: inline-block;
+    background-color: #4b8060;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
 
-        .pedidos h1 {
-            font-family: 'Inter', sans-serif;
-            font-size: 19px;
-            font-weight: normal;
-            margin: 12px 0 10px;
-        }
-    /* Fundo da tabela de pedidos */
-    .tabela-pedidos {
-        background-color: white;
-        border-radius: 7px;
-        padding: 10px;
-        overflow-x: auto;
-    }
-        /* Tabela de pedidos */
-        .tabela-pedidos table {
-            width: 100%;
-            font-size: 12px;
-        }
-        /* Linhas e colunas */
-        .tabela-pedidos th,
-        .tabela-pedidos td {
-            text-align: left;
-            padding: 12px 10px;
-            border-bottom: 1px solid #a5c2ad;
-            vertical-align: middle;
-        }
-        /* Cabeçalho */
-        .tabela-pedidos th {
-            font-weight: normal;
-        }
-        /* Última linha */
-        .tabela-pedidos tr:last-child td {
-            border-bottom: none;
-        }
-        /* Status dos pedidos */
-        .tabela-pedidos .status {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 15px;
-            color: white;
-            font-size: 11px;
-        }
-        /* Pedido em preparo */
-        .tabela-pedidos .preparo {
-            background-color: #e8845c;
-        }
-        /* Pedido em entrega */
-        .tabela-pedidos .entrega {
-            background-color: #f0b429;
-        }
-        /* Pedido concluído */
-        .tabela-pedidos .concluido {
-            background-color: #8fbc94;
-        }
-        /* Link detalhes */
-        .tabela-pedidos .detalhes {
-            color: #4a7c59;
-            text-decoration: none;
-            font-size: 11px;
-        }
+.botao-cadastrar:hover {
+    background-color: #356448;
+    color: white;
+}
 
-            .tabela-pedidos .detalhes:hover {
-                text-decoration: underline;
-            }
-    /* Perfil do Funcionário */
-    .perfil-cartao {
-        background-color: white;
-        border: 1px solid #e6e2da;
-        border-radius: 14px;
-        padding: 18px 22px;
-        margin-bottom: 20px;
-        max-width: 720px;
-        font-size: 14px;
-    }
+.tabela {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+}
 
-    .perfil-cartao-cabecalho {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-    }
+.tabela table {
+    width: 100%;
+    font-size: 12px;
+}
 
-    .perfil-cartao-titulo {
-        font-size: 17px;
-    }
+.tabela th {
+    text-align: left;
+    padding: 12px 10px;
+    font-weight: normal;
+    border-bottom: 1px solid #a5c2ad;
+}
 
-    .perfil-cartao-link {
-        color: #4a7c59;
-        font-weight: bold;
-        text-decoration: none;
-    }
+.tabela td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #a5c2ad;
+}
+ 
+.botao-acao {
+    background-color: #ed8958;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 11px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
 
-    .perfil-campos {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px 25px;
-    }
+.botao-acao:hover {
+    background-color: #d87343;
+    color: white;
+}
 
-    .perfil-campo-nome {
-        display: block;
-        font-weight: bold;
-    }
+.pedidos {
+    font-family: 'Inter', sans-serif;
+}
 
-    .perfil-campo-valor {
-        display: block;
-        color: #777;
-    }
-    /* Produtos da Área do Funcionario */
-    .produtos-cabecalho {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-    }
+.pedidos h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 19px;
+    font-weight: normal;
+    margin: 12px 0 10px;
+}
 
-        .produtos-cabecalho h2 {
-            font-size: 26px;
-        }
+.tabela-pedidos {
+    background-color: white;
+    border-radius: 7px;
+    padding: 10px;
+    overflow-x: auto;
+}
+/* Tabela de pedidos */
+.tabela-pedidos table {
+    width: 100%;
+    font-size: 12px;
+}
+/* Linhas e colunas */
+.tabela-pedidos th,
+.tabela-pedidos td {
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 1px solid #a5c2ad;
+    vertical-align: middle;
+}
+/* Cabeçalho */
+.tabela-pedidos th {
+    font-weight: normal;
+}
+/* Última linha */
+.tabela-pedidos tr:last-child td {
+    border-bottom: none;
+}
+/* Status dos pedidos */
+.tabela-pedidos .status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 15px;
+    color: white;
+    font-size: 11px;
+}
+/* Pedido em preparo */
+.tabela-pedidos .preparo {
+    background-color: #e8845c;
+}
+/* Pedido em entrega */
+.tabela-pedidos .entrega {
+    background-color: #f0b429;
+}
+/* Pedido concluído */
+.tabela-pedidos .concluido {
+    background-color: #8fbc94;
+}
+/* Link detalhes */
+.tabela-pedidos .detalhes {
+    color: #4a7c59;
+    text-decoration: none;
+    font-size: 11px;
+}
 
-        .produtos-cabecalho .botao-cadastrar {
-            font-size: 14px;
-            padding: 10px 18px;
-        }
+.tabela-pedidos .detalhes:hover {
+    text-decoration: underline;
+}
+/* Perfil do Funcionário */
+.perfil-cartao {
+    background-color: white;
+    border: 1px solid #e6e2da;
+    border-radius: 14px;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    max-width: 720px;
+    font-size: 14px;
+}
 
-    .produtos-lista {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 20px;
-    }
+.perfil-cartao-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
 
-    .produto-cartao {
-        background-color: white;
-        border-radius: 15px;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
+.perfil-cartao-titulo {
+    font-size: 17px;
+}
 
-    .produto-cartao-imagem {
-        width: 100%;
-        height: 140px;
-        object-fit: cover;
-    }
+.perfil-cartao-link {
+    color: #4a7c59;
+    font-weight: bold;
+    text-decoration: none;
+}
 
-    .produto-cartao-texto {
-        padding: 12px;
-        flex: 1;
-        font-size: 14px;
-    }
+.perfil-campos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 25px;
+}
 
-    .produto-cartao-nome {
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
+.perfil-campo-nome {
+    display: block;
+    font-weight: bold;
+}
 
-    .produto-cartao-descricao {
-        margin-bottom: 12px;
-    }
+.perfil-campo-valor {
+    display: block;
+    color: #777;
+}
+/* Produtos da Área do Funcionario */
+.produtos-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
 
-    .produto-cartao-legenda {
-        display: block;
-        font-size: 12px;
-    }
+.produtos-cabecalho h2 {
+    font-size: 26px;
+}
 
-    .produto-cartao-preco {
-        font-size: 17px;
-    }
+.produtos-cabecalho .botao-cadastrar {
+    font-size: 14px;
+    padding: 10px 18px;
+}
 
-    .produto-cartao-botoes {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 5px 10px 18px;
-    }
+.produtos-lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
 
-        .produto-cartao-botoes .botao-acao {
-            display: inline-block;
-            font-size: 13px;
-            padding: 8px 16px;
-            border-radius: 20px;
-        }
-    /*Página de listar funcionários */
+.produto-cartao {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
 
-    .funcionarios-pagina {
-        font-family: 'Inter', sans-serif;
-    }
+.produto-cartao-imagem {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
 
-        .funcionarios-pagina h2 {
-            font-family: Georgia, serif;
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 12px;
-        }
-        /* Botão cadastrar funcionário */
+.produto-cartao-texto {
+    padding: 12px;
+    flex: 1;
+    font-size: 14px;
+}
 
-        .funcionarios-pagina .botao-cadastrar {
-            display: inline-block;
-            background-color: #4b8060;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-size: 14px;
-            text-decoration: none;
-            margin-bottom: 15px;
-        }
-        /* Tabela de funcionários */
+.produto-cartao-nome {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
 
-        .funcionarios-pagina .tabela {
-            background-color: white;
-            border-radius: 8px;
-            padding: 10px;
-        }
+.produto-cartao-descricao {
+    margin-bottom: 12px;
+}
 
-            .funcionarios-pagina .tabela table {
-                width: 100%;
-                font-family: Arial, sans-serif;
-                font-size: 14px;
-            }
+.produto-cartao-legenda {
+    display: block;
+    font-size: 12px;
+}
 
-            .funcionarios-pagina .tabela th {
-                padding: 14px 10px;
-                text-align: left;
-                font-size: 14px;
-                font-weight: normal;
-                border-bottom: 1px solid #a5c2ad;
-            }
+.produto-cartao-preco {
+    font-size: 17px;
+}
 
-            .funcionarios-pagina .tabela td {
-                padding: 14px 10px;
-                text-align: left;
-                font-size: 14px;
-                border-bottom: 1px solid #a5c2ad;
-            }
-        /* Botões de ações */
+.produto-cartao-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 10px 18px;
+}
 
-        .funcionarios-pagina .funcionario-desativar {
-            background-color: #ed8958;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 14px;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            cursor: pointer;
-        }
+.produto-cartao-botoes .botao-acao {
+    display: inline-block;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
 
-        .funcionarios-pagina .funcionario-ativar {
-            background-color: #4b8060;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 14px;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            cursor: pointer;
-        }
-        /* Botão detalhes + alinhamento das ações */
+.funcionarios-pagina {
+    font-family: 'Inter', sans-serif;
+}
 
-        .funcionarios-pagina .acoes-funcionario {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
+.funcionarios-pagina h2 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+    
 
-            .funcionarios-pagina .acoes-funcionario form {
-                margin: 0;
-            }
+.funcionarios-pagina .botao-cadastrar {
+    display: inline-block;
+    background-color: #4b8060;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+    
 
-        .funcionarios-pagina .funcionario-detalhes {
-            display: inline-block;
-            background-color: white;
-            color: #4b8060;
-            border: 1px solid #4b8060;
-            border-radius: 20px;
-            padding: 7px 14px;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            text-decoration: none;
-            cursor: pointer;
-        }
+.funcionarios-pagina .tabela {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+}
 
-            .funcionarios-pagina .funcionario-detalhes:hover {
-                background-color: #4b8060;
-                color: white;
-            }
-        /* Fontes das páginas de clientes e funcionários */
-        .conteudo h2,
-        .funcionarios-pagina h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-        }
-        /* Tabelas */
-        .tabela table,
-        .funcionarios-pagina .tabela table {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-        }
-        /* Cabeçalhos e dados */
-        .tabela th,
-        .tabela td,
-        .funcionarios-pagina .tabela th,
-        .funcionarios-pagina .tabela td {
-            font-size: 14px;
-            padding: 12px 10px;
-        }
-        /* Botões de cadastro */
-        .botao-cadastrar,
-        .funcionarios-pagina .botao-cadastrar {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            padding: 8px 15px;
-        }
-        /* Botões de ações */
-        .botao-acao,
-        .funcionarios-pagina .funcionario-desativar,
-        .funcionarios-pagina .funcionario-ativar,
-        .funcionarios-pagina .funcionario-detalhes {
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-        }
+.funcionarios-pagina .tabela table {
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.funcionarios-pagina .tabela th {
+    padding: 14px 10px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    border-bottom: 1px solid #a5c2ad;
+}
+
+.funcionarios-pagina .tabela td {
+    padding: 14px 10px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid #a5c2ad;
+}
+
+.funcionarios-pagina .funcionario-desativar {
+    background-color: #ed8958;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.funcionarios-pagina .funcionario-ativar {
+    background-color: #4b8060;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.funcionarios-pagina .acoes-funcionario {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.funcionarios-pagina .acoes-funcionario form {
+    margin: 0;
+}
+
+.funcionarios-pagina .funcionario-detalhes {
+    display: inline-block;
+    background-color: white;
+    color: #4b8060;
+    border: 1px solid #4b8060;
+    border-radius: 20px;
+    padding: 7px 14px;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.funcionarios-pagina .funcionario-detalhes:hover {
+    background-color: #4b8060;
+    color: white;
+}
+
+.conteudo h2,
+.funcionarios-pagina h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+}
+
+.tabela table,
+.funcionarios-pagina .tabela table {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.tabela th,
+.tabela td,
+.funcionarios-pagina .tabela th,
+.funcionarios-pagina .tabela td {
+    font-size: 14px;
+    padding: 12px 10px;
+}
+    
+.botao-cadastrar,
+.funcionarios-pagina .botao-cadastrar {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    padding: 8px 15px;
+}
+
+.botao-acao,
+.funcionarios-pagina .funcionario-desativar,
+.funcionarios-pagina .funcionario-ativar,
+.funcionarios-pagina .funcionario-detalhes {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+}
 
 .pesquisa-vazia {
     display: none;

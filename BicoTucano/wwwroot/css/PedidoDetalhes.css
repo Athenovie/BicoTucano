@@ -1,5 +1,4 @@
-﻿
-.conteudo {
+﻿.conteudo {
     max-width: 1000px;
     font-family: 'Inter', sans-serif;
 }
@@ -19,13 +18,13 @@
     flex: 1;
 }
 
-    .detalhes h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 26px;
-        text-transform: uppercase;
-        text-align: center;
-        margin-bottom: 16px;
-    }
+.detalhes h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 16px;
+}
 
 .voltar {
     font-size: 13px;
@@ -40,29 +39,28 @@
     margin-bottom: 16px;
 }
 
-    .secao-pedido h3 {
-        font-size: 15px;
-        font-weight: bold;
-        color: #2f6b3f;
-        margin-bottom: 12px;
-    }
+.secao-pedido h3 {
+    font-size: 15px;
+    font-weight: bold;
+    color: #2f6b3f;
+    margin-bottom: 12px;
+}
 
-/* número do pedido */
 .numero {
     display: flex;
     justify-content: space-between;
 }
 
-    .numero small {
-        font-size: 14px;
-        font-weight: bold;
-        color: #2f6b3f;
-    }
+.numero small {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2f6b3f;
+}
 
-    .numero h2 {
-        font-size: 17px;
-        color: #2f6b3f;
-    }
+.numero h2 {
+    font-size: 17px;
+    color: #2f6b3f;
+}
 
 .status {
     background: #bfe3c6;
@@ -73,7 +71,6 @@
     height: fit-content;
 }
 
-/* etapas */
 .etapas {
     display: flex;
     justify-content: space-between;
@@ -89,14 +86,14 @@
     font-size: 11px;
 }
 
-    .etapa strong {
-        color: #2f6b3f;
-    }
+.etapa strong {
+    color: #2f6b3f;
+}
 
-    .etapa small {
-        color: #777;
-        font-size: 10px;
-    }
+.etapa small {
+    color: #777;
+    font-size: 10px;
+}
 
 .bolinha {
     width: 20px;
@@ -108,12 +105,11 @@
     font-size: 11px;
 }
 
-    .bolinha.verde {
-        background: #1c9b4a;
-        color: white;
-    }
-
-/* itens e resumo */
+.bolinha.verde {
+    background: #1c9b4a;
+    color: white;
+}
+/
 .conteudo-pedido {
     display: flex;
     gap: 16px;
@@ -138,12 +134,12 @@
     color: #2f6b3f;
 }
 
-    .item img {
-        width: 36px;
-        height: 36px;
-        object-fit: cover;
-        border-radius: 6px;
-    }
+.item img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 6px;
+}
 
 .item-nome {
     flex: 1;
@@ -151,10 +147,10 @@
     flex-direction: column;
 }
 
-    .item-nome small {
-        color: #777;
-        font-size: 11px;
-    }
+.item-nome small {
+    color: #777;
+    font-size: 11px;
+}
 
 .endereco {
     display: grid;
@@ -165,11 +161,11 @@
     color: #2f6b3f;
 }
 
-    .endereco small {
-        display: block;
-        font-size: 11px;
-        color: #777;
-    }
+.endereco small {
+    display: block;
+    font-size: 11px;
+    color: #777;
+}
 
 .resumo-titulo {
     font-family: 'Playfair Display', serif;

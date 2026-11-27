@@ -1,6 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
-
-.carrinho,
+﻿.carrinho,
 .pagina-carrinho {
     --laranja: #e8875a;
     --laranja-hover: #d9753f;
@@ -29,11 +27,11 @@
     margin-bottom: 20px;
 }
 
-    .titulo small {
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        color: #777;
-    }
+.titulo small {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #777;
+}
 
 .carrinho-corpo {
     display: grid;
@@ -63,27 +61,27 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-    .item img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+.item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
 
 .item-meio {
     flex: 1;
 }
 
-    .item-meio h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 16px;
-        margin: 0;
-    }
+.item-meio h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    margin: 0;
+}
 
-    .item-meio small {
-        display: block;
-        color: #777;
-    }
+.item-meio small {
+    display: block;
+    color: #777;
+}
 
 .item-direita {
     display: flex;
@@ -92,13 +90,13 @@
     align-items: flex-end;
 }
 
-    .item-direita p {
-        margin: 0;
-    }
+.item-direita p {
+    margin: 0;
+}
 
-    .item-direita form {
-        margin: 0;
-    }
+.item-direita form {
+    margin: 0;
+}
 
 .item-preco {
     font-family: 'Playfair Display', serif;
@@ -165,11 +163,11 @@
     margin: 15px 0 20px;
 }
 
-    .links a {
-        color: #4a7c59;
-        text-decoration: none;
-        font-weight: 500;
-    }
+.links a {
+    color: #4a7c59;
+    text-decoration: none;
+    font-weight: 500;
+}
 
 .resumo {
     background-color: white;
@@ -180,11 +178,11 @@
     top: 24px;
 }
 
-    .resumo h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 20px;
-        margin-bottom: 16px;
-    }
+.resumo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 16px;
+}
 
 
 .subtotal,
@@ -216,10 +214,10 @@
     text-decoration: none;
 }
 
-    .botao-laranja:hover {
-        background-color: var(--laranja-hover);
-        color: white;
-    }
+.botao-laranja:hover {
+    background-color: var(--laranja-hover);
+    color: white;
+}
 
 .pagamento {
     margin-top: 12px;
@@ -240,24 +238,24 @@
     color: #777;
 }
 
-    .carrinho-caminho a {
-        color: #777;
-        text-decoration: none;
-    }
+.carrinho-caminho a {
+    color: #777;
+    text-decoration: none;
+}
 
-        .carrinho-caminho a:hover {
-            text-decoration: underline;
-        }
+.carrinho-caminho a:hover {
+    text-decoration: underline;
+}
 
-    .carrinho-caminho span {
-        color: #111;
-    }
+.carrinho-caminho span {
+    color: #111;
+}
 
-        .carrinho-caminho span::before {
-            content: "/";
-            margin-right: 8px;
-            color: #aaa;
-        }
+.carrinho-caminho span::before {
+    content: "/";
+    margin-right: 8px;
+    color: #aaa;
+}
 
 .carrinho-titulo {
     margin: 16px 0 0;
@@ -307,7 +305,7 @@
     transition: background .2s ease;
 }
 
-    .botao-explorar:hover {
-        background: var(--laranja-hover);
-        color: #fff;
-    }
+.botao-explorar:hover {
+    background: var(--laranja-hover);
+    color: #fff;
+}

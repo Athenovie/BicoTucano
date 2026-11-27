@@ -1,5 +1,4 @@
-﻿
-.barra-pesquisa {
+﻿.barra-pesquisa {
     display: none;
 }
 
@@ -14,9 +13,9 @@
     margin-bottom: 20px;
 }
 
-    .cabecalho-cadastro-produto h2 {
-        margin: 0;
-    }
+.cabecalho-cadastro-produto h2 {
+    margin: 0;
+}
 
 .identificacao-administrador {
     background-color: white;
@@ -49,34 +48,34 @@
     flex: 1;
 }
 
-    .campo-informacao-produto label {
-        display: block;
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 6px;
-    }
+.campo-informacao-produto label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
 
-        .campo-informacao-produto label span,
-        .disponibilidade-produto p span,
-        .area-upload-imagem label span {
-            color: #ef4252;
-        }
+.campo-informacao-produto label span,
+.disponibilidade-produto p span,
+.area-upload-imagem label span {
+    color: #ef4252;
+}
 
-    .campo-informacao-produto input,
-    .campo-informacao-produto select,
-    .campo-informacao-produto textarea {
-        width: 100%;
-        border: 1px solid #888;
-        border-radius: 7px;
-        padding: 8px;
-        font-family: inherit;
-        font-size: 14px;
-        background-color: white;
-    }
+.campo-informacao-produto input,
+.campo-informacao-produto select,
+.campo-informacao-produto textarea {
+    width: 100%;
+    border: 1px solid #888;
+    border-radius: 7px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    background-color: white;
+}
 
-    .campo-informacao-produto textarea {
-        resize: vertical;
-    }
+.campo-informacao-produto textarea {
+    resize: vertical;
+}
 
 .campos-preco-categoria {
     display: flex;
@@ -100,23 +99,23 @@
     border-radius: 16px;
 }
 
-    .area-upload-imagem > label {
-        display: block;
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 8px;
-    }
+.area-upload-imagem > label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
 
-    .area-upload-imagem .botao-adicionar-imagem {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 96px;
-        height: 96px;
-        border: 1px solid #888;
-        border-radius: 12px;
-        cursor: pointer;
-    }
+.area-upload-imagem .botao-adicionar-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 96px;
+    height: 96px;
+    border: 1px solid #888;
+    border-radius: 12px;
+    cursor: pointer;
+}
 
 .botao-adicionar-imagem span {
     background-color: #777;
@@ -161,16 +160,4 @@
 .botao-salvar-produto {
     background-color: #ed8958;
     color: white;
-}
-
-@media (max-width: 800px) {
-    .formulario-cadastro-produto {
-        display: block;
-    }
-
-    .informacoes-produto,
-    .area-imagem-botoes {
-        width: 100%;
-        margin-bottom: 15px;
-    }
 }

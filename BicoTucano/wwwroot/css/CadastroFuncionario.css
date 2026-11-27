@@ -1,6 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Playfair+Display:wght@400;500;700&display=swap');
-
-* {
+﻿* {
     box-sizing: border-box;
 }
 
@@ -44,28 +42,28 @@ form {
     margin-bottom: 15px;
 }
 
-    .campo-formulario label {
-        display: block;
-        font-size: 15px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+.campo-formulario label {
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
-    .campo-formulario input,
-    .campo-formulario select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #dddddd;
-        border-radius: 5px;
-        font-family: 'Inter', sans-serif;
-        font-size: 15px;
-        background-color: white;
-    }
+.campo-formulario input,
+.campo-formulario select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    background-color: white;
+}
 
-    .campo-formulario span {
-        color: red;
-        font-size: 12px;
-    }
+.campo-formulario span {
+    color: red;
+    font-size: 12px;
+}
 
 .senha-funcionario h4 {
     font-size: 16px;
@@ -78,26 +76,58 @@ form {
     margin-bottom: 15px;
 }
 
+
 .botoes-cadastro {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
     margin-top: 20px;
 }
 
-    .botoes-cadastro button {
-        background-color: #ed8958;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        padding: 12px 35px;
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
-        cursor: pointer;
-    }
+.botoes-cadastro button,
+.botoes-cadastro .botao-voltar {
+    min-width: 115px;
+    padding: 11px 22px;
+    border: 1px solid transparent;
+    border-radius: 25px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-        .botoes-cadastro button:hover {
-            background-color: #d87343;
-        }
+.botoes-cadastro .botao-voltar {
+    background-color: white;
+    border-color: #ddd;
+    color: #777;
+}
+
+.botao-voltar:hover {
+    background-color: #f1ede6;
+    color: #555;
+    text-decoration: none;
+}
+
+.botoes-cadastro button[type="reset"] {
+    background-color: #eeeae3;
+    color: #777;
+}
+
+.botoes-cadastro button[type="reset"]:hover {
+    background-color: #ddd8cf;
+}
+
+.botoes-cadastro button[type="submit"] {
+    background-color: #e8875a;
+    color: white;
+}
+
+.botoes-cadastro button[type="submit"]:hover {
+    background-color: #d9753f;
+}
 
 .mensagem-cadastro {
     color: red;

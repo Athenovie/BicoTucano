@@ -5,17 +5,17 @@
     font-family: 'Inter', sans-serif;
 }
 
-    .pagina-pagamento h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 30px;
-        font-weight: 700;
-        margin: 0;
-    }
+.pagina-pagamento h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+}
 
-    .pagina-pagamento .subtitulo {
-        font-size: 12px;
-        margin-bottom: 12px;
-    }
+.pagina-pagamento .subtitulo {
+    font-size: 12px;
+    margin-bottom: 12px;
+}
 
 .mensagem-erro {
     max-width: 640px;
@@ -44,23 +44,23 @@
     padding: 20px;
 }
 
-    .card-pagamento h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 18px;
-        font-weight: 700;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
+.card-pagamento h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
 
-    .card-pagamento p {
-        font-size: 14px;
-        margin: 0;
-    }
-    .card-pagamento form {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
+.card-pagamento p {
+    font-size: 14px;
+    margin: 0;
+}
+.card-pagamento form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
 
 .botao-area {
     margin-top: auto;

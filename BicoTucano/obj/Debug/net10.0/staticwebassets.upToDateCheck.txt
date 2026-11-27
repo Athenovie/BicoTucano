@@ -1,8 +1,5 @@
 wwwroot\css\AlterarProduto.css
 wwwroot\css\Cabecalho.css
-wwwroot\css\CadastroCliente.css
-wwwroot\css\CadastroFuncionario.css
-wwwroot\css\CadastroProduto.css
 wwwroot\css\Cardapio.css
 wwwroot\css\Carrinho.css
 wwwroot\css\cartao.css
@@ -29,6 +26,7 @@ wwwroot\css\site.css
 wwwroot\css\TipografiaProjeto.css
 wwwroot\favicon.ico
 wwwroot\img\aguadecoco.jpg
+wwwroot\img\arroz.jpg
 wwwroot\img\banner-bicotucano.jpeg
 wwwroot\img\batatafrita.jpg
 wwwroot\img\batatarecheada.jpg
@@ -88,6 +86,7 @@ wwwroot\img\vitaminamorango.jpg
 wwwroot\img\whatsapp.png
 wwwroot\js\Cartao.js
 wwwroot\js\endereco.js
+wwwroot\js\PesquisaProdutos.js
 wwwroot\js\PesquisaTabela.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -645,12 +644,11 @@ wwwroot\resources\lib\jquery3.3.1\jquery-3.3.1.min.js
 wwwroot\resources\lib\mask\jquery.mask.min.js
 wwwroot\resources\lib\pagedlist\PagedList.css
 wwwroot\resources\lib\popper1.14.6\popper.min.js
-wwwroot\js\PesquisaProdutos.js
+wwwroot\css\CadastroCliente.css
+wwwroot\css\CadastroFuncionario.css
+wwwroot\css\CadastroProduto.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\AlterarProduto.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Cabecalho.css
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroCliente.css
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroFuncionario.css
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroProduto.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Cardapio.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\Carrinho.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\cartao.css
@@ -679,6 +677,7 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\favicon.
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\img\Logo_Mastercard.svg
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\js\Cartao.js
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\js\endereco.js
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\js\PesquisaProdutos.js
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\js\PesquisaTabela.js
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\js\site.js
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
@@ -896,4 +895,6 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resource
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\mask\jquery.mask.min.js
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\pagedlist\PagedList.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\resources\lib\popper1.14.6\popper.min.js
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\js\PesquisaProdutos.js
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroCliente.css
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroFuncionario.css
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\wwwroot\css\CadastroProduto.css

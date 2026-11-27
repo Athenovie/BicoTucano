@@ -29,7 +29,6 @@
     min-height: 100vh;
 }
 
-/* ----- painel verde ----- */
 .painel-verde {
     display: flex;
     align-items: center;
@@ -59,7 +58,6 @@
     opacity: 0.9;
 }
 
-/* ----- formulario ----- */
 .area-formulario {
     display: flex;
     align-items: center;
@@ -86,7 +84,6 @@
     color: var(--texto-suave);
 }
 
-/* ----- campos ----- */
 .campo-formulario {
     display: flex;
     flex-direction: column;

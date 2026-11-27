@@ -1,6 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
-
-:root {
+﻿:root {
     --fundo: #f7f4ee;
     --texto: #2b2b2b;
     --laranja: #e8875a;
@@ -145,8 +143,6 @@
     background: var(--verde-hover);
     color: #fff;
 }
-
-/*seção avaliações*/
 
 .secao-avaliacoes {
     max-width: 1000px;

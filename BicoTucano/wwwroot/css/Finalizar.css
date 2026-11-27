@@ -1,6 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap');
-
-.pagina-finalizar {
+﻿.pagina-finalizar {
     --laranja: #e8875a;
     --laranja-hover: #d9753f;
     --verde: #4a7c59;
@@ -18,12 +16,10 @@
     font-weight: 500;
 }
 
-/* Esconde (usado pelo JS) */
 .finalizar-oculto {
     display: none !important;
 }
 
-/* Duas colunas */
 .finalizar-corpo {
     display: grid;
     grid-template-columns: 1fr 330px;
@@ -38,7 +34,6 @@
     gap: 16px;
 }
 
-/* Cards */
 .finalizar-caixa,
 .finalizar-resumo {
     background: #fff;
@@ -55,7 +50,6 @@
     font-weight: 500;
 }
 
-/* Dados do cliente */
 .finalizar-dados {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -82,7 +76,6 @@
     color: #777;
 }
 
-/* Retirada / entrega */
 .finalizar-opcao {
     display: flex;
     align-items: center;
@@ -95,20 +88,19 @@
     cursor: pointer;
 }
 
-    .finalizar-opcao:last-child {
-        margin-bottom: 0;
-    }
+.finalizar-opcao:last-child {
+    margin-bottom: 0;
+}
 
-    .finalizar-opcao:has(input:checked) {
-        border-color: var(--verde);
-    }
+.finalizar-opcao:has(input:checked) {
+    border-color: var(--verde);
+}
 
-    .finalizar-opcao input {
-        accent-color: var(--verde);
-        cursor: pointer;
-    }
+.finalizar-opcao input {
+    accent-color: var(--verde);
+    cursor: pointer;
+}
 
-/* Campos */
 .finalizar-campo {
     width: 100%;
     padding: 10px 12px;
@@ -120,16 +112,15 @@
     color: #2b2b2b;
 }
 
-    .finalizar-campo:focus {
-        outline: none;
-        border-color: var(--verde);
-    }
+.finalizar-campo:focus {
+    outline: none;
+    border-color: var(--verde);
+}
 
 textarea.finalizar-campo {
     resize: vertical;
 }
 
-/* Avisos */
 .finalizar-aviso {
     padding: 12px 14px;
     border: 1px solid #f0d9a8;
@@ -139,10 +130,10 @@ textarea.finalizar-campo {
     color: #7a5b12;
 }
 
-    .finalizar-aviso a {
-        color: var(--verde);
-        font-weight: 600;
-    }
+.finalizar-aviso a {
+    color: var(--verde);
+    font-weight: 600;
+}
 
 .finalizar-erro {
     margin-bottom: 20px;
@@ -153,7 +144,6 @@ textarea.finalizar-campo {
     color: #b3382c;
 }
 
-/* Botões */
 .finalizar-botoes {
     display: flex;
     gap: 12px;
@@ -179,9 +169,9 @@ textarea.finalizar-campo {
     color: var(--verde);
 }
 
-    .finalizar-botao-voltar:hover {
-        background: #f1ede6;
-    }
+.finalizar-botao-voltar:hover {
+    background: #f1ede6;
+}
 
 .finalizar-botao-confirmar {
     border: none;
@@ -189,11 +179,10 @@ textarea.finalizar-campo {
     color: #fff;
 }
 
-    .finalizar-botao-confirmar:hover {
-        background: var(--laranja-hover);
-    }
+.finalizar-botao-confirmar:hover {
+    background: var(--laranja-hover);
+}
 
-/* Resumo */
 .finalizar-resumo {
     position: sticky;
     top: 24px;
@@ -227,25 +216,4 @@ textarea.finalizar-campo {
     font-size: 20px;
     font-weight: 700;
     color: #2b2b2b;
-}
-
-/* Responsivo */
-@media (max-width: 860px) {
-    .finalizar-corpo {
-        grid-template-columns: 1fr;
-    }
-
-    .finalizar-resumo {
-        position: static;
-    }
-}
-
-@media (max-width: 480px) {
-    .finalizar-dados {
-        grid-template-columns: 1fr;
-    }
-
-    .finalizar-botoes {
-        flex-direction: column-reverse;
-    }
 }

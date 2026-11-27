@@ -327,7 +327,6 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\bundle\BicoTucano.styles.css
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\scopedcss\projectbundle\BicoTucano.bundle.scp.css
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-ndcxr2rcdz-ndcxr2rcdz.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\boqoolz8er-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\bbps1bcw8m-{0}-3ajuy3enib-3ajuy3enib.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\3hukmjtd2n-{0}-s5dlx7ztc3-s5dlx7ztc3.gz
@@ -2605,7 +2604,6 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\zbgz5gr6ke-{0}-66c83fflfn-66c83fflfn.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-b46xtod41a-b46xtod41a.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\9kobowjnvi-{0}-l4g3x2jjw8-l4g3x2jjw8.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\9kobowjnvi-{0}-l4g3x2jjw8-l4g3x2jjw8.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\qiwpwdwacm-{0}-b46xtod41a-b46xtod41a.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\7ewie0akf7-{0}-6wv4sg90u5-6wv4sg90u5.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\mbjct1zf0g-{0}-qrc1jppsu5-qrc1jppsu5.gz
@@ -2644,11 +2642,13 @@ C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-31fhnp97qj-31fhnp97qj.gz
 C:\Users\tamar\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ubeh05g58c-{0}-rau6rv7tu6-rau6rv7tu6.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\aix5m72pk5-{0}-at0dfh51sa-at0dfh51sa.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cuply2mwba-{0}-0y8o6oxnxs-0y8o6oxnxs.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\dgis70z6rq-{0}-x4shcrm8db-x4shcrm8db.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\gp2f1y9t6g-{0}-5l4ur18z95-5l4ur18z95.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\vg1e6vykaz-{0}-blrqvz020u-blrqvz020u.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ubeh05g58c-{0}-nyzfbovlzk-nyzfbovlzk.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-gzuwfm9570-gzuwfm9570.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cujsmtt9ho-{0}-tc8xt5gawl-tc8xt5gawl.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\rpsjssjfw6-{0}-j3yy4q5h4p-j3yy4q5h4p.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\rpsjssjfw6-{0}-6l0et883do-6l0et883do.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\0po2fsfjf3-{0}-lenlhewwla-lenlhewwla.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cuply2mwba-{0}-moc52zmro4-moc52zmro4.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\9kobowjnvi-{0}-em6n1xal0d-em6n1xal0d.gz
