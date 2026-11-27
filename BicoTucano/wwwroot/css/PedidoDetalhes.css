@@ -109,7 +109,7 @@
     background: #1c9b4a;
     color: white;
 }
-/
+
 .conteudo-pedido {
     display: flex;
     gap: 16px;
@@ -191,4 +191,16 @@
     color: #4a7c59;
     font-size: 12px;
     padding: 6px 0;
+}
+
+@media (max-width: 900px) {
+    .conteudo-pedido {
+        grid-template-columns: 1fr;
+    }
+
+    .informacoes-pedido,
+    .resumo-pedido {
+        grid-column: 1;
+        grid-row: auto;
+    }
 }
