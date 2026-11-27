@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="~/css/PagamentoPix.css" asp-append-version="true" />
 
 <section class="pagina-pix">
-    <p class="aviso">Pedido confirmado! Realize o pagamento para processarmos sua entrega.</p>
+    <p class="aviso">Falta pouco! Confirme o pagamento para finalizar o seu pedido.</p>
 
     <h1>Pagamento com Pix</h1>
 
@@ -22,7 +22,7 @@
     <p class="prazo">*O pagamento deve ser efetuado em até 50 minutos</p>
 
     <div class="botoes">
-        <form asp-action="ConfirmarPix" asp-route-id="@Model.NF" method="post">
+        <form asp-action="ConfirmarPix" method="post">
             <button type="submit" class="botao-laranja">Confirmar pagamento</button>
         </form>
         <a class="voltar" asp-controller="Home" asp-action="Index">Voltar para o menu</a>
@@ -31,10 +31,14 @@
 
 @section Scripts {
     <script>
-        document.getElementById("copiar").addEventListener("click", function () {
-            var texto = document.getElementById("codigo").innerText;
-            navigator.clipboard.writeText(texto);
-            this.innerText = "Código copiado!";
-        });
+        const botao = document.getElementById("copiar");
+        const codigo = document.getElementById("codigo");
+
+        if (botao && codigo) {
+            botao.addEventListener("click", function () {
+                navigator.clipboard.writeText(codigo.innerText);
+                botao.innerText = "Código copiado!";
+            });
+        }
     </script>
 }

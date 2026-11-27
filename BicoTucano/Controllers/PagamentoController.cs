@@ -1,8 +1,10 @@
-﻿using BicoTucano.Libraries.Filtro;
+﻿using BicoTucano.CarrinhoCompra;
+using BicoTucano.Libraries.Filtro;
 using BicoTucano.Libraries.Login;
 using BicoTucano.Models;
 using BicoTucano.Repository.Contract;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace BicoTucano.Controllers
 {
@@ -18,31 +20,35 @@ namespace BicoTucano.Controllers
         // cartão terminado em 0002 é "recusado pela operadora" (serve para testar o erro)
         private const string FinalRecusado = "0002";
 
+        // nomes usados para guardar o pedido na sessão (preenchidos em PedidoController.Finalizar)
+        private const string ChavePedido = "PedidoPendente";
+        private const string ChaveItens = "ItensPendentes";
+
         private readonly IPedidoRepository _pedidoRepository;
         private readonly IPagamentoRepository _pagamentoRepository;
         private readonly ICartaoRepository _cartaoRepository;
+        private readonly CookieCarrinhoCompra _cookieCarrinhoCompra;
         private readonly LoginCliente _loginCliente;
 
         public PagamentoController(IPedidoRepository pedidoRepository,
                                    IPagamentoRepository pagamentoRepository,
                                    ICartaoRepository cartaoRepository,
+                                   CookieCarrinhoCompra cookieCarrinhoCompra,
                                    LoginCliente loginCliente)
         {
             _pedidoRepository = pedidoRepository;
             _pagamentoRepository = pagamentoRepository;
             _cartaoRepository = cartaoRepository;
+            _cookieCarrinhoCompra = cookieCarrinhoCompra;
             _loginCliente = loginCliente;
         }
 
-        // id = NF do pedido. Tela onde o cliente escolhe como pagar.
-        public IActionResult Index(int id)
+        // Tela onde o cliente escolhe como pagar. O pedido ainda NÃO está no banco.
+        public IActionResult Index()
         {
-            Pedido? pedido = ObterPedidoDoCliente(id);
+            Pedido? pedido = ObterPendente(out _);
             if (pedido == null)
-                return RedirectToAction("Index", "Home");
-
-            if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Carrinho", "Pedido");
 
             PrepararIndex();
             return View(pedido);
@@ -51,66 +57,45 @@ namespace BicoTucano.Controllers
         // PIX
 
         [HttpPost]
-        public IActionResult PagarPix(int id)
+        public IActionResult PagarPix()
         {
-            Pedido? pedido = ObterPedidoDoCliente(id);
-            if (pedido == null)
-                return RedirectToAction("Index", "Home");
+            if (ObterPendente(out _) == null)
+                return RedirectToAction("Carrinho", "Pedido");
 
-            if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
-
-            GravarPagamento(pedido, FormaPagamento.Pix, ChavePixLoja, null, StatusPagamento.NaoPago);
-            return RedirectToAction(nameof(Pix), new { id });
+            return RedirectToAction(nameof(Pix));
         }
 
-        public IActionResult Pix(int id)
+        public IActionResult Pix()
         {
-            Pedido? pedido = ObterPedidoDoCliente(id);
+            Pedido? pedido = ObterPendente(out _);
             if (pedido == null)
-                return RedirectToAction("Index", "Home");
-
-            if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
-
-            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
-            if (pagamento == null || pagamento.FormaPagamento != FormaPagamento.Pix)
-                return RedirectToAction(nameof(Index), new { id });
+                return RedirectToAction("Carrinho", "Pedido");
 
             ViewBag.CodigoPix = CodigoPixFixo;
             return View(pedido);
         }
 
-        // Botão "Já paguei" (simulação do banco avisando que o Pix caiu)
+        // Botão "Confirmar pagamento" (simulação do banco avisando que o Pix caiu).
+        // É AQUI que o pedido é gravado de verdade.
         [HttpPost]
-        public IActionResult ConfirmarPix(int id)
+        public IActionResult ConfirmarPix()
         {
-            Pedido? pedido = ObterPedidoDoCliente(id);
+            Pedido? pedido = ObterPendente(out List<Item_Pedido> itens);
             if (pedido == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Carrinho", "Pedido");
 
-            if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
-
-            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
-            if (pagamento == null || pagamento.FormaPagamento != FormaPagamento.Pix)
-                return RedirectToAction(nameof(Index), new { id });
-
-            GravarPagamento(pedido, FormaPagamento.Pix, ChavePixLoja, null, StatusPagamento.Pago);
-            return RedirectToAction(nameof(Confirmacao), new { id });
+            int nf = ConcluirPedido(pedido, itens, FormaPagamento.Pix, ChavePixLoja, null);
+            return RedirectToAction("Confirmacao", "Pedido", new { id = nf });
         }
 
         // CARTÃO (crédito ou débito)
 
         [HttpPost]
-        public IActionResult PagarCartao(int id, FormaPagamento forma, int? idCartao, string? cvv)
+        public IActionResult PagarCartao(FormaPagamento forma, int? idCartao, string? cvv)
         {
-            Pedido? pedido = ObterPedidoDoCliente(id);
+            Pedido? pedido = ObterPendente(out List<Item_Pedido> itens);
             if (pedido == null)
-                return RedirectToAction("Index", "Home");
-
-            if (JaFoiPago(id))
-                return RedirectToAction(nameof(Confirmacao), new { id });
+                return RedirectToAction("Carrinho", "Pedido");
 
             // esta tela só aceita crédito ou débito
             if (forma != FormaPagamento.CartaoCredito && forma != FormaPagamento.CartaoDebito)
@@ -135,12 +120,12 @@ namespace BicoTucano.Controllers
             if (cvvLimpo.Length < 3 || cvvLimpo.Length > 4)
                 return ErroCartao(pedido, forma, cartao.ID_Cartao, "Informe o código de segurança (CVV) com 3 ou 4 dígitos.");
 
-            // cartão terminado em 0002 simula recusa da operadora
+            // cartão terminado em 0002 simula recusa da operadora (nada é gravado)
             if (cartao.NumeroCartao.EndsWith(FinalRecusado))
                 return ErroCartao(pedido, forma, cartao.ID_Cartao, "Pagamento recusado pela operadora. Tente outro cartão.");
 
-            GravarPagamento(pedido, forma, null, cartao.ID_Cartao, StatusPagamento.Pago);
-            return RedirectToAction(nameof(Confirmacao), new { id = pedido.NF });
+            int nf = ConcluirPedido(pedido, itens, forma, null, cartao.ID_Cartao);
+            return RedirectToAction("Confirmacao", "Pedido", new { id = nf });
         }
 
         // Volta para a tela de pagamento mantendo o que o cliente escolheu
@@ -153,73 +138,61 @@ namespace BicoTucano.Controllers
             return View("Index", pedido);
         }
 
-        // CONFIRMAÇÃO (continua disponível, caso alguma view ainda aponte para ela)
-
-        public IActionResult Confirmacao(int id)
-        {
-            Pedido? pedido = ObterPedidoDoCliente(id);
-            if (pedido == null)
-                return RedirectToAction("Index", "Home");
-
-            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(id);
-            if (pagamento == null || pagamento.StatusPagamento != StatusPagamento.Pago)
-                return RedirectToAction(nameof(Index), new { id });
-
-            if (pagamento.ID_Cartao.HasValue)
-                ViewBag.Cartao = _cartaoRepository.ObterCartao(pagamento.ID_Cartao.Value);
-
-            ViewBag.Pagamento = pagamento;
-            return View (pedido);
-        }
-
         // AUXILIARES
 
-        // Só devolve o pedido se ele existir e for do cliente logado
-        private Pedido? ObterPedidoDoCliente(int nf)
+        // Pedido e itens guardados na sessão (ainda não gravados), só se forem do cliente logado
+        private Pedido? ObterPendente(out List<Item_Pedido> itens)
         {
-            Cliente cliente = _loginCliente.GetCliente();
-            Pedido? pedido = _pedidoRepository.ObterPedidos(nf);
+            itens = new List<Item_Pedido>();
 
-            if (pedido == null || pedido.ID_Usuario != cliente.ID_Usuario)
+            string? jsonPedido = HttpContext.Session.GetString(ChavePedido);
+            string? jsonItens = HttpContext.Session.GetString(ChaveItens);
+
+            if (string.IsNullOrEmpty(jsonPedido) || string.IsNullOrEmpty(jsonItens))
                 return null;
 
+            Pedido? pedido = JsonSerializer.Deserialize<Pedido>(jsonPedido);
+            List<Item_Pedido>? lista = JsonSerializer.Deserialize<List<Item_Pedido>>(jsonItens);
+
+            Cliente cliente = _loginCliente.GetCliente();
+
+            if (pedido == null || lista == null || lista.Count == 0 || pedido.ID_Usuario != cliente.ID_Usuario)
+                return null;
+
+            itens = lista;
             return pedido;
         }
 
-        private bool JaFoiPago(int nf)
+        // Pagamento aprovado: grava pedido, itens e pagamento; depois limpa a sessão e o carrinho
+        private int ConcluirPedido(Pedido pedido, List<Item_Pedido> itens, FormaPagamento forma, string? chavePix, int? idCartao)
         {
-            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(nf);
-            return pagamento != null && pagamento.StatusPagamento == StatusPagamento.Pago;
+            pedido.DataPedido = DateTime.Now;
+            pedido.StatusPedido = StatusPedido.EmPreparo;
+
+            int nf = _pedidoRepository.Cadastrar(pedido, itens);
+
+            _pagamentoRepository.Cadastrar(new Pagamento
+            {
+                NF = nf,
+                FormaPagamento = forma,
+                ChavePix = chavePix,
+                ID_Cartao = idCartao,
+                StatusPagamento = StatusPagamento.Pago,
+                ValorPago = pedido.ValorTotal,
+                DataPagamento = DateTime.Now
+            });
+
+            HttpContext.Session.Remove(ChavePedido);
+            HttpContext.Session.Remove(ChaveItens);
+            _cookieCarrinhoCompra.RemoverTodos();
+
+            return nf;
         }
 
         private void PrepararIndex()
         {
             Cliente cliente = _loginCliente.GetCliente();
             ViewBag.Cartoes = _cartaoRepository.ObterCartoesDoUsuario(cliente.ID_Usuario).ToList();
-        }
-
-        // Cria o pagamento do pedido ou atualiza o que já existe (um pagamento por pedido).
-        private void GravarPagamento(Pedido pedido, FormaPagamento forma, string? chavePix, int? idCartao, StatusPagamento status)
-        {
-            Pagamento? pagamento = _pagamentoRepository.ObterPagamentoDoPedido(pedido.NF);
-            bool novo = pagamento == null;
-
-            if (pagamento == null)
-                pagamento = new Pagamento { NF = pedido.NF };
-
-            bool pago = status == StatusPagamento.Pago;
-
-            pagamento.FormaPagamento = forma;
-            pagamento.ChavePix = chavePix;
-            pagamento.ID_Cartao = idCartao;
-            pagamento.StatusPagamento = status;
-            pagamento.ValorPago = pago ? pedido.ValorTotal : 0m;
-            pagamento.DataPagamento = pago ? DateTime.Now : null;
-
-            if (novo)
-                _pagamentoRepository.Cadastrar(pagamento);
-            else
-                _pagamentoRepository.Atualizar(pagamento);
         }
     }
 }

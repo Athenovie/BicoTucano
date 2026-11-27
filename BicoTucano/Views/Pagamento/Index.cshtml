@@ -18,7 +18,7 @@
 
 <section class="pagina-pagamento">
     <h1>Pagamento</h1>
-    <p class="subtitulo">Pedido nº @Model.NF - total de @Model.ValorTotal.ToString("C", br)</p>
+    <p class="subtitulo">Total de @Model.ValorTotal.ToString("C", br)</p>
 
     @if (ViewBag.Erro != null)
     {
@@ -29,7 +29,7 @@
 
         <div class="card-pagamento">
             <h2>Pix</h2>
-            <form asp-action="PagarPix" asp-route-id="@Model.NF" method="post">
+            <form asp-action="PagarPix" method="post">
                 <p>Você recebe um código "copia e cola" para pagar no app do seu banco.</p>
                 <div class="botao-area">
                     <button type="submit" class="botao-verde">Pagar com Pix</button>
@@ -39,7 +39,7 @@
 
         <div class="card-pagamento">
             <h2>Cartão</h2>
-        <!--Criando estruturas de condição caso usuário tenha ou não o cartão-->
+            <!--Criando estruturas de condição caso usuário tenha ou não o cartão-->
             @if (cartoes.Count == 0)
             {
                 <p>Você ainda não tem cartão cadastrado.</p>
@@ -49,7 +49,7 @@
             }
             else
             {
-                <form asp-action="PagarCartao" asp-route-id="@Model.NF" method="post">
+                <form asp-action="PagarCartao" method="post">
                     <div>
                         <label><input type="radio" name="forma" value="@FormaPagamento.CartaoCredito" checked="@(formaSelecionada != FormaPagamento.CartaoDebito)" /> Crédito</label>
                         <label><input type="radio" name="forma" value="@FormaPagamento.CartaoDebito" checked="@(formaSelecionada == FormaPagamento.CartaoDebito)" /> Débito</label>

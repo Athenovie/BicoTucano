@@ -49,9 +49,9 @@ namespace BicoTucano.Controllers
             return RedirectToAction(nameof(Carrinho));
         }
 
-     
+
         // CARRINHO (não precisa estar logado)
-       
+
 
         [HttpPost]
         public IActionResult AdicionarItem(int id, int quantidade = 1)
@@ -182,10 +182,11 @@ namespace BicoTucano.Controllers
                 ID_Funcionario = null // analisar condições 
             };
 
-            int nf = _pedidoRepository.Cadastrar(pedido, itens);
+            // NÃO grava no banco: guarda pedido e itens na sessão até o pagamento ser aprovado
+            HttpContext.Session.SetString("PedidoPendente", System.Text.Json.JsonSerializer.Serialize(pedido));
+            HttpContext.Session.SetString("ItensPendentes", System.Text.Json.JsonSerializer.Serialize(itens));
 
-            _cookieCarrinhoCompra.RemoverTodos();
-            return RedirectToAction("Index", "Pagamento", new { id = nf });
+            return RedirectToAction("Index", "Pagamento");
         }
 
         [ClienteAutorizacao]
@@ -216,7 +217,7 @@ namespace BicoTucano.Controllers
             ViewBag.Produtos = produtos;
             ViewBag.Pagamento = pagamento;
             ViewBag.Cliente = cliente;
-            return View("DetalhesPedido",pedido);
+            return View("DetalhesPedido", pedido);
         }
 
 
