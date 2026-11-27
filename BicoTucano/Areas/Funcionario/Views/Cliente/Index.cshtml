@@ -14,7 +14,7 @@
 <a asp-action="Cadastrar" class="botao-cadastrar">CADASTRAR CLIENTE</a>
 
 <div class="tabela">
-    <table id="tabelaClientes">
+    <table id="tabelaClientes" data-pesquisavel>
         <thead>
             <tr>
                 <th>CÓDIGO</th>
@@ -35,7 +35,7 @@
                     <td>@cliente.CPF</td>
                     <td>@cliente.Telefone</td>
                     <td>@cliente.Email</td>
-                    <td>
+                    <td data-sem-busca>
                         @if (cliente.Situacao == "A")
                         {
                             <form asp-action="Desativar" asp-route-id="@cliente.ID_Usuario" method="post"
@@ -58,14 +58,5 @@
 </div>
 <!--Essa parte não mexi-->
 @section Scripts {
-    <script>
-        $("#pesquisa").on("keyup", function () {
-            var texto = $(this).val().toLowerCase();
-
-            $("#tabelaClientes tbody tr").each(function () {
-                var linha = $(this).text().toLowerCase();
-                $(this).toggle(linha.indexOf(texto) > -1);
-            });
-        });
-    </script>
+    <script src="~/js/PesquisaTabela.js" asp-append-version="true"></script>
 }

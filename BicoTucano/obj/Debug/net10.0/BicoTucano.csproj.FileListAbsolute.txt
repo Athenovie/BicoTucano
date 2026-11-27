@@ -2650,4 +2650,4 @@ C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\vg1e6vykaz-{0}-blrqvz020u-blrqvz020u.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\ubeh05g58c-{0}-nyzfbovlzk-nyzfbovlzk.gz
 C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\c270frmcoz-{0}-gzuwfm9570-gzuwfm9570.gz
-C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cujsmtt9ho-{0}-ehnqb9tuzx-ehnqb9tuzx.gz
+C:\Users\ifrat\OneDrive\Área de Trabalho\BicoTucano\BicoTucano\obj\Debug\net10.0\compressed\cujsmtt9ho-{0}-tc8xt5gawl-tc8xt5gawl.gz

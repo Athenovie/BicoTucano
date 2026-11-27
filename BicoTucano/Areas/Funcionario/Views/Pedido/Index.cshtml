@@ -3,6 +3,7 @@
 
 @{
     ViewBag.Title = "Pedidos";
+    ViewData["PlaceholderBusca"] = "⌕  Buscar por nº do pedido, cliente, e-mail, CPF ou prato...";
     var pt = new System.Globalization.CultureInfo("pt-BR");
 }
 
@@ -12,7 +13,7 @@
 
     <div class="tabela-pedidos">
 
-        <table id="tabelaPedidos">
+        <table id="tabelaPedidos" data-pesquisavel>
             <thead>
                 <tr>
                     <th>Nº DO PEDIDO</th>
@@ -22,8 +23,8 @@
                     <th>CLIENTE</th>
                     <th>STATUS</th>
                     <th></th>
-                 </tr>
-           </thead>
+                </tr>
+            </thead>
 
             <tbody>
                 @foreach (var p in Model)
@@ -63,7 +64,7 @@
                             </span>
                         </td>
 
-                        <td>
+                        <td data-sem-busca>
                             <a class="detalhes"
                                asp-action="Detalhes"
                                asp-route-id="@p.NF">
@@ -76,6 +77,12 @@
             </tbody>
         </table>
 
+        <p id="pesquisa-vazia" class="pesquisa-vazia">Nenhum pedido encontrado.</p>
+
     </div>
 
 </div>
+
+@section Scripts {
+    <script src="~/js/PesquisaTabela.js" asp-append-version="true"></script>
+}
