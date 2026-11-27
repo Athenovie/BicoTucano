@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Funcionários";
+    ViewData["PlaceholderBusca"] = "⌕  Buscar por nome, e-mail, CPF ou cargo...";
 }
 
 <section class="funcionarios-pagina">
@@ -12,7 +13,7 @@
     </a>
 
     <div class="tabela">
-        <table>
+        <table id="tabelaFuncionarios" data-pesquisavel>
             <thead>
                 <tr>
                     <th>CÓDIGO</th>
@@ -37,7 +38,7 @@
                         <td>@funcionario.Email</td>
                         <td>@funcionario.Cargo</td>
                         <td>@funcionario.NivelAcesso</td>
-                        <td>
+                        <td data-sem-busca>
                             <div class="acoes-funcionario">
                                 <a asp-action="Detalhes" asp-route-id="@funcionario.ID_Usuario" class="funcionario-detalhes">Detalhes</a>
 
@@ -61,5 +62,11 @@
                 }
             </tbody>
         </table>
+
+        <p id="pesquisa-vazia" class="pesquisa-vazia">Nenhum funcionário encontrado.</p>
     </div>
 </section>
+
+@section Scripts {
+    <script src="~/js/PesquisaTabela.js" asp-append-version="true"></script>
+}

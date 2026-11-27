@@ -91,7 +91,7 @@
         @if (ViewData["SemBusca"] == null)
         {
             <div class="barra-pesquisa">
-                <input type="text" id="pesquisa" placeholder="⌕  Buscar por nome, email ou CPF...">
+                <input type="text" id="pesquisa" placeholder="@(ViewData["PlaceholderBusca"] ?? "⌕  Buscar por nome, email ou CPF...")">
             </div>
         }
         <!--RenderBody(): método do Bootstrap que organiza o conteúdo da página-->
