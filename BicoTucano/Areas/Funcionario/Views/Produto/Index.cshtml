@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Produtos";
-    ViewData["SemBusca"] = true;
+    ViewData["PlaceholderBusca"] = "⌕  Buscar produtos por nome, descrição ou categoria...";
     var pt = new System.Globalization.CultureInfo("pt-BR");
 }
 
@@ -14,7 +14,7 @@
 <section class="produtos-lista">
     @foreach (var produto in Model)
     {
-        <article class="produto-cartao">
+        <article class="produto-cartao produto-pesquisavel" data-busca="@produto.Nome @produto.Descricao @produto.Categoria">
             @if (!string.IsNullOrEmpty(produto.NomeImagem))
             {
                 <img class="produto-cartao-imagem" src="~/img/@produto.NomeImagem" alt="@produto.Nome" />
@@ -39,3 +39,11 @@
         </article>
     }
 </section>
+
+<p id="pesquisa-vazia" class="pesquisa-vazia">
+    Nenhum produto encontrado.
+</p>
+
+@section Scripts {
+    <script src="~/js/PesquisaProdutos.js" asp-append-version="true"></script>
+}
